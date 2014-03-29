@@ -1,0 +1,788 @@
+# Written by Witek Tarchalski <themes@neo.pl>
+# Based on Pixmap engine
+#
+
+style "default" {
+  GtkFrame::shadow_type = GTK_SHADOW_IN
+  GtkScrolledWindow::shadow_type = GTK_SHADOW_IN
+  GtkContainer::shadow_type = GTK_SHADOW_IN
+  GtkPaned::shadow_type = GTK_SHADOW_IN
+  GtkRange::slider_width = 19
+  GtkRange::stepper_size = 19
+  GtkScrollbar::min_slider_length = 36
+
+
+  bg[NORMAL]       = "#e8e9ea"
+  bg[PRELIGHT]     = "#ebeced"
+  bg[ACTIVE]       = "#d5dadc"
+  bg[SELECTED]     = "#b7b9bb"
+  bg[INSENSITIVE]  = "#e8e8e8"
+  bg_pixmap[NORMAL]   = "bg-v.png"
+
+  fg[NORMAL]       = "#002"
+#  fg[PRELIGHT]     = "#001"
+  fg[ACTIVE]       = "#015"
+  fg[SELECTED]     = "#012"
+  fg[INSENSITIVE]  = "#569"
+
+  base[NORMAL]     = "#ffffff"
+  base[SELECTED]   = "#d0e5f8"  ##zaznaczenie
+  base[INSENSITIVE]= "#eff1f2"
+  base[ACTIVE]     = "#d7ecff"  ##zaznaczenie unfocused
+  base[PRELIGHT]   = "#c6cde6"
+
+  text[NORMAL]     = "#114"
+  text[ACTIVE]     = "#005"
+  text[PRELIGHT]   = "#003"
+  text[SELECTED]   = "#005"
+  text[INSENSITIVE]= "#888"
+
+
+  engine "pixmap" {
+	image {
+	function            = HANDLE
+	recolorable         = TRUE
+	overlay_file        = "handle-h.png"
+	overlay_border      = { 0,0,0,0 }
+	overlay_stretch     = FALSE
+	orientation         = VERTICAL
+	}
+	image {
+	function            = HANDLE
+	recolorable         = TRUE
+	overlay_file        = "handle-h.png"
+	overlay_border      = { 0,0,0,0 }
+	overlay_stretch     = FALSE
+	orientation         = HORIZONTAL
+	}
+	image {
+	function        = SHADOW
+	recolorable     = TRUE
+	shadow          = OUT
+#	file            = "empty.png"
+	file            = "shadow-out.png"
+	border          = { 2,2,2,2 }
+        stretch         = TRUE
+	}
+	image {
+	function        = SHADOW
+	recolorable     = TRUE
+	shadow          = IN
+	file            = "shadow.png"
+	border          = { 2,2,2,2 }
+	stretch         = TRUE
+	}
+	image {
+	function        = SHADOW
+	recolorable     = TRUE
+	shadow          = ETCHED_IN
+	file            = "shadow.png"
+	border          = { 2,2,2,2 }
+	stretch         = TRUE
+	}
+	image {
+	function        = SHADOW
+	recolorable     = TRUE
+	shadow          = ETCHED_OUT
+	file            = "shadow.png"
+	border          = { 2,2,2,2 }
+	stretch         = TRUE
+	}
+	image {
+	function           = SHADOW_GAP
+	recolorable        = TRUE
+	file               = "empty.png"
+	border             = { 2,2,2,2 }
+	stretch            = TRUE
+#	gap_start_file     = "shadow-gap-top.png"
+	gap_start_file     = "line-h.png"
+	gap_start_border   = { 0,0,1,0 }
+#	gap_end_file       = "shadow-gap-top.png"
+	gap_end_file       = "line-h.png"
+	gap_end_border     = { 0,0,1,0 }
+	gap_side           = TOP
+	}
+	image {
+	function           = VLINE
+	recolorable        = TRUE
+	file               = "line-v.png"
+	border             = { 0,0,0,0 }
+	stretch            = TRUE
+	}
+	image {
+	function          = HLINE
+	recolorable       = TRUE
+	file              = "line-h.png"
+	border            = { 0,0,0,0 }
+	stretch           = TRUE
+	}
+	image {
+	function        = FOCUS
+	recolorable     = TRUE
+	overlay_file    = "empty.png"
+	overlay_border  = { 0,0,0,0 }
+	overlay_stretch = TRUE
+	}
+	image {
+	function        = BOX
+	recolorable     = TRUE
+#	shadow          = IN             # dla metacity button
+	file            = "menuitem.png"
+#	file            = "menubar.png"
+	state           = SELECTED       # zeby stalo sie nieuzyteczne
+	border          = { 6,6,6,6 }
+	stretch         = TRUE
+	}
+  }
+}
+class "GtkWidget" style "default"
+
+style "toolbar" {
+  xthickness = 1
+  ythickness = 1
+  engine "pixmap" {
+	image {
+	function          = BOX
+#	shadow            = ETCHED_OUT
+#	shadow            = NONE
+	file              = "toolbar.png"
+	border            = { 8,8,2,2 }
+	stretch           = TRUE
+	orientation       = HORIZONTAL
+    }
+  }
+}
+class "*Tool*" style "toolbar"
+
+style "panel" {
+  engine "pixmap" {
+	image {
+	function          = BOX
+	file              = "empty.png"
+	border            = { 0,0,0,0 }
+	stretch           = TRUE
+    }
+  }
+	bg_pixmap[NORMAL] = "panel.png"
+}
+class "Panel*" style "panel"
+
+style "menubar" {
+  ythickness = 1
+#  bg[NORMAL] = "#dad5da"
+  engine "pixmap" {
+	image {
+	function          = BOX
+	shadow            = OUT
+	file              = "menubar.png"
+	border            = { 5,4,4,4 }
+	stretch           = TRUE
+	}
+  }
+}
+class "GtkMenuBar" style "menubar"
+
+style "menu" {
+#  bg_pixmap[NORMAL]      = "tmp.png"
+#  bg[SELECTED]           = "#dad5da"
+  engine "pixmap" {
+	image {
+	function          = BOX
+	recolorable       = TRUE
+	file              = "menubg.png"
+	border            = { 3,3,3,3 }
+	stretch           = TRUE
+	}
+  }
+}
+class "GtkMenu" style "menu"
+
+style "menuitem" {
+  xthickness = 3
+  ythickness = 3
+  engine "pixmap" {
+	image {
+	function        = BOX
+#	file            = "progress.png"
+#	file            = "but-ciemny.png"
+	file            = "menuitem.png"
+	border          = { 5,5,5,5 }
+	stretch         = TRUE
+	}
+  }
+}
+class "GtkMenuItem" style "menuitem"
+
+style "handle" {
+  engine "pixmap" {
+	image {
+	function          = SHADOW
+    }
+	image {
+	function          = HANDLE
+	recolorable       = TRUE
+	overlay_file      = "handle-h.png"
+	overlay_border    = { 0,0,0,0 }
+	overlay_stretch   = FALSE
+	orientation       = VERTICAL
+	}
+	image {
+	function          = HANDLE
+	overlay_file      = "handle-v.png"
+	overlay_border    = { 0,0,0,0 }
+	overlay_stretch   = FALSE
+	orientation       = HORIZONTAL
+	}
+  }
+}
+class "GtkPaned" style "handle"
+widget_class "*HandleBox*" style "handle"
+class "GtkHandleBox" style "handle"
+
+style "toggle" {
+  xthickness = 3
+  ythickness = 3
+  engine "pixmap" {
+	image {
+	function        = BOX
+	recolorable     = TRUE
+	shadow          = IN
+#	file            = "toggle-in.png"
+	file            = "but-a.png"
+	border          = { 5,5,5,5 }
+	stretch         = TRUE
+	}
+	image {
+	function        = BOX
+	recolorable     = TRUE
+	shadow          = OUT
+#	file            = "toggle-out.png"
+	file            = "but-n.png"
+	border          = { 5,5,5,5 }
+	stretch         = TRUE
+	}
+  }
+}
+class "GtkToggleButton" style "toggle"
+
+style "button" {
+  xthickness = 3
+  ythickness = 3
+  engine "pixmap" {
+	image {
+	function          = BOX
+	detail            = "buttondefault"
+	recolorable       = TRUE
+	file              = "but-def.png"
+	border            = { 2,2,2,2 }
+	stretch           = TRUE
+	}
+	image {
+	function          = CHECK
+	state             = PRELIGHT
+	shadow            = IN
+	overlay_file      = "check-pin.png"
+	overlay_stretch   = FALSE
+	} 
+	image {
+	function          = CHECK
+	state             = PRELIGHT
+	shadow            = OUT
+	overlay_file      = "check-pout.png"
+	overlay_stretch   = FALSE
+	} 
+	image {
+	function          = CHECK
+	recolorable       = TRUE
+	shadow            = OUT
+	overlay_file      = "check-out.png"
+	overlay_stretch   = FALSE
+	}
+	image {
+	function          = CHECK
+	recolorable       = TRUE
+	shadow            = IN
+	overlay_file      = "check-in.png"
+	overlay_stretch   = FALSE
+	}
+	image {
+	function          = OPTION
+	state             = PRELIGHT
+	shadow            = IN
+	overlay_file      = "option-pin.png"
+	overlay_stretch   = FALSE
+	} 
+	image {
+	function          = OPTION
+	state             = PRELIGHT
+	shadow            = OUT
+	overlay_file      = "option-pout.png"
+	overlay_stretch   = FALSE
+	} 
+	image {
+	function          = OPTION
+	recolorable       = TRUE
+	shadow            = OUT
+	overlay_file      = "option-out.png"
+	overlay_border    = { 0,0,0,0 }
+	overlay_stretch   = FALSE
+	}
+	image {
+	function          = OPTION
+	recolorable       = TRUE
+	shadow            = IN
+	overlay_file      = "option-in.png"
+	overlay_border    = { 0,0,0,0 }
+	overlay_stretch   = FALSE
+	}
+	image {
+	function          = BOX
+	file              = "but-n.png"
+	state             = NORMAL
+	border            = { 5,5,5,5 }
+	stretch           = TRUE
+	}
+	image {
+	function          = BOX
+	file              = "but-i.png"
+	state	            = INSENSITIVE
+	border            = { 5,5,5,5 }
+	stretch           = TRUE
+	}
+	image {
+	function          = BOX
+	file              = "but-p.png"
+	state	            = PRELIGHT
+	border            = { 5,5,5,5 }
+	stretch           = TRUE
+	}
+	image {
+	function          = BOX
+	file              = "but-a.png"
+	state             = ACTIVE
+	border            = { 3,3,4,4 }
+	stretch           = TRUE
+	}
+  }
+}
+class "GtkButton" style "button"
+
+style "list" {
+  ythickness = 1
+  engine "pixmap" {
+	image {
+	function          = BOX
+	recolorable       = TRUE
+	shadow            = OUT
+	file      = "list-n.png"
+#	file      = "menuitem.png"
+	border		= { 5,5,5,5 }
+	stretch   = TRUE
+	}
+	image {                   ## active ALE pojawia sie rowniez jako miedzka pod suwakami!
+	function          = BOX
+	recolorable       = TRUE
+	shadow            = IN
+	file      = "list-pressed.png"
+	border		= { 5,5,5,5 }
+	stretch   = TRUE
+	}
+	image {
+	function          = BOX
+	recolorable       = TRUE
+	shadow            = OUT
+	state		= PRELIGHT
+	file      = "menuitem.png"
+	border		= { 5,5,5,5 }
+	stretch   = TRUE
+	}
+  }
+}
+
+widget_class "*List" style "list"
+widget_class "*GtkTreeView*" style "list"
+widget_class "GtkCList" style "list"
+
+style "spin" {
+#  xthickness = 1
+#  ythickness = 1
+  engine "pixmap" {
+	image {
+	function                = BOX
+	recolorable             = TRUE
+	state                   = ACTIVE
+#	file                    = "spin-a.png"
+	file                    = "list-pressed.png"
+	border                  = { 2,1,2,1 }
+	stretch                 = TRUE
+	}
+	image {
+	function                = BOX
+	recolorable             = TRUE
+	state                   = PRELIGHT
+	detail                  = "spinbutton_up"
+#	file                    = "spin-pu.png"
+	file                    = "but-p.png"
+	border                  = { 1,1,1,1 }
+	stretch                 = TRUE
+	}
+	image {
+	function                = BOX
+	recolorable             = TRUE
+	state                   = PRELIGHT
+	detail                  = "spinbutton_down"
+#	file                    = "spin-pd.png"
+	file                    = "but-p.png"
+	border                  = { 1,1,1,1 }
+	stretch                 = TRUE
+	}
+	image {
+	function                = BOX
+	recolorable             = TRUE
+	state                   = INSENSITIVE
+	detail                  = "spinbutton_up"
+#	file                    = "spin-iu.png"
+	file                    = "but-i.png"
+	border                  = { 1,1,1,1 }
+	stretch                 = TRUE
+	}
+	image {
+	function                = BOX
+	recolorable             = TRUE
+	state                   = INSENSITIVE
+	detail                  = "spinbutton_down"
+#	file                    = "spin-id.png"
+	file                    = "but-i.png"
+	border                  = { 1,1,1,1 }
+	stretch                 = TRUE
+	}
+	image {
+	function                = BOX
+	recolorable             = TRUE
+	detail                  = "spinbutton_up"
+#	file                    = "spin-nu.png"
+	file                    = "but-n.png"
+	border                  = { 1,1,1,1 }
+	stretch                 = TRUE
+	}
+	image {
+	function                = BOX
+	recolorable             = TRUE
+	detail                  = "spinbutton_down"
+#	file                    = "spin-nd.png"
+	file                    = "but-n.png"
+	border                  = { 1,1,1,1 }
+	stretch                 = TRUE
+	}
+  }
+}
+class "*Spin*" style "spin"
+
+style "scales" {
+
+	GtkVScale::slider_length = 20
+	GtkVScale::slider_width = 20
+	GtkHScale::slider_length = 20
+	GtkHScale::slider_width = 20
+	
+	engine "pixmap" {
+	image {
+	function        = BOX
+	recolorable     = TRUE
+	detail          = "trough"
+	file            = "trough-range.png"
+	border          = { 2, 2, 6, 6 }
+	stretch         = TRUE
+	orientation     = VERTICAL
+	}
+	image {
+	function        = BOX
+	recolorable     = TRUE
+	detail          = "trough"
+	file            = "trough-range.png"
+	border          = { 6, 6, 2, 2 }
+	stretch         = TRUE
+	orientation     = HORIZONTAL
+	}
+	image {
+	function        = SLIDER
+	recolorable     = TRUE
+	state           = NORMAL
+	file            = "but-ciemny.png"
+	border          = { 0, 0, 0, 0 }
+	stretch         = TRUE
+	orientation     = HORIZONTAL
+	}   
+	image {
+	function        = SLIDER 
+	recolorable     = TRUE
+	state           = PRELIGHT
+	file            = "but-ciemny-p.png"
+	border          = { 0, 0, 0, 0 }
+	stretch         = TRUE
+	orientation     = HORIZONTAL
+	}
+	image {
+	function        = SLIDER
+	recolorable     = TRUE
+	state           = INSENSITIVE
+	file            = "but-ciemny-i.png"
+	border          = { 0, 0, 0, 0 }
+	stretch         = TRUE
+	orientation     = HORIZONTAL
+	}
+	image {
+	function        = SLIDER
+	recolorable     = TRUE
+	state           = NORMAL
+	file            = "but-ciemny.png"
+	border          = { 0, 0, 0, 0 }
+	stretch         = TRUE
+	orientation     = VERTICAL
+	}
+	image {
+	function        = SLIDER
+	recolorable     = TRUE
+	state           = PRELIGHT
+	file            = "but-ciemny-p.png"
+	border          = { 0, 0, 0, 0 }
+	stretch         = TRUE
+	orientation     = VERTICAL
+	}
+	image {
+	function        = SLIDER
+	recolorable     = TRUE
+	state           = INSENSITIVE
+	file            = "but-ciemny-i.png"
+	border          = { 0, 0, 0, 0 }
+	stretch         = TRUE
+	orientation     = VERTICAL
+	}
+	}
+}
+
+class "GtkScale" style "scales"
+
+style "range" {
+	fg[PRELIGHT]="#77b"
+  engine "pixmap" {
+	image {
+	function        = BOX
+	file            = "trough-h.png"
+#	file            = "trough-range.png"
+	detail          = "trough"
+	border          = { 6,6,6,6 }
+	stretch         = TRUE
+	orientation	= HORIZONTAL
+	}
+	image {
+	function        = BOX
+	file            = "trough-v.png"
+# file            = "trough-range.png"
+	detail          = "trough"
+	border          = { 6,6,6,6 }
+	stretch         = TRUE
+	orientation     = VERTICAL
+	}
+	image {
+	function        = BOX
+	file            = "empty.png"
+	state           = NORMAL
+	border          = { 0,0,0,0 }
+	stretch         = TRUE
+	}
+	image {
+	function        = BOX
+	file            = "empty.png"
+	state           = INSENSITIVE
+	border          = { 0,0,0,0 }
+	stretch         = TRUE
+	}
+	image {
+	function        = BOX
+	file            = "empty.png"
+	state           = PRELIGHT
+	border          = { 0,0,0,0 }
+	stretch         = TRUE
+	}
+	image {
+	function        = BOX
+	file            = "empty.png"
+	state           = ACTIVE
+	border          = { 0,0,0,0 }
+	stretch         = TRUE
+	}
+	image {
+	function        = SLIDER
+	file            = "but-ciemny.png"
+#	file            = "slider-n.png"
+	border          = { 5,5,5,5 }
+	state           = NORMAL
+	stretch         = TRUE
+	orientation     = VERTICAL
+	}
+	image {
+	function        = SLIDER
+	file            = "but-ciemny-p.png"
+#	file            = "slider-n.png"
+	state		        = PRELIGHT
+	border          = { 5,5,5,5 }
+	stretch         = TRUE
+	orientation	    = VERTICAL
+	}
+	image {
+	function        = SLIDER
+	file            = "but-ciemny.png"
+#	file            = "slider-n.png"
+	border          = { 5,5,5,5 }
+	state           = NORMAL
+	stretch         = TRUE
+	orientation     = HORIZONTAL
+	}
+	image {
+	function        = SLIDER
+	file            = "but-ciemny-p.png"
+#	file            = "slider-n.png"
+	state           = PRELIGHT
+	border          = { 5,5,5,5 }
+	stretch         = TRUE
+	orientation     = HORIZONTAL
+	}
+	image {
+	function        = SLIDER
+	file            = "slider-i.png"
+	state           = INSENSITIVE
+	border          = { 5,5,5,5 }
+	stretch         = TRUE
+	}
+  }
+}
+class "GtkRange" style "range"
+class "GtkScrollbar" style "range"
+
+style "notebook" {
+  ythickness = 1
+# bg[PRELIGHT] = "#f6f5f6"
+  engine "pixmap" {
+	image {
+	function        = EXTENSION
+	state           = ACTIVE
+#	file            = "tab-ah.png"
+	file            = "tab-a.png"
+	border          = { 5,5,5,5 }
+	stretch         = TRUE
+	gap_side        = BOTTOM
+	}
+	image {
+	function        = EXTENSION
+	state           = ACTIVE
+#	file            = "tab-ah.png"
+	file            = "tab-a.png"
+	border          = { 5,5,5,5 }
+	stretch         = TRUE
+	gap_side        = TOP
+	}
+	image {
+	function        = EXTENSION
+	state           = ACTIVE
+#	file            = "tab-av.png"
+	file            = "tab-a.png"
+	border          = { 5,5,5,5 }
+	stretch         = TRUE
+	gap_side        = RIGHT
+	}
+	image {
+	function        = EXTENSION
+	state           = ACTIVE
+#	file            = "tab-av.png"
+	file            = "tab-a.png"
+	border          = { 5,5,5,5 }
+	stretch         = TRUE
+	gap_side        = LEFT
+	}
+	image {
+	function        = EXTENSION
+#	file            = "tab-nh.png"
+	file            = "but-n.png"
+	border          = { 5,5,5,5 }
+	stretch         = TRUE
+	gap_side        = BOTTOM
+	}
+	image {
+	function        = EXTENSION
+#	file            = "tab-nh.png"
+	file            = "but-n.png"
+	border          = { 5,5,5,5 }
+	stretch         = TRUE
+	gap_side        = TOP
+	}
+	image {
+	function        = EXTENSION
+#	file            = "tab-nv.png"
+	file            = "but-n.png"
+	border          = { 5,5,5,5 }
+	stretch         = TRUE
+	gap_side        = RIGHT
+	}
+	image {
+	function        = EXTENSION
+#	file            = "tab-nv.png"
+	file            = "but-n.png"
+	border          = { 5,5,5,5 }
+	stretch         = TRUE
+	gap_side        = LEFT
+	}
+	image {
+	function        = BOX_GAP
+#	gap_side        = TOP
+	file            = "notebook.png"
+	border          = { 4,4,4,4 }
+	stretch         = TRUE
+	}
+  }
+}
+class "GtkNotebook" style "notebook"
+
+style "tooltip" {
+  bg_pixmap[NORMAL]      = "tooltip.png"
+  bg_pixmap[PRELIGHT]    = "tooltip.png"
+  bg_pixmap[ACTIVE]      = "tooltip.png"
+  bg_pixmap[INSENSITIVE] = "tooltip.png"
+}
+widget "gtk-tooltips" style "tooltip"
+class "GtkWidget" style "default"
+
+style "progressbar" {       ## pixmapy uzywane takze w listbutton!!
+  engine "pixmap" {
+	image {
+	function        = BOX
+	recolorable     = TRUE
+	detail          = "trough"
+	file            = "progress-trough.png"
+	border          = { 0,0,0,0 }
+	stretch         = TRUE
+#	orientation     = VERTICAL
+	}
+	image {
+	function        = BOX
+	recolorable     = TRUE
+	detail          = "bar"
+	file            = "menuitem.png"
+#	file            = "but-ciemny.png"
+	border          = { 4,4,4,4 }
+	stretch         = TRUE
+	}
+  }
+}
+class "GtkProgress*" style "progressbar"
+
+style "metacity-frame"
+{
+  bg[INSENSITIVE] = "#dadada"
+  bg[ACTIVE] = "#cecece"
+##  bg[NORMAL] = "#307162"
+  fg[NORMAL] = "#f00"
+  fg[PRELIGHT] = "#0f0"
+} 
+#class "MetaFrames" style "metacity-frame"
+#widget_class "MetaFrames" style "metacity-frame"

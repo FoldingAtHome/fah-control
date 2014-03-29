@@ -1,0 +1,129 @@
+#################### PANEL BACKGROUND #########################xx
+
+style "panelbg"
+{
+  
+ xthickness            			= 0
+  ythickness            			= 0
+bg_pixmap[NORMAL]					= "Panel/panel-bg.png"
+#bg_pixmap[SELECTED]					= "Panel/panel-bg.png"
+#bg_pixmap[INSENSITIVE]					= "Panel/panel-bg.png"
+#bg_pixmap[PRELIGHT]					= "Panel/panel-bg.png"
+#bg_pixmap[ACTIVE]					= "Panel/panel-bg.png"
+}
+
+class "*Panel*" style "panelbg"
+widget_class "*notif*" style "panelbg"
+widget_class "*Notif*" style "panelbg"
+widget_class "*Tray*" style "panelbg"
+widget_class "*tray*" style "panelbg"
+
+##################### PANEL BUTTONS ###############################
+
+style "panelbuttons"
+{
+
+  fg[NORMAL]        = "#555555" # 
+  fg[PRELIGHT]      = "#555555" # text on buttons (hover)
+  fg[ACTIVE]        = "#555555" # text on unfocused tabs
+  bg[NORMAL]        = "#555555" # 
+  bg[PRELIGHT]      = "#555555" # text on buttons (hover)
+  bg[ACTIVE]        = "#555555" # text on unfocused tabs
+  
+  
+  xthickness            			= 2
+  ythickness            			= 1
+
+	GtkWidget::focus_padding = 2
+
+	engine "pixmap" {
+      
+		image
+		{
+			function        	= BOX
+			recolorable     	= FALSE
+			state			= NORMAL
+			file            	= "Panel/panelbutton2.png"
+			border          	= { 8, 8, 9, 10 }
+			stretch         	= TRUE			
+		}
+		
+		image
+		{
+			function        	= BOX
+			recolorable     	= FALSE
+			state			= PRELIGHT
+			file            	= "Panel/panelbutton3.png"
+			border          	=  { 8, 8, 9, 10 }
+			stretch         	= TRUE
+		}
+
+		image
+		{
+			function        	= BOX
+			recolorable     	= FALSE
+			shadow			= OUT
+			state			= PRELIGHT
+			file            	= "Panel/panelbutton3.png"
+			border          	= { 8, 8, 9, 10 }
+			stretch         	= TRUE
+			
+		}
+		
+		image
+		{
+			function        	= BOX
+			recolorable     	= FALSE
+			shadow			= IN
+			state			= PRELIGHT
+			file            	= "Panel/panelbutton3.png"
+			border          	=  { 8, 8, 9, 10 }
+			stretch         	= TRUE
+			
+		}
+		
+		image
+		{
+			function        	= BOX
+			recolorable     	= FALSE
+			state			= ACTIVE
+			file            	= "Panel/panelbutton4.png"
+			border          	=  { 8, 8, 9, 10 }
+			stretch         	= TRUE
+		}  
+		image
+		{
+			function        	= BOX
+			recolorable     	= FALSE
+			state			= INSENSITIVE
+			file            	= "Panel/panelbutton1.png"
+			border          	=  { 8, 8, 9, 10 }
+			stretch         	 = TRUE
+		}  
+/*    		image
+    		{
+      		function			= HANDLE
+      		recolorable			= FALSE
+      		overlay_file			= "Panel/handle-v.png"
+      		overlay_stretch	= FALSE
+      		orientation			= VERTICAL
+    		}
+    		image
+    		{
+      		function			= HANDLE
+      		overlay_file			= "Panel/handle-h.png"
+      		overlay_stretch 		= FALSE
+     		orientation			= HORIZONTAL
+   		}
+*/
+	}
+
+}
+
+widget "*PanelWidget*" style "panelbuttons"
+widget "*PanelApplet*" style "panelbuttons"
+widget_class "*Panel*GtkToggleButton*" style "panelbuttons"
+widget_class "*Panel*GtkButton" style "panelbuttons"
+widget_class "*PanelButton*." style "panelbuttons"
+widget_class "*Panel*" style "panelbg"
+

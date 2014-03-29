@@ -1,0 +1,225 @@
+# Phasex-Dark theme
+
+gtk-color-scheme = "bg1:#200020\nbg1_shade:#300030\nbg1_dark:#100010\nbg2:#000080\nbg2_shade:#000060\nbg2_dark:#000040\nbg3:#000030\nbg3_shade:#000020\nbg3_dark:#000020\nhighlight1:#ffb812\nhighlight2:#ffb812\nhighlight3:#20f0f0\nspecial1:#00f000\nspecial2:#0000b0\nspecial3:#f70000\ntext1:#e0e0e0\ntext2:#c0c0c0\ngrey1:#606060\ngrey2:#404040"
+
+style "sysex-default"
+{
+	xthickness		= 2
+	ythickness		= 0
+
+	GtkTreeView::even_row_color		= @bg3	
+	GtkTreeView::odd_row_color		= @bg3_shade
+
+	GtkTreeView::enable_tree_lines		= "true"
+
+	bg[NORMAL]		= @bg1		# normal background
+	bg[PRELIGHT]		= @bg2		# pane slider highlight
+	bg[ACTIVE]		= @bg2		# selected text background
+	bg[SELECTED]		= @special1	# selected text entry border
+	bg[INSENSITIVE]		= @bg1		# insensitive button background
+
+	base[NORMAL]		= @bg3_shade	# text entry and toggle button background
+	base[PRELIGHT]		= @highlight2	#
+	base[ACTIVE]		= @bg2		# active text background (not selected)
+	base[SELECTED]		= @bg2_shade	# active and selected text background
+	base[INSENSITIVE]	= @bg1		#
+
+	fg[NORMAL]		= @text1	# main text
+	fg[PRELIGHT]		= @highlight2	# button text highlight
+	fg[ACTIVE]		= @highlight1	# toggled-on button text
+	fg[SELECTED]		= @highlight2	#
+	fg[INSENSITIVE]		= @grey2	#
+
+	text[NORMAL]		= @text1	# text entry and widget arrow
+	text[PRELIGHT]		= @highlight2	# text entry and widget arrow highlight
+	text[ACTIVE]		= @highlight1	# active entry text (not selected)
+	text[SELECTED]		= @highlight1	# active and selected entry text
+	text[INSENSITIVE]	= @grey1	# insensitive widget arrow and button text
+}
+
+style "sysex-tree" = "sysex-default"
+{
+	text[NORMAL]		= @highlight1
+	fg[NORMAL]		= @highlight1
+}
+
+style "sysex-combo" = "sysex-default"
+{
+	bg[SELECTED]		= @highlight2	# selected text entry border
+	text[PRELIGHT]		= @highlight2	# text entry and widget arrow highlight
+	fg[PRELIGHT]		= @highlight2	#
+	fg[ACTIVE]		= @highlight2	# toggled on button text
+	base[ACTIVE]		= @highlight2	# active text background (not selected)
+}
+
+style "sysex-menubar" = "sysex-default"
+{
+	xthickness		= 2
+	ythickness		= 0
+
+	bg[PRELIGHT]		= @special2	# menu item background highlight
+	bg[ACTIVE]		= @bg2		# active menu item background
+	bg[SELECTED]		= @bg2		# selected menu item background
+	bg[INSENSITIVE]		= @bg3_shade	# insensitive menu item background
+
+	fg[PRELIGHT]		= @highlight2
+	fg[ACTIVE]		= @highlight2	# toggled on button text
+
+	base[NORMAL]		= @bg3		#
+	base[INSENSITIVE]	= @bg3		#
+
+	text[PRELIGHT]		= @highlight2	#
+	text[ACTIVE]		= @highlight2	#
+}
+
+style "sysex-menu" = "sysex-default"
+{
+	xthickness		= 2
+	ythickness		= 2
+
+	bg[NORMAL]		= @bg3		# menu item background
+	bg[PRELIGHT]		= @special2	# menu item background highlight
+	bg[ACTIVE]		= @bg2		# active menu item background
+	bg[SELECTED]		= @bg2		# selected menu item background
+	bg[INSENSITIVE]		= @bg3_shade	# insensitive menu item background
+
+	fg[PRELIGHT]		= @highlight2
+	fg[ACTIVE]		= @highlight2	# toggled on button text
+
+	base[NORMAL]		= @bg3		#
+	base[INSENSITIVE]	= @bg3		#
+
+	text[PRELIGHT]		= @highlight2	#
+	text[ACTIVE]		= @highlight2	#
+}
+
+style "sysex-button" = "sysex-default"
+{
+	bg[NORMAL]		= @bg3_dark	# button background & toggle button border
+	bg[PRELIGHT]		= @bg2		# button highlight background
+	bg[ACTIVE]		= @bg2		# button selected / activated background
+	bg[SELECTED]		= @special1	# selected button border & toggle button border highlight
+
+	base[NORMAL]		= @bg1_dark	# toggle button inset background
+	base[PRELIGHT]		= @bg1_shade	# toggle button highlight inset background
+	base[ACTIVE]		= @highlight2	# toggle button activating inset background
+	base[SELECTED]		= @highlight2	# toggle button ?
+
+	fg[NORMAL]		= @text1	# normal button text and toggle button outer ring
+	fg[PRELIGHT]		= @highlight2	# button highlight text
+	fg[ACTIVE]		= @highlight2	# toggled-on button text
+	fg[SELECTED]		= @special1	#
+	fg[INSENSITIVE]		= @grey2	#
+
+	text[NORMAL]		= @highlight2
+	text[PRELIGHT]		= @highlight2	# combobox button arrow highlight
+	text[ACTIVE]		= @highlight2
+	text[SELECTED]		= @highlight2
+	text[INSENSITIVE]	= @bg2_dark
+}
+
+style "sysex-radio" = "sysex-button"
+{
+	bg[SELECTED]		= @special1	# selected button border & toggle button border highlight
+	bg[PRELIGHT]		= @bg1
+
+	base[ACTIVE]		= @special3	# toggle button activating inset background
+	base[PRELIGHT]		= @bg1_dark	# toggle button highlight inset background
+
+	text[NORMAL]		= @special1	# toggle button inset light color
+	text[PRELIGHT]		= @special2
+
+	fg[PRELIGHT]		= @highlight2	# toggle button border and text prelight
+	fg[ACTIVE]		= @highlight1	# toggled-on button text
+}
+
+style "sysex-spin" = "sysex-default"
+{
+	xthickness		= 3
+	ythickness		= 3
+}
+
+style "sysex-scroll" = "sysex-default"
+{
+	text[NORMAL]		= @bg1		#
+	fg[SELECTED]		= @bg1		#
+	bg[NORMAL]		= @grey1	# scrollbar handle
+	bg[ACTIVE]		= @bg1		# scrollbar background
+	bg[PRELIGHT]		= @special2	# scrollbar handle highlight
+}
+
+style "sysex-frame" = "sysex-default"
+{
+	xthickness		= 1
+	ythickness		= 0
+
+	bg[NORMAL]		= @bg1_shade	# frame border
+}
+
+style "sysex-notebook" = "sysex-default"
+{
+	bg[SELECTED]		= "#0000c0"	# active tab top gradient
+	fg[SELECTED]		= @text1	#
+
+	#bg[NORMAL]		= "#000000"	# active tab background
+	fg[NORMAL]		= @highlight2	#
+	text[NORMAL]		= @highlight2	#
+
+	bg[ACTIVE]		= @bg1_shade	# non-active tab background
+	fg[ACTIVE]		= @text1	# non-active tab text
+
+	fg[INSENSITIVE]		= @highlight2	#
+	text[INSENSITIVE]	= @highlight2	#
+}
+
+style "sysex-tooltip"
+{
+	bg[NORMAL]		= @bg3		#
+	fg[NORMAL]		= @text1	#
+	text[NORMAL]		= @text1	#
+}
+
+
+class "GtkWidget" style "sysex-default"
+
+class "GtkStatusbar" style "sysex-default"
+
+class "GtkCombo" style "sysex-combo"
+class "GtkComboBox" style "sysex-combo"
+widget_class "*GtkComboBox.GtkButton" style "sysex-combo"
+widget_class "*GtkCombo.GtkButton" style "sysex-combo"
+widget_class "*GtkComboBox*" style "sysex-combo"
+
+class "GtkButton" style "sysex-button"
+class "GtkToggleButton" style "sysex-button"
+widget_class "*GtkToggleButton*" style "sysex-button"
+
+class "GtkCheckButton" style "sysex-radio"
+class "GtkRadioButton" style "sysex-radio"
+widget_class "*GtkRadioButton*" style "sysex-radio"
+
+class "GtkSpinButton" style "sysex-spin"
+
+class "GtkRange" style "sysex-scroll"
+class "GtkScale" style "sysex-scroll"
+class "*Scrollbar*" style "sysex-scroll"
+
+class "GtkEntry" style "sysex-spin"
+
+class "GtkNotebook" style "sysex-notebook"
+widget_class "GtkNotebook" style "sysex-notebook"
+widget_class "*.GtkNotebook.GtkLabel*" style "sysex-notebook"
+
+widget_class "*<GtkMenu>*" style "sysex-menu"
+widget_class "*<GtkMenuItem>*" style "sysex-menu"
+class "GtkMenuBar" style "sysex-menubar"
+widget_class "*<GtkMenuBar>*" style "sysex-menubar"
+
+class "GtkTooltip" style "sysex-tooltip"
+widget "*gtk-tooltip*" style "sysex-tooltip"
+
+class "GtkFrame" style "sysex-frame"
+class "MetaFrames" style "sysex-frame"
+widget_class "BasePWidget.GtkEventBox.GtkTable.GtkFrame" style "sysex-frame"
+
+#class "GtkTreeView" style "sysex-tree"

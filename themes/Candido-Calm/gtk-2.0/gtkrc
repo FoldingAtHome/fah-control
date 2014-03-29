@@ -1,0 +1,205 @@
+style "candido-default" {
+
+  	GtkButton      ::default_border    = { 0, 0, 0, 0 }
+  	GtkRange       ::trough_border     = 0
+  	GtkPaned       ::handle_size       = 6
+  	GtkRange       ::slider_width      = 15
+  	GtkRange       ::stepper_size      = 15
+  
+  	GtkScrollbar   ::min_slider_length = 35
+  	GtkCheckButton ::indicator_size    = 14
+  	GtkMenuBar     ::internal-padding  = 0
+  	GtkTreeView    ::expander_size     = 14
+  	GtkExpander    ::expander_size     = 16
+  	GtkScale       ::slider-length     = 31
+	#  GtkToolbar     ::button-relief     = GTK_RELIEF_NORMAL
+	#  GtkMenuBar     ::shadow-type       = GTK_SHADOW_OUT
+	#  GtkScrollbar   ::has-secondary-forward-stepper = 1
+	#  GtkScrollbar   ::has-secondary-backward-stepper = 1
+
+  	GtkButton      ::child-displacement-x = 0
+  	GtkButton      ::child-displacement-y = 0
+
+  	xthickness = 1
+  	ythickness = 1
+
+	fg[NORMAL]     	= "#4a422f"
+	fg[PRELIGHT]      = "#4a422f"
+	fg[ACTIVE]        = "#5d4c3c"
+	fg[SELECTED]      = "#5d4c3c"
+	fg[INSENSITIVE]   = "#9D9388"
+
+	bg[NORMAL]    		= "#f1efeb"
+	bg[PRELIGHT]      = "#f5f3f0"
+	bg[ACTIVE]        = "#c5bdb0"
+	bg[SELECTED]   	= "#c1baaa"
+	bg[INSENSITIVE]	= "#E5E1DD"
+	
+	base[NORMAL] 	   = "#FFFFFF"
+	base[PRELIGHT] 	= "#b39169"
+	base[ACTIVE]   	= "#d0c8c1"
+	base[SELECTED] 	= "#c1baaa"
+	base[INSENSITIVE] = "#E5E1DD"
+	
+	text[NORMAL]      = "#342913"
+	text[PRELIGHT]    = "#101010"
+	text[ACTIVE]      = "#ffffff"
+	text[SELECTED]    = "#FFFFFF"
+	text[INSENSITIVE] = "#9D9388"
+
+
+  	engine "candido"  {
+  		contrast 			= 0.7
+   	menubarstyle      = 1 # 0 = flat, 1 = gradient
+		menubaritemstyle  = 1 # 0 = flat, 1 = button-ish style
+		squaredstyle 		= 0 # 0 = default (rounded), 1 = squared
+		animation         = TRUE
+	}
+}
+
+
+style "candido-wide" = "candido-default" {
+  	xthickness = 1
+  	ythickness = 1
+}
+
+style "candido-wider" = "candido-default" {
+  	xthickness = 2
+  	ythickness = 2
+}
+
+style "candido-button" = "candido-wider" {
+  	bg[PRELIGHT] 	= "#dfd9cd"
+  	bg[NORMAL] 		= "#F1EFEC"
+  	bg[SELECTED]	= "#7a6b56"
+}
+
+style "candido-scale" = "candido-default" {
+  	xthickness = 3
+  	ythickness = 3
+  	bg[PRELIGHT] 	= "#dfd9cd"
+  	bg[NORMAL] 		= "#F1EFEC"
+}
+
+style "candido-entry" = "candido-wider"
+{
+  	xthickness = 3
+  	ythickness = 3
+   bg[SELECTED]	    = "#dfd9cd"
+}
+
+style "candido-notebook" = "candido-wide" {
+ 	bg[NORMAL]      = "#E5E1DD"
+  	bg[INSENSITIVE] = "#E5E1DD"
+}
+
+style "candido-tasklist" = "candido-default" {
+  	xthickness = 5
+  	ythickness = 3
+}
+
+style "candido-menu" = "candido-default" {
+  	xthickness = 1
+  	ythickness = 1
+  	bg[NORMAL] = "#f8f5f2"
+  	#text[PRELIGHT] = "#f1f1f1"
+}
+
+style "candido-menubar" = "candido-button" {
+    	#text[PRELIGHT] = "#000000"
+    	#fg[PRELIGHT] = "#f1f1f1"
+}
+
+style "candido-menubar-item" = "candido-button" {
+    	#text[PRELIGHT] = "#000000"
+    	#fg[PRELIGHT] = "#f1f1f1"
+}
+
+
+style "candido-menu-item" = "candido-default" {
+  	xthickness = 2 # Menu Stuff
+  	ythickness = 2
+  	#fg[PRELIGHT] = "#ffffff"
+  	#text[PRELIGHT] = "#ffffff"
+}
+
+style "candido-tree" = "candido-default" {
+  xthickness = 2
+  ythickness = 2
+}
+
+style "candido-frame-title" = "candido-default" {
+  fg[NORMAL] = "#404040" # Status Bar Type Thing
+}
+
+style "candido-tooltips" = "candido-default" {
+  xthickness = 4
+  ythickness = 4
+  bg[NORMAL] = { 1.0,1.0,0.85 }
+}
+
+style "candido-progressbar" = "candido-wide" {
+  xthickness = 2
+  ythickness = 2
+  #fg[PRELIGHT]  = "#000000"
+}
+
+style "candido-combo" = "candido-button" {
+}
+
+style "metacity-frame" = "candido-default" {
+  	bg[SELECTED] = "#d7ba94" # Main Metacity title bar colour
+}
+
+# Evolution uses bg and fg for its ETree instead of base and text like it should
+style "evolution-hack" = "candido-default" {
+  	bg[ACTIVE]   = "#DBC19A"
+  	bg[SELECTED] = "#BA9871"
+  	fg[ACTIVE]   = "#ffffff"
+  	fg[SELECTED] = "#ffffff"
+}
+	
+
+# widget styles
+class "GtkWidget" style "candido-default"
+class "GtkButton" style "candido-button"
+class "GtkScale"  style "candido-scale"
+class "GtkCombo"  style "candido-button"
+class "GtkRange"  style "candido-button"
+class "GtkFrame"  style "candido-wide"
+class "GtkMenu"   style "candido-menu"
+class "GtkEntry"  style "candido-entry"
+class "GtkMenuItem"    style "candido-menu-item"
+class "GtkNotebook"    style "candido-notebook"
+class "GtkProgressBar" style "candido-progressbar"
+class "MetaFrames" style "metacity-frame"
+class "GtkWindow" style "metacity-frame"
+ 
+class "*MenuBar*"      style "candido-menubar"
+
+widget_class "*MenuItem.*" style "candido-menu-item"
+widget_class "*MenuBar.*"  style "candido-menubar-item"
+
+# combobox stuff
+widget_class "*.GtkComboBox.GtkButton" style "candido-combo"
+widget_class "*.GtkCombo.GtkButton"    style "candido-combo"
+# tooltips stuff
+widget_class "*.tooltips.*.GtkToggleButton" style "candido-tasklist"
+widget "gtk-tooltips" style "candido-tooltips"
+
+# treeview stuff
+widget_class "*.GtkTreeView.GtkButton" style "candido-tree"
+widget_class "*.GtkCTree.GtkButton" style "candido-tree"
+widget_class "*.GtkList.GtkButton" style "candido-tree"
+widget_class "*.GtkCList.GtkButton" style "candido-tree"
+widget_class "*.GtkFrame.GtkLabel" style "candido-frame-title"
+
+# notebook stuff
+widget_class "*.GtkNotebook.*.GtkEventBox" style "candido-notebook"
+widget_class "*.GtkNotebook.*.GtkViewport" style "candido-notebook"
+
+# those should really use base and text colors instead
+widget_class "*GtkCTree*" style "evolution-hack"
+widget_class "*GtkList*" style "evolution-hack"
+widget_class "*GtkCList*" style "evolution-hack"
+widget_class "*.ETree.*" style "evolution-hack"

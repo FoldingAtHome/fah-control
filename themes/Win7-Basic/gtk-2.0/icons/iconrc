@@ -1,0 +1,19 @@
+#pixmap_path "icons"
+style "icon-style"
+{
+
+  stock["gtk-go-back"] = {{ "gtk-go-back.png", *, *, * }}
+  stock["gtk-go-down"] = {{ "gtk-go-down.png", *, *, * }}
+  stock["gtk-go-forward"] = {{ "gtk-go-forward.png", *, *, * }}
+
+  stock["gtk-go-up"] = {{ "gtk-go-up.png", *, *, * }}
+  stock["gtk-refresh"] = {{ "gtk-refresh.png", *, *, * }}
+  stock["gtk-stop"] = {{ "gtk-stop.png", *, *, * }}
+  stock["gtk-home"] = {{ "gtk-home.png", *, *, * }}
+  stock["gtk-home"] = {{ "gtk-home.png", *, *, * }}
+  stock["gtk-zoom-in"] = {{ "gtk-zoom-in.png", *, *, * }}
+  stock["gtk-zoom-out"] = {{ "gtk-zoom-out.png", *, *, * }}
+
+ 
+}
+class "GtkWidget" style "icon-style"

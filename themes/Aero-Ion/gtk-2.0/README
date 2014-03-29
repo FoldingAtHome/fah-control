@@ -1,0 +1,38 @@
+This is Aero-ion a theme for GTK 2.x. It is an inverse Aqua-style theme, in
+which the gas phase and the liquid phase have been switched.
+
+The 'Aero-ion' version (versus plain 'Aero') is modified to be much more 
+practical (background is plain instead of checked for most things, 
+ and checkbuttons and radio options were improved to be both more legible
+ and more sensible.). 
+
+The most recent version of Aero-ion can be found at art.gnome.org
+
+
+INSTALLATION
+------------
+
+Just unpack into your ~/.themes directory and use gconf-editor to switch
+theme. 
+
+Unfortunately Nautilus seems to disrespect Aero theme settings, when
+using the icon view. This can be solved by creating a new background
+color (color value is #37383F), and drag it onto the icon view pane.
+Nautilus automagically switches the icon title color to white.
+
+Create a new background color (from the Nautilus online help file):
+
+To add a color to the colors that you can use on your screen components,
+choose Edit-> Backgrounds and Emblems. Click on the Colors button, then
+click on the Add New Color button. A color selector dialog is displayed.
+Use the color wheel or the sliders to choose the color (enter #37383F
+here). Click OK to add the new color to the Backgrounds and Emblems
+dialog.
+
+AUTHOR(s)
+---------
+This theme was brought to you by:
+	Marcus Petzoldt <m.petzoldt@gmx.de>
+
+'ion' version by:
+	David Gowers <00ai99@gmail.com>

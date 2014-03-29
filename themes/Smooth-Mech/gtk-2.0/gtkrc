@@ -1,0 +1,305 @@
+# Smooth-Mech 1.1
+# Copyleft: Lucas Lommer <drom@kdyne.net>
+# Based on Ken Joseph's Smooth-Desert theme <o123@netian.com>
+# Anyone is permitted to modify this file or theme in whatever way
+# or for whatever purpose he or she wants to do.
+
+# Last modified Nov. 4, 2005
+# GTK2 theme using smooth engine
+# Features "flat" line style with ivory/#d6aa4c/lemonchiffon colors
+# "It's thinner than thin, it's FLAT!!"  :)
+
+style "default" {
+  GtkButton::default_border = {0, 0, 0, 0}
+  GtkButton::default_outside_border = {0, 0, 0, 0}
+
+  GtkCheckButton::indicator_size = 13
+  GtkRadioButton::indicator_size = 12
+
+  GtkPaned::handle_size  = 6
+
+  GtkRange::trough_border = 0
+  GtkRange::slider_width = 15
+  GtkRange::stepper_size = 15
+
+  GtkScrollbar::min_slider_length = 30
+  GtkScrollbar::has_backward_stepper = 1
+  GtkScrollbar::has_secondary_forward_stepper = 0
+  GtkScrollbar::has_forward_stepper = 1
+  GtkScrollbar::has_secondary_backward_stepper = 0
+ 
+  bg[NORMAL] = "ivory2"
+  bg[ACTIVE] = "ivory3"
+  bg[INSENSITIVE] = "ivory2"
+  bg[PRELIGHT] = "khaki"
+  bg[SELECTED] = "#d6aa4c"
+
+  fg[NORMAL] = "black"
+  fg[ACTIVE] = "black"
+  fg[INSENSITIVE] = "LemonChiffon4"
+  fg[PRELIGHT] = "black"
+  fg[SELECTED] = "gray95"
+
+  base[NORMAL] = "gray95"
+  base[ACTIVE] = "#d3c996"
+  base[INSENSITIVE] = "ivory3"
+  base[PRELIGHT] = "khaki"
+  base[SELECTED] = "#d6aa4c"
+
+  text[NORMAL] = "black"
+  text[ACTIVE] = "black"
+  text[INSENSITIVE] = "gray45"
+  text[PRELIGHT] = "black"
+  text[SELECTED] = "black"
+ 
+  engine "smooth" {
+    fill {
+      style = shade
+      hdirection = vertical
+      vdirection = horizontal
+      shade1 = 0.85
+      shade2 = 1.0
+    }
+    line {
+      style = flat
+      thickness = 2
+    }
+    grip {
+      style = slashes
+      count = 3
+      spacing = 2
+      toolbar_overlap = FALSE
+    }
+    check {
+      style = fast
+      motif = FALSE
+    }
+    option {
+      style = circle
+      motif = FALSE
+    }
+    arrow {
+      style = wonderland
+      solid = TRUE
+      etched = FALSE
+    }
+    tab_style = square
+  }
+} widget_class "*" style "default"
+
+style "toolbar" {
+  bg[ACTIVE] = "LemonChiffon3"
+  bg[PRELIGHT] = "#d6aa4c"
+  fg[ACTIVE] = "black"
+  fg[PRELIGHT] = "gray95"
+  engine "smooth" {
+    fill {
+      style = solid
+    }
+    line {
+      style = flat
+      thickness =2
+    }
+    grip {
+     style = slashes
+     count = 3
+     spacing = 3
+     toolbar_overlap = FALSE
+    }
+  }
+}
+widget_class "*BonoboDockItem*" style "toolbar"
+class "*BonoboDockItem*" style "toolbar"
+
+widget_class "*HandleBox*" style "toolbar"
+class "*HandleBox*" style "toolbar"
+
+widget_class "*Tool*" style "toolbar"
+class "*Tool*" style "toolbar"
+
+widget_class "*MenuBar*" style "toolbar"
+class "*MenuBar*" style "toolbar"
+
+style "menuitem" {
+  bg[PRELIGHT] = "#d6aa4c"
+  fg[PRELIGHT] = "black"
+ 
+  # Radio/Check items use text[state] for the check colour
+  text[NORMAL]   = "black"
+  text[PRELIGHT] = "black"
+
+  engine "smooth" {
+    fill {
+      style = shade
+      hdirection = vertical
+      vdirection = horizontal
+      shade1 = 0.85
+      shade2 = 1.0
+    }
+    line {
+      style = flat
+      thickness = 2
+    }
+    check {
+      style = fast
+      motif = FALSE
+    }
+    option {
+      style = circle
+      motif = FALSE
+    }
+    arrow {
+      style = wonderland
+      solid = TRUE
+      etched = FALSE
+    }
+  }
+} class "*MenuItem*" style "menuitem"
+widget_class "*MenuItem*" style "menuitem"
+
+style "button" = "default" {
+  bg[NORMAL] = "LemonChiffon2"
+  bg[ACTIVE] = "LemonChiffon3"
+  bg[INSENSITIVE] = "LemonChiffon2"
+  bg[PRELIGHT] = "#d6aa4c"
+  bg[SELECTED] = "OrangeRed"
+ 
+  fg[ACTIVE] = "black"
+  fg[PRELIGHT] = "black"
+
+  base[PRELIGHT] = "gray95"
+  
+  #radio buttons use text[state] for the check colour
+  text[NORMAL] = "#d6aa4c"
+  text[ACTIVE] = "black"
+  text[PRELIGHT] = "#d6aa4c"
+}
+class "GtkButton" style "button"
+widget_class "*GtkButton*" style "button"
+
+class "*OptionMenu*" style "button"
+widget_class "*OptionMenu*" style "button"
+
+class "GtkToggleButton" style "button"
+widget_class "*RadioButton*" style "button"
+widget_class "*CheckButton*" style "button"
+
+style "scrollbar" {
+  bg[NORMAL] = "ivory2"
+  bg[ACTIVE] = "ivory3"
+  bg[PRELIGHT] = "khaki"
+ 
+  engine "smooth" {
+    fill {
+      style = shade
+      hdirection = vertical
+      vdirection = horizontal
+      shade1 = 0.85
+      shade2 = 1.0
+    }
+    line {
+      style = flat
+      thickness = 2
+    }
+    trough {
+      fill {
+        style = solid
+      }
+    }
+    grip {
+      style = slashes
+      count = 3
+      spacing = 2
+    }
+    arrow {
+      style= wonderland
+      solid = TRUE
+      etched = FALSE
+    }
+  }
+}
+widget_class "*Scrollbar*" style "scrollbar"
+class "*Scrollbar*" style "scrollbar"
+
+style "paned" {
+  engine "smooth" {
+    line {
+      style = flat
+      thickness = 2
+    }
+    grip {
+      style = lines
+    }
+  }
+}
+class "*Paned*" style "paned"
+
+style "scales" {
+  bg[NORMAL] = "LemonChiffon2"
+  bg[PRELIGHT] = "khaki"
+  bg[SELECTED] = "#d6aa4c"	#scroll bar background
+  
+  GtkRange::trough_border = 0
+  GtkRange::slider-width = 13
+  GtkScale::slider-length = 29
+  
+  engine "smooth"
+  {	
+    real_sliders = FALSE
+    fill {
+      style = shade
+      hdirection = vertical
+      vdirection = horizontal
+      shade1 = 0.85
+      shade2 = 1.0
+    }
+    line {
+      style = flat
+      thickness = 2
+    }
+    trough {
+      xpadding = 3
+      ypadding = 3
+      show_value = TRUE
+      fill {
+        style = solid
+      }
+    }
+    grip {
+      style = slashes
+      count = 3
+      spacing = 2
+    }
+  }
+} 
+widget_class "*Scale*" style "scales"
+class "*Scale*" style "scales"
+
+style "infobar" {
+  bg[NORMAL] = "#d3c996"
+  bg[PRELIGHT] = "#d6aa4c"
+  fg[PRELIGHT] = "black"
+  xthickness = 2
+  ythickness = 2
+  engine "smooth" {	
+    real_sliders = FALSE
+    fill {
+      style = shade
+      hdirection = vertical
+      vdirection = horizontal
+      shade1 = 0.73
+      shade2 = 1.195
+    }
+    line {
+      style = flat
+      thickness = 2
+    }
+    trough {
+      fill {
+        style = solid
+      }
+    }
+  }
+}
+class "*Progress*" style "infobar"
+widget_class "*Progress*" style "infobar"

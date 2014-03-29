@@ -1,0 +1,191 @@
+
+
+style "theme-default"
+{
+  GtkButton      ::default_border    = { 0, 0, 0, 0 }
+  GtkRange       ::trough_border     = 0
+  GtkPaned       ::handle_size       = 6
+  GtkRange       ::slider_width      = 15
+  GtkRange       ::stepper_size      = 15
+
+  GtkScrollbar   ::min_slider_length = 30
+  GtkCheckButton ::indicator_size    = 14
+  GtkMenuBar     ::internal-padding  = 0
+  GtkTreeView    ::expander_size     = 14
+  GtkExpander    ::expander_size     = 16
+  GtkScale       ::slider-length     = 24
+  
+  xthickness = 1
+  ythickness = 1
+
+ 	fg[NORMAL]		= "#DBCFC1" # Metacity and mouseover, Most text
+	fg[PRELIGHT]      	= "#d34210" # Text when mouseover
+	fg[ACTIVE]	  	= "#DBCFC1" # Text when mouseclicking button, Tabs, Active window list
+	fg[SELECTED]      	= "#ffffff" # Metacity X when window selected
+	fg[INSENSITIVE]   	= "#3c3c3c" # Insensitive Text
+
+	bg[NORMAL]	  	= "#2E2920" # Normal Background, inactive Metacity bar, buttons
+	bg[PRELIGHT]	  	= "#27221A" # Mouseover buttons
+	bg[ACTIVE]	  	= "#35312A" # Mouseclicking, Tabs, active window list
+	bg[SELECTED]	        = "#3C3831" # Metacity Bar
+	bg[INSENSITIVE]   	= "#3c3831" # Insensitive buttons
+	
+	base[NORMAL]	= "#35312A" # Background, most
+	base[PRELIGHT]	= "#27221A" # Mouseover menu
+	base[ACTIVE]	  	= "#3c3831" # Menu active item in inactive window
+	base[SELECTED]	= "#544c3f" # Menu active item in active window
+	base[INSENSITIVE] 	= "#35312A" # Background, insensitive
+	
+	text[NORMAL]	  	= "#DBCFC1" # Text in window
+	text[PRELIGHT]	= "#d34210" # Text on Mouseover
+	text[ACTIVE]	  	= "#d34210" # Active text in inactive window
+	text[SELECTED]    	= "#d43210" # Active text in active window
+	text[INSENSITIVE] 	= "#DBCFC1" # Unknown
+
+  GnomeHRef::link_color		="#544c3f" 
+  GtkIMHtmlr::hyperlink-color	="#544c3f"
+
+  NautilusIconContainer::normal_alpha = 0
+  NautilusIconContainer::frame_text = 1
+  #NautilusIconContainer::dark_info_color="#827B69"
+  #NautilusIconContainer::light_info_color="#827B69"
+  #NautilusIconContainer::highlight_alpha=70
+
+  engine "murrine" 
+  {
+	menuitemstyle = 0 # 0 = flat, 1 = glassy, 2 = striped
+	scrollbar_color = "#3c3831"
+	contrast = 1.0
+	glazestyle = 0 # 0 = flat hilight, 1 = curved hilight, 2 = concave style
+	menubarstyle = 0 # 0 = flat, 1 = glassy, 2 = gradient, 3 = striped
+	menubaritemstyle = 1 # 0 = menuitem look, 1 = button look
+	menuitemstyle = 0 # 0 = flat, 1 = glassy, 2 = striped
+	listviewheaderstyle = 0 # 0 = flat, 1 = glassy
+	roundness = 2 # 0 = squared, 1 = old default, more will increase roundness
+    	animation = TRUE # FALSE = disabled, TRUE = enabled
+  }
+}
+
+
+style "theme-wide" = "theme-default"
+{
+  xthickness = 2
+  ythickness = 2
+}
+
+style "theme-wider" = "theme-default"
+{
+  xthickness = 3
+  ythickness = 3
+}
+
+style "theme-entry" = "theme-wider"
+{
+  bg[SELECTED]	    = "#262626"
+}
+
+style "theme-button" = "theme-wider"
+{
+  bg[NORMAL]        = "#38332C"
+  bg[ACTIVE]      = "#2B2621"
+}
+
+style "theme-notebook" = "theme-wide"
+{
+
+
+}
+
+style "theme-tasklist" = "theme-default"
+{
+  xthickness = 5
+  ythickness = 3
+}
+
+style "theme-menu" = "theme-default"
+{
+  xthickness = 2
+  ythickness = 1
+}
+
+style "theme-menu-item" = "theme-default"
+{
+  ythickness = 3
+    fg[PRELIGHT] = "#d34210"
+  text[PRELIGHT] = "#ffffff"
+}
+
+style "theme-menubar" = "theme-default"
+{
+  bg[NORMAL] = "#2E2920"
+}
+
+style "theme-menubar-item"
+{
+	ythickness = 4
+	bg[PRELIGHT] = "#2B2822"
+}
+
+style "theme-tree" = "theme-default"
+{
+  xthickness = 2
+  ythickness = 2
+}
+
+style "theme-frame-title" = "theme-default"
+{
+  fg[NORMAL] = "#DBCFC1"
+}
+
+style "theme-tooltips" = "theme-default"
+{
+  xthickness = 4
+  ythickness = 4
+  bg[NORMAL] = "#2b2822"
+}
+
+style "theme-progressbar" = "theme-wide"
+{
+  xthickness = 1
+  ythickness = 1
+  fg[PRELIGHT]  = "#d34210"
+}
+
+style "theme-combo" = "theme-button"
+{
+}
+
+# widget styles
+class "GtkWidget"      style "theme-default"
+class "GtkButton"      style "theme-button"
+class "GtkScale"       style "theme-button"
+class "GtkCombo"       style "theme-button"
+class "GtkRange"       style "theme-wide"
+class "GtkFrame"       style "theme-wide"
+class "GtkMenu"        style "theme-menu"
+class "GtkEntry"       style "theme-entry"
+class "GtkMenuItem"    style "theme-menu-item"
+class "GtkNotebook"    style "theme-notebook"
+class "GtkProgressBar" style "theme-progressbar"
+class "*MenuBar*"      style "theme-menubar"
+
+widget_class "*MenuItem.*" style "theme-menu-item"
+widget_class "*MenuBar.*"  style "theme-menubar-item"
+
+# combobox stuff
+widget_class "*.GtkComboBox.GtkButton" style "theme-combo"
+widget_class "*.GtkCombo.GtkButton"    style "theme-combo"
+# tooltips stuff
+widget_class "*.tooltips.*.GtkToggleButton" style "theme-tasklist"
+widget "gtk-tooltips" style "theme-tooltips"
+
+# treeview stuff
+widget_class "*.GtkTreeView.GtkButton" style "theme-tree"
+widget_class "*.GtkCTree.GtkButton" style "theme-tree"
+widget_class "*.GtkList.GtkButton" style "theme-tree"
+widget_class "*.GtkCList.GtkButton" style "theme-tree"
+widget_class "*.GtkFrame.GtkLabel" style "theme-frame-title"
+
+# notebook stuff
+widget_class "*.GtkNotebook.*.GtkEventBox" style "theme-notebook"
+widget_class "*.GtkNotebook.*.GtkViewport" style "theme-notebook"

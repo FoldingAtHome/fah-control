@@ -1,0 +1,209 @@
+########################### Menu & Menuitem silver #############################
+
+style "menu-silver"			= "default"
+{
+#bg_pixmap[NORMAL]       = "Menu-Menubar/menu-overlay.png"
+xthickness			= 3
+ythickness			= 1
+  engine "pixmap"
+  {
+    image
+    {
+      function			= BOX
+     recolorable    		= TRUE
+      detail				= "menu"
+      file				= "Menu-Menubar/menu-alt.png"
+      border			= { 7, 3, 3, 3 } #{ 34, 3, 3, 3 }
+      stretch			= TRUE
+    }
+  }
+}
+
+style "menuitem-silver"	= "default"
+{
+  xthickness			= 1
+  fg[PRELIGHT] = "#000000"
+  text[PRELIGHT] = "#000000"
+
+
+  engine "pixmap"
+  {
+    image
+    {
+      function			= BOX
+      recolorable		= TRUE
+     file				= "Menu-Menubar/menuitem.png"
+
+      border			= { 10, 10, 10, 10 }
+      stretch			= TRUE
+    }
+    image
+    {
+      function			= ARROW
+      recolorable		= TRUE
+      state				= NORMAL
+      overlay_file		= "Arrows/arrow-right-norm.png"
+      overlay_stretch	= FALSE
+      arrow_direction	= RIGHT
+    }
+  image
+    {
+      function			= ARROW
+      recolorable		= TRUE
+      state				= PRELIGHT
+      overlay_file		= "Arrows/arrow-right.png"
+      overlay_stretch	= FALSE
+      arrow_direction	= RIGHT
+    }
+#    image
+#    {
+#      function			= HLINE
+#      recolorable			= TRUE
+#      file				= "Menu-Menubar/menuline.png"
+#      border				= { 0, 0, 0, 0 }
+#      stretch			= TRUE
+#    }
+
+  }
+}
+
+style "tearoffmenuitem-silver"	= "menuitem"
+{
+  engine "pixmap"
+  {
+    image
+    {
+      function			= ARROW
+      file				= "Arrows/arrow-left.png"
+      stretch			= TRUE
+      arrow_direction	= LEFT
+    }
+#    image
+#    {
+#      function	= HLINE
+#      file			= "cuthere.png"
+#      border		= { 0, 0, 0, 0 }
+#      stretch		= TRUE
+#    }
+  }
+}
+
+########################### Menu & Menuitem black #############################
+
+style "menu-black"			#= "default"
+{
+xthickness			= 3
+ythickness			= 1
+
+  fg[NORMAL]		= "#FFFFFF"
+  fg[PRELIGHT]		= "#FFFFFF"
+  fg[ACTIVE]		= "#FFFFFF"
+  fg[SELECTED]		= "#FFFFFF"
+  fg[INSENSITIVE]	= "#FFFFFF"
+
+  base[NORMAL]	= "#FFFFFF"
+  base[ACTIVE]		= "#FFFFFF"
+  base[PRELIGHT]	= "#FFFFFF"
+  base[INSENSITIVE]	= "#FFFFFF"
+  base[SELECTED]	= "#FFFFFF"
+
+  text[NORMAL]		= "#FFFFFF"
+  text[PRELIGHT]		= "#FFFFFF"
+  text[ACTIVE]		= "#FFFFFF"
+  text[SELECTED]	= "#FFFFFF"
+  text[INSENSITIVE]	= "#FFFFFF"
+
+  engine "pixmap"
+  {
+    image
+    {
+      function			= BOX
+     recolorable    		= TRUE
+      detail				= "menu"
+      file				= "Menu-Menubar/menu-black.png"
+      border			= { 7, 3, 3, 3 } #{ 34, 3, 3, 3 }
+      stretch			= TRUE
+    }
+  }
+}
+
+style "menuitem-black"	#= "default"
+{
+  xthickness			= 1
+
+#  fg[NORMAL]		= "#FFFFFF"
+#  fg[PRELIGHT]		= "#FFFFFF"
+#  fg[ACTIVE]		= "#FFFFFF"
+#  fg[SELECTED]		= "#000000"
+#  fg[INSENSITIVE]	= "#8A857C"
+
+#  base[NORMAL]     = "#FFFFFF"
+#  base[ACTIVE]     = "#000000"
+#  base[PRELIGHT]   = "#FFFFFF"
+#  base[INSENSITIVE]= "#F4F4F4"
+#  base[SELECTED]   = "#B4E1FA"
+
+#  text[NORMAL]		= "#161616"
+#  text[PRELIGHT]		= "#FFFFFF"
+#  text[ACTIVE]		= "#000000"
+#  text[SELECTED]	= "#000000"
+#  text[INSENSITIVE]	= "#8A857C"
+
+#  fg[NORMAL] 		= "#FFFFFF"
+#  text[NORMAL]		= "#FFFFFF"
+#  fg[PRELIGHT] 		= "#2b2b2b"
+#  text[PRELIGHT]		= "#2b2b2b"
+
+  engine "pixmap"
+  {
+    image
+    {
+      function			= BOX
+      recolorable		= TRUE
+     file				= "Menu-Menubar/menuitem.png"
+
+      border			= { 10, 10, 10, 10 }
+      stretch			= TRUE
+    }
+    image
+    {
+      function			= ARROW
+      recolorable		= TRUE
+      state				= NORMAL
+      overlay_file		= "Arrows/arrow-right-norm.png"
+      overlay_stretch	= FALSE
+      arrow_direction	= RIGHT
+    }
+  image
+    {
+      function			= ARROW
+      recolorable		= TRUE
+      state				= PRELIGHT
+      overlay_file		= "Arrows/arrow-right.png"
+      overlay_stretch	= FALSE
+      arrow_direction	= RIGHT
+    }
+
+  }
+}
+
+style "tearoffmenuitem-black"	= "menuitem-black"
+{
+  engine "pixmap"
+  {
+    image
+    {
+      function			= ARROW
+      file				= "Arrows/arrow-left.png"
+      stretch			= TRUE
+      arrow_direction	= LEFT
+    }
+#    image
+#    {
+#      function	= HLINE
+#      file			= "cuthere.png"
+#      border		= { 0, 0, 0, 0 }
+#      stretch		= TRUE
+#    }
+  }
+}

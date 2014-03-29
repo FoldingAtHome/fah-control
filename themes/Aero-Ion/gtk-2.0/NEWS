@@ -1,0 +1,25 @@
+Aero-ion-GTK-2.x 3.1
+    * Nicer checkbuttons, radio options, background, various other small items.
+	-- David Gowers <00ai99@gmail.com>
+
+Aero-GTK-2.x 1.2
+
+* gtk-stop icon has been changed
+* GtkDialog and GtkMenubar don't have the highlight on top
+  anymore, because this is painted by the Metacity theme now.
+
+Aero-GTK-2.x 1.1
+
+* Wire frame borders are anti-aliased now.
+* The active notebook tab is distincter now.
+* 61 stock icons have been themed (11 of them in two sizes).
+* The background image of windows and dialogs has been changed.
+* The font color has been brightened somewhat for better contrast.
+* An explanation of how to change Nautilus' icon title color to
+  something readable, has been added to the README.
+
+Aero-GTK-2.x 1.0
+
+* Initial release.
+
+Marcus Petzoldt <m.petzoldt@gmx.de>

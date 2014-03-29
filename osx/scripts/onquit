@@ -1,0 +1,41 @@
+#!/bin/bash
+
+if [ "$1" != "--delayed-action" ]; then
+  "$0" --delayed-action "$@" &
+  exit 0
+fi
+
+shift
+
+# Wait up to 1 minute for Installer.app to quit
+I=0
+while $(ps axww|grep -v grep|grep Installer.app >/dev/null 2>&1); do
+  sleep 1
+  let I+=1
+  if [ $I -ge 60 ]; then break; fi
+done
+
+if [ $I -lt 1 ]; then sleep 1; fi
+
+# move app if it was relocated to old place
+# move must delayed becuase installd will try to register app in installed
+# location after all scripts have been run, although it seems to just be a
+# harmless error message in installer log
+A1="/Applications/FAHControl.app"
+A2="/Applications/Folding@home/FAHControl.app"
+if [ -d "$A1" ]; then
+  if [ ! -d "$A2" ]; then
+    mv "$A1" "$A2"
+  else
+    # app was not relocated; delete old one (should only happen on 10.5)
+    rm -rf "$A1"
+  fi
+fi
+
+# ensure no old group writeable in std install locations
+# (installer overwrite will not change directory permissions)
+if [ -d "$A1" ]; then chmod -R go-w "$A1"; fi
+if [ -d "$A2" ]; then chmod -R go-w "$A2"; fi
+
+# do action
+#"$@"

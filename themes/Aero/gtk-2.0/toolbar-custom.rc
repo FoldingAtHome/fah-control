@@ -1,0 +1,516 @@
+#################### MENUBAR ###################
+
+
+style "toolbar-black"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#B9B9B9"
+  fg[ACTIVE] = "#B9B9B9"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Toolbar/toolbar-black.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+ 	}
+}
+
+
+style "toolbar-green"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#9DDBA4"
+  fg[ACTIVE] = "#9DDBA4"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Toolbar/toolbar-green.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+ 	}
+}
+
+
+style "toolbar-blue-green"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#C7DBFC"
+  fg[ACTIVE] = "#C7DBFC"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Menu-Menubar/menubar-blue-green.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+ 	}
+}
+
+
+style "toolbar-blue"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#C7DBFC"
+  fg[ACTIVE] = "#C7DBFC"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Toolbar/toolbar-blue.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+ 	}
+}
+
+
+style "toolbar-blue-dark"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#C7DBFC"
+  fg[ACTIVE] = "#C7DBFC"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Toolbar/toolbar-blue-dark.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+ 	}
+}
+
+
+style "toolbar-blue-deep"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#C7DBFC"
+  fg[ACTIVE] = "#C7DBFC"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Toolbar/toolbar-blue-deep.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+ 	}
+}
+
+
+style "toolbar-blue-light"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#404040"
+  fg[ACTIVE] = "#404040"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Toolbar/toolbar-blue-light.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+ 	}
+}
+
+
+style "toolbar-purple-blue"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#C7DBFC"
+  fg[ACTIVE] = "#C7DBFC"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Toolbar/toolbar-purple-blue.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+ 	}
+}
+
+
+style "toolbar-purple-deep"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#E6AAF5"
+  fg[ACTIVE] = "#E6AAF5"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Toolbar/toolbar-purple-deep.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+ 	}
+}
+
+
+style "toolbar-purple"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#E6AAF5"
+  fg[ACTIVE] = "#E6AAF5"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Toolbar/toolbar-purple.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+ 	}
+}
+
+
+style "toolbar-brown"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#F0B58D"
+  fg[ACTIVE] = "#F0B58D"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Toolbar/toolbar-brown.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+ 	}
+}
+
+
+style "toolbar-brown-grad"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#F0B58D"
+  fg[ACTIVE] = "#F0B58D"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Toolbar/toolbar-brown-grad.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+ 	}
+}
+
+
+style "toolbar-clear"		#nautilus Toolbar style!!!!!!!!
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  font_name = "Segoe UI 9"
+  bg_pixmap[NORMAL]	="Menu-Menubar/menubar-blue-green2YY.png"
+  bg[NORMAL] = "#4a92a0"
+  fg[NORMAL] = "#FFFFFF"
+  text[NORMAL] = "#000000"
+  fg[PRELIGHT] = "#FFFFFF"
+  fg[ACTIVE] = "#FFFFFF"
+  #fg[INSENSITIVE] = "#DDE4FF"
+  #text[PRELIGHT] = "#DDE4FF"
+
+  xthickness			= 0
+  ythickness			= 0
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Menu-Menubar/menubar-blue-green1.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+ 	}
+}
+
+style "toolbar-clear0"		#alternativ Toolbar style!!!!!!!!
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  #bg_pixmap[NORMAL]	="Menu-Menubar/menubar-blue-greenXX.png"
+  bg[NORMAL] = "#000000"
+  fg[NORMAL] = "#FFFFFF"
+  text[NORMAL] = "#FFFFFF"
+  fg[PRELIGHT] = "#00F0FF"
+  fg[ACTIVE] = "#FFFFFF"
+  #fg[INSENSITIVE] = "#DDE4FF"
+  #text[PRELIGHT] = "#DDE4FF"
+
+  xthickness			= 5
+  ythickness			= 4
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Menu-Menubar/menubar-blue-greenXX.png"
+			border	= { 5, 5, 0, 5 }
+			stretch	= TRUE
+    		}
+ 	}
+}
+
+
+
+style "toolbar-clear-alt-1"		#toolbarstyle of normal apps
+{
+  fg[NORMAL] = "#FFFFFF"
+  text[NORMAL] = "#FFFFFF"
+  fg[PRELIGHT] = "#FFFFFF"
+  fg[ACTIVE] = "#FFFFFF"
+  fg[INSENSITIVE] = "#FFFFFF"
+  text[PRELIGHT] = "#FFFFFF"
+
+  xthickness			= 1
+  ythickness			= 0
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Toolbar/toolbar-clear-alt-111.png"  #Toolbar/toolbar-clear-alt-11.png
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+ 	}
+}
+
+
+style "toolbar-clear-alt-2"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#FFFFFF"
+  text[NORMAL] = "#FFFFFF"
+  fg[PRELIGHT] = "#404040"
+  fg[ACTIVE] = "#404040"
+  #fg[INSENSITIVE] = "#DDE4FF"
+  #text[PRELIGHT] = "#DDE4FF"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Toolbar/toolbar-clear-alt-2.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+ 	}
+}
+
+
+style "toolbar-clear-alt-3"		
+{
+  fg[NORMAL] = "#FFFFFF"
+  text[NORMAL] = "#FFFFFF"
+  fg[PRELIGHT] = "#FFFFFF"
+  fg[ACTIVE] = "#FFFFFF"
+  fg[INSENSITIVE] = "#FFFFFF"
+  text[PRELIGHT] = "#FFFFFF"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Toolbar/toolbar-clear-alt-3.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+ 	}
+}
+
+
+style "toolbar-clear-alt-4"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#FFFFFF"
+  text[NORMAL] = "#FFFFFF"
+  fg[PRELIGHT] = "#404040"
+  fg[ACTIVE] = "#404040"
+  #fg[INSENSITIVE] = "#DDE4FF"
+  #text[PRELIGHT] = "#DDE4FF"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Toolbar/toolbar-clear-alt-4.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+ 	}
+}
+
+
+style "toolbar-orange"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#FFFFFF"
+  text[NORMAL] = "#FFFFFF"
+  fg[PRELIGHT] = "#5F3C2D"
+  fg[ACTIVE] = "#5F3C2D"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Toolbar/toolbar-orange.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+ 	}
+}
+
+
+style "toolbar-orange-alt"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#FFFFFF"
+  text[NORMAL] = "#FFFFFF"
+  fg[PRELIGHT] = "#5F3C2D"
+  fg[ACTIVE] = "#5F3C2D"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			file		= "Toolbar/toolbar-orange-alt.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+ 	}
+}
+

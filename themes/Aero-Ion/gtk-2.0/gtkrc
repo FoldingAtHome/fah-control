@@ -1,0 +1,1219 @@
+# Aero-ion 3.1
+# 
+# Depends on GTK+ 2.x and pixmap engine
+#
+# Copyright (c) July 16, 2003 Marcus Petzoldt <m.petzoldt@gmx.de>
+#
+# The Aero theme is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Library General Public License as
+# published by the Free Software Foundation; either version 2 of the
+# License, or (at your option) any later version.
+#
+# The Aero theme is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+# Library General Public License for more details.
+#
+# You should have received a copy of the GNU Library General Public
+# License along with the Aero theme; see the file LICENSE.  If
+# not, write to the Free Software Foundation, Inc., 59 Temple Place -
+# Suite 330, Boston, MA 02111-1307, USA.
+#
+
+# Modified to be more usable by David Gowers <00ai99@gmail.com>
+
+                   
+style "Aero-default"
+{
+  GtkWidget::interior_focus         = 1
+  GtkWidget::focus_padding          = 1
+  GtkWidget::cursor_color           = "#ffffff"
+  GtkWidget::secondary_cursor_color = "#ffffff"
+  GtkWidget::focus_line_pattern     = "\3\1"
+  GtkButton::default_border         = { 0, 0, 0, 0 }
+  GtkButton::default_outside_border = { 0, 0, 0, 0 }
+  GtkRange::trough_border           = 2
+  GtkRange::slider_width            = 11
+  GtkRange::stepper_size            = 12
+  GtkPaned::handle_size             = 7
+  GtkScrollbar::min_slider_length   = 30
+  GtkCheckButton::indicator_size    = 12
+  GtkMenuBar::internal_padding      = 2
+  GtkOptionMenu::indicator_size     = { 12, 8 }
+  GtkOptionMenu::indicator_spacing  = { 0, 4, 0, 0 }
+
+  xthickness            = 2
+  ythickness            = 2
+
+  fg[NORMAL]        = "#d8d8d8"
+  fg[PRELIGHT]      = "#d8d8d8"
+  fg[ACTIVE]        = "#d8d8d8"
+  fg[SELECTED]      = "#ffffff"
+  fg[INSENSITIVE]   = "#404040"
+  
+  bg[NORMAL]        = "#27282F"
+  bg[PRELIGHT]      = "#5058a0"
+  bg[ACTIVE]        = "#454f60"
+  bg[SELECTED]      = "#5058a0"
+  bg[INSENSITIVE]   = "#27282f"
+
+  text[NORMAL]      = "#d8d8d8"
+  text[PRELIGHT]    = "#d8d8d8"
+  text[ACTIVE]      = "#ffffff"
+  text[SELECTED]    = "#ffffff"
+  text[INSENSITIVE] = "#404040"
+
+  base[NORMAL]      = "#37383f"
+  base[PRELIGHT]    = "#5058a0"
+  base[ACTIVE]      = "#757f90"
+  base[SELECTED]    = "#5058a0"
+  base[INSENSITIVE] = "#27282f"
+
+  engine "pixmap"
+  {
+
+    image
+    {
+      function          = BOX
+    }
+
+    # handle
+    
+    image
+    {
+      function          = HANDLE
+      state             = PRELIGHT
+      recolorable       = TRUE
+      overlay_file      = "handle-pre.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+    }
+    image
+    {
+      function          = HANDLE
+      recolorable       = TRUE
+      overlay_file      = "handle.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+    }
+
+    # shadow
+
+     image
+     {
+       function         = SHADOW
+       recolorable      = FALSE
+       file             = "shadow.png"
+       border           = { 5, 5, 5, 5 }
+       stretch          = TRUE
+     }
+     image
+     {
+       function         = SHADOW_GAP
+       recolorable      = TRUE
+       file             = "shadow-gap.png"
+       border           = { 1, 1, 1, 1 }
+       stretch          = TRUE
+       gap_start_file   = "shadow-gap-top.png"
+       gap_start_border = { 0, 0, 1, 0 }
+       gap_end_file     = "shadow-gap-top.png"
+       gap_end_border   = { 0, 0, 1, 0 }
+       gap_side         = TOP
+     }
+    image
+    {
+       function         = VLINE
+       recolorable      = TRUE
+       file             = "line-v.png"
+       border           = { 0, 0, 0, 0 }
+       stretch          = TRUE
+    }
+    image
+    {
+      function          = HLINE
+      recolorable       = TRUE
+      file              = "line-h.png"
+      border            = { 0, 0, 0, 0 }
+      stretch           = TRUE
+    }
+
+    # arrows
+
+    image
+    {
+      function          = ARROW
+      state             = INSENSITIVE
+      recolorable       = TRUE
+      overlay_file      = "arrow-up-i.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+      arrow_direction   = UP
+    }
+    image
+    {
+      function          = ARROW
+      recolorable       = TRUE
+      overlay_file      = "arrow-up.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+      arrow_direction   = UP
+    }
+    image
+    {
+      function          = ARROW
+      state             = INSENSITIVE
+      recolorable       = TRUE
+      overlay_file      = "arrow-down-i.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+      arrow_direction   = DOWN
+    }
+    image
+    {
+      function          = ARROW
+      recolorable       = TRUE
+      overlay_file      = "arrow-down.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+      arrow_direction   = DOWN
+    }
+    image
+    {
+      function          = ARROW
+      state             = INSENSITIVE
+      recolorable       = TRUE
+      overlay_file      = "arrow-left-i.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+      arrow_direction   = LEFT
+    }
+    image
+    {
+      function          = ARROW
+      recolorable       = TRUE
+      overlay_file      = "arrow-left.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+      arrow_direction   = LEFT
+    }
+    image
+    {
+      function          = ARROW
+      state             = INSENSITIVE
+      recolorable       = TRUE
+      overlay_file      = "arrow-right-i.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+      arrow_direction   = RIGHT
+    }
+    image
+    {
+      function          = ARROW
+      recolorable       = TRUE
+      overlay_file      = "arrow-right.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+      arrow_direction   = RIGHT
+    }
+    image
+    {
+      function          = CHECK
+      state             = NORMAL
+      shadow            = OUT
+      recolorable       = TRUE
+      overlay_file      = "check1.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+    }
+
+    image
+    {
+      function          = CHECK
+      state             = PRELIGHT
+      shadow            = OUT
+      recolorable       = TRUE
+      overlay_file      = "check3.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+    }
+
+    image
+    {
+      function          = CHECK
+      state             = ACTIVE
+      shadow            = OUT
+      recolorable       = TRUE
+      overlay_file      = "check5.png" 
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+    }
+
+    image
+    {
+      function          = CHECK
+      state             = INSENSITIVE
+      shadow            = OUT
+      recolorable       = TRUE
+      overlay_file      = "check6.png" 
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+    }
+
+
+    image
+    {
+      function          = CHECK
+      shadow            = IN
+      state             = NORMAL
+      recolorable       = TRUE
+      overlay_file      = "check2.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+    }
+
+    image
+    {
+      function          = CHECK
+      shadow            = IN
+      state             = PRELIGHT
+      recolorable       = TRUE
+      overlay_file      = "check4.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+    }
+
+    image
+    {
+      function          = CHECK
+      shadow            = IN
+      state             = ACTIVE
+      recolorable       = TRUE
+      overlay_file      = "check7.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+    }
+
+    image
+    {
+      function          = CHECK
+      shadow            = IN
+      state             = INSENSITIVE
+      recolorable       = TRUE
+      overlay_file      = "check8.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+    }
+
+    image
+    {
+      function          = OPTION
+      state             = NORMAL
+      shadow            = OUT
+      recolorable       = TRUE
+      overlay_file      = "option1.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+    }
+    image
+    {
+      function          = OPTION
+      state             = NORMAL
+      shadow            = IN
+      recolorable       = TRUE
+      overlay_file      = "option2.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+    }
+
+    image
+    {
+      function          = OPTION
+      state             = PRELIGHT
+      shadow            = IN
+      recolorable       = TRUE
+      overlay_file      = "option3.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+    }
+
+    image
+    {
+      function          = OPTION
+      state             = ACTIVE
+      shadow            = IN
+      recolorable       = TRUE
+      overlay_file      = "option4.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+    }
+
+    image
+    {
+      function          = OPTION
+      state             = ACTIVE
+      shadow            = OUT
+      recolorable       = TRUE
+      overlay_file      = "option5.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+    }
+
+    image
+    {
+      function          = OPTION
+      state             = PRELIGHT
+      shadow            = OUT
+      recolorable       = TRUE
+      overlay_file      = "option6.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+    }
+
+  }
+}
+
+style "Aero-button" = "Aero-default"
+{
+  # orange focus rectangle
+  fg[NORMAL] = "#ffbb31"
+  fg[INSENSITIVE] = "#ffbb31"
+  fg[ACTIVE] = "#ffbb31"
+  fg[SELECTED] = "#ffbb31"
+  fg[PRELIGHT] = "#ffbb31"
+
+  engine "pixmap"
+  {
+		image
+		{
+			function				 = BOX
+			detail					 = "buttondefault"
+      file             = "button-default.png"
+      border           = { 8, 8, 8, 8 }
+      stretch          = TRUE
+		}
+    image
+    {
+      function         = BOX
+      shadow           = IN
+      state            = PRELIGHT
+      recolorable      = TRUE
+      file             = "button-in-pre.png"
+      border           = { 9, 9, 9, 9 }
+      stretch          = TRUE
+    }
+    image
+    {
+      function         = BOX
+      shadow           = IN
+      recolorable      = TRUE
+      file             = "button-in.png"
+      border           = { 8, 8, 8, 8 }
+      stretch          = TRUE
+    }
+    image
+    {
+      function         = BOX
+      state            = PRELIGHT
+      recolorable      = TRUE
+      file             = "button-out-pre.png"
+      border           = { 9, 9, 9, 9 }
+      stretch          = TRUE
+    }
+    image
+    {
+      function         = BOX
+      recolorable      = TRUE
+      file             = "button-out.png"
+      border           = { 8, 8, 8, 8 }
+      stretch          = TRUE
+    }
+  }
+}
+
+style "Aero-optionmenu" = "Aero-default"
+{
+  # orange focus rectangle
+  fg[NORMAL] = "#ffbb31"
+  fg[INSENSITIVE] = "#ffbb31"
+  fg[ACTIVE] = "#ffbb31"
+  fg[SELECTED] = "#ffbb31"
+  fg[PRELIGHT] = "#ffbb31"
+
+  engine "pixmap"
+  {
+    image
+    {
+      function         = BOX
+      shadow           = IN
+      state            = PRELIGHT
+			recolorable      = TRUE
+      file             = "button-in-pre.png"
+      border           = { 9, 9, 9, 9 }
+      stretch          = TRUE
+    }
+    image
+    {
+      function         = BOX
+      shadow           = IN
+			recolorable      = TRUE
+      file             = "button-in.png"
+      border           = { 8, 8, 8, 8 }
+      stretch          = TRUE
+    }
+    image
+    {
+      function         = BOX
+      shadow           = OUT
+      state            = PRELIGHT
+			recolorable      = TRUE
+      file             = "button-out-pre.png"
+      border           = { 9, 9, 9, 9 }
+      stretch          = TRUE
+    }
+    image
+    {
+      function         = BOX
+      shadow           = OUT
+			recolorable      = TRUE
+      file             = "button-out.png"
+      border           = { 8, 8, 8, 8 }
+      stretch          = TRUE
+    }
+    image
+    {
+      function           = TAB
+      state              = INSENSITIVE
+      recolorable        = TRUE
+      overlay_file       = "arrow-down-i.png"
+      overlay_border     = { 0, 0, 0, 0 }
+      overlay_stretch    = FALSE
+    }
+    image
+    {
+      function           = TAB
+      recolorable        = TRUE
+      overlay_file       = "arrow-down.png"
+      overlay_border     = { 0, 0, 0, 0 }
+      overlay_stretch    = FALSE
+    }
+  }
+}
+
+style "Aero-radiobutton"               = "Aero-default"
+{
+  # orange focus rectangle
+  fg[NORMAL] = "#ffbb31"
+  fg[INSENSITIVE] = "#ffbb31"
+  fg[ACTIVE] = "#ffbb31"
+  fg[SELECTED] = "#ffbb31"
+  fg[PRELIGHT] = "#ffbb31"
+}
+
+style "Aero-checkbutton"               = "Aero-default"
+{
+  # orange focus rectangle
+  fg[NORMAL] = "#ffbb31"
+  fg[INSENSITIVE] = "#ffbb31"
+  fg[ACTIVE] = "#ffbb31"
+  fg[SELECTED] = "#ffbb31"
+  fg[PRELIGHT] = "#ffbb31"
+
+  engine "pixmap"
+  {
+    image
+    {
+      function          = FLAT_BOX
+    }
+  }
+}
+
+style "Aero-entry"     = "Aero-default"
+{
+  GtkWidget::interior_focus         = 1
+
+  bg_pixmap[NORMAL] = "entry-normal.png"
+  bg_pixmap[INSENSITIVE] = "entry-insensitive.png"
+}
+
+style "Aero-spinbutton"= "Aero-entry"
+{
+  engine "pixmap"
+  {
+    image
+    {
+      function          = BOX
+      recolorable       = TRUE
+      detail            = "spinbutton"
+      file              = "shadow.png"
+      border            = { 5, 5, 5, 5 }
+      stretch           = TRUE
+    }
+    image
+    {
+      function          = BOX
+      detail            = "spinbutton_up"
+      file              = "spinbutton-up.png"
+      border            = { 4, 5, 5, 0 }
+      stretch           = TRUE
+    }
+    image
+    {
+      function          = BOX
+      detail            = "spinbutton_down"
+      file              = "spinbutton-down.png"
+      border            = { 4, 5, 0, 5 }
+      stretch           = TRUE
+    }
+  }
+}
+
+style "Aero-scrollbar"
+{
+  engine "pixmap" 
+  {
+    image 
+    {
+      function          = BOX
+      detail            = "trough"
+      file              = "bg.png"
+      stretch           = FALSE
+      overlay_file      = "trough.png"
+      overlay_border    = { 5, 5, 5, 5 }
+      overlay_stretch   = TRUE
+    }
+    image 
+    {
+      function          = SLIDER
+      state             = PRELIGHT
+      recolorable       = TRUE
+      file              = "slider-v-pre.png"
+      border            = { 4, 4, 7, 5 }
+      stretch           = TRUE
+      orientation       = VERTICAL
+    }
+    image 
+    {
+      function          = SLIDER
+      state             = PRELIGHT
+      recolorable       = TRUE
+      file              = "slider-h-pre.png"
+      border            = { 5, 5, 6, 4 }
+      stretch           = TRUE
+      orientation       = HORIZONTAL
+    }
+    image 
+    {
+      function          = SLIDER
+      recolorable       = TRUE
+      file              = "slider.png"
+      border            = { 4, 4, 6, 4 }
+      stretch           = TRUE
+    }
+  }
+}
+
+style "Aero-progressbar"               = "Aero-default"
+{
+  engine "pixmap" 
+  {
+    image
+    {
+      function          = BOX
+      detail            = "bar"
+      recolorable       = TRUE
+      file              = "progressbar.png"
+      border            = { 0, 21, 0, 15 }
+      stretch           = TRUE
+    }
+    image
+    {
+      function          = BOX
+      recolorable       = TRUE
+      file              = "bg.png"
+      stretch           = FALSE
+      overlay_file      = "progress-trough.png"
+      overlay_border    = { 6, 6, 0, 15 }
+      overlay_stretch   = TRUE
+    }
+  }
+}
+
+style "Aero-range"     = "Aero-standard"
+{
+  # orange focus rectangle
+  fg[NORMAL] = "#ffbb31"
+  fg[INSENSITIVE] = "#ffbb31"
+  fg[ACTIVE] = "#ffbb31"
+  fg[SELECTED] = "#ffbb31"
+  fg[PRELIGHT] = "#ffbb31"
+
+  engine "pixmap" 
+  {
+    image 
+    {
+      function          = BOX
+      recolorable       = TRUE
+      detail            = "trough"
+      file              = "bg.png"
+      stretch           = FALSE
+      overlay_file      = "trough.png"
+      overlay_border    = { 5, 5, 5, 5 }
+      overlay_stretch   = TRUE
+    }
+    image 
+    {
+      function          = SLIDER
+      state             = PRELIGHT
+      recolorable       = TRUE
+      file              = "slider-h-pre.png"
+      border            = { 5, 5, 6, 4 }
+      stretch           = TRUE
+      overlay_file      = "grip-h.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+      orientation       = HORIZONTAL
+    }
+    image 
+    {
+      function          = SLIDER
+      state             = PRELIGHT
+      recolorable       = TRUE
+      file              = "slider-v-pre.png"
+      border            = { 4, 4, 7, 5 }
+      stretch           = TRUE
+      overlay_file      = "grip-v.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+      orientation       = VERTICAL
+    }
+    image 
+    {
+      function          = SLIDER
+      recolorable       = TRUE
+      file              = "slider.png"
+      border            = { 4, 4, 6, 4 }
+      stretch           = TRUE
+      overlay_file      = "grip-h.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+      orientation       = HORIZONTAL
+    }
+    image 
+    {
+      function          = SLIDER
+      recolorable       = TRUE
+      file              = "slider.png"
+      border            = { 4, 4, 6, 4 }
+      stretch           = TRUE
+      overlay_file      = "grip-v.png"
+      overlay_border    = { 0, 0, 0, 0 }
+      overlay_stretch   = FALSE
+      orientation       = VERTICAL
+    }
+  }
+}
+
+style "Aero-menu"      = "Aero-default"
+{
+  engine "pixmap"
+  {
+    image
+    {
+      function          = BOX
+      detail            = "menu"
+      recolorable       = TRUE
+      file              = "shadow-menu.png"
+      border            = { 1, 1, 1, 1 }
+      stretch           = TRUE
+    }
+  }
+}
+
+style "Aero-menuitem"  = "Aero-default"
+{
+  # orange focus rectangle
+  fg[NORMAL] = "#ffbb31"
+  fg[INSENSITIVE] = "#ffbb31"
+  fg[ACTIVE] = "#ffbb31"
+  fg[SELECTED] = "#ffbb31"
+  fg[PRELIGHT] = "#ffbb31"
+
+  xthickness            = 4
+
+  engine "pixmap"
+  {
+    image
+    {
+      function          = BOX
+      recolorable       = TRUE
+      file              = "box.png"
+      border            = { 1, 1, 8, 8 }
+      stretch           = TRUE
+    }
+  }
+}
+
+#  = "Aero-default"
+style "Aero-notebook"
+{
+  # Orange focus rectangle
+    fg[NORMAL] = "#ffbb31"
+
+  engine "pixmap" 
+  {
+    image 
+    {
+      function          = EXTENSION
+      state             = ACTIVE
+      recolorable       = TRUE
+      file              = "ext-bottom-active.png"
+      border            = { 8, 8, 9, 1 }
+      stretch           = TRUE
+      gap_side          = BOTTOM
+    }
+    image 
+    {
+      function          = EXTENSION
+      recolorable       = TRUE
+      file              = "ext-bottom1.png"
+      border            = { 7, 7, 8, 1 }
+      stretch           = TRUE
+      gap_side          = BOTTOM
+    }
+    image 
+    {
+      function          = EXTENSION
+      state             = ACTIVE
+      recolorable       = TRUE
+      file              = "ext-top-active.png"
+      border            = { 8, 8, 1, 9 }
+      stretch           = TRUE
+      gap_side          = TOP
+    }
+    image 
+    {
+      function          = EXTENSION
+      recolorable       = TRUE
+      file              = "ext-top.png"
+      border            = { 7, 7, 1, 8 }
+      stretch           = TRUE
+      gap_side          = TOP
+    }
+    image 
+    {
+      function          = EXTENSION
+      recolorable       = TRUE
+      file              = "ext-right.png"
+      border            = { 7, 4, 8, 8 }
+      stretch           = TRUE
+      gap_side          = RIGHT
+    }
+    image 
+    {
+      function          = EXTENSION
+      recolorable       = TRUE
+      file              = "ext-left.png"
+      border            = { 4, 7, 8, 8 }
+      stretch           = TRUE
+      gap_side          = LEFT
+    }
+    image 
+    {
+      function          = BOX_GAP
+      recolorable       = TRUE
+      file              = "shadow-notebook-top.png"
+      border            = { 5, 5, 0, 5 }
+      stretch           = TRUE
+      gap_file          = "trans.png"
+      gap_border        = { 0, 0, 0, 0 }
+      gap_start_file    = "light.png"
+      gap_start_border  = { 0, 0, 0, 0 }
+      gap_end_file      = "light.png"
+      gap_end_border    = { 0, 0, 0, 0 }
+	    gap_side          = TOP
+    }
+    image
+    {
+      function          = BOX_GAP
+      recolorable       = TRUE
+      file              = "shadow-notebook-bottom.png"
+      border            = { 5, 5, 5, 0 }
+      stretch           = TRUE
+      gap_file          = "trans.png"
+      gap_border        = { 0, 0, 0, 0 }
+      gap_start_file    = "light.png"
+      gap_start_border  = { 0, 0, 0, 0 }
+      gap_end_file      = "light.png"
+      gap_end_border    = { 0, 0, 0, 0 }
+	    gap_side          = BOTTOM
+    }
+    image 
+    {
+      function          = BOX_GAP
+      recolorable       = TRUE
+      file              = "shadow-notebook-left.png"
+      border            = { 5, 5, 5, 5 }
+      stretch           = TRUE
+      gap_file          = "trans.png"
+      gap_border        = { 0, 0, 0, 0 }
+      gap_start_file    = "light.png"
+      gap_start_border  = { 0, 0, 0, 0 }
+      gap_end_file      = "light.png"
+      gap_end_border    = { 0, 0, 0, 0 }
+	    gap_side          = LEFT
+    }
+    image 
+    {
+      function          = BOX_GAP
+      recolorable       = TRUE
+      file              = "shadow-notebook-right.png"
+      border            = { 5, 5, 5, 5 }
+      stretch           = TRUE
+      gap_file          = "trans.png"
+      gap_border        = { 0, 0, 0, 0 }
+      gap_start_file    = "light.png"
+      gap_start_border  = { 0, 0, 0, 0 }
+      gap_end_file      = "light.png"
+      gap_end_border    = { 0, 0, 0, 0 }
+	    gap_side          = RIGHT
+    }
+  }
+}
+
+style "Aero-tooltips"  = "Aero-default"
+{
+  bg[NORMAL] = "#454f60"
+
+  engine "pixmap"
+  {
+    image
+    {
+      function          = FLAT_BOX
+      recolorable       = TRUE
+      file              = "tooltip.png"
+      border            = { 1, 1, 1, 1 }
+      stretch           = TRUE
+    }
+  }
+}
+
+style "Aero-ruler"     = "Aero-default"
+{
+  engine "pixmap"
+  {
+    image
+    {
+      function          = BOX
+      file              = "ruler.png"
+      border            = { 0, 1, 0, 1 }
+      stretch           = TRUE
+    }
+  }
+}
+
+style "Aero-layout"    = "Aero-default"
+{
+  engine "pixmap"
+  {
+    image
+    {
+       function          = SHADOW
+       detail            = "entry"
+       file              = "shadow.png"
+       recolorable       = TRUE
+       border            = { 5, 5, 5, 5 }
+       stretch           = TRUE
+    }
+    image
+    {
+       function          = SHADOW
+       file              = "shadow-evolution.png"
+       recolorable       = TRUE
+       border            = { 1, 1, 1, 1 }
+       stretch           = TRUE
+    }
+    image
+    {
+      function          = BOX
+      detail            = "button"
+      state             = NORMAL
+      file              = "button-out.png"
+      recolorable       = TRUE
+      border            = { 8, 8, 8, 8 }
+      stretch           = TRUE
+    }
+  }
+}
+
+# This prevents Sodipodi from crashing while opening the
+# Object-Style dialog.
+
+style "Aero-unstyle"
+{
+  engine ""
+  {
+  }
+}
+
+# recognizable pressed toggle buttons
+# SPIcons seem to erase the background first. That's why I can't use
+# the Aero-button style.
+
+style "Aero-SPbutton"
+{
+  engine "pixmap"
+  {
+    image
+    {
+      function          = BOX
+      shadow            = IN
+      recolorable       = TRUE
+      file              = "shadow.png"
+      border            = { 5, 5, 5, 5 }
+      stretch           = TRUE
+    }
+    image
+    {
+      function          = BOX
+    }
+  }
+}
+
+style "Aero-treeview" = "Aero-default"
+{
+  bg_pixmap[NORMAL] = "entry-normal.png"
+}
+
+style "Aero-evolution-specific" = "Aero-default"
+{
+  engine "pixmap"
+  {
+    image
+    {
+       function          = SHADOW
+       file              = "shadow.png"
+       recolorable       = TRUE
+       border            = { 5, 5, 5, 5 }
+       stretch           = TRUE
+    }
+  }
+}
+
+style "Aero-stock-icons"
+{
+  stock["gtk-add"] = {
+    { "icons/48x48/gtk_stock_add.png" }
+  }
+  stock["gtk-apply"] = {
+    { "icons/48x48/gtk_stock_apply.png" }
+  }
+  stock["gtk-bold"] = {
+    { "icons/48x48/gtk_stock_bold.png" }
+  }
+  stock["gtk-cancel"] = {
+    { "icons/48x48/gtk_stock_cancel.png" }
+  }
+  stock["gtk-cdrom"] = {
+    { "icons/48x48/gtk_stock_cdrom.png" }
+  }
+  stock["gtk-clear"] = {
+    { "icons/48x48/gtk_stock_clear.png" }
+  }
+  stock["gtk-close"] = {
+    { "icons/48x48/gtk_stock_close.png" }
+  }
+  stock["gtk-convert"] = {
+    { "icons/48x48/gtk_stock_convert.png" }
+  }
+  stock["gtk-copy"] = {
+    { "icons/48x48/gtk_stock_copy.png" }
+  }
+  stock["gtk-cut"] = {
+    { "icons/48x48/gtk_stock_cut.png" }
+  }
+  stock["gtk-delete"] = {
+    { "icons/48x48/gtk_stock_delete.png" }
+  }
+  stock["gtk-find"] = {
+    { "icons/48x48/gtk_stock_find.png" }
+  }
+  stock["gtk-find-and-replace"] = {
+    { "icons/48x48/gtk_stock_find_and_replace.png" }
+  }
+  stock["gtk-home"] = {
+    { "icons/48x48/gtk_stock_home.png" }
+  }
+  stock["gtk-remove"] = {
+    { "icons/48x48/gtk_stock_remove.png" }
+  }
+  stock["gtk-go-back"] = {
+    { "icons/48x48/gtk_stock_go_back.png" }
+  }
+  stock["gtk-go-down"] = {
+    { "icons/48x48/gtk_stock_go_down.png" }
+  }
+  stock["gtk-execute"] = {
+    { "icons/48x48/gtk_stock_execute.png" }
+  }
+  stock["gtk-floppy"] = {
+    { "icons/48x48/gtk_stock_floppy.png" }
+  }
+  stock["gtk-go-forward"] = {
+    { "icons/48x48/gtk_stock_go_forward.png" }
+  }
+  stock["gtk-go-up"] = {
+    { "icons/48x48/gtk_stock_go_up.png" }
+  }
+  stock["gtk-goto-bottom"] = {
+    { "icons/48x48/gtk_stock_goto_bottom.png" }
+  }
+  stock["gtk-goto-first"] = {
+    { "icons/48x48/gtk_stock_goto_first.png" }
+  }
+  stock["gtk-goto-last"] = {
+    { "icons/48x48/gtk_stock_goto_last.png" }
+  }
+  stock["gtk-goto-top"] = {
+    { "icons/48x48/gtk_stock_goto_top.png" }
+  }
+  stock["gtk-help"] = {
+    { "icons/48x48/gtk_stock_help.png" }
+  }
+  stock["gtk-index"] = {
+    { "icons/16x16/gtk_stock_index.png", *, *, "gtk-menu" },
+    { "icons/48x48/gtk_stock_index.png" }
+  }
+  stock["gtk-italic"] = {
+    { "icons/48x48/gtk_stock_italic.png" }
+  }
+  stock["gtk-jump-to"] = {
+    { "icons/48x48/gtk_stock_jump_to.png" }
+  }
+  stock["gtk-justify-center"] = {
+    { "icons/48x48/gtk_stock_justify_center.png" }
+  }
+  stock["gtk-justify-fill"] = {
+    { "icons/48x48/gtk_stock_justify_fill.png" }
+  }
+  stock["gtk-justify-left"] = {
+    { "icons/48x48/gtk_stock_justify_left.png" }
+  }
+  stock["gtk-justify-right"] = {
+    { "icons/48x48/gtk_stock_justify_right.png" }
+  }
+  stock["gtk-missing-image"] = {
+    { "icons/16x16/gtk_stock_missing_image.png", *, *, "gtk-menu" },
+    { "icons/48x48/gtk_stock_missing_image.png" }
+  }
+  stock["gtk-new"] = {
+    { "icons/16x16/gtk_stock_new.png", *, *, "gtk-menu" },
+    { "icons/48x48/gtk_stock_new.png" }
+  }
+  stock["gtk-no"] = {
+    { "icons/48x48/gtk_stock_no.png" }
+  }
+  stock["gtk-open"] = {
+    { "icons/16x16/gtk_stock_open.png", *, *, "gtk-menu" },
+    { "icons/48x48/gtk_stock_open.png" }
+  }
+  stock["gtk-ok"] = {
+    { "icons/48x48/gtk_stock_ok.png" }
+  }
+  stock["gtk-paste"] = {
+    { "icons/48x48/gtk_stock_paste.png" }
+  }
+  stock["gtk-preferences"] = {
+    { "icons/48x48/gtk_stock_preferences.png" }
+  }
+  stock["gtk-print"] = {
+    { "icons/48x48/gtk_stock_print.png" }
+  }
+  stock["gtk-print-preview"] = {
+    { "icons/16x16/gtk_stock_print_preview.png", *, *, "gtk-menu" },
+    { "icons/48x48/gtk_stock_print_preview.png" }
+  }
+  stock["gtk-properties"] = {
+    { "icons/16x16/gtk_stock_properties.png", *, *, "gtk-menu" },
+    { "icons/48x48/gtk_stock_properties.png" }
+  }
+  stock["gtk-quit"] = {
+    { "icons/48x48/gtk_stock_quit.png" }
+  }
+  stock["gtk-redo"] = {
+    { "icons/48x48/gtk_stock_redo.png" }
+  }
+  stock["gtk-refresh"] = {
+    { "icons/48x48/gtk_stock_refresh.png" }
+  }
+  stock["gtk-revert-to-saved"] = {
+    { "icons/16x16/gtk_stock_revert_to_saved.png", *, *, "gtk-menu" },
+    { "icons/48x48/gtk_stock_revert_to_saved.png" }
+  }
+  stock["gtk-save"] = {
+    { "icons/48x48/gtk_stock_save.png" }
+  }
+  stock["gtk-save-as"] = {
+    { "icons/16x16/gtk_stock_save_as.png", *, *, "gtk-menu" },
+    { "icons/48x48/gtk_stock_save_as.png" }
+  }
+  stock["gtk-select-color"] = {
+    { "icons/48x48/gtk_stock_select_color.png" }
+  }
+  stock["gtk-select-font"] = {
+    { "icons/48x48/gtk_stock_select_font.png" }
+  }
+  stock["gtk-spell-check"] = {
+    { "icons/48x48/gtk_stock_spell_check.png" }
+  }
+  stock["gtk-strikethrough"] = {
+    { "icons/48x48/gtk_stock_strikethrough.png" }
+  }
+  stock["gtk-sort-ascending"] = {
+    { "icons/48x48/gtk_stock_sort_ascending.png" }
+  }
+  stock["gtk-sort-descending"] = {
+    { "icons/48x48/gtk_stock_sort_descending.png" }
+  }
+  stock["gtk-stop"] = {
+    { "icons/16x16/gtk_stock_stop.png", *, *, "gtk-menu" },
+    { "icons/48x48/gtk_stock_stop.png" }
+  }
+  stock["gtk-undelete"] = {
+    { "icons/16x16/gtk_stock_undelete.png", *, *, "gtk-menu" },
+    { "icons/48x48/gtk_stock_undelete.png" }
+  }
+  stock["gtk-underline"] = {
+    { "icons/48x48/gtk_stock_underline.png" }
+  }
+  stock["gtk-undo"] = {
+    { "icons/48x48/gtk_stock_undo.png" }
+  }
+  stock["gtk-yes"] = {
+    { "icons/48x48/gtk_stock_yes.png" }
+  }
+} class "GtkObject" style "Aero-stock-icons"
+
+class "GtkWidget"          style "Aero-default"
+class "GtkEventBox"        style "Aero-default"
+class "GtkButton"          style "Aero-button"
+class "GtkRadioButton"     style "Aero-radiobutton"
+class "GtkCheckButton"     style "Aero-checkbutton"
+class "GtkOptionMenu"      style "Aero-optionmenu"
+class "GtkEntry"           style "Aero-entry"
+class "GtkOldEditable"     style "Aero-entry"
+class "GtkSpinButton"      style "Aero-spinbutton"
+class "GtkRange"           style "Aero-range"
+class "GtkScrollbar"       style "Aero-scrollbar"
+class "GtkProgressBar"     style "Aero-progressbar"
+class "GtkMenu"            style "Aero-menu"
+class "GtkItem"            style "Aero-menuitem"
+class "GtkNotebook"        style "Aero-notebook"
+class "GtkRuler"           style "Aero-ruler"
+class "GtkLayout"          style "Aero-layout"
+class "GtkTreeView"        style "Aero-treeview"
+widget "gtk-tooltips"      style "Aero-tooltips"
+# Sodipodi 0.31
+class "SPButton"           style "Aero-SPbutton"
+class "SPColorSlider"      style "Aero-unstyle"
+# Evolution 1.4.4
+class "ECalendar"          style "Aero-evolution-specific"

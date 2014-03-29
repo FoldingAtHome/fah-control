@@ -1,0 +1,82 @@
+#!/usr/bin/env python
+'''
+  Folding@Home Client Control (FAHControl)
+  Copyright (C) 2010-2013 Stanford University
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+'''
+
+import os
+import sys
+import inspect
+import socket
+from optparse import OptionParser
+from fah import FAHControl, load_fahcontrol_db
+from fah.util import *
+from fah.db import *
+
+
+def set_proc_name(name):
+    from ctypes import cdll, byref, create_string_buffer
+
+    libc = cdll.LoadLibrary('libc.so.6')
+    buff = create_string_buffer(len(name)+1)
+    buff.value = name
+    libc.prctl(15, byref(buff), 0, 0, 0)
+
+
+if __name__ == '__main__':
+    if sys.platform.startswith('linux'): set_proc_name('FAHControl')
+
+    # If present, remove the Launch Services -psn_xxx_xxx argument
+    if len(sys.argv) > 1 and sys.argv[1][:4] == '-psn':
+        del sys.argv[1]
+
+    parser = OptionParser(usage = 'Usage: %prog [options]')
+
+    parser.add_option('--exit', help = 'Tell the running application to exit',
+                      action = 'store_true', dest = 'exit')
+    options, args = parser.parse_args()
+
+    # Tell app to exit
+    if options.exit:
+        try:
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.connect(single_app_addr)
+            sock.send('EXIT')
+            if sock.recv(1024).strip() == 'OK': print 'Ok'
+        except Exception, e: pass
+
+        sys.exit(0)
+
+    # Add executable path to PATH
+    if getattr(sys, 'frozen', False): path = os.path.dirname(sys.executable)
+    else: path = os.path.dirname(__file__)
+    path = os.path.realpath(path)
+    os.environ['PATH'] = path + os.pathsep + os.environ['PATH']
+
+    # Load Glade
+    dir = os.path.dirname(inspect.getfile(inspect.currentframe()))
+    if not dir: dir = '.'
+    glade = dir + '/fah/FAHControl.glade'
+
+    if os.path.exists(glade): app = FAHControl(glade)
+    else:
+        from fah.FAHControl_glade import glade_data
+        app = FAHControl(glade_data)
+
+    try:
+        app.run()
+    except Exception, e:
+        print e

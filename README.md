@@ -1,4 +1,10 @@
-fah-control
-==========
+Folding@home Client Advanced Control
+====================================
 
-Folding@home Client Advanced Control GUI
+FAHControl can monitor and control one or more FAHClients.
+
+To run:
+
+  python FAHControl
+
+See: https://folding.stanford.edu

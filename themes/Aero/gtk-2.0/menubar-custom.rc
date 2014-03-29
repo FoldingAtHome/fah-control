@@ -1,0 +1,1051 @@
+#################### MENUBAR ###################
+
+
+style "menubar-black"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#B9B9B9"
+  fg[ACTIVE] = "#B9B9B9"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			state = NORMAL
+			file		= "Menu-Menubar/menubar-black.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = ACTIVE
+			file		= "Menu-Menubar/menubar-black.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = INSENSITIVE
+			file		= "Menu-Menubar/menubar-inactive.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function			= BOX
+			recolorable		= TRUE
+			state = PRELIGHT
+			file				= "Menu-Menubar/menubar-item.png"
+			border			= { 10, 10, 10, 10 }
+			stretch			= TRUE
+		}
+
+ 	}
+}
+
+
+style "menubar-green"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#9DDBA4"
+  fg[ACTIVE] = "#9DDBA4"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			state = NORMAL
+			file		= "Menu-Menubar/menubar-green.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = ACTIVE
+			file		= "Menu-Menubar/menubar-green.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = INSENSITIVE
+			file		= "Menu-Menubar/menubar-inactive.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function			= BOX
+			recolorable		= TRUE
+			state = PRELIGHT
+			file				= "Menu-Menubar/menubar-item.png"
+			border			= { 10, 10, 10, 10 }
+			stretch			= TRUE
+		}
+
+ 	}
+}
+
+
+style "menubar-green-alt"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#9DDBA4"
+  fg[ACTIVE] = "#9DDBA4"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			state = NORMAL
+			file		= "Menu-Menubar/menubar-green-alt.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = ACTIVE
+			file		= "Menu-Menubar/menubar-green-alt.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = INSENSITIVE
+			file		= "Menu-Menubar/menubar-inactive.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function			= BOX
+			recolorable		= TRUE
+			state = PRELIGHT
+			file				= "Menu-Menubar/menubar-item.png"
+			border			= { 10, 10, 10, 10 }
+			stretch			= TRUE
+		}
+
+ 	}
+}
+
+
+style "menubar-green-blue"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#C7DBFC"
+  fg[ACTIVE] = "#C7DBFC"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			state = NORMAL
+			file		= "Menu-Menubar/menubar-green-blue.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = ACTIVE
+			file		= "Menu-Menubar/menubar-green-blue.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = INSENSITIVE
+			file		= "Menu-Menubar/menubar-inactive.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function			= BOX
+			recolorable		= TRUE
+			state = PRELIGHT
+			file				= "Menu-Menubar/menubar-item.png"
+			border			= { 10, 10, 10, 10 }
+			stretch			= TRUE
+		}
+
+ 	}
+}
+
+
+style "menubar-blue-green"		
+{
+#font_name = "Segoe UI Bold 9"
+font_name = "Sans 8"
+  fg[NORMAL] = "#000000"
+  text[NORMAL] = "#000000"
+  fg[PRELIGHT] = "#000000"
+  fg[ACTIVE] = "#000000"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			state = NORMAL
+			file		= "Menu-Menubar/menubar-blue-green.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = ACTIVE
+			file		= "Menu-Menubar/menubar-blue-green.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = INSENSITIVE
+			file		= "Menu-Menubar/menubar-inactive.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function			= BOX
+			recolorable		= TRUE
+			state = PRELIGHT
+			file				= "Menu-Menubar/menubar-item.png"
+			border			= { 10, 10, 10, 10 }
+			stretch			= TRUE
+		}
+
+ 	}
+}
+
+
+style "menubar-blue"		#Nautilus übernimmt diese einstellungen!!!!
+{
+#font_name = "Segoe UI Bold 9"
+font_name = "Sans 8"
+  fg[NORMAL] = "#000000"
+  text[NORMAL] = "#000000"
+  fg[PRELIGHT] = "#000000"
+  fg[ACTIVE] = "#000000"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			state = NORMAL
+			file		= "Menu-Menubar/menubar-blue-greenX.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = ACTIVE
+			file		= "Menu-Menubar/menubar-blue-greenX.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = INSENSITIVE
+			file		= "Menu-Menubar/menubar-inactive.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function			= BOX
+			recolorable		= TRUE
+			state = PRELIGHT
+			file				= "Menu-Menubar/menubar-item.png"
+			border			= { 10, 10, 10, 10 }
+			stretch			= TRUE
+		}
+
+ 	}
+}
+
+
+style "menubar-vista"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#404040"
+  text[NORMAL] = "#404040"
+  fg[PRELIGHT] = "#808080"
+  fg[ACTIVE] = "#808080"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			state = NORMAL
+			file		= "Menu-Menubar/menubar-vista.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = ACTIVE
+			file		= "Menu-Menubar/menubar-vista.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = INSENSITIVE
+			file		= "Menu-Menubar/menubar-vista-inactive.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function			= BOX
+			recolorable		= TRUE
+			state = PRELIGHT
+			file				= "Menu-Menubar/menubar-item.png"
+			border			= { 10, 10, 10, 10 }
+			stretch			= TRUE
+		}
+
+ 	}
+}
+
+
+style "menubar-blue-dark"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#C7DBFC"
+  fg[ACTIVE] = "#C7DBFC"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			state = NORMAL
+			file		= "Menu-Menubar/menubar-blue-dark.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = ACTIVE
+			file		= "Menu-Menubar/menubar-blue-dark.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = INSENSITIVE
+			file		= "Menu-Menubar/menubar-inactive.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function			= BOX
+			recolorable		= TRUE
+			state = PRELIGHT
+			file				= "Menu-Menubar/menubar-item.png"
+			border			= { 10, 10, 10, 10 }
+			stretch			= TRUE
+		}
+
+ 	}
+}
+
+
+style "menubar-blue-deep"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#C7DBFC"
+  fg[ACTIVE] = "#C7DBFC"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			state = NORMAL
+			file		= "Menu-Menubar/menubar-blue-deep.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = ACTIVE
+			file		= "Menu-Menubar/menubar-blue-deep.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = INSENSITIVE
+			file		= "Menu-Menubar/menubar-inactive.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function			= BOX
+			recolorable		= TRUE
+			state = PRELIGHT
+			file				= "Menu-Menubar/menubar-item.png"
+			border			= { 10, 10, 10, 10 }
+			stretch			= TRUE
+		}
+
+ 	}
+}
+
+
+style "menubar-blue-light"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#404040"
+  fg[ACTIVE] = "#404040"
+#  fg[INSENSITIVE] = "#DDE4FF"
+#  text[PRELIGHT] = "#DDE4FF"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			state = NORMAL
+			file		= "Menu-Menubar/menubar-blue-light.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = ACTIVE
+			file		= "Menu-Menubar/menubar-blue-light.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = INSENSITIVE
+			file		= "Menu-Menubar/menubar-inactive.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function			= BOX
+			recolorable		= TRUE
+			state = PRELIGHT
+			file				= "Menu-Menubar/menubar-item.png"
+			border			= { 10, 10, 10, 10 }
+			stretch			= TRUE
+		}
+
+ 	}
+}
+
+
+style "menubar-purple-blue"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#C7DBFC"
+  fg[ACTIVE] = "#C7DBFC"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			state = NORMAL
+			file		= "Menu-Menubar/menubar-purple-blue.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = ACTIVE
+			file		= "Menu-Menubar/menubar-purple-blue.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = INSENSITIVE
+			file		= "Menu-Menubar/menubar-inactive.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function			= BOX
+			recolorable		= TRUE
+			state = PRELIGHT
+			file				= "Menu-Menubar/menubar-item.png"
+			border			= { 10, 10, 10, 10 }
+			stretch			= TRUE
+		}
+
+ 	}
+}
+
+
+style "menubar-purple-deep"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#E6AAF5"
+  fg[ACTIVE] = "#E6AAF5"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			state = NORMAL
+			file		= "Menu-Menubar/menubar-purple-deep.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = ACTIVE
+			file		= "Menu-Menubar/menubar-purple-deep.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = INSENSITIVE
+			file		= "Menu-Menubar/menubar-inactive.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function			= BOX
+			recolorable		= TRUE
+			state = PRELIGHT
+			file				= "Menu-Menubar/menubar-item.png"
+			border			= { 10, 10, 10, 10 }
+			stretch			= TRUE
+		}
+
+ 	}
+}
+
+
+style "menubar-purple"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#E6AAF5"
+  fg[ACTIVE] = "#E6AAF5"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			state = NORMAL
+			file		= "Menu-Menubar/menubar-purple.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = ACTIVE
+			file		= "Menu-Menubar/menubar-purple.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = INSENSITIVE
+			file		= "Menu-Menubar/menubar-inactive.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function			= BOX
+			recolorable		= TRUE
+			state = PRELIGHT
+			file				= "Menu-Menubar/menubar-item.png"
+			border			= { 10, 10, 10, 10 }
+			stretch			= TRUE
+		}
+
+ 	}
+}
+
+
+style "menubar-brown"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#F0B58D"
+  fg[ACTIVE] = "#F0B58D"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			state = NORMAL
+			file		= "Menu-Menubar/menubar-brown.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = ACTIVE
+			file		= "Menu-Menubar/menubar-brown.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = INSENSITIVE
+			file		= "Menu-Menubar/menubar-inactive.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function			= BOX
+			recolorable		= TRUE
+			state = PRELIGHT
+			file				= "Menu-Menubar/menubar-item.png"
+			border			= { 10, 10, 10, 10 }
+			stretch			= TRUE
+		}
+
+ 	}
+}
+
+
+style "menubar-brown-grad"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#ffffff"
+  text[NORMAL] = "#ffffff"
+  fg[PRELIGHT] = "#F0B58D"
+  fg[ACTIVE] = "#F0B58D"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			state = NORMAL
+			file		= "Menu-Menubar/menubar-brown-grad.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = ACTIVE
+			file		= "Menu-Menubar/menubar-brown-grad.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = INSENSITIVE
+			file		= "Menu-Menubar/menubar-inactive.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function			= BOX
+			recolorable		= TRUE
+			state = PRELIGHT
+			file				= "Menu-Menubar/menubar-item.png"
+			border			= { 10, 10, 10, 10 }
+			stretch			= TRUE
+		}
+
+ 	}
+}
+
+
+style "menubar-clear"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#000000"
+  text[NORMAL] = "#000000"
+  fg[PRELIGHT] = "#404040"
+  fg[ACTIVE] = "#404040"
+  #fg[INSENSITIVE] = "#DDE4FF"
+  #text[PRELIGHT] = "#DDE4FF"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			state = NORMAL
+			file		= "Menu-Menubar/menubar-clear.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = ACTIVE
+			file		= "Menu-Menubar/menubar-clear.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = INSENSITIVE
+			file		= "Menu-Menubar/menubar-inactive.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function			= BOX
+			recolorable		= TRUE
+			state = PRELIGHT
+			file				= "Menu-Menubar/menubar-item-alt.png"
+			border			= { 10, 10, 10, 10 }
+			stretch			= TRUE
+		}
+
+ 	}
+}
+
+
+style "menubar-clear-alt"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#000000"
+  text[NORMAL] = "#000000"
+  fg[PRELIGHT] = "#404040"
+  fg[ACTIVE] = "#404040"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			state = NORMAL
+			file		= "Menu-Menubar/menubar-clear-alt.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = ACTIVE
+			file		= "Menu-Menubar/menubar-clear-alt.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = INSENSITIVE
+			file		= "Menu-Menubar/menubar-inactive.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function			= BOX
+			recolorable		= TRUE
+			state = PRELIGHT
+			file				= "Menu-Menubar/menubar-item.png"
+			border			= { 10, 10, 10, 10 }
+			stretch			= TRUE
+		}
+
+ 	}
+}
+
+
+style "menubar-orange"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#000000"
+  text[NORMAL] = "#000000"
+  fg[PRELIGHT] = "#5F3C2D"
+  fg[ACTIVE] = "#5F3C2D"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			state = NORMAL
+			file		= "Menu-Menubar/menubar-orange.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = ACTIVE
+			file		= "Menu-Menubar/menubar-orange.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = INSENSITIVE
+			file		= "Menu-Menubar/menubar-inactive.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function			= BOX
+			recolorable		= TRUE
+			state = PRELIGHT
+			file				= "Menu-Menubar/menubar-item.png"
+			border			= { 10, 10, 10, 10 }
+			stretch			= TRUE
+		}
+
+ 	}
+}
+
+
+style "menubar-orange-alt"		
+{
+#font_name = "Segoe UI Bold 9"
+#font_name = "Sans 8"
+  fg[NORMAL] = "#000000"
+  text[NORMAL] = "#000000"
+  fg[PRELIGHT] = "#5f3c2d"
+  fg[ACTIVE] = "#5f3c2d"
+
+  xthickness			= 1
+  ythickness			= 2
+
+	engine "pixmap"
+	{
+		image
+		{
+			function	= BOX
+			state = NORMAL
+			file		= "Menu-Menubar/menubar-orange-alt.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = ACTIVE
+			file		= "Menu-Menubar/menubar-orange-alt.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function	= BOX
+			state = INSENSITIVE
+			file		= "Menu-Menubar/menubar-inactive.png"
+			border	= { 2, 2, 2, 2 }
+			stretch	= TRUE
+    		}
+
+		image
+		{
+			function			= BOX
+			recolorable		= TRUE
+			state = PRELIGHT
+			file				= "Menu-Menubar/menubar-item.png"
+			border			= { 10, 10, 10, 10 }
+			stretch			= TRUE
+		}
+
+ 	}
+}
+

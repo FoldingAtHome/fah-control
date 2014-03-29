@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="16px"
+   height="16px"
+   id="svg4837"
+   sodipodi:version="0.32"
+   inkscape:version="0.45"
+   inkscape:export-filename="/home/emrah/.themes/Cillop-2/gtk-2.0/arrow-up.png"
+   inkscape:export-xdpi="101.25"
+   inkscape:export-ydpi="101.25"
+   sodipodi:docname="arrow.svg"
+   sodipodi:docbase="/home/emrah/.themes/Cillop-2/gtk-2.0"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   sodipodi:modified="TRUE">
+  <defs
+     id="defs4839" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="22.197802"
+     inkscape:cx="8"
+     inkscape:cy="8"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:grid-bbox="true"
+     inkscape:document-units="px"
+     inkscape:window-width="920"
+     inkscape:window-height="658"
+     inkscape:window-x="76"
+     inkscape:window-y="147" />
+  <metadata
+     id="metadata4842">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer">
+    <path
+       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.4079119;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.51953125"
+       d="M 11.028965,10.246539 L 8.373787,6.0058307 C 8.1695637,5.697687 7.8769937,5.670161 7.703548,5.931865 C 7.703548,5.931865 4.976149,10.110369 4.971035,10.246539 L 11.028965,10.246539 z "
+       id="rect4845"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-xdpi="101.25"
+       inkscape:export-ydpi="101.25" />
+  </g>
+</svg>

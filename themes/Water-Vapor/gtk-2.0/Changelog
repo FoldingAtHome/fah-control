@@ -1,0 +1,65 @@
+v. 0.70:
+-----------------
+- New Tab Graphics
+- Tabs all same size now
+- Added a Menu Background Gradient
+- Gave tooltips a little more gloss
+
+
+v. 0.60:
+-----------------
+- New Scrollbars (not final, just trying some ideas)
+- New Tooltips (mimics menu somewhat)
+- Small Performance Fixes
+- Water Vapor Background now available
+- New List Header
+
+v. 0.51:
+-----------------
+- Fixed Gray Buttons that Weren't Showing
+- Sharpened Bottom of Highlighted Buttons
+- New Progressbar
+- New Toolbar Background
+
+v. 0.50:
+-----------------
+- Option Menu Improvements
+- Scrollbar Improvements
+- Removed Iconrc / Stock Buttons
+- New Radio Buttons
+- Gray-Button Borders Fixed
+- Separated Metacity Theme
+
+v. 0.42:
+-----------------
+- Some Small Fixes with Tabs & Buttons
+- Small Progress Bar fix
+
+v. 0.40:
+-----------------
+- New Progress Bar
+- Less Saturated Colors
+- Flatter Buttons
+- New Stock Icons
+- New Text Field
+- New Notebook Tabs
+- New Spin Boxes
+- Many Additional Changes
+
+v. 0.30:
+-----------------
+- New Scrollbars
+- New OptionMenu
+- Reworked Menu Background
+
+v. 0.20:
+-----------------
+- Updated fg color issues (thanks toby)
+- Changed default buttons to gray
+- Steepened Menu background gradient
+- Added Prelight for Option Menus
+- Some other crap, etc etc.
+
+v. 0.10:
+-----------------
+Initial Release.

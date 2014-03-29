@@ -1,0 +1,255 @@
+#################### PANEL BACKGROUND #########################xx
+
+style "panel-gray"
+{
+  xthickness            			= 2
+  ythickness            			= 0
+
+  fg[NORMAL]		= "#000000"
+  fg[PRELIGHT]		= "#000000"
+  fg[ACTIVE]		= "#000000"
+  fg[SELECTED]		= "#000000"
+  fg[INSENSITIVE]	= "#8A857C"
+
+  text[NORMAL]		= "#000000"
+  text[PRELIGHT]		= "#000000"
+  text[ACTIVE]		= "#000000"
+  text[SELECTED]	= "#000000"
+  text[INSENSITIVE]	= "#8A857C"
+
+  bg_pixmap[NORMAL]		= "Panel/panel-bg-black-36.png"
+  bg_pixmap[INSENSITIVE]		= "<parent>"
+  bg_pixmap[PRELIGHT]		= "<parent>"
+  bg_pixmap[SELECTED]		= "<parent>"
+  bg_pixmap[ACTIVE]			= "<parent>"
+}
+
+style "panel-blue"
+{
+  xthickness            			= 2
+  ythickness            			= 0
+
+   fg[NORMAL]		= "#FFFFFF"
+  fg[PRELIGHT]		= "#FFFFFF"
+  fg[ACTIVE]		= "#FFFFFF"
+  fg[SELECTED]		= "#000000"
+  fg[INSENSITIVE]	= "#8A857C"
+
+  text[NORMAL]		= "#161616"
+  text[PRELIGHT]		= "#FFFFFF"
+  text[ACTIVE]		= "#000000"
+  text[SELECTED]	= "#FFFFFF"
+  text[INSENSITIVE]	= "#8A857C"
+
+ bg_pixmap[NORMAL]		= "Panel/panel-bg-blue-24.png"
+  bg_pixmap[INSENSITIVE]		= "<parent>"
+  bg_pixmap[PRELIGHT]		= "<parent>"
+  bg_pixmap[SELECTED]		= "<parent>"
+  bg_pixmap[ACTIVE]			= "<parent>"
+}
+
+style "panel-black"
+{
+  xthickness            			= 2
+  ythickness            			= 0
+
+  fg[NORMAL]		= "#FFFFFF"
+  fg[PRELIGHT]		= "#FFFFFF"
+  fg[ACTIVE]		= "#FFFFFF"
+  fg[SELECTED]		= "#000000"
+  fg[INSENSITIVE]	= "#8A857C"
+
+  text[NORMAL]		= "#000000"
+  text[PRELIGHT]		= "#000000"
+  text[ACTIVE]		= "#000000"
+  text[SELECTED]	= "#000000"
+  text[INSENSITIVE]	= "#8A857C"
+
+#bg_pixmap[NORMAL]		= "ickle/icklekicker/kickerslate.png"
+#bg_pixmap[SELECTED]		= "Panel/panel-bg.png"
+#bg_pixmap[INSENSITIVE]		= "Panel/panel-bg.png"
+#bg_pixmap[PRELIGHT]		= "Panel/panel-bg.png"
+  bg_pixmap[NORMAL]		= "Panel/panel-bg-black-36.png"
+  bg_pixmap[INSENSITIVE]		= "<parent>"
+  bg_pixmap[PRELIGHT]		= "<parent>"
+  bg_pixmap[SELECTED]		= "<parent>"
+  bg_pixmap[ACTIVE]			= "<parent>"
+}
+
+##################### PANEL BUTTONS ###############################
+
+style "panelbuttons-gray" = "default"
+{
+
+  fg[NORMAL]		= "#ffffff" # very dark brown
+  fg[PRELIGHT]		= "#ffffff" # text on buttons (hover)
+  fg[ACTIVE]		= "#ffffff" # text on unfocused tabs
+  fg[SELECTED]		= "#ffffff" # selected text on lists
+  fg[INSENSITIVE]	= "#ffffff" # greyed "unused" text
+
+  xthickness	= 2
+  ythickness	= 1
+
+  GtkWidget::focus_padding = 2
+
+	engine "pixmap" {
+
+		image
+		{
+			function		= BOX
+			recolorable	= TRUE
+			state			= NORMAL
+			file			= "Panel/panelbutton_gray_2.png"
+			border		= { 4, 4, 4, 4 }
+			stretch		= TRUE
+		}
+
+		image
+		{
+			function		= BOX
+			recolorable	= TRUE
+			state			= PRELIGHT
+			file			= "Panel/panelbutton_gray_1.png"
+			border		= { 4, 4, 4, 4 }
+			stretch		= TRUE
+		}
+
+		image
+		{
+			function		= BOX
+			recolorable	= TRUE
+			shadow		= OUT
+			state			= PRELIGHT
+			file			= "Panel/panelbutton_gray_2.png"
+			border		= { 4, 4, 4, 4 }
+			stretch		= TRUE
+			#overlay_file	= "panelbutton2.png"
+			#overlay_border	= { 4, 4, 4, 4 }
+			#overlay_stretch	= TRUE
+		}
+
+		image
+		{
+			function		= BOX
+			recolorable	= TRUE
+			shadow		= IN
+			state			= PRELIGHT
+			file			= "Panel/panelbutton_gray_4.png"
+			border		= { 4, 4, 4, 4 }
+			stretch		= TRUE
+			#overlay_file	= "panelbutton2.png"
+			#overlay_border	= { 4, 4, 4, 4 }
+			#overlay_stretch	= TRUE
+		}
+
+		image
+		{
+			function		= BOX
+			recolorable	= TRUE
+			state			= ACTIVE
+			file			= "Panel/panelbutton_gray_4.png"
+			border		= { 4, 4, 4, 4 }
+			stretch		= TRUE
+		}
+
+		image
+		{
+			function		= BOX
+			recolorable	= TRUE
+			state			= INSENSITIVE
+			file			= "Panel/panelbutton_gray_1.png"
+			border		= { 4, 4, 4, 4 }
+			stretch		= TRUE
+		}  
+
+	}
+
+}
+
+style "panelbuttons-black" = "default"
+{
+
+  fg[NORMAL]		= "#ffffff" # very dark brown
+  fg[PRELIGHT]		= "#ffffff" # text on buttons (hover)
+  fg[ACTIVE]		= "#ffffff" # text on unfocused tabs
+  fg[SELECTED]		= "#ffffff" # selected text on lists
+  fg[INSENSITIVE]	= "#ffffff" # greyed "unused" text
+
+  xthickness	= 2
+  ythickness	= 1
+
+  GtkWidget::focus_padding = 2
+
+	engine "pixmap" {
+
+		image
+		{
+			function		= BOX
+			recolorable	= TRUE
+			state			= NORMAL
+			file			= "Panel/panelbutton_black_2.png"
+			border		= { 4, 4, 4, 4 }
+			stretch		= TRUE
+		}
+
+		image
+		{
+			function		= BOX
+			recolorable	= TRUE
+			state			= PRELIGHT
+			file			= "Panel/panelbutton_black_1.png"
+			border		= { 4, 4, 4, 4 }
+			stretch		= TRUE
+		}
+
+		image
+		{
+			function		= BOX
+			recolorable	= TRUE
+			shadow		= OUT
+			state			= PRELIGHT
+			file			= "Panel/panelbutton_black_2.png"
+			border		= { 4, 4, 4, 4 }
+			stretch		= TRUE
+			#overlay_file	= "panelbutton2.png"
+			#overlay_border	= { 4, 4, 4, 4 }
+			#overlay_stretch	= TRUE
+		}
+
+		image
+		{
+			function		= BOX
+			recolorable	= TRUE
+			shadow		= IN
+			state			= PRELIGHT
+			file			= "Panel/panelbutton_black_4.png"
+			border		= { 4, 4, 4, 4 }
+			stretch		= TRUE
+			#overlay_file	= "panelbutton2.png"
+			#overlay_border	= { 4, 4, 4, 4 }
+			#overlay_stretch	= TRUE
+		}
+
+		image
+		{
+			function		= BOX
+			recolorable	= TRUE
+			state			= ACTIVE
+			file			= "Panel/panelbutton_black_4.png"
+			border		= { 4, 4, 4, 4 }
+			stretch		= TRUE
+		}
+
+		image
+		{
+			function		= BOX
+			recolorable	= TRUE
+			state			= INSENSITIVE
+			file			= "Panel/panelbutton_black_1.png"
+			border		= { 4, 4, 4, 4 }
+			stretch		= TRUE
+		}  
+
+	}
+
+}
