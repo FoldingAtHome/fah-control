@@ -5,6 +5,6 @@ FAHControl can monitor and control one or more FAHClients.
 
 To run:
 
-  python FAHControl
+    python FAHControl
 
 See: https://folding.stanford.edu
