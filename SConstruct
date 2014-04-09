@@ -72,7 +72,7 @@ if env['PLATFORM']  == 'darwin' or env.GetPackageType() == 'rpm':
             'Control and monitor local and remote Folding@home clients',
         prefix = '/usr',
 
-        documents = ['README.txt', 'LICENSE.txt'],
+        documents = ['README.md', 'CHANGELOG.md', 'LICENSE.txt'],
         desktop_menu = ['FAHControl.desktop'],
         icons = ['images/FAHControl.png'],
 
