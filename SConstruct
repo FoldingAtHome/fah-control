@@ -16,11 +16,14 @@ conf = env.CBConfigure()
 # Version
 try:
     version = env.FAHClientVersion()
-except:
+except Exception, e:
+    print e
     version = '0.0.0'
+    env.Replace(PACKAGE_VERSION = version)
 
-# Config vars
-env.Replace(PACKAGE_VERSION = version)
+f = open('version.txt', 'w')
+f.write(version)
+f.close()
 
 if env['PLATFORM'] != 'darwin': env['package_arch'] = 'noarch'
 

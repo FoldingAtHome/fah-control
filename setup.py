@@ -80,7 +80,7 @@ else:
         )
 
 try:
-    version = open('version/version.txt').read().strip()
+    version = open('version.txt').read().strip()
 except: version = None
 
 if version is not None:
