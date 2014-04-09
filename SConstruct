@@ -10,12 +10,14 @@ except Exception, e:
 env.CBAddVariables(
     BoolVariable('mostly_static', 'Link most libraries statically', 1))
 
-env.CBLoadTools('packager run_distutils osx')
+env.CBLoadTools('packager run_distutils osx fah-client-version')
 conf = env.CBConfigure()
 
 # Version
-version = open('version/version.txt', 'r').read().strip()
-major, minor, revision = version.split('.')
+try:
+    version = env.FAHClientVersion()
+except:
+    version = '0.0.0'
 
 # Config vars
 env.Replace(PACKAGE_VERSION = version)

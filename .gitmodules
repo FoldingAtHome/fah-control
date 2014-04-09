@@ -1,4 +1,0 @@
-[submodule "version"]
-	path = version
-	url = git@github.com:FoldingAtHome/client-version.git
-	branch = master
