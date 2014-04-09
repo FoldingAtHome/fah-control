@@ -1,6 +1,6 @@
 # Setup
 import os
-env = Environment()
+env = Environment(ENV = os.environ)
 try:
     env.Tool('config', toolpath = [os.environ.get('CBANG_HOME')])
 except Exception, e:
