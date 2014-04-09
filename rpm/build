@@ -1,0 +1,21 @@
+# Create a temporary directory
+if [ -e ${RPM_BUILD_ROOT}.tmp ]; then
+   rm -r ${RPM_BUILD_ROOT}.tmp
+fi
+mkdir ${RPM_BUILD_ROOT}.tmp
+
+# Install the python code
+python ../../setup.py install --prefix /usr --no-compile \
+  --root ${RPM_BUILD_ROOT}.tmp
+
+# Fix python shebang
+sed -i 's/#!\/usr\/local\/bin\/python/#!\/usr\/bin\/env python/' \
+    ${RPM_BUILD_ROOT}.tmp/usr/bin/FAHControl
+
+# Make file list
+FILTERED=$(echo -n ${RPM_BUILD_ROOT}.tmp | sed 's/\//\\\//g')
+find ${RPM_BUILD_ROOT}.tmp -type f | sed "s/$FILTERED//" >filelist.txt
+
+# Move the files
+cp -a ${RPM_BUILD_ROOT}.tmp/* ${RPM_BUILD_ROOT}
+rm -r ${RPM_BUILD_ROOT}.tmp
