@@ -6,10 +6,6 @@ try:
 except Exception, e:
     raise Exception, 'CBANG_HOME not set?\n' + str(e)
 
-# Override mostly_static to default True
-env.CBAddVariables(
-    BoolVariable('mostly_static', 'Link most libraries statically', 1))
-
 env.CBLoadTools('packager run_distutils osx fah-client-version')
 conf = env.CBConfigure()
 
