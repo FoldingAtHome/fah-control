@@ -79,7 +79,7 @@ if env['PLATFORM']  == 'darwin' or env.GetPackageType() == 'rpm':
         rpm_filelist = 'filelist.txt',
 
         pkg_id = 'edu.stanford.folding.fahcontrol.pkg',
-        pkg_resources = [['osx/Resources', '.']],
+        pkg_resources = 'osx/Resources',
         pkg_apps = [['dist/FAHControl.app', 'Folding@home/FAHControl.app']],
         pkg_scripts = 'osx/scripts',
         pkg_target = '10.4',
