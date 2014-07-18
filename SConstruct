@@ -82,7 +82,8 @@ if env['PLATFORM']  == 'darwin' or env.GetPackageType() == 'rpm':
         pkg_resources = 'osx/Resources',
         pkg_apps = [['dist/FAHControl.app', 'Folding@home/FAHControl.app']],
         pkg_scripts = 'osx/scripts',
-        pkg_target = '10.4',
+        pkg_target = '10.6',
+        pkg_distribution = 'osx/distribution.xml',
         )
 
     AlwaysBuild(pkg)
