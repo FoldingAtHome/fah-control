@@ -77,6 +77,7 @@ else:
         scripts = [app],
         data_files = [('/usr/share/pixmaps', ['images/FAHControl.png'])],
         install_requires = 'gtk2 >= 2.14.0',
+        include_package_data = True,
         )
 
 try:
@@ -113,6 +114,7 @@ setup(
     package_data = {'fah': ['*.glade']},
     **extra_opts)
 
-with open('package-description.txt', 'w') as f:
-    f.write(short_description.strip())
+if sys.platform == 'darwin':
+    with open('package-description.txt', 'w') as f:
+        f.write(short_description.strip())
 

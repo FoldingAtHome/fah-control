@@ -1,0 +1,2 @@
+include FAHControl.desktop
+recursive-include images *.png
