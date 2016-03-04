@@ -34,7 +34,7 @@ if env['PLATFORM'] == 'darwin':
 elif env['PLATFORM'] == 'win32' or int(env.get('cross_mingw', 0)):
     env['RUN_DISTUTILSOPTS'] = 'build'
     target_dir = 'gui'
-    target_pat = ''
+    target_pat = '' # Not packaged here
 
 elif env.GetPackageType() == 'deb':
     env['RUN_DISTUTILSOPTS'] = ['--command-packages=stdeb.command', 'bdist_deb']
@@ -51,7 +51,7 @@ if env.GetPackageType() != 'rpm':
 
     if int(env.get('cross_mingw', 0)):
         # Use the cross compiled Python
-        gui = env.Command(target_dir, 'setup.py', 'python2 setup.py build')
+        gui = env.Command(target_dir, 'setup.py', 'python2.exe setup.py build')
     else:
         gui = env.RunDistUtils(Dir(target_dir), 'setup.py')
 
