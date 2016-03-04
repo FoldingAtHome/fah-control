@@ -7,6 +7,8 @@ except Exception, e:
     raise Exception, 'CBANG_HOME not set?\n' + str(e)
 
 env.CBLoadTools('packager run_distutils osx fah-client-version')
+env.CBAddVariables(
+    BoolVariable('cross_mingw', 'Build with mingw cross compiler', 0))
 conf = env.CBConfigure()
 
 # Version
@@ -29,7 +31,7 @@ if env['PLATFORM'] == 'darwin':
     env['RUN_DISTUTILSOPTS'] = 'py2app'
     target_dir = 'dist/FAHControl.app'
 
-elif env['PLATFORM'] == 'win32':
+elif env['PLATFORM'] == 'win32' or int(env.get('cross_mingw', 0)):
     env['RUN_DISTUTILSOPTS'] = 'build'
     target_dir = 'gui'
     target_pat = ''
