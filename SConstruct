@@ -49,13 +49,18 @@ if env.GetPackageType() != 'rpm':
     import shutil
     shutil.rmtree(target_dir, True)
 
-    gui = env.RunDistUtils(Dir(target_dir), 'setup.py')
+    if int(env.get('cross_mingw', 0)):
+        # Use the cross compiled Python
+        gui = env.Command(target_dir, 'setup.py', 'python2 setup.py build')
+    else:
+        gui = env.RunDistUtils(Dir(target_dir), 'setup.py')
+
     Default(gui)
     AlwaysBuild(gui)
 
 
 # Package
-if env['PLATFORM']  == 'darwin' or env.GetPackageType() == 'rpm':
+if env['PLATFORM'] == 'darwin' or env.GetPackageType() == 'rpm':
     pkg = env.Packager(
         'FAHControl',
 
