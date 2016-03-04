@@ -31,7 +31,7 @@ if sys.platform == 'win32':
     WSAGetLastError = windll.ws2_32.WSAGetLastError
 
 debug = False
-
+WSAEWOULDBLOCK = 10035
 
 class Connection:
     def __init__(self, address = 'localhost', port = 36330, password = None,
@@ -101,7 +101,8 @@ class Connection:
         self.socket.setblocking(0)
         err = self.socket.connect_ex((self.address, self.port))
 
-        if err != 0 and not err in [errno.EINPROGRESS, errno.EWOULDBLOCK]:
+        if err != 0 and not err in [
+            errno.EINPROGRESS, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
             self.fail_reason = 'connect'
             raise Exception, 'Connection failed: ' + errno.errorcode[err]
 
@@ -153,7 +154,7 @@ class Connection:
 
         except socket.error, (err, msg):
             # Error codes for nothing to read
-            if err not in [errno.EAGAIN, errno.EWOULDBLOCK]:
+            if err not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
                 if bytesRead: return bytesRead
                 self.connection_error(err, msg)
                 raise
@@ -178,7 +179,7 @@ class Connection:
 
         except socket.error, (err, msg):
             # Error codes for write buffer full
-            if err not in [errno.EAGAIN, errno.EWOULDBLOCK]:
+            if err not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
                 if bytesWritten: return bytesWritten
                 self.connection_error(err, msg)
                 raise

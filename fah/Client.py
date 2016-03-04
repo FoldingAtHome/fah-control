@@ -29,10 +29,6 @@ import signal
 import os
 import shlex
 
-if sys.platform == 'win32':
-    import win32api
-    import win32con
-
 from fah import *
 from fah.util import status_to_color, make_row, get_home_dir
 
