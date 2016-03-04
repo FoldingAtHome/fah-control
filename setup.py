@@ -66,7 +66,12 @@ elif sys.platform == 'win32':
     from cx_Freeze import setup, Executable
 
     e = Executable(app, base = 'Win32GUI', icon = 'images/FAHControl.ico')
-    options = {'build_exe': {'build_exe': 'gui'}}
+    options = {
+        'build_exe': {
+            'build_exe': 'gui',
+            'includes': 'gtk'
+            }
+        }
     extra_opts = dict(executables = [e], options = options)
 
 else:
