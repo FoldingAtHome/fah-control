@@ -151,9 +151,6 @@ class FAHControl(SingleAppServer):
 
         self.__class__.instance = self
 
-        # Windows needs this but OSX accelerators crash with this
-        if sys.platform != 'darwin': gtk.gdk.threads_init()
-
         # Vars
         self.clients = {}
         self.clientsByAddress = {}
@@ -544,10 +541,7 @@ class FAHControl(SingleAppServer):
                 self.window.add_accel_group(ag)
             except Exception, e: print e
 
-        # Windows needs this but OSX accelerators crash with this
-        if sys.platform != 'darwin': gtk.gdk.threads_enter()
         gtk.main()
-        if sys.platform != 'darwin': gtk.gdk.threads_leave()
 
 
     # Util
