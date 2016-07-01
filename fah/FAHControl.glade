@@ -108,7 +108,7 @@
           <object class="GtkLabel" id="label39">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Copyright © 2010-2014 Stanford University</property>
+            <property name="label" translatable="yes">Copyright © 2010-2016 Stanford University</property>
           </object>
           <packing>
             <property name="expand">False</property>

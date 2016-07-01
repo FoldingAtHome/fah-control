@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 '''
   Folding@Home Client Control (FAHControl)
-  Copyright (C) 2010-2014 Stanford University
+  Copyright (C) 2010-2016 Stanford University
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
