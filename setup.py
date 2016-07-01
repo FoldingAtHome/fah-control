@@ -41,7 +41,7 @@ if sys.platform == 'darwin':
         CFBundleDisplayName = 'FAHControl',
         CFBundleIdentifier = 'edu.stanford.folding.fahcontrol',
         CFBundleSignature = '????',
-        NSHumanReadableCopyright = 'Copyright 2010-2014 Stanford University',
+        NSHumanReadableCopyright = 'Copyright 2010-2016 Stanford University',
         )
 
     options = dict(
