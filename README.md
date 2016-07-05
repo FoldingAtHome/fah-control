@@ -8,3 +8,9 @@ To run:
     python FAHControl
 
 See: https://folding.stanford.edu
+
+# Prerequisites
+
+## Debian
+
+    sudo apt-get install -y python-stdeb python-gtk2 python-all debhelper

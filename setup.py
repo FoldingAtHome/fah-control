@@ -9,8 +9,8 @@ print 'dir =', dir
 os.chdir(dir)
 
 # Convert glade data
-in_file = 'fah/FAHControl.glade'
-out_file = 'fah/FAHControl_glade.py'
+in_file = dir + '/fah/FAHControl.glade'
+out_file = dir + '/fah/FAHControl_glade.py'
 input = None
 output = None
 try:
