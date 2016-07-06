@@ -9,21 +9,23 @@ print 'dir =', dir
 os.chdir(dir)
 
 # Convert glade data
-in_file = dir + '/fah/FAHControl.glade'
-out_file = dir + '/fah/FAHControl_glade.py'
-input = None
-output = None
-try:
-    input = open(in_file, 'r')
-    output = open(out_file, 'w')
+in_file = 'fah/FAHControl.glade'
+out_file = 'fah/FAHControl_glade.py'
 
-    output.write('# -*- coding: utf8 -*-\n\n')
-    output.write('glade_data = """')
-    output.write(input.read())
-    output.write('"""\n')
-finally:
-    if input is not None: input.close()
-    if output is not None: output.close()
+if os.path.exists(in_file):
+    input = None
+    output = None
+    try:
+        input = open(in_file, 'r')
+        output = open(out_file, 'w')
+
+        output.write('# -*- coding: utf8 -*-\n\n')
+        output.write('glade_data = """')
+        output.write(input.read())
+        output.write('"""\n')
+    finally:
+        if input is not None: input.close()
+        if output is not None: output.close()
 
 
 # Bootstrap
