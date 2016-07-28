@@ -1,3 +1,6 @@
+## v7.4.13
+ - Attempt to fix install on Ubuntu 16.04
+
 ## v7.4.1
  - Removed trigger-save command, no longer necessary.
 
