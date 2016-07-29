@@ -6,9 +6,16 @@
 .sconsign.dblite
 
 # Build byproducts
-build
-config.log
-package.txt
+/build
+/config.log
+/package.txt
+/fah/FAHControl_glade.py
+/fah/Version.py
+/FAHControl.egg-info
+/deb_dist
+/dist
+/version.txt
+/FAHControl*.tar.gz
 
 # Temporary files
 *~
