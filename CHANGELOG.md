@@ -1,3 +1,6 @@
+## v7.4.14
+ - Removed crashing themes: Evil-Mac & Outcrop
+
 ## v7.4.13
  - Attempt to fix install on Ubuntu 16.04
 
