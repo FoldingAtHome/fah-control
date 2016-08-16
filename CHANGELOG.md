@@ -1,4 +1,4 @@
-## v7.4.14
+## v7.4.15
  - Removed crashing themes: Evil-Mac & Outcrop
 
 ## v7.4.13
