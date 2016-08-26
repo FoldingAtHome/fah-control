@@ -506,6 +506,7 @@ class ClientConfig:
 
         if len(filtered):
             text = '\n'.join(filtered)
+            text = text.decode('utf-8', 'ignore')
             app.log.insert(app.log.get_end_iter(), text + '\n')
             self.scroll_log_to_end(app)
 

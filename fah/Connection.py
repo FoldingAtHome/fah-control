@@ -145,6 +145,7 @@ class Connection:
             while True:
                 buffer = self.socket.recv(10 * 1024 * 1024)
                 if len(buffer):
+                    #if debug: print 'BUFFER:', buffer
                     self.readBuf += buffer
                     bytesRead += len(buffer)
                 else:
@@ -195,6 +196,7 @@ class Connection:
     def parse_message(self, version, type, data):
         try:
             msg = eval(data, {}, {})
+            #if debug: print 'MSG:', type, msg
             self.messages.append((version, type, msg))
             self.last_message = time.time()
         except Exception, e:

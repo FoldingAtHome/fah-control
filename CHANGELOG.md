@@ -1,3 +1,10 @@
+## v7.4.15
+ - Removed crashing themes: Evil-Mac & Outcrop.
+ - Ignore invalid UTF-8 characters in log file.
+
+## v7.4.13
+ - Attempt to fix install on Ubuntu 16.04.
+
 ## v7.4.1
  - Removed trigger-save command, no longer necessary.
 

@@ -11,6 +11,10 @@ See: https://folding.stanford.edu
 
 # Prerequisites
 
-## Debian
+## Debian / Ubuntu
 
     sudo apt-get install -y python-stdeb python-gtk2 python-all debhelper
+
+## RedHat / CentOS
+
+    sudo yum install -y pygtk2
