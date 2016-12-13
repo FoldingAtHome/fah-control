@@ -8,7 +8,7 @@
 # Build byproducts
 /build
 /config.log
-/package.txt
+/package*.txt
 /fah/FAHControl_glade.py
 /fah/Version.py
 /FAHControl.egg-info
@@ -16,6 +16,7 @@
 /dist
 /version.txt
 /FAHControl*.tar.gz
+/fahcontrol*.pkg
 
 # Temporary files
 *~
