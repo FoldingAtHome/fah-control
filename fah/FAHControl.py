@@ -1295,6 +1295,9 @@ class FAHControl(SingleAppServer):
 
     def viewer_check(self):
         if self.viewer is not None and self.viewer.poll() is not None:
+            if self.viewer.returncode and sys.platform == 'darwin':
+                self.error('Failed to launch viewer:\n\n' +
+                           self.viewer.stderr.read())
             self.viewer = None # Viewer exited
 
 
@@ -1324,6 +1327,9 @@ class FAHControl(SingleAppServer):
 
         if not (len(cmd) and len(cmd[0])): cmd = ['FAHViewer']
 
+        if sys.platform == 'darwin':
+            cmd = ['/usr/bin/open', '-a', cmd[0], '--args'] + cmd[1:]
+
         if fullscreen: cmd.append('--fullscreen')
         cmd.append('--width=' + width)
         cmd.append('--height=' + height)
@@ -1345,7 +1351,11 @@ class FAHControl(SingleAppServer):
         if debug: print cmd
 
         try:
-            self.viewer = subprocess.Popen(cmd, cwd = get_home_dir())
+            if sys.platform == 'darwin':
+                self.viewer = subprocess.Popen(cmd, cwd = get_home_dir(),
+                                bufsize = 4096, stderr=subprocess.PIPE)
+            else:
+                self.viewer = subprocess.Popen(cmd, cwd = get_home_dir())
         except Exception, e:
             self.error('Failed to launch viewer with command:\n\n' +
                        ' '.join(cmd))
