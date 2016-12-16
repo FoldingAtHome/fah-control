@@ -36,47 +36,46 @@ def set_proc_name(name):
     libc.prctl(15, byref(buff), 0, 0, 0)
 
 
-if __name__ == '__main__':
-    if sys.platform.startswith('linux'): set_proc_name('FAHControl')
+if sys.platform.startswith('linux'): set_proc_name('FAHControl')
 
-    # If present, remove the Launch Services -psn_xxx_xxx argument
-    if len(sys.argv) > 1 and sys.argv[1][:4] == '-psn':
-        del sys.argv[1]
+# If present, remove the Launch Services -psn_xxx_xxx argument
+if len(sys.argv) > 1 and sys.argv[1][:4] == '-psn':
+    del sys.argv[1]
 
-    parser = OptionParser(usage = 'Usage: %prog [options]')
+parser = OptionParser(usage = 'Usage: %prog [options]')
 
-    parser.add_option('--exit', help = 'Tell the running application to exit',
-                      action = 'store_true', dest = 'exit')
-    options, args = parser.parse_args()
+parser.add_option('--exit', help = 'Tell the running application to exit',
+                  action = 'store_true', dest = 'exit')
+options, args = parser.parse_args()
 
-    # Tell app to exit
-    if options.exit:
-        try:
-            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock.connect(single_app_addr)
-            sock.send('EXIT')
-            if sock.recv(1024).strip() == 'OK': print 'Ok'
-        except Exception, e: pass
-
-        sys.exit(0)
-
-    # Add executable path to PATH
-    if getattr(sys, 'frozen', False): path = os.path.dirname(sys.executable)
-    else: path = os.path.dirname(__file__)
-    path = os.path.realpath(path)
-    os.environ['PATH'] = path + os.pathsep + os.environ['PATH']
-
-    # Load Glade
-    dir = os.path.dirname(inspect.getfile(inspect.currentframe()))
-    if not dir: dir = '.'
-    glade = dir + '/fah/FAHControl.glade'
-
-    if os.path.exists(glade): app = FAHControl(glade)
-    else:
-        from fah.FAHControl_glade import glade_data
-        app = FAHControl(glade_data)
-
+# Tell app to exit
+if options.exit:
     try:
-        app.run()
-    except Exception, e:
-        print e
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.connect(single_app_addr)
+        sock.send('EXIT')
+        if sock.recv(1024).strip() == 'OK': print 'Ok'
+    except Exception, e: pass
+
+    sys.exit(0)
+
+# Add executable path to PATH
+if getattr(sys, 'frozen', False): path = os.path.dirname(sys.executable)
+else: path = os.path.dirname(__file__)
+path = os.path.realpath(path)
+os.environ['PATH'] = path + os.pathsep + os.environ['PATH']
+
+# Load Glade
+dir = os.path.dirname(inspect.getfile(inspect.currentframe()))
+if not dir: dir = '.'
+glade = dir + '/fah/FAHControl.glade'
+
+if os.path.exists(glade): app = FAHControl(glade)
+else:
+    from fah.FAHControl_glade import glade_data
+    app = FAHControl(glade_data)
+
+try:
+    app.run()
+except Exception, e:
+    print e

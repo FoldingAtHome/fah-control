@@ -67,6 +67,7 @@ if sys.platform == 'darwin':
 elif sys.platform == 'win32':
     from cx_Freeze import setup, Executable
 
+    # Change base to 'Console' for debugging
     e = Executable(app, base = 'Win32GUI', icon = 'images/FAHControl.ico')
     options = {
         'build_exe': {

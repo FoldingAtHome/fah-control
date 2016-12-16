@@ -58,9 +58,9 @@ class SingleAppServer(SocketServer.ThreadingMixIn, SocketServer.TCPServer):
             self, single_app_addr, SingleAppRequestHandler)
 
         thread = threading.Thread(target = self.serve_forever)
-	# Exit the server thread when the main thread terminates
-	thread.setDaemon(True)
-	thread.start()
+        # Exit the server thread when the main thread terminates
+        thread.setDaemon(True)
+        thread.start()
 
 
     def check_for_instance(self):

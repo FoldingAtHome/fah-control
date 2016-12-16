@@ -534,10 +534,10 @@ class FAHControl(SingleAppServer):
                 self.window_accel_group = ag
                 key, mod = gtk.accelerator_parse("<meta>w")
                 ag.connect_group(key, mod, gtk.ACCEL_VISIBLE,
-                    osx_accel_window_close)
+                                 osx_accel_window_close)
                 key, mod = gtk.accelerator_parse("<meta>m")
                 ag.connect_group(key, mod, gtk.ACCEL_VISIBLE,
-                    osx_accel_window_minimize)
+                                 osx_accel_window_minimize)
                 self.window.add_accel_group(ag)
             except Exception, e: print e
 
@@ -710,7 +710,7 @@ class FAHControl(SingleAppServer):
             self.db.flush_queued()
         except Exception, e: print e
 
-        self.shutdown() # Shutdown SingleAppServer
+        sys.exit(0) # Force shutdown
 
 
     def set_status(self, text):
