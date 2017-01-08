@@ -4241,7 +4241,7 @@ Some of these options may require manually restarting the client to take effect.
     <property name="can_focus">False</property>
     <child>
       <object class="GtkImageMenuItem" id="osx_about_tray_item">
-        <property name="label">About FAHControl</property>
+        <property name="label">About</property>
         <property name="use_action_appearance">False</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
