@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 '''
   Folding@Home Client Control (FAHControl)
   Copyright (C) 2010-2016 Stanford University
