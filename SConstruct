@@ -15,7 +15,7 @@ conf = env.CBConfigure()
 try:
     version = env.FAHClientVersion()
 except Exception, e:
-    print e
+    print(e)
     version = '0.0.0'
     env.Replace(PACKAGE_VERSION = version)
 
