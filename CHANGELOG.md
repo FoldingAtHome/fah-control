@@ -1,3 +1,6 @@
+## v7.4.17
+ - Changed Windows default theme to be same as Clearlooks-Vista.
+
 ## v7.4.15
  - Removed crashing themes: Evil-Mac & Outcrop.
  - Ignore invalid UTF-8 characters in log file.

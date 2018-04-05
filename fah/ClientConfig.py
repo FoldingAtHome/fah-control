@@ -221,19 +221,6 @@ class ClientConfig:
             entry['project'], entry['run'], entry['clone'], entry['gen'])
         set_widget_str_value(app.queue_widgets['prcg'], prcg)
 
-        # Links
-        for name in ['cs', 'ws', 'project']:
-            widget = app.queue_widgets[name]
-            value = str(entry[name])
-
-            if name in ['cs', 'ws']:
-                uri = 'http://fah-web.stanford.edu/logs/%s.log.html' % value
-            else:
-                uri = 'http://fah-web.stanford.edu/cgi-bin/fahproject.' \
-                    'overusingIPswillbebanned?p=' + value
-
-            widget.set_uri(uri)
-
 
     def select_slot(self, app):
         # Get selected slot

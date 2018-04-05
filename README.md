@@ -7,7 +7,7 @@ To run:
 
     python FAHControl
 
-See: https://folding.stanford.edu
+See: https://foldingathome.org/
 
 # Prerequisites
 

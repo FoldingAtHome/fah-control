@@ -1,9 +1,9 @@
 Format: http://dep.debian.net/deps/dep5
 Upstream-Name: fahcontrol
-Source: https://fah-web.stanford.edu/svn/pub/trunk/
+Source: https://github.com/FoldingAtHome/fah-control/
 
 Files: *
-Copyright: 2010-2016 Stanford University
+Copyright: 2010-2018 foldingathome.org
 License: GPL-3.0+
 
 License: GPL-3.0+

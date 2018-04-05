@@ -67,9 +67,9 @@ if env['PLATFORM'] == 'darwin' or env.GetPackageType() == 'rpm':
         version = version,
         maintainer = 'Joseph Coffland <joseph@cauldrondevelopment.com>',
         vendor = 'Folding@home',
-        url = 'http://folding.stanford.edu/',
+        url = 'https://foldingathome.org/',
         license = 'LICENSE.txt',
-        bug_url = 'https://fah-web.stanford.edu/projects/FAHClient/',
+        bug_url = 'https://foldingathome.org/bugs/',
         summary = 'Folding@home Control',
         description = \
             'Control and monitor local and remote Folding@home clients',
@@ -85,7 +85,7 @@ if env['PLATFORM'] == 'darwin' or env.GetPackageType() == 'rpm':
         rpm_build = 'rpm/build',
         rpm_filelist = 'filelist.txt',
 
-        pkg_id = 'edu.stanford.folding.fahcontrol.pkg',
+        pkg_id = 'org.foldingathome.fahcontrol.pkg',
         pkg_resources = 'osx/Resources',
         pkg_apps = [['dist/FAHControl.app', 'Folding@home/FAHControl.app']],
         pkg_scripts = 'osx/scripts',

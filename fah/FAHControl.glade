@@ -108,7 +108,7 @@
           <object class="GtkLabel" id="label39">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Copyright © 2010-2016 Stanford University</property>
+            <property name="label" translatable="yes">Copyright © 2010-2018 foldingathome.org</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -118,13 +118,13 @@
         </child>
         <child>
           <object class="GtkLinkButton" id="linkbutton2">
-            <property name="label" translatable="yes">http://folding.stanford.edu/</property>
+            <property name="label" translatable="yes">https://foldingathome.org/</property>
             <property name="use_action_appearance">False</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="receives_default">True</property>
             <property name="relief">none</property>
-            <property name="uri">http://folding.stanford.edu/</property>
+            <property name="uri">https://foldingathome.org/</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -1213,7 +1213,7 @@ Would you like to configure your identity now?</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="receives_default">True</property>
                                                             <property name="relief">none</property>
-                                                            <property name="uri">http://fah-web.stanford.edu/cgi-bin/getpasskey.py</property>
+                                                            <property name="uri">https://foldingathome.org/newpasskey</property>
                                                             </object>
                                                             <packing>
                                                             <property name="expand">False</property>

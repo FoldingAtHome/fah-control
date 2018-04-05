@@ -127,8 +127,7 @@ class FAHControl(SingleAppServer):
     #  Glade editor strips the '&'s on save.  Even if you use '&amp;' the
     #  ampersands get striped when resaved.
     team_stats_links = [
-        ['Folding@home', 'http://fah-web.stanford.edu/cgi-bin/main.py'
-         '?qtype=teampage&teamnum=%(team)s'],
+        ['Folding@home', 'https://foldingathome.org/stats/team/%(team)s'],
         ['Extreme Overclocking', 'http://folding.extremeoverclocking.com/'
          'team_summary.php?t=%(team)s'],
         ['Kakao Stats', 'http://kakaostats.com/tsum.php?t=%(team)s'],
@@ -137,8 +136,7 @@ class FAHControl(SingleAppServer):
         ['Custom', ''],
         ]
     donor_stats_links = [
-        ['Folding@home', 'http://fah-web.stanford.edu/cgi-bin/main.py'
-         '?qtype=userpage&username=%(donor)s'],
+        ['Folding@home', 'https://foldingathome.org/stats/donor/%(donor)s'],
         ['Custom', ''],
         ]
 

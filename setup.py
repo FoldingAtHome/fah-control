@@ -41,9 +41,9 @@ if sys.platform == 'darwin':
 
     plist = dict(
         CFBundleDisplayName = 'FAHControl',
-        CFBundleIdentifier = 'edu.stanford.folding.fahcontrol',
+        CFBundleIdentifier = 'org.foldingathome.fahcontrol',
         CFBundleSignature = '????',
-        NSHumanReadableCopyright = 'Copyright 2010-2016 Stanford University',
+        NSHumanReadableCopyright = 'Copyright 2010-2018 foldingathome.org',
         )
 
     options = dict(
@@ -97,7 +97,7 @@ if version is not None:
 
 description = \
 '''Folding@home is a distributed computing project using volunteered
-computer resources run by Pandegroup of Stanford University.
+computer resources.
 '''
 short_description = '''
 This package contains FAHControl, a graphical monitor and control
@@ -118,11 +118,10 @@ setup(
     author_email = 'joseph@cauldrondevelopment.com',
     license = 'GNU General Public License version 3',
     keywords = 'protein, molecular dynamics, simulation',
-    url = 'http://folding.stanford.edu/',
+    url = 'https://foldingathome.org/',
     package_data = {'fah': ['*.glade']},
     **extra_opts)
 
 if sys.platform == 'darwin':
     with open('package-description.txt', 'w') as f:
         f.write(short_description.strip())
-
