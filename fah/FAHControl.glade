@@ -1213,7 +1213,7 @@ Would you like to configure your identity now?</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="receives_default">True</property>
                                                             <property name="relief">none</property>
-                                                            <property name="uri">https://foldingathome.org/newpasskey</property>
+                                                            <property name="uri">https://apps.foldingathome.org/newpasskey</property>
                                                             </object>
                                                             <packing>
                                                             <property name="expand">False</property>
