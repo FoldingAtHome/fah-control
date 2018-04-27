@@ -18,3 +18,7 @@ See: https://foldingathome.org/
 ## RedHat / CentOS
 
     sudo yum install -y pygtk2
+
+## Windows
+
+   Download and install http://ftp.gnome.org/pub/GNOME/binaries/win32/pygtk/2.24/pygtk-all-in-one-2.24.2.win32-py2.7.msi
