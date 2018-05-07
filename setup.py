@@ -90,9 +90,10 @@ else:
 
 try:
     version = open('version.txt').read().strip()
-except: version = None
+    version.split('.')
+except: version = '0.0.0'
 
-if version is not None:
+if not os.path.exists('fah/Version.py'):
     open('fah/Version.py', 'w').write('version = \'%s\'\n' % version)
 
 description = \
