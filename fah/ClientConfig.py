@@ -252,7 +252,8 @@ class ClientConfig:
 
             # Update the UI
             self.update_work_unit_info(app)
-
+        else: app.queue_tree.get_selection().unselect_all()
+            
 
     def select_queue_slot(self, app):
         # Get unit ID of selected queue entry

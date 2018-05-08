@@ -69,7 +69,7 @@ if env['PLATFORM'] == 'darwin' or env.GetPackageType() == 'rpm':
         vendor = 'Folding@home',
         url = 'https://foldingathome.org/',
         license = 'LICENSE.txt',
-        bug_url = 'https://foldingathome.org/bugs/',
+        bug_url = 'https://apps.foldingathome.org/bugs/',
         summary = 'Folding@home Control',
         description = \
             'Control and monitor local and remote Folding@home clients',
