@@ -438,6 +438,7 @@ class ClientConfig:
         # Restore selections
         if selected_row is not None:
             app.slot_status_tree.get_selection().select_iter(selected_row)
+            self.select_slot(app)
         if log_filter_row is not None:
             app.log_slot.set_active_iter(log_filter_row)
 
