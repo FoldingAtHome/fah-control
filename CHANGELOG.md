@@ -1,3 +1,8 @@
+## v7.5.0
+ - Fixed inconsistent highlighting. @informatorius
+ - Fixed ``python setup.py install`` wo/ ``version.txt``.
+ - Highlight Matching WU When Slot Is Selected. fah-issues/#1127 @informatorius
+
 ## v7.4.17
  - Changed Windows default theme to be same as Clearlooks-Vista.
 
