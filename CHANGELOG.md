@@ -1,3 +1,10 @@
+Folding@home Advanced Control Changelog
+=======================================
+
+## v7.5.1
+ - OSX installer updates. @kbernhagen
+ - Fix for slot/queue highlighting. @informatoris
+
 ## v7.5.0
  - Fixed inconsistent highlighting. @informatorius
  - Fixed ``python setup.py install`` wo/ ``version.txt``.
