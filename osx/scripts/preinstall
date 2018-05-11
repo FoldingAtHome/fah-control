@@ -1,0 +1,18 @@
+#!/bin/bash -e
+
+# fahcontrol preinstall
+
+# delete old app, so system will not relocate if bundle id has changed
+# also delete improperly moved app and cruft
+
+A1="/Applications/Folding@home/FAHControl.app"
+A2="/Applications/Folding@home/FAHControl/FAHControl.app"
+
+F1="/Applications/Folding@home/FAHControl/.DS_Store"
+D1="/Applications/Folding@home/FAHControl"
+
+[ -d "$A1" ] && rm -rf "$A1" || true
+[ -d "$A2" ] && rm -rf "$A2" || true
+
+[ -f "$F1" ] && rm -f "$F1" || true
+[ -d "$D1" ] && rmdir "$D1" || true
