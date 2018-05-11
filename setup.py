@@ -93,7 +93,7 @@ try:
     version.split('.')
 except: version = '0.0.0'
 
-if not os.path.exists('fah/Version.py'):
+if not os.path.exists('fah/Version.py') or version != '0.0.0':
     open('fah/Version.py', 'w').write('version = \'%s\'\n' % version)
 
 description = \
