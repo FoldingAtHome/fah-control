@@ -4,6 +4,7 @@ Folding@home Advanced Control Changelog
 ## v7.5.1
  - OSX installer updates. @kbernhagen
  - Fix for slot/queue highlighting. @informatoris
+ - Install Gtk theme engines in correct place on Windows.
 
 ## v7.5.0
  - Fixed inconsistent highlighting. @informatorius
