@@ -1,6 +1,9 @@
 Folding@home Advanced Control Changelog
 =======================================
 
+## v7.5.2
+ - Removed verbosity option.
+
 ## v7.5.1
  - OSX installer updates. @kbernhagen
  - Fix for slot/queue highlighting. @informatoris
