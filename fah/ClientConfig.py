@@ -216,6 +216,11 @@ class ClientConfig:
         widget = app.queue_widgets['state']
         widget.set_markup(status)
 
+        # Links
+        base = 'https://apps.foldingathome.org'
+        uri = base + '/project.py?p=%s' % entry['project']
+        app.queue_widgets['project'].set_uri(uri)
+
         # PRCG
         prcg = '%s (%s, %s, %s)' % (
             entry['project'], entry['run'], entry['clone'], entry['gen'])
@@ -253,7 +258,7 @@ class ClientConfig:
             # Update the UI
             self.update_work_unit_info(app)
         else: app.queue_tree.get_selection().unselect_all()
-            
+
 
     def select_queue_slot(self, app):
         # Get unit ID of selected queue entry

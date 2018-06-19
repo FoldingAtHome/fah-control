@@ -3,6 +3,8 @@ Folding@home Advanced Control Changelog
 
 ## v7.5.2
  - Removed verbosity option.
+ - Fixed link to project page.
+ - Removed dead links to CS and WS.
 
 ## v7.5.1
  - OSX installer updates. @kbernhagen

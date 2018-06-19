@@ -153,7 +153,7 @@ def set_widget_str_value(widget, value):
         widget.set_text(value)
 
         if value == '': value = '0'
-        
+
         if value.endswith('%'): fraction = float(value[:-1]) / 100.0
         else: fraction = float(value)
 
