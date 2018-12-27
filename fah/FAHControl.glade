@@ -4776,6 +4776,8 @@ Some of these options may require manually restarting the client to take effect.
       <column type="gchararray"/>
       <!-- column-name PRCG -->
       <column type="gchararray"/>
+      <!-- column-name core -->
+      <column type="gchararray"/>
     </columns>
   </object>
   <object class="GtkDialog" id="slot_dialog">
@@ -7630,6 +7632,55 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                                                   </packing>
                                                 </child>
                                                 <child>
+                                                  <object class="GtkHBox" id="hbox18">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">False</property>
+                                                    <property name="spacing">5</property>
+                                                    <child>
+                                                      <object class="GtkCheckButton" id="log_core_enable">
+                                                        <property name="label" translatable="yes">Core:</property>
+                                                        <property name="use_action_appearance">False</property>
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="receives_default">False</property>
+                                                        <property name="draw_indicator">True</property>
+                                                        <signal name="toggled" handler="on_update_log" swapped="no"/>
+                                                      </object>
+                                                      <packing>
+                                                        <property name="expand">False</property>
+                                                        <property name="fill">True</property>
+                                                        <property name="position">0</property>
+                                                      </packing>
+                                                    </child>
+                                                    <child>
+                                                      <object class="GtkComboBox" id="log_core">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="model">queue_list</property>
+                                                        <property name="column_span_column">0</property>
+                                                        <property name="button_sensitivity">on</property>
+                                                        <signal name="changed" handler="on_update_log" swapped="no"/>
+                                                        <child>
+                                                          <object class="GtkCellRendererText" id="cellrenderertext14"/>
+                                                          <attributes>
+                                                            <attribute name="text">9</attribute>
+                                                          </attributes>
+                                                        </child>
+                                                      </object>
+                                                      <packing>
+                                                        <property name="expand">False</property>
+                                                        <property name="fill">True</property>
+                                                        <property name="position">1</property>
+                                                      </packing>
+                                                    </child>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">True</property>
+                                                    <property name="position">2</property>
+                                                  </packing>
+                                                </child>
+                                                <child>
                                                   <object class="GtkCheckButton" id="log_severity">
                                                     <property name="label" translatable="yes">Warnings &amp; Errors</property>
                                                     <property name="use_action_appearance">False</property>
@@ -7642,7 +7693,7 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                                                   <packing>
                                                     <property name="expand">False</property>
                                                     <property name="fill">True</property>
-                                                    <property name="position">2</property>
+                                                    <property name="position">3</property>
                                                   </packing>
                                                 </child>
                                               </object>
