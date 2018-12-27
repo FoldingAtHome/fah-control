@@ -175,7 +175,7 @@ class ClientConfig:
 
             prcg = self.get_prcg(values)
             iter = app.queue_list.append([unit_id, queue_id, status, color,
-                                          progress, percent, eta, credit, prcg, core]
+                                          progress, percent, eta, credit, prcg, core])
 
             if queue_id == selected: selected_row = iter
             if queue_id == log_filter_selected: log_filter_row = iter
