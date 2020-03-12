@@ -57,15 +57,14 @@ class Table:
         if len(cols) != len(kwargs):
             col_names = set(map(Column.get_name, cols))
             missing = filter(lambda kw: not kw in col_names, kwargs.keys())
-            raise Exception, 'Table %s does not have column(s) %s' % (
-                self.name, ', '.join(missing))
+            raise Exception('Table %s does not have column(s) %s'
+                            % (self.name, ', '.join(missing)))
 
         sql = 'REPLACE INTO "%s" ("%s") VALUES (%s)' % (
             self.name, '","'.join(map(Column.get_name, cols)),
             ','.join(map(lambda col: col.get_db_value(kwargs[col.name]), cols)))
 
         db.execute(sql).close()
-
 
     def select(self, db, cols = None, **kwargs):
         if cols is None:

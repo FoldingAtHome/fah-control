@@ -42,7 +42,7 @@ class SlotConfig:
         # Type
         if self.description.startswith('cpu'): self.type = 'cpu'
         elif self.description.startswith('gpu'): self.type = 'gpu'
-        else: raise Exception, 'Invalid slot type "%s"' % description
+        else: raise Exception('Invalid slot type "%s"' % description)
 
 
     def add_to_ui(self, app):
@@ -94,7 +94,7 @@ class SlotConfig:
         # Type
         if self.type == 'cpu': app.slot_type_cpu.set_active(True)
         elif self.type == 'gpu': app.slot_type_gpu.set_active(True)
-        else: raise Exception, 'Invalid slot type "%s"' % self.type
+        else: raise Exception('Invalid slot type "%s"' % self.type)
         used.add('gpu')
 
         # SMP

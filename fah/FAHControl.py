@@ -1032,15 +1032,15 @@ class FAHControl(SingleAppServer):
 
             # Validate passkey
             if not self.passkey_validator.is_good():
-                raise Exception, 'Passkey is invalid'
+                raise Exception('Passkey is invalid')
 
             # Validate password
             if not self.password_validator.is_good():
-                raise Exception, 'Client password is invalid'
+                raise Exception('Client password is invalid')
 
             # Validate proxy password
             if not self.proxy_pass_validator.is_good():
-                raise Exception, 'Proxy password is invalid'
+                raise Exception('Proxy password is invalid')
 
             self.deactivate_client()
 
