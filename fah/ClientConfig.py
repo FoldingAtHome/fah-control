@@ -359,7 +359,7 @@ class ClientConfig:
                 set_widget_str_value(widget, self.options[name])
 
             except: # Don't let one bad widget kill everything
-                print 'WARNING: failed to set widget "%s"' % name
+                print ('WARNING: failed to set widget "%s"' % name)
 
         # Setup passkey and password entries
         app.passkey_validator.set_good()
@@ -614,8 +614,8 @@ class ClientConfig:
                     if value is None: options[name + '!'] = None
                     else: options[name] = value
 
-            except Exception, e: # Don't let one bad widget kill everything
-                print 'WARNING: failed to save widget "%s": %s' % (name, e)
+            except Exception as e: # Don't let one bad widget kill everything
+                print ('WARNING: failed to save widget "%s": %s' % (name, e))
 
         # Removed options
         for name in self.options:

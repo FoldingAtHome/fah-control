@@ -104,7 +104,7 @@ class Connection:
         if err != 0 and not err in [
             errno.EINPROGRESS, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
             self.fail_reason = 'connect'
-            raise Exception, 'Connection failed: ' + errno.errorcode[err]
+            raise Exception('Connection failed: ' + errno.errorcode[err])
 
         if self.password: self.queue_command('auth "%s"' % self.password)
         map(self.queue_command, self.init_commands)
@@ -124,14 +124,14 @@ class Connection:
 
 
     def connection_lost(self):
-        print 'Connection lost'
+        print ('Connection lost')
         self.close()
         self.fail_reason = 'closed'
-        raise Exception, 'Lost connection'
+        raise Exception('Lost connection')
 
 
     def connection_error(self, err, msg):
-        print 'Connection Error: %d: %s' % (err, msg)
+        print ('Connection Error: %d: %s' % (err, msg))
         self.close()
         if err == errno.ECONNREFUSED: self.fail_reason = 'refused'
         elif err in [errno.ETIMEDOUT, errno.ENETDOWN, errno.ENETUNREACH]:
@@ -153,7 +153,7 @@ class Connection:
                     self.connection_lost()
                     return 0
 
-        except socket.error, (err, msg):
+        except socket.error as (err, msg):
             # Error codes for nothing to read
             if err not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
                 if bytesRead: return bytesRead
@@ -178,7 +178,7 @@ class Connection:
                     self.connection_lost()
                     return 0
 
-        except socket.error, (err, msg):
+        except socket.error as (err, msg):
             # Error codes for write buffer full
             if err not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
                 if bytesWritten: return bytesWritten
@@ -189,7 +189,7 @@ class Connection:
 
 
     def queue_command(self, command):
-        if debug: print 'command: ' + command
+        if debug: print ('command: ' + command)
         self.writeBuf += command + '\n'
 
 
@@ -199,9 +199,9 @@ class Connection:
             #if debug: print 'MSG:', type, msg
             self.messages.append((version, type, msg))
             self.last_message = time.time()
-        except Exception, e:
-            print 'ERROR parsing PyON message: %s: %s' % (
-                str(e), data.encode('string_escape'))
+        except Exception as e:
+            print ('ERROR parsing PyON message: %s: %s'
+                   % (str(e), data.encode('string_escape')))
 
 
     def parse(self):
@@ -214,8 +214,7 @@ class Connection:
 
                 if len(tokens) < 3:
                     self.readBuf = self.readBuf[eol:]
-                    raise Exception, 'Invalid PyON line: ' + \
-                        line.encode('string_escape')
+                    raise Exception('Invalid PyON line: ' + line.encode('string_escape'))
 
                 version = int(tokens[1])
                 type = tokens[2]
@@ -248,21 +247,20 @@ class Connection:
                     while self.parse(): continue
 
             # Handle special case for OSX disconnect
-            except socket.error, e:
+            except socket.error as e:
                 if sys.platform == 'darwin' and e.errno == errno.EPIPE:
                     self.fail_reason = 'refused'
                     self.close()
 
                 else: raise
 
-        except Exception, e:
-            print 'ERROR on connection to %s:%d: %s' % (
-                self.address, self.port, e)
+        except Exception as e:
+            print ('ERROR on connection to %s:%d: %s' % (self.address, self.port, e))
 
         # Timeout connection
         if self.connected and self.last_message and \
                 self.last_message + 10 < time.time():
-            print 'Connection timed out'
+            print ('Connection timed out')
             self.close()
 
 
@@ -277,7 +275,7 @@ if __name__ == '__main__':
         conn.update()
 
         for version, type, data in conn.messages:
-            print 'PyON %d %s:\n' % (version, type), data
+            print ('PyON %d %s:\n' % (version, type), data)
         conn.messages = []
 
         time.sleep(0.1)

@@ -70,7 +70,7 @@ class SingleAppServer(SocketServer.ThreadingMixIn, SocketServer.TCPServer):
             sock.connect(single_app_addr)
             sock.send('PING')
             if sock.recv(1024).strip() == 'OK':
-                print 'Already running'
+                print ('Already running')
                 sys.exit(1)
 
         except socket.error:

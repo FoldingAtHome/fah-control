@@ -54,8 +54,9 @@ if options.exit:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.connect(single_app_addr)
         sock.send('EXIT')
-        if sock.recv(1024).strip() == 'OK': print 'Ok'
-    except Exception, e: pass
+        if sock.recv(1024).strip() == 'OK': print ('Ok')
+    except Exception as e:
+        pass
 
     sys.exit(0)
 
@@ -77,5 +78,5 @@ else:
 
 try:
     app.run()
-except Exception, e:
-    print e
+except Exception as e:
+    print (e)
