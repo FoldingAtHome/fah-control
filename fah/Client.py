@@ -313,7 +313,8 @@ class Client:
             self.error_messages.add(msg)
             app.error(msg)
 
-        else: print 'ERROR:', msg
+        else:
+            print ('ERROR: %s' % msg)
 
         app.set_status(msg)
 
@@ -323,7 +324,8 @@ class Client:
 
 
     def process_message(self, app, type, data):
-        if debug: print 'message:', type, data
+        if debug:
+            print ('message: %s %s' % (type, data))
 
         if type == 'heartbeat': return
         if type == 'ppd': self.process_ppd(app, data)
@@ -350,13 +352,13 @@ class Client:
             for version, type, data in self.conn.messages:
                 try:
                     self.process_message(app, type, data)
-                except Exception, e:
+                except Exception as e:
                     traceback.print_exc()
 
             self.conn.messages = []
 
-        except Exception, e:
-            print e
+        except Exception as e:
+            print (e)
 
         # If client status has changed update UI
         newStatus = self.get_status()
@@ -395,7 +397,7 @@ class Client:
                     self.conn.queue_command('quit')
                     self.conn.write_some()
 
-            except Exception, e:
-                print e
+            except Exception as e:
+                print (e)
 
         self.conn.close()

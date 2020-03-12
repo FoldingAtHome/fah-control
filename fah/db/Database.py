@@ -52,7 +52,7 @@ class Database:
         for table in self.tables:
             if table.name == name: return table
 
-        raise Exception, 'Table "%s" not found' % name
+        raise Exception('Table "%s" not found' % name)
 
 
     def get_version(self):
@@ -152,9 +152,8 @@ class Database:
     def validate(self):
         current = self.get_current_version()
         if self.get_version() < current:
-            raise Exception, \
-                ('Configuration database "%s" version %d is newer than is '
-                 'supported %d') % (self.filename, current, self.get_version())
+            raise Exception('Configuration database "%s" version %d is newer than is supported %d'
+                            % (self.filename, current, self.get_version()))
 
         elif self.get_version() != current:
             # Create or upgrade DB

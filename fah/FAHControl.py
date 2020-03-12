@@ -17,7 +17,7 @@
 '''
 
 import sys
-import os
+import time
 import re
 import traceback
 import platform
@@ -75,8 +75,8 @@ def osx_version():
     if sys.platform != 'darwin': return None
     try:
         ver = tuple([int(x) for x in platform.mac_ver()[0].split('.')])
-    except Exception, e:
-        print e
+    except Exception as e:
+        print (e)
         darwin_ver = platform.release().split('.')
         ver = (10, int(darwin_ver[0]) - 4, int(darwin_ver[1]))
     return ver
@@ -100,7 +100,8 @@ def osx_add_GtkApplicationDelegate_methods():
                 applicationShouldHandleReopen_hasVisibleWindows_,
                 signature = sig1)
                 ])
-    except Exception, e: print e
+    except Exception as e:
+        print (e)
 
 
 def osx_accel_window_close(accel_group, acceleratable, keyval, modifier):
@@ -170,8 +171,8 @@ class FAHControl(SingleAppServer):
         try:
             self.db = load_fahcontrol_db()
 
-        except Exception, e:
-            print e
+        except Exception as e:
+            print (e)
             sys.exit(1)
 
         # OSX integration
@@ -537,7 +538,8 @@ class FAHControl(SingleAppServer):
                 ag.connect_group(key, mod, gtk.ACCEL_VISIBLE,
                                  osx_accel_window_minimize)
                 self.window.add_accel_group(ag)
-            except Exception, e: print e
+            except Exception as e:
+                print (e)
 
         gtk.main()
 
@@ -600,8 +602,8 @@ class FAHControl(SingleAppServer):
         cmd = ['/usr/bin/osascript', '-e', 'tell app "FAHControl" to reopen']
         try:
             subprocess.Popen(cmd)
-        except Exception, e:
-            print e, ':', ' '.join(cmd)
+        except Exception as e:
+            print (e, ':', ' '.join(cmd))
 
 
     def connect_option_cell(self, name, model, col):
@@ -706,7 +708,8 @@ class FAHControl(SingleAppServer):
 
         try:
             self.db.flush_queued()
-        except Exception, e: print e
+        except Exception as e:
+            print (e)
 
         sys.exit(0) # Force shutdown
 
@@ -738,7 +741,7 @@ class FAHControl(SingleAppServer):
     def load_theme(self, theme):
         for name, rc in self.theme_list:
             if theme == name:
-                print 'Loading theme', theme
+                print ('Loading theme %r' % theme)
 
                 settings = gtk.settings_get_default()
 
@@ -841,7 +844,7 @@ class FAHControl(SingleAppServer):
             elif name == 'team_stats': value = ''
             elif name == 'donor_stats_link': value = 'Folding@home'
             elif name == 'team_stats_link': value = 'Folding@home'
-            else: raise Exception, 'Unknown preference widget "%s"' % name
+            else: raise Exception('Unknown preference widget "%s"' % name)
 
             if value is not None: set_widget_str_value(widget, value)
 
@@ -946,7 +949,8 @@ class FAHControl(SingleAppServer):
                         self.client_list.set(iter, i, row[i])
                     self.client_list.row_changed(path, iter)
                 iter = self.client_list.iter_next(iter)
-        except Exception, e: print e
+        except Exception as e:
+            print (e)
         return False # no timer repeat
 
 
@@ -964,7 +968,7 @@ class FAHControl(SingleAppServer):
             name = client.name
             i = ibyname_old.get(name)
             if i is None:
-                print 'unable to resort client list: unknown name %s' % name
+                print ('unable to resort client list: unknown name %s' % name)
                 return
             new_order.append(i)
         self.client_list.reorder(new_order)
@@ -1028,15 +1032,15 @@ class FAHControl(SingleAppServer):
 
             # Validate passkey
             if not self.passkey_validator.is_good():
-                raise Exception, 'Passkey is invalid'
+                raise Exception('Passkey is invalid')
 
             # Validate password
             if not self.password_validator.is_good():
-                raise Exception, 'Client password is invalid'
+                raise Exception('Client password is invalid')
 
             # Validate proxy password
             if not self.proxy_pass_validator.is_good():
-                raise Exception, 'Proxy password is invalid'
+                raise Exception('Proxy password is invalid')
 
             self.deactivate_client()
 
@@ -1239,7 +1243,7 @@ class FAHControl(SingleAppServer):
 
         # log to terminal window
         if sys.exc_info()[2]: traceback.print_exc()
-        print 'ERROR:', message
+        print ('ERROR: %s' % message)
 
         # Don't open more than one
         if self.error_dialog is not None: return False
@@ -1346,7 +1350,7 @@ class FAHControl(SingleAppServer):
             if slot is not None: cmd.append('--slot=%d' % slot.id)
 
         debug = True
-        if debug: print cmd
+        if debug: print (cmd)
 
         try:
             if sys.platform == 'darwin':
@@ -1354,7 +1358,7 @@ class FAHControl(SingleAppServer):
                                 bufsize = 4096, stderr=subprocess.PIPE)
             else:
                 self.viewer = subprocess.Popen(cmd, cwd = get_home_dir())
-        except Exception, e:
+        except Exception:
             self.error('Failed to launch viewer with command:\n\n' +
                        ' '.join(cmd))
 
@@ -1388,7 +1392,7 @@ class FAHControl(SingleAppServer):
     def on_window_is_active(self, window, *args):
         try:
             if window.is_active(): self.update_client_list()
-        except Exception, e: print e
+        except Exception as e: print (e)
 
 
     # Preferences signals
