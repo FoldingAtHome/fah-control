@@ -48,21 +48,6 @@ def get_buffer_text(buffer):
     return buffer.get_text(buffer.get_start_iter(), buffer.get_end_iter())
 
 
-def get_model_column(model, iter, column):
-    if iter is not None: return model.get_value(iter, column)
-
-
-def get_selected_tree_column(tree, column):
-    selection = tree.get_selection()
-    model = tree.get_model()
-    if selection is not None:
-        return get_model_column(model, selection.get_selected()[1], column)
-
-
-def get_active_combo_column(combo, column):
-    return get_model_column(combo.get_model(), combo.get_active_iter(), column)
-
-
 class ClientConfig:
     queue_cols = ('id state statecolor percentdone percent').split()
 

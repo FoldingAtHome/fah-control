@@ -20,6 +20,7 @@
 import sys
 import os
 import gi
+
 gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 
@@ -79,6 +80,23 @@ def make_row(cols, keys):
         else: yield ''
 
 
+def get_model_column(model, iter, column):
+    if iter is not None: return model.get_value(iter, column)
+
+
+def get_selected_tree_column(tree, column):
+    selection = tree.get_selection()
+    model = tree.get_model()
+    if selection is not None:
+        return get_model_column(model, selection.get_selected()[1], column)
+
+
+def get_active_combo_column(combo, column):
+    if not column:
+        return None
+    return get_model_column(combo.get_model(), combo.get_active_iter(), column)
+
+
 def get_combo_items(widget):
     items = []
     def iterate_list(model, path, iter, data = None):
@@ -111,9 +129,8 @@ def get_widget_str_value(widget):
 
     elif isinstance(widget, Gtk.ComboBox):
         # NOTE This does not always get the displayed text
-        # FIXME(nikolark): Replace with Gtk.ComboBoxText?
-        active_id = widget.get_active_id()
-        return active_id if active_id else ''
+        # FIXME(nikolaik) Replace with Gtk.ComboBoxText?
+        return get_active_combo_column(widget, widget.get_active_id())
 
     else:
         print ('ERROR: unsupported widget type %s' % type(widget))

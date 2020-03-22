@@ -222,7 +222,7 @@ class FAHControl(SingleAppServer):
 
         # Main window
         self.window = builder.get_object('window')
-        # FIXME(nikolark):
+        # FIXME(nikolaik)
         # self.window.set_geometry_hints(None, 440, 256, -1, -1, 800, 512)
         set_tree_view_font(self.window, self.mono_font)
         self.status_bar = builder.get_object('status_bar')
@@ -862,7 +862,9 @@ class FAHControl(SingleAppServer):
         for pref in ['donor', 'team']:
             entry = self.preference_widgets[pref + '_stats']
             combo = self.preference_widgets[pref + '_stats_link']
-            entry.set_sensitive(combo.get_active_text() == 'Custom')
+            # FIXME(nikolark) Replace with Gtk.ComboBoxText?
+            val = get_active_combo_column(combo, combo.get_active_id())
+            entry.set_sensitive(val == 'Custom')
 
 
     def preferences_save(self):
@@ -1202,12 +1204,7 @@ class FAHControl(SingleAppServer):
 
     # Window methods
     def get_visible_dialogs(self):
-        dialogs = []
-        for dialog in self.dialogs:
-            if dialog.flags() & Gtk.MAPPED:
-                dialogs.append(dialog)
-
-        return dialogs
+        return [dialog for dialog in self.dialogs if dialog.get_mapped()]
 
 
     def hide_all_windows(self):
@@ -1275,10 +1272,10 @@ class FAHControl(SingleAppServer):
 
 
     def store_dimensions(self, widget, event, name):
-        x, y, width, height = widget.get_allocation()
-        if 0 <= width and 0 <= height:
-            self.db.set(name + '_width', width, queue = True);
-            self.db.set(name + '_height', height, queue = True);
+        rect = widget.get_allocation()
+        if 0 <= rect.width and 0 <= rect.height:
+            self.db.set(name + '_width', rect.width, queue = True);
+            self.db.set(name + '_height', rect.height, queue = True);
 
 
     # Action signals
