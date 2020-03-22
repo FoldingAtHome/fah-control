@@ -1095,9 +1095,9 @@ class FAHControl(SingleAppServer):
 
             return True
 
-        except Exception as exc:
+        except Exception as err:
             self.set_status('Save Failed')
-            self.error(exc)
+            self.error(err)
             return False
 
     def check_duplicate_client_name(self, name):
