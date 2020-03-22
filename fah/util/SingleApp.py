@@ -21,10 +21,6 @@ import socket
 import threading
 import socketserver
 
-import gtk
-
-from fah.Icon import get_icon
-
 single_app_host = '127.0.0.1'
 single_app_port = 32455
 single_app_addr = (single_app_host, single_app_port)
@@ -34,13 +30,13 @@ class SingleAppRequestHandler(socketserver.BaseRequestHandler):
     def handle(self):
         cmd = self.request.recv(1024).strip()
 
-        if cmd == 'PING':
+        if cmd == b'PING':
             self.server.ping.set()
-            self.request.send('OK\r\n')
+            self.request.send(b'OK\r\n')
 
-        elif cmd == 'EXIT':
+        elif cmd == b'EXIT':
             self.server.exit_requested.set()
-            self.request.send('OK\r\n')
+            self.request.send(b'OK\r\n')
 
 
 
@@ -68,8 +64,8 @@ class SingleAppServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
         try:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sock.connect(single_app_addr)
-            sock.send('PING')
-            if sock.recv(1024).strip() == 'OK':
+            sock.send(b'PING')
+            if sock.recv(1024).strip() == b'OK':
                 print ('Already running')
                 sys.exit(1)
 

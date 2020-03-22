@@ -358,7 +358,7 @@ class Client:
             self.conn.messages = []
 
         except Exception as e:
-            print (e)
+            print ('Error in Client.update', e)
 
         # If client status has changed update UI
         newStatus = self.get_status()

@@ -47,9 +47,8 @@ class Connection:
 
     def set_init_commands(self, commands):
         self.init_commands = commands
-
         if self.is_connected():
-            map(self.queue_command, self.init_commands)
+            list(map(self.queue_command, self.init_commands))
 
 
     def get_status(self):
@@ -66,7 +65,7 @@ class Connection:
 
         if len(wlist) != 0: self.connected = True
         elif len(xlist) != 0:
-            self.fail_reason = 'refused'
+            self.fail_reason = b'refused'
             self.close()
 
         return self.connected
@@ -85,8 +84,8 @@ class Connection:
     def reset(self):
         self.close()
         self.messages = []
-        self.readBuf = ''
-        self.writeBuf = ''
+        self.readBuf = b''
+        self.writeBuf = b''
         self.fail_reason = None
         self.last_message = 0
         self.last_connect = 0
@@ -97,16 +96,17 @@ class Connection:
         self.last_connect = time.time()
 
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.socket.setblocking(0)
+        self.socket.setblocking(False)
         err = self.socket.connect_ex((self.address, self.port))
 
-        if err != 0 and not err in [
-            errno.EINPROGRESS, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
+        if err != 0 and not err in [errno.EINPROGRESS, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
             self.fail_reason = 'connect'
             raise Exception('Connection failed: ' + errno.errorcode[err])
 
-        if self.password: self.queue_command('auth "%s"' % self.password)
-        map(self.queue_command, self.init_commands)
+        if self.password:
+            auth_cmd = 'auth "%s"' % self.password
+            self.queue_command(auth_cmd)
+        list(map(self.queue_command, self.init_commands))
 
 
     def close(self):
@@ -154,9 +154,9 @@ class Connection:
 
         except socket.error as err:
             # Error codes for nothing to read
-            if err not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
+            if err.errno not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
                 if bytesRead: return bytesRead
-                self.connection_error(err, err.strerror)
+                self.connection_error(err.errno, err.strerror)
                 raise
 
         return bytesRead
@@ -188,15 +188,20 @@ class Connection:
 
 
     def queue_command(self, command):
+        """Write string command as utf-8 encoded bytes to the buffer"""
         if debug: print ('command: ' + command)
-        self.writeBuf += command + '\n'
+        command = command.encode('utf-8')
+        self.writeBuf += command + b'\n'
 
 
-    def parse_message(self, version, type, data):
+    def parse_message(self, version, msg_type, data):
+        """Parse message data with eval [sic] and decode message type to string"""
+        # FIXME: Get rid of eval
         try:
             msg = eval(data, {}, {})
-            #if debug: print 'MSG:', type, msg
-            self.messages.append((version, type, msg))
+            msg_type = msg_type.decode('utf-8')
+            # if debug: print('MSG:', msg_type, msg)
+            self.messages.append((version, msg_type, msg))
             self.last_message = time.time()
         except Exception as e:
             print ('ERROR parsing PyON message: %s: %s'
@@ -204,9 +209,9 @@ class Connection:
 
 
     def parse(self):
-        start = self.readBuf.find('\nPyON ')
+        start = self.readBuf.find(b'\nPyON ')
         if start != -1:
-            eol = self.readBuf.find('\n', start + 1)
+            eol = self.readBuf.find(b'\n', start + 1)
             if eol != -1:
                 line = self.readBuf[start + 1: eol]
                 tokens = line.split(None, 2)
@@ -218,7 +223,7 @@ class Connection:
                 version = int(tokens[1])
                 type = tokens[2]
 
-                end = self.readBuf.find('\n---\n', start)
+                end = self.readBuf.find(b'\n---\n', start)
                 if end != -1:
                     data = self.readBuf[eol + 1: end]
                     self.parse_message(version, type, data)
@@ -268,7 +273,8 @@ if __name__ == '__main__':
     init = ['updates add 0 1 $options',
             'updates add 1 1 $queue-info',
             'updates add 2 1 $slot-info']
-    conn = Connection(init_commands = init)
+    conn = Connection()
+    conn.set_init_commands(init)
 
     while True:
         conn.update()

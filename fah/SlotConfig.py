@@ -16,18 +16,16 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 
-import gtk
-import gobject
 import copy
 
-from fah.util import parse_bool
-from fah.util import status_to_color
-
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import GObject
 
 class SlotConfig:
     def __init__(
         self, id = -1, status = None, description = None, reason = None,
-        idle = False, options = {}, **kw):
+        idle = False, options = dict, **kw):
 
         self.id = int(id)
         self.status = status
@@ -46,7 +44,7 @@ class SlotConfig:
 
 
     def add_to_ui(self, app):
-        wrapper = gobject.GObject()
+        wrapper = GObject.GObject()
         wrapper.slot = copy.deepcopy(self)
         app.slot_list.append((self.id, self.type, wrapper))
 

@@ -17,11 +17,14 @@
 '''
 
 import sys
-import gtk
 import traceback
 import re
 
-from fah.util import parse_bool
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk
+
+from fah.util import parse_bool, get_selected_tree_column, get_active_combo_column
 from fah.util import status_to_color
 from fah.util import get_span_markup
 from fah.util import get_widget_str_value
@@ -144,7 +147,7 @@ class ClientConfig:
             self.updating = False
 
         # Reload queue list
-        for values in sorted(self.queue, lambda x, y: cmp(x['id'], y['id'])):
+        for values in sorted(self.queue, key=lambda x: x['id']):
             unit_id = values['unit']
             queue_id = values['id']
             status = values['state'].title()
@@ -279,12 +282,12 @@ class ClientConfig:
         for child in port.get_children(): port.remove(child)
 
         # Alignment
-        align = gtk.Alignment(0, 0, 1, 1)
+        align = Gtk.Alignment.new(0, 0, 1, 1)
         align.set_padding(4, 4, 4, 4)
         port.add(align)
 
         # Vertical box
-        vbox = gtk.VBox()
+        vbox = Gtk.VBox()
         align.add(vbox)
 
         for category in self.info:
@@ -292,40 +295,40 @@ class ClientConfig:
             category = category[1:]
 
             # Frame
-            frame = gtk.Frame('<b>%s</b>' % name)
-            frame.set_shadow_type(gtk.SHADOW_ETCHED_IN)
+            frame = Gtk.Frame.new('<b>%s</b>' % name)
+            frame.set_shadow_type(Gtk.ShadowType.ETCHED_IN)
             frame.get_label_widget().set_use_markup(True)
-            vbox.pack_start(frame, False)
+            vbox.pack_start(frame, False, False, 0)
 
             # Alignment
-            align = gtk.Alignment(0, 0, 1, 1)
+            align = Gtk.Alignment.new(0, 0, 1, 1)
             align.set_padding(0, 0, 12, 0)
             frame.add(align)
 
             # Table
-            table = gtk.Table(len(category), 2)
+            table = Gtk.Table.new(len(category), 2, False)
             table.set_col_spacing(0, 5)
             align.add(table)
 
             row = 0
             for name, value in category:
                 # Name
-                label = gtk.Label('<b>%s</b>' % name)
+                label = Gtk.Label.new('<b>%s</b>' % name)
                 label.set_use_markup(True)
                 label.set_alignment(1, 0.5)
-                table.attach(label, 0, 1, row, row + 1, gtk.FILL, gtk.FILL)
+                table.attach(label, 0, 1, row, row + 1, Gtk.Align.FILL, Gtk.Align.FILL)
 
                 # Value
                 if value.startswith('http://'):
-                    label = gtk.LinkButton(value, value)
-                    label.set_relief(gtk.RELIEF_NONE)
+                    label = Gtk.LinkButton.new(value, value)
+                    label.set_relief(Gtk.ReliefStyle.NONE)
                     label.set_property('can-focus', False)
 
-                else: label = gtk.Label(value)
+                else: label = Gtk.Label.new(value)
 
                 label.set_alignment(0, 0.5)
                 label.modify_font(app.mono_font)
-                table.attach(label, 1, 2, row, row + 1, yoptions = gtk.FILL)
+                table.attach(label, 1, 2, row, row + 1, yoptions = Gtk.Align.FILL)
 
                 row += 1
 
@@ -422,8 +425,9 @@ class ClientConfig:
         # Selected the first item if nothing is selected
         if selected_row is None:
             selected_row = app.slot_status_list.get_iter_first()
-            app.slot_status_tree.get_selection().select_iter(selected_row)
-            self.select_slot(app)
+            if selected_row:
+                app.slot_status_tree.get_selection().select_iter(selected_row)
+                self.select_slot(app)
         if log_filter_row is None:
             log_filter_row = app.slot_status_list.get_iter_first()
 
@@ -482,11 +486,10 @@ class ClientConfig:
 
 
     def log_add_lines(self, app, lines):
-        filtered = filter(self.log_filter, lines)
+        filtered = list(filter(self.log_filter, lines))
 
         if len(filtered):
             text = '\n'.join(filtered)
-            text = text.decode('utf-8', 'ignore')
             app.log.insert(app.log.get_end_iter(), text + '\n')
             self.scroll_log_to_end(app)
 

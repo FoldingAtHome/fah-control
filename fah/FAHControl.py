@@ -21,9 +21,10 @@ import time
 import re
 import traceback
 import platform
-import urllib
+import urllib.parse
 
 import gi
+
 gi.require_version('Gtk', '3.0')
 from gi.repository import GObject, Gtk, Pango, GLib
 import webbrowser
@@ -178,7 +179,7 @@ class FAHControl(SingleAppServer):
             self.osx_app = OSXApplication()
             self.osx_app.set_use_quartz_accelerators(True)
             self.osx_version = osx_version()
-            # TODO(nikolark): remove
+            # TODO(nikolaik): remove
             self.is_old_gtk = Gtk.gtk_version < (2,24)
             osx_add_GtkApplicationDelegate_methods()
 
@@ -862,7 +863,7 @@ class FAHControl(SingleAppServer):
         for pref in ['donor', 'team']:
             entry = self.preference_widgets[pref + '_stats']
             combo = self.preference_widgets[pref + '_stats_link']
-            # FIXME(nikolark) Replace with Gtk.ComboBoxText?
+            # FIXME(nikolaik) Replace with Gtk.ComboBoxText?
             val = get_active_combo_column(combo, combo.get_active_id())
             entry.set_sensitive(val == 'Custom')
 
@@ -1251,8 +1252,8 @@ class FAHControl(SingleAppServer):
         # create an error message dialog and display modally to the user
         dialog = \
             Gtk.MessageDialog(None,
-                              Gtk.DIALOG_MODAL | Gtk.DIALOG_DESTROY_WITH_PARENT,
-                              Gtk.MESSAGE_ERROR, buttons, message)
+                              Gtk.DialogFlags.MODAL | Gtk.DialogFlags.DESTROY_WITH_PARENT,
+                              Gtk.MessageType.ERROR, buttons, message)
 
         dialog.connect('close', self.close_error_dialog)
         if on_response is not None:
@@ -1430,7 +1431,7 @@ class FAHControl(SingleAppServer):
         if self.get_visible_dialogs(): return
 
         # Make client name
-        for i in range(sys.maxint):
+        for i in range(sys.maxsize):
             name = 'client%d' % i
             if not name in self.clients: break
 
@@ -1477,7 +1478,6 @@ class FAHControl(SingleAppServer):
         self.deactivate_client()
 
         self.selected_clients = self.get_selected_clients()
-
         # Modify selection
         for client in self.clients.values():
             client.set_selected(client in self.selected_clients)
@@ -1827,6 +1827,6 @@ class FAHControl(SingleAppServer):
 
 
     def on_uri_hook(self, widget, url, data = None):
-        keys = {'donor': urllib.quote(self.donor_info.get_label()),
-                'team': urllib.quote(self.team_info.get_label())}
+        keys = {'donor': urllib.parse.quote(self.donor_info.get_label()),
+                'team': urllib.parse.quote(self.team_info.get_label())}
         webbrowser.open(url % keys)
