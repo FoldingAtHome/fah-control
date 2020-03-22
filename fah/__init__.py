@@ -18,14 +18,14 @@
 
 # fah
 
-import db
-import util
+from fah import db
+from fah import util
 
-from Version import *
-from Icon import *
-from SlotConfig import *
-from ClientConfig import *
-from Connection import *
-from Client import *
-from WidgetMap import *
-from FAHControl import *
+from .Version import *
+from .Icon import *
+from .SlotConfig import *
+from .ClientConfig import *
+from .Connection import *
+from .Client import *
+from .WidgetMap import *
+from .FAHControl import *

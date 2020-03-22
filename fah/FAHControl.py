@@ -23,15 +23,13 @@ import traceback
 import platform
 import urllib
 
-import gtk
-import glib
-import pygtk
-pygtk.require("2.0")
-import pango
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import GObject, Gtk, Pango, GLib
 import webbrowser
 import shlex
 import subprocess
-from wraplabel import WrapLabel
+from .wraplabel import WrapLabel
 
 # OSX integration
 if sys.platform == 'darwin':
@@ -50,7 +48,7 @@ from fah.util import *
 
 def set_tree_view_font(widget, font):
     for widget in iterate_container(widget):
-        if isinstance(widget, gtk.TreeView):
+        if isinstance(widget, Gtk.TreeView):
             widget.modify_font(font)
 
 
@@ -180,27 +178,29 @@ class FAHControl(SingleAppServer):
             self.osx_app = OSXApplication()
             self.osx_app.set_use_quartz_accelerators(True)
             self.osx_version = osx_version()
-            self.is_old_gtk = gtk.gtk_version < (2,24)
+            # TODO(nikolark): remove
+            self.is_old_gtk = Gtk.gtk_version < (2,24)
             osx_add_GtkApplicationDelegate_methods()
 
         # URI hook
-        gtk.link_button_set_uri_hook(self.on_uri_hook, None)
+        # FIXME(nikolaik)
+        # Gtk.link_button_set_uri_hook(self.on_uri_hook, None)
 
         # Style
-        settings = gtk.settings_get_default()
+        settings = Gtk.Settings.get_default()
         self.system_theme = settings.get_property('gtk-theme-name')
         if sys.platform == 'darwin':
             # Load standard key bindings for Mac and disable mnemonics
             resources = quartz_application_get_resource_path()
             rcfile = os.path.join(resources, 'themes/Mac/gtk-2.0-key/gtkrc')
-            if os.path.exists(rcfile): gtk.rc_parse(rcfile)
+            if os.path.exists(rcfile): Gtk.rc_parse(rcfile)
         rcfile = os.path.join(os.path.expanduser("~"), '.FAHClient/gtkrc')
-        if os.path.exists(rcfile): gtk.rc_parse(rcfile)
-        self.mono_font = pango.FontDescription('Monospace')
-        small_font = pango.FontDescription('Sans 8')
+        if os.path.exists(rcfile): Gtk.rc_parse(rcfile)
+        self.mono_font = Pango.FontDescription('Monospace')
+        small_font = Pango.FontDescription('Sans 8')
 
         # Default icon
-        gtk.window_set_default_icon(get_icon('small'))
+        Gtk.Window.set_default_icon(get_icon('small'))
 
         # Filter glade
         if len(glade) < 1024: glade = open(glade, 'r').read()
@@ -213,7 +213,7 @@ class FAHControl(SingleAppServer):
                 glade)[0]
 
         # Build GUI
-        self.builder = builder = gtk.Builder()
+        self.builder = builder = Gtk.Builder()
         try:
             builder.add_from_string(glade)
         except:
@@ -222,7 +222,8 @@ class FAHControl(SingleAppServer):
 
         # Main window
         self.window = builder.get_object('window')
-        self.window.set_geometry_hints(None, 440, 256, -1, -1, 800, 512)
+        # FIXME(nikolark):
+        # self.window.set_geometry_hints(None, 440, 256, -1, -1, 800, 512)
         set_tree_view_font(self.window, self.mono_font)
         self.status_bar = builder.get_object('status_bar')
         self.ppd_label = builder.get_object('ppd_label')
@@ -320,9 +321,9 @@ class FAHControl(SingleAppServer):
             self.connect_option_view('slot_')
         self.core_option_tree = builder.get_object('core_option_tree_view')
         self.core_option_list = builder.get_object('core_option_list')
-        self.option_tree.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
-        self.slot_option_tree.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
-        self.core_option_tree.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
+        self.option_tree.get_selection().set_mode(Gtk.SelectionMode.MULTIPLE)
+        self.slot_option_tree.get_selection().set_mode(Gtk.SelectionMode.MULTIPLE)
+        self.core_option_tree.get_selection().set_mode(Gtk.SelectionMode.MULTIPLE)
 
         # Option dialog
         self.option_name_entry = builder.get_object('option_name_entry')
@@ -337,7 +338,7 @@ class FAHControl(SingleAppServer):
         for i in range(len(self.folding_power_levels)):
             level = self.folding_power_levels[i]
             markup = '<span font_size="small" weight="bold">%s</span>' % level
-            self.folding_power.add_mark(i, gtk.POS_BOTTOM, markup)
+            self.folding_power.add_mark(i, Gtk.BaselinePosition.BOTTOM, markup)
 
         # User info
         self.donor_info = builder.get_object('donor_info')
@@ -361,7 +362,7 @@ class FAHControl(SingleAppServer):
 
         # Slot lists
         self.slot_status_tree = builder.get_object('slot_status_tree_view')
-        self.slot_status_tree.get_selection().set_mode(gtk.SELECTION_SINGLE)
+        self.slot_status_tree.get_selection().set_mode(Gtk.SelectionMode.SINGLE)
         self.slot_status_list = builder.get_object('slot_status_list')
         self.slot_tree = builder.get_object('slot_tree_view')
         self.slot_list = builder.get_object('slot_list')
@@ -422,7 +423,7 @@ class FAHControl(SingleAppServer):
                 self.osx_create_dock_menu(self.osx_menu)
 
             # Create application menu
-            self.osx_menubar = gtk.MenuBar()
+            self.osx_menubar = Gtk.MenuBar()
             self.osx_menubar.show_all()
             self.osx_app.set_menu_bar(self.osx_menubar)
             if self.is_old_gtk:
@@ -511,7 +512,7 @@ class FAHControl(SingleAppServer):
 
         if sys.platform == 'darwin':
             # reduce updates to 2Hz after 30 seconds
-            gobject.timeout_add(30000, self.set_update_timer_interval, 500)
+            GObject.timeout_add(30000, self.set_update_timer_interval, 500)
 
             # OSX signals
             self.osx_app.connect('NSApplicationDidBecomeActive',
@@ -529,33 +530,33 @@ class FAHControl(SingleAppServer):
             try:
                 # add cmd-w and cmd-m to window
                 # cmd-w would need to be same as cancel for dialogs
-                ag = gtk.AccelGroup()
+                ag = Gtk.AccelGroup()
                 self.window_accel_group = ag
-                key, mod = gtk.accelerator_parse("<meta>w")
-                ag.connect_group(key, mod, gtk.ACCEL_VISIBLE,
+                key, mod = Gtk.accelerator_parse("<meta>w")
+                ag.connect_group(key, mod, Gtk.ACCEL_VISIBLE,
                                  osx_accel_window_close)
-                key, mod = gtk.accelerator_parse("<meta>m")
-                ag.connect_group(key, mod, gtk.ACCEL_VISIBLE,
+                key, mod = Gtk.accelerator_parse("<meta>m")
+                ag.connect_group(key, mod, Gtk.ACCEL_VISIBLE,
                                  osx_accel_window_minimize)
                 self.window.add_accel_group(ag)
             except Exception as e:
                 print (e)
 
-        gtk.main()
+        Gtk.main()
 
 
     # Util
     def osx_add_to_menu(self, widget):
-        if isinstance(widget, gtk.SeparatorMenuItem):
+        if isinstance(widget, Gtk.SeparatorMenuItem):
             self.osx_group = self.osx_app.add_app_menu_group()
 
-        elif isinstance(widget, gtk.MenuItem):
+        elif isinstance(widget, Gtk.MenuItem):
             name = widget.child.get_text()
 
             def activate_item(widget, target):
                 target.emit('activate')
 
-            item = gtk.MenuItem(name)
+            item = Gtk.MenuItem(name)
             item.show()
             item.connect('activate', activate_item, widget)
             self.osx_app.add_app_menu_item(self.osx_group, item)
@@ -564,11 +565,11 @@ class FAHControl(SingleAppServer):
     def osx_create_app_menu(self, widgets):
         i = 0
         for widget in widgets:
-            if not isinstance(widget, gtk.SeparatorMenuItem):
+            if not isinstance(widget, Gtk.SeparatorMenuItem):
                 def activate_item(widget, target):
                     target.emit('activate')
                 label = widget.get_label()
-                item = gtk.MenuItem(label)
+                item = Gtk.MenuItem(label)
                 item.show()
                 item.connect('activate', activate_item, widget)
             self.osx_app.insert_app_menu_item(widget, i)
@@ -576,15 +577,15 @@ class FAHControl(SingleAppServer):
 
 
     def osx_create_dock_menu(self, widgets):
-        menu = gtk.Menu()
+        menu = Gtk.Menu()
         for widget in widgets:
-            if isinstance(widget, gtk.SeparatorMenuItem):
-                item = gtk.SeparatorMenuItem()
+            if isinstance(widget, Gtk.SeparatorMenuItem):
+                item = Gtk.SeparatorMenuItem()
             else:
                 def activate_item(widget, target):
                     target.emit('activate')
                 label = widget.get_label()
-                item = gtk.MenuItem(label)
+                item = Gtk.MenuItem(label)
                 item.connect('activate', activate_item, widget)
             menu.append(item)
         menu.show_all()
@@ -623,10 +624,10 @@ class FAHControl(SingleAppServer):
     # Timer functions
     def set_update_timer_interval(self, interval = None):
         if self.timer_id is not None:
-            glib.source_remove(self.timer_id)
+            GLib.source_remove(self.timer_id)
             self.timer_id = None
         if interval and int(interval) > 0:
-            self.timer_id = gobject.timeout_add(interval, self.on_timer)
+            self.timer_id = GObject.timeout_add(interval, self.on_timer)
         return False # stop if timer callback
 
 
@@ -698,7 +699,7 @@ class FAHControl(SingleAppServer):
         if self.quitting: return
         self.quitting = True
 
-        gtk.main_quit()
+        Gtk.main_quit()
 
         self.viewer_close()
 
@@ -743,17 +744,17 @@ class FAHControl(SingleAppServer):
             if theme == name:
                 print ('Loading theme %r' % theme)
 
-                settings = gtk.settings_get_default()
+                settings = Gtk.Settings.get_default()
 
                 if rc is None:
                     settings.set_property('gtk-theme-name', self.system_theme)
-                    gtk.rc_set_default_files([])
+                    Gtk.rc_set_default_files([])
                 else:
                     settings.set_property('gtk-theme-name', theme)
-                    gtk.rc_set_default_files([rc])
+                    Gtk.rc_set_default_files([rc])
 
-                gtk.rc_reparse_all_for_settings(settings, True)
-                gtk.rc_reset_styles(settings)
+                Gtk.rc_reparse_all_for_settings(settings, True)
+                Gtk.rc_reset_styles(settings)
 
                 break
 
@@ -1058,7 +1059,7 @@ class FAHControl(SingleAppServer):
 
             return True
 
-        except Exception, msg:
+        except Exception as msg:
             self.set_status('Save Failed')
             self.error(msg)
             return False
@@ -1203,7 +1204,7 @@ class FAHControl(SingleAppServer):
     def get_visible_dialogs(self):
         dialogs = []
         for dialog in self.dialogs:
-            if dialog.flags() & gtk.MAPPED:
+            if dialog.flags() & Gtk.MAPPED:
                 dialogs.append(dialog)
 
         return dialogs
@@ -1237,7 +1238,7 @@ class FAHControl(SingleAppServer):
         self.error_dialog = None
 
 
-    def error(self, message, buttons = gtk.BUTTONS_OK, on_response = None,
+    def error(self, message, buttons = Gtk.ButtonsType.OK, on_response = None,
               on_response_data = None):
         message = str(message)
 
@@ -1252,9 +1253,9 @@ class FAHControl(SingleAppServer):
 
         # create an error message dialog and display modally to the user
         dialog = \
-            gtk.MessageDialog(None,
-                              gtk.DIALOG_MODAL | gtk.DIALOG_DESTROY_WITH_PARENT,
-                              gtk.MESSAGE_ERROR, buttons, message)
+            Gtk.MessageDialog(None,
+                              Gtk.DIALOG_MODAL | Gtk.DIALOG_DESTROY_WITH_PARENT,
+                              Gtk.MESSAGE_ERROR, buttons, message)
 
         dialog.connect('close', self.close_error_dialog)
         if on_response is not None:
@@ -1432,7 +1433,7 @@ class FAHControl(SingleAppServer):
         if self.get_visible_dialogs(): return
 
         # Make client name
-        for i in xrange(sys.maxint):
+        for i in range(sys.maxint):
             name = 'client%d' % i
             if not name in self.clients: break
 
@@ -1489,12 +1490,12 @@ class FAHControl(SingleAppServer):
         if len(self.clients): self.activate_client()
 
         self.update_client_list()
-        gobject.timeout_add(5000, self.update_client_list)
+        GObject.timeout_add(5000, self.update_client_list)
 
         # temporarily increase update rate for faster switch
         if sys.platform == 'darwin':
             self.set_update_timer_interval(100)
-            gobject.timeout_add(10000, self.set_update_timer_interval, 500)
+            GObject.timeout_add(10000, self.set_update_timer_interval, 500)
 
 
     # Client options list signals
@@ -1808,7 +1809,7 @@ class FAHControl(SingleAppServer):
     def on_copy_log_clicked(self, widget, data = None):
         log = self.log
         text = log.get_text(log.get_start_iter(), log.get_end_iter())
-        gtk.Clipboard().set_text(text)
+        Gtk.Clipboard().set_text(text)
 
 
     def on_clear_log_clicked(self, widget, data = None):

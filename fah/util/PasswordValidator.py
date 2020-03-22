@@ -16,7 +16,9 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
 
-import gtk
+import gi
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk
 
 from fah.util.EntryValidator import EntryValidator
 
@@ -62,11 +64,11 @@ class PasswordValidator(EntryValidator):
         else: self.valid_text.set_text('Entry is invalid')
 
         if valid:
-            self.valid_image.set_from_stock(gtk.STOCK_YES, gtk.ICON_SIZE_BUTTON)
+            self.valid_image.set_from_stock(Gtk.STOCK_YES, Gtk.IconSize.BUTTON)
             self.valid_text.set_text('Entries match')
         else:
-            self.valid_image.set_from_stock(gtk.STOCK_DIALOG_ERROR,
-                                            gtk.ICON_SIZE_BUTTON)
+            self.valid_image.set_from_stock(Gtk.STOCK_DIALOG_ERROR,
+                                            Gtk.IconSize.BUTTON)
 
 
     def on_changed(self, widget, data = None):

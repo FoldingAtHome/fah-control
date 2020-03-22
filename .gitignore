@@ -20,3 +20,6 @@
 
 # Temporary files
 *~
+
+.eggs/
+venv/
