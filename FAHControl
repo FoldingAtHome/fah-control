@@ -22,9 +22,7 @@ import sys
 import inspect
 import socket
 from optparse import OptionParser
-from fah import FAHControl, load_fahcontrol_db
-from fah.util import *
-from fah.db import *
+from fah import FAHControl, single_app_addr
 
 # If present, remove the Launch Services -psn_xxx_xxx argument
 if len(sys.argv) > 1 and sys.argv[1][:4] == '-psn':
@@ -42,7 +40,7 @@ if options.exit:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.connect(single_app_addr)
         sock.send(b'EXIT')
-        if sock.recv(1024).strip() == 'OK': print ('Ok')
+        if sock.recv(1024).strip() == b'OK': print ('Ok')
     except Exception as e:
         pass
 
