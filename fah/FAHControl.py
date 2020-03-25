@@ -34,7 +34,7 @@ import pango
 import webbrowser
 import shlex
 import subprocess
-from wraplabel import WrapLabel
+from fah.wraplabel import WrapLabel
 
 # OSX integration
 if sys.platform == 'darwin':

@@ -25,10 +25,10 @@ import sys
 import os
 import gtk
 
-from SingleApp import *
-from EntryValidator import *
-from PasswordValidator import *
-from OrderedDict import *
+from fah.util.SingleApp import *
+from fah.util.EntryValidator import *
+from fah.util.PasswordValidator import *
+from fah.util.OrderedDict import *
 
 
 def parse_bool(x):

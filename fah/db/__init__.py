@@ -21,6 +21,6 @@
 
 # fah.db
 
-from Column import *
-from Table import *
-from Database import *
+from fah.db.Column import *
+from fah.db.Table import *
+from fah.db.Database import *
