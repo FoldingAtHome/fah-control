@@ -19,6 +19,8 @@
 #                                                                              #
 ################################################################################
 
+from __future__ import absolute_import
+
 import gtk
 
 icons = {'tiny': None, 'small': None, 'medium': None, 'large': None}

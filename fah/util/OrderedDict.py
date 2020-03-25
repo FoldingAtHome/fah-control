@@ -19,6 +19,8 @@
 #                                                                              #
 ################################################################################
 
+from __future__ import absolute_import
+
 from UserDict import DictMixin
 
 class OrderedDict(dict, DictMixin):

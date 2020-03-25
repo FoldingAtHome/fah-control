@@ -21,6 +21,8 @@
 
 # fah.db
 
+from __future__ import absolute_import
+
 from fah.db.Column import *
 from fah.db.Table import *
 from fah.db.Database import *

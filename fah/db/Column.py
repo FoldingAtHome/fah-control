@@ -19,6 +19,8 @@
 #                                                                              #
 ################################################################################
 
+from __future__ import absolute_import
+
 class Column:
     def __init__(self, name, dbType, constraits, auto = False):
         self.name = name
