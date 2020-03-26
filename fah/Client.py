@@ -205,7 +205,7 @@ class Client:
         for name, value in options.items():
             cmd += ' ' + name
             if name[-1] != '!':
-                cmd += "='%s'" % value.encode('string_escape')
+                cmd += "='%s'" % value
 
         cmd += ' %s *' % ' '.join(self.option_names)
 
