@@ -99,7 +99,7 @@ class Connection:
         self.socket.setblocking(False)
         err = self.socket.connect_ex((self.address, self.port))
 
-        if err != 0 and not err in [errno.EINPROGRESS, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
+        if err != 0 and err not in [errno.EINPROGRESS, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
             self.fail_reason = 'connect'
             raise Exception('Connection failed: ' + errno.errorcode[err])
 
@@ -179,9 +179,9 @@ class Connection:
 
         except socket.error as err:
             # Error codes for write buffer full
-            if err not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
+            if err.errno not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
                 if bytesWritten: return bytesWritten
-                self.connection_error(err, err.strerror)
+                self.connection_error(err.errno, err.strerror)
                 raise
 
         return bytesWritten
@@ -205,7 +205,7 @@ class Connection:
             self.last_message = time.time()
         except Exception as e:
             print ('ERROR parsing PyON message: %s: %s'
-                   % (str(e), data.encode('string_escape')))
+                   % (str(e), data))
 
 
     def parse(self):
@@ -218,7 +218,7 @@ class Connection:
 
                 if len(tokens) < 3:
                     self.readBuf = self.readBuf[eol:]
-                    raise Exception('Invalid PyON line: ' + line.encode('string_escape'))
+                    raise Exception('Invalid PyON line: ' + line)
 
                 version = int(tokens[1])
                 type = tokens[2]
