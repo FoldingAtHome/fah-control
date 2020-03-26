@@ -157,7 +157,7 @@ class Connection:
             # Error codes for nothing to read
             if err.errno not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
                 if bytesRead: return bytesRead
-                self.connection_error(err, msg)
+                self.connection_error(err, err.strerror)
                 raise
 
         return bytesRead
