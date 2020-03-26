@@ -182,7 +182,7 @@ class Connection:
             # Error codes for write buffer full
             if err.errno not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
                 if bytesWritten: return bytesWritten
-                self.connection_error(err, msg)
+                self.connection_error(err, err.strerror)
                 raise
 
         return bytesWritten
