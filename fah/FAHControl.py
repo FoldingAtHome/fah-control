@@ -289,7 +289,9 @@ class FAHControl(SingleAppServer):
         # Tool bar
         builder.get_object('toolbar1').modify_font(small_font)
         button = builder.get_object('viewer_button')
-        button.get_image().set_from_pixbuf(get_viewer_icon('small'))
+        image = button.get_image()
+        image.set_from_pixbuf(get_viewer_icon('small'))
+        image.show()
 
         # About Dialog
         icon = builder.get_object('about_icon')
