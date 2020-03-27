@@ -410,9 +410,9 @@ class FAHControl(SingleAppServer):
         self.donor_stats_pref = self.preference_widgets['donor_stats']
         self.team_stats_pref = self.preference_widgets['team_stats']
         self.donor_stats_list = builder.get_object('donor_stats_links_list')
-        map(self.donor_stats_list.append, self.donor_stats_links)
+        list(map(self.donor_stats_list.append, self.donor_stats_links))
         self.team_stats_list = builder.get_object('team_stats_links_list')
-        map(self.team_stats_list.append, self.team_stats_links)
+        list(map(self.team_stats_list.append, self.team_stats_links))
 
         # OSX integration
         if sys.platform == 'darwin':
