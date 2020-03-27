@@ -1275,10 +1275,10 @@ class FAHControl(SingleAppServer):
 
 
     def store_dimensions(self, widget, event, name):
-        rect = widget.get_allocation()
-        if 0 <= rect.width and 0 <= rect.height:
-            self.db.set(name + '_width', rect.width, queue = True);
-            self.db.set(name + '_height', rect.height, queue = True);
+        width, height = widget.get_size()
+        if 0 <= width and 0 <= height:
+            self.db.set(name + '_width', width, queue = True);
+            self.db.set(name + '_height', height, queue = True);
 
 
     # Action signals

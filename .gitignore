@@ -10,6 +10,7 @@
 /config.log
 /package*.txt
 /fah/FAHControl_glade.py
+fah/#FAHControl.glade#
 /fah/Version.py
 /FAHControl.egg-info
 /deb_dist
