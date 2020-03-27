@@ -36,7 +36,7 @@ def set_proc_name(name):
     libc.prctl(15, byref(buff), 0, 0, 0)
 
 
-if sys.platform.startswith('linux'): set_proc_name('FAHControl')
+if sys.platform.startswith('linux'): set_proc_name(b'FAHControl')
 
 # If present, remove the Launch Services -psn_xxx_xxx argument
 if len(sys.argv) > 1 and sys.argv[1][:4] == '-psn':
