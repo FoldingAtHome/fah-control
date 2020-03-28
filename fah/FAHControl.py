@@ -34,13 +34,8 @@ from .wraplabel import WrapLabel
 
 # OSX integration
 if sys.platform == 'darwin':
-    try:
-        from gtk_osxapplication import *
-    except:
-        import gtkosx_application
-        from gtkosx_application import Application as OSXApplication
-        from gtkosx_application import gtkosx_application_get_resource_path \
-            as quartz_application_get_resource_path
+    gi.require_version('GtkosxApplication', '1.0')
+    from gi.repository import GtkosxApplication
 
 from fah import *
 from fah.db import *
@@ -92,7 +87,7 @@ def osx_add_GtkApplicationDelegate_methods():
     try:
         import objc
         cls = objc.lookUpClass('GtkApplicationDelegate')
-        sig1 = '%s%s%s%s%s' % (objc._C_NSBOOL, objc._C_ID, objc._C_SEL,
+        sig1 = b'%s%s%s%s%s' % (objc._C_NSBOOL, objc._C_ID, objc._C_SEL,
             objc._C_ID, objc._C_NSBOOL)
         objc.classAddMethods(cls, [
             objc.selector(
@@ -176,11 +171,9 @@ class FAHControl(SingleAppServer):
 
         # OSX integration
         if sys.platform == 'darwin':
-            self.osx_app = OSXApplication()
+            self.osx_app = GtkosxApplication.Application()
             self.osx_app.set_use_quartz_accelerators(True)
             self.osx_version = osx_version()
-            # TODO(nikolaik): remove
-            self.is_old_gtk = Gtk.gtk_version < (2,24)
             osx_add_GtkApplicationDelegate_methods()
 
         # URI hook
@@ -192,7 +185,7 @@ class FAHControl(SingleAppServer):
         self.system_theme = settings.get_property('gtk-theme-name')
         if sys.platform == 'darwin':
             # Load standard key bindings for Mac and disable mnemonics
-            resources = quartz_application_get_resource_path()
+            resources = self.osx_app.get_resource_path()
             rcfile = os.path.join(resources, 'themes/Mac/gtk-2.0-key/gtkrc')
             if os.path.exists(rcfile): Gtk.rc_parse(rcfile)
         rcfile = os.path.join(os.path.expanduser("~"), '.FAHClient/gtkrc')
@@ -420,20 +413,13 @@ class FAHControl(SingleAppServer):
         if sys.platform == 'darwin':
             # Setup dock menu
             self.osx_menu = builder.get_object('osx_tray_menu')
-            if self.is_old_gtk:
-                self.osx_app.set_dock_menu(self.osx_menu)
-            else:
-                self.osx_create_dock_menu(self.osx_menu)
+            self.osx_create_dock_menu(self.osx_menu)
 
             # Create application menu
             self.osx_menubar = Gtk.MenuBar()
             self.osx_menubar.show_all()
             self.osx_app.set_menu_bar(self.osx_menubar)
-            if self.is_old_gtk:
-                self.osx_group = self.osx_app.add_app_menu_group()
-                self.osx_menu.foreach(self.osx_add_to_menu)
-            else:
-                self.osx_create_app_menu(self.osx_menu)
+            self.osx_create_app_menu(self.osx_menu)
 
             # Hide some widgets in OSX
             for name in ['ui_pref_frame', 'theme_pref', 'theme_label']:
@@ -441,8 +427,6 @@ class FAHControl(SingleAppServer):
                 widget.set_property('visible', False)
 
             if self.osx_version >= (10,7):
-                # remove broken window resize grip
-                self.status_bar.set_property('has-resize-grip', False)
                 self.time_label.set_property('xpad', 6)
             else:
                 self.time_label.set_property('xpad', 2)
@@ -527,20 +511,15 @@ class FAHControl(SingleAppServer):
 
             self.osx_app.ready()
 
-            if self.osx_version >= (10,7) and self.osx_version < (10,9):
-                self.osx_window_focus_workaround()
-
             try:
                 # add cmd-w and cmd-m to window
                 # cmd-w would need to be same as cancel for dialogs
                 ag = Gtk.AccelGroup()
                 self.window_accel_group = ag
                 key, mod = Gtk.accelerator_parse("<meta>w")
-                ag.connect_group(key, mod, Gtk.ACCEL_VISIBLE,
-                                 osx_accel_window_close)
+                ag.connect(key, mod, Gtk.AccelFlags.VISIBLE, osx_accel_window_close)
                 key, mod = Gtk.accelerator_parse("<meta>m")
-                ag.connect_group(key, mod, Gtk.ACCEL_VISIBLE,
-                                 osx_accel_window_minimize)
+                ag.connect(key, mod, Gtk.AccelFlags.VISIBLE, osx_accel_window_minimize)
                 self.window.add_accel_group(ag)
             except Exception as e:
                 print (e)
@@ -595,19 +574,6 @@ class FAHControl(SingleAppServer):
         self.osx_app.set_dock_menu(menu)
         # retain menu, or it won't work
         self.osx_dock_menu = menu
-
-
-    def osx_window_focus_workaround(self):
-        # osx 10.7+, part of Trac #793, not resolved by gtk 2.24.10
-        # only thing that works is clicking FAHControl icon in Dock
-        # this is the equivalent
-        # must be backgrounded so app can process reopen event
-        # and not deadlock waiting for osascript
-        cmd = ['/usr/bin/osascript', '-e', 'tell app "FAHControl" to reopen']
-        try:
-            subprocess.Popen(cmd)
-        except Exception as e:
-            print (e, ':', ' '.join(cmd))
 
 
     def connect_option_cell(self, name, model, col):
