@@ -440,8 +440,9 @@ class ClientConfig:
         # Selected the first item if nothing is selected
         if selected_row is None:
             selected_row = app.slot_status_list.get_iter_first()
-            app.slot_status_tree.get_selection().select_iter(selected_row)
-            self.select_slot(app)
+            if selected_row is not None:
+                app.slot_status_tree.get_selection().select_iter(selected_row)
+                self.select_slot(app)
         if log_filter_row is None:
             log_filter_row = app.slot_status_list.get_iter_first()
 

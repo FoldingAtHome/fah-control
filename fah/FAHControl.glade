@@ -108,7 +108,7 @@
           <object class="GtkLabel" id="label39">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Copyright © 2010-2018 foldingathome.org</property>
+            <property name="label" translatable="yes">Copyright © 2010-2020 foldingathome.org</property>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -207,8 +207,8 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <property name="label" translatable="yes">&lt;b&gt;Project Leader&lt;/b&gt;
-Dr. Vijay Pande
-Stanford University</property>
+Dr. Gregory Bowman
+Washington State University in Saint Louis</property>
                                 <property name="use_markup">True</property>
                                 <property name="justify">center</property>
                               </object>
@@ -311,6 +311,10 @@ Joe Heimann, jheimann</property>
         <col id="1" translatable="yes">Any</col>
       </row>
       <row>
+        <col id="0" translatable="yes">COVID_19</col>
+        <col id="1" translatable="yes">COVID-19</col>
+      </row>
+      <row>
         <col id="0" translatable="yes">ALZHEIMERS</col>
         <col id="1" translatable="yes">Alzheimer's</col>
       </row>
@@ -325,6 +329,10 @@ Joe Heimann, jheimann</property>
       <row>
         <col id="0" translatable="yes">PARKINSONS</col>
         <col id="1" translatable="yes">Parkinson's</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">HIGH_PRIORITY</col>
+        <col id="1" translatable="yes">High priority</col>
       </row>
     </data>
   </object>
