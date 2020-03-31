@@ -61,18 +61,18 @@ class Client:
 
         # Init commands
         self.inactive_cmds = [
-            'updates clear',
-            'updates add 0 4 $heartbeat',
-            'updates add 1 5 $ppd',
+            b'updates clear',
+            b'updates add 0 4 $heartbeat',
+            b'updates add 1 5 $ppd',
             ]
 
         self.active_cmds = self.inactive_cmds + [
-            'updates add 2 1 $(options %s *)' % ' '.join(self.option_names),
-            'updates add 3 4 $queue-info',
-            'updates add 4 1 $slot-info',
-            'info',
-            'log-updates start',
-            'configured',
+            ('updates add 2 1 $(options %s *)' % ' '.join(self.option_names)).encode('ascii'),
+            b'updates add 3 4 $queue-info',
+            b'updates add 4 1 $slot-info',
+            b'info',
+            b'log-updates start',
+            b'configured',
             ]
 
         # Objects
@@ -330,19 +330,19 @@ class Client:
         if debug:
             print ('message: %s %s' % (type, data))
 
-        if type == 'heartbeat': return
-        if type == 'ppd': self.process_ppd(app, data)
+        if type == b'heartbeat': return
+        if type == b'ppd': self.process_ppd(app, data)
 
         if not self.selected: return
 
-        if type == 'options': self.process_options(app, data)
-        elif type == 'info': self.process_info(app, data)
-        elif type == 'slots': self.process_slots(app, data)
-        elif type == 'units': self.process_units(app, data)
-        elif type == 'log-restart': self.process_log_restart(app, data)
-        elif type == 'log-update': self.process_log_update(app, data)
-        elif type == 'error': self.process_error(app, data)
-        elif type == 'configured': self.process_configured(app, data)
+        if type == b'options': self.process_options(app, data)
+        elif type == b'info': self.process_info(app, data)
+        elif type == b'slots': self.process_slots(app, data)
+        elif type == b'units': self.process_units(app, data)
+        elif type == b'log-restart': self.process_log_restart(app, data)
+        elif type == b'log-update': self.process_log_update(app, data)
+        elif type == b'error': self.process_error(app, data)
+        elif type == b'configured': self.process_configured(app, data)
         # Ignore other message types
 
 

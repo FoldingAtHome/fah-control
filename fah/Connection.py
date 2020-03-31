@@ -90,8 +90,8 @@ class Connection:
     def reset(self):
         self.close()
         self.messages = []
-        self.readBuf = ''
-        self.writeBuf = ''
+        self.readBuf = b''
+        self.writeBuf = b''
         self.fail_reason = None
         self.last_message = 0
         self.last_connect = 0
@@ -193,8 +193,10 @@ class Connection:
 
 
     def queue_command(self, command):
+        if not isinstance(command, bytes):
+            command = command.encode()
         if debug: print ('command: ' + command)
-        self.writeBuf += command + '\n'
+        self.writeBuf += command + b'\n'
 
 
     def parse_message(self, version, type, data):
@@ -209,9 +211,9 @@ class Connection:
 
 
     def parse(self):
-        start = self.readBuf.find('\nPyON ')
+        start = self.readBuf.find(b'\nPyON ')
         if start != -1:
-            eol = self.readBuf.find('\n', start + 1)
+            eol = self.readBuf.find(b'\n', start + 1)
             if eol != -1:
                 line = self.readBuf[start + 1: eol]
                 tokens = line.split(None, 2)
@@ -223,7 +225,7 @@ class Connection:
                 version = int(tokens[1])
                 type = tokens[2]
 
-                end = self.readBuf.find('\n---\n', start)
+                end = self.readBuf.find(b'\n---\n', start)
                 if end != -1:
                     data = self.readBuf[eol + 1: end]
                     self.parse_message(version, type, data)
