@@ -84,7 +84,7 @@ else:
         packages = find_packages(),
         scripts = [app],
         data_files = [('/usr/share/pixmaps', ['images/FAHControl.png'])],
-        install_requires = 'gtk2 >= 2.14.0',
+        install_requires = ['pygobject >= 3.32.2'],
         include_package_data = True,
         )
 
@@ -121,6 +121,7 @@ setup(
     keywords = 'protein, molecular dynamics, simulation',
     url = 'https://foldingathome.org/',
     package_data = {'fah': ['*.glade']},
+    python_requires='>=3.5',
     **extra_opts)
 
 if sys.platform == 'darwin':
