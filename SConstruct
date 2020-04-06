@@ -81,7 +81,7 @@ if env['PLATFORM'] == 'darwin' or env.GetPackageType() == 'rpm':
 
         rpm_license = 'GPL v3+',
         rpm_group = 'Applications/Internet',
-        rpm_requires = 'python, pygtk2',
+        rpm_requires = 'python, python-gtk2',
         rpm_build = 'rpm/build',
         rpm_filelist = 'filelist.txt',
 
