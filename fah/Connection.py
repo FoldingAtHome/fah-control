@@ -37,6 +37,7 @@ if sys.platform == 'win32':
 debug = False
 WSAEWOULDBLOCK = 10035
 
+
 class Connection:
     def __init__(self, address = 'localhost', port = 36330, password = None,
                  retry_rate = 5):
@@ -218,7 +219,8 @@ class Connection:
 
                 if len(tokens) < 3:
                     self.readBuf = self.readBuf[eol:]
-                    raise Exception('Invalid PyON line: ' + line.encode('string_escape'))
+                    raise Exception('Invalid PyON line: ' +
+                                    line.encode('string_escape'))
 
                 version = int(tokens[1])
                 type = tokens[2]
