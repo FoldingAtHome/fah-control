@@ -79,7 +79,7 @@ def osx_version():
     try:
         ver = tuple([int(x) for x in platform.mac_ver()[0].split('.')])
     except Exception as e:
-        print (e)
+        print(e)
         darwin_ver = platform.release().split('.')
         ver = (10, int(darwin_ver[0]) - 4, int(darwin_ver[1]))
     return ver
@@ -104,7 +104,7 @@ def osx_add_GtkApplicationDelegate_methods():
                 signature = sig1)
                 ])
     except Exception as e:
-        print (e)
+        print(e)
 
 
 def osx_accel_window_close(accel_group, acceleratable, keyval, modifier):
@@ -175,7 +175,7 @@ class FAHControl(SingleAppServer):
             self.db = load_fahcontrol_db()
 
         except Exception as e:
-            print (e)
+            print(e)
             sys.exit(1)
 
         # OSX integration
@@ -542,7 +542,7 @@ class FAHControl(SingleAppServer):
                                  osx_accel_window_minimize)
                 self.window.add_accel_group(ag)
             except Exception as e:
-                print (e)
+                print(e)
 
         gtk.main()
 
@@ -606,7 +606,7 @@ class FAHControl(SingleAppServer):
         try:
             subprocess.Popen(cmd)
         except Exception as e:
-            print (e, ':', ' '.join(cmd))
+            print(e, ':', ' '.join(cmd))
 
 
     def connect_option_cell(self, name, model, col):
@@ -712,7 +712,7 @@ class FAHControl(SingleAppServer):
         try:
             self.db.flush_queued()
         except Exception as e:
-            print (e)
+            print(e)
 
         sys.exit(0) # Force shutdown
 
@@ -744,7 +744,7 @@ class FAHControl(SingleAppServer):
     def load_theme(self, theme):
         for name, rc in self.theme_list:
             if theme == name:
-                print ('Loading theme %r' % theme)
+                print('Loading theme %r' % theme)
 
                 settings = gtk.settings_get_default()
 
@@ -953,7 +953,7 @@ class FAHControl(SingleAppServer):
                     self.client_list.row_changed(path, iter)
                 iter = self.client_list.iter_next(iter)
         except Exception as e:
-            print (e)
+            print(e)
         return False # no timer repeat
 
 
@@ -971,7 +971,7 @@ class FAHControl(SingleAppServer):
             name = client.name
             i = ibyname_old.get(name)
             if i is None:
-                print ('unable to resort client list: unknown name %s' % name)
+                print('unable to resort client list: unknown name %s' % name)
                 return
             new_order.append(i)
         self.client_list.reorder(new_order)
@@ -1246,7 +1246,7 @@ class FAHControl(SingleAppServer):
 
         # log to terminal window
         if sys.exc_info()[2]: traceback.print_exc()
-        print ('ERROR: %s' % message)
+        print('ERROR: %s' % message)
 
         # Don't open more than one
         if self.error_dialog is not None: return False
@@ -1353,7 +1353,7 @@ class FAHControl(SingleAppServer):
             if slot is not None: cmd.append('--slot=%d' % slot.id)
 
         debug = True
-        if debug: print (cmd)
+        if debug: print(cmd)
 
         try:
             if sys.platform == 'darwin':
@@ -1395,7 +1395,7 @@ class FAHControl(SingleAppServer):
     def on_window_is_active(self, window, *args):
         try:
             if window.is_active(): self.update_client_list()
-        except Exception as e: print (e)
+        except Exception as e: print(e)
 
 
     # Preferences signals

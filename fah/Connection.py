@@ -129,14 +129,14 @@ class Connection:
 
 
     def connection_lost(self):
-        print ('Connection lost')
+        print('Connection lost')
         self.close()
         self.fail_reason = 'closed'
         raise Exception('Lost connection')
 
 
     def connection_error(self, err, msg):
-        print ('Connection Error: %d: %s' % (err, msg))
+        print('Connection Error: %d: %s' % (err, msg))
         self.close()
         if err == errno.ECONNREFUSED: self.fail_reason = 'refused'
         elif err in [errno.ETIMEDOUT, errno.ENETDOWN, errno.ENETUNREACH]:
@@ -194,7 +194,7 @@ class Connection:
 
 
     def queue_command(self, command):
-        if debug: print ('command: ' + command)
+        if debug: print('command: ' + command)
         self.writeBuf += command + '\n'
 
 
@@ -205,7 +205,7 @@ class Connection:
             self.messages.append((version, type, msg))
             self.last_message = time.time()
         except Exception as e:
-            print ('ERROR parsing PyON message: %s: %s'
+            print('ERROR parsing PyON message: %s: %s'
                    % (str(e), data.encode('string_escape')))
 
 
@@ -261,12 +261,13 @@ class Connection:
                 else: raise
 
         except Exception as e:
-            print ('ERROR on connection to %s:%d: %s' % (self.address, self.port, e))
+            print('ERROR on connection to %s:%d: %s' % (
+                self.address, self.port, e))
 
         # Timeout connection
         if self.connected and self.last_message and \
                 self.last_message + 10 < time.time():
-            print ('Connection timed out')
+            print('Connection timed out')
             self.close()
 
 
@@ -281,7 +282,7 @@ if __name__ == '__main__':
         conn.update()
 
         for version, type, data in conn.messages:
-            print ('PyON %d %s:\n' % (version, type), data)
+            print('PyON %d %s:\n' % (version, type), data)
         conn.messages = []
 
         time.sleep(0.1)
