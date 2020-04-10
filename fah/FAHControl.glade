@@ -1788,7 +1788,7 @@ Warning, changes you make here may render your client inaccessible even from the
                                                             <property name="can_focus">False</property>
                                                             <property name="xalign">0</property>
                                                             <property name="yalign">0</property>
-                                                            <property name="label" translatable="yes">If you set a password here clients will be required to enter this password to gain access to the console client.</property>
+                                                            <property name="label" translatable="yes">If you set a password here clients will be required to enter this password to gain access to the console client.  Otherwise, only clients which are listed in the Passwordless IP Addresses section will be allowed to access this client.</property>
                                                             </object>
                                                             <packing>
                                                             <property name="expand">False</property>
@@ -2173,6 +2173,135 @@ The following range specification matches all IP address:
                                                     <property name="expand">False</property>
                                                     <property name="fill">True</property>
                                                     <property name="position">3</property>
+                                                  </packing>
+                                                </child>
+                                                <child>
+                                                  <object class="GtkFrame" id="frame40">
+                                                    <property name="visible">True</property>
+                                                    <property name="can_focus">False</property>
+                                                    <property name="label_xalign">0</property>
+                                                    <child>
+                                                      <object class="GtkAlignment" id="alignment42">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="left_padding">12</property>
+                                                        <child>
+                                                          <object class="GtkVBox" id="vbox36">
+                                                            <property name="visible">True</property>
+                                                            <property name="can_focus">False</property>
+                                                            <property name="spacing">8</property>
+                                                            <child>
+                                                            <object class="GtkLabel" id="wlabel20">
+                                                            <property name="width_request">1</property>
+                                                            <property name="visible">True</property>
+                                                            <property name="can_focus">False</property>
+                                                            <property name="xalign">0</property>
+                                                            <property name="yalign">0</property>
+                                                            <property name="label" translatable="yes">These fields accept the same format as above however, the IP address filter created by these fields will allowed to access the client with out a password.
+
+Great care should be taken when modifying these fields.  Normally, only the local IP address 127.0.0.1 should be allowed unless your network is protected by other means and you would like more convenient access to this client.
+
+Addresses listed here also need to be listed above to allow access.</property>
+                                                            </object>
+                                                            <packing>
+                                                            <property name="expand">False</property>
+                                                            <property name="fill">True</property>
+                                                            <property name="position">0</property>
+                                                            </packing>
+                                                            </child>
+                                                            <child>
+                                                            <object class="GtkTable" id="table9">
+                                                            <property name="visible">True</property>
+                                                            <property name="can_focus">False</property>
+                                                            <property name="n_rows">2</property>
+                                                            <property name="n_columns">2</property>
+                                                            <property name="column_spacing">4</property>
+                                                            <child>
+                                                            <object class="GtkEntry" id="command_allow_no_pass_option">
+                                                            <property name="visible">True</property>
+                                                            <property name="can_focus">True</property>
+                                                            <property name="invisible_char">●</property>
+                                                            <property name="primary_icon_activatable">False</property>
+                                                            <property name="secondary_icon_activatable">False</property>
+                                                            <property name="primary_icon_sensitive">True</property>
+                                                            <property name="secondary_icon_sensitive">True</property>
+                                                            </object>
+                                                            <packing>
+                                                            <property name="left_attach">1</property>
+                                                            <property name="right_attach">2</property>
+                                                            <property name="y_options">GTK_FILL</property>
+                                                            </packing>
+                                                            </child>
+                                                            <child>
+                                                            <object class="GtkEntry" id="command_deny_no_pass_option">
+                                                            <property name="visible">True</property>
+                                                            <property name="can_focus">True</property>
+                                                            <property name="invisible_char">●</property>
+                                                            <property name="primary_icon_activatable">False</property>
+                                                            <property name="secondary_icon_activatable">False</property>
+                                                            <property name="primary_icon_sensitive">True</property>
+                                                            <property name="secondary_icon_sensitive">True</property>
+                                                            </object>
+                                                            <packing>
+                                                            <property name="left_attach">1</property>
+                                                            <property name="right_attach">2</property>
+                                                            <property name="top_attach">1</property>
+                                                            <property name="bottom_attach">2</property>
+                                                            <property name="y_options">GTK_FILL</property>
+                                                            </packing>
+                                                            </child>
+                                                            <child>
+                                                            <object class="GtkLabel" id="label74">
+                                                            <property name="visible">True</property>
+                                                            <property name="can_focus">False</property>
+                                                            <property name="xalign">1</property>
+                                                            <property name="label" translatable="yes">&lt;b&gt;Allow&lt;/b&gt;</property>
+                                                            <property name="use_markup">True</property>
+                                                            </object>
+                                                            <packing>
+                                                            <property name="x_options">GTK_FILL</property>
+                                                            <property name="y_options">GTK_FILL</property>
+                                                            </packing>
+                                                            </child>
+                                                            <child>
+                                                            <object class="GtkLabel" id="label75">
+                                                            <property name="visible">True</property>
+                                                            <property name="can_focus">False</property>
+                                                            <property name="xalign">1</property>
+                                                            <property name="label" translatable="yes">&lt;b&gt;Deny&lt;/b&gt;</property>
+                                                            <property name="use_markup">True</property>
+                                                            </object>
+                                                            <packing>
+                                                            <property name="top_attach">1</property>
+                                                            <property name="bottom_attach">2</property>
+                                                            <property name="x_options">GTK_FILL</property>
+                                                            <property name="y_options">GTK_FILL</property>
+                                                            </packing>
+                                                            </child>
+                                                            </object>
+                                                            <packing>
+                                                            <property name="expand">True</property>
+                                                            <property name="fill">True</property>
+                                                            <property name="position">1</property>
+                                                            </packing>
+                                                            </child>
+                                                          </object>
+                                                        </child>
+                                                      </object>
+                                                    </child>
+                                                    <child type="label">
+                                                      <object class="GtkLabel" id="label65">
+                                                        <property name="visible">True</property>
+                                                        <property name="can_focus">False</property>
+                                                        <property name="label" translatable="yes">&lt;b&gt;Passwordless IP Address Restriction&lt;/b&gt;</property>
+                                                        <property name="use_markup">True</property>
+                                                      </object>
+                                                    </child>
+                                                  </object>
+                                                  <packing>
+                                                    <property name="expand">False</property>
+                                                    <property name="fill">True</property>
+                                                    <property name="position">4</property>
                                                   </packing>
                                                 </child>
                                               </object>
@@ -5554,7 +5683,7 @@ WARNING, changing these values can make your GPU folding slot fail.</property>
     <property name="text" translatable="yes">This application allows you to monitor and control one or more Folding@home version 7 or newer console clients.</property>
   </object>
   <object class="GtkTextBuffer" id="textbuffer27">
-    <property name="text" translatable="yes">If you set a password here clients will be required to enter this password to gain access to the console client.</property>
+    <property name="text" translatable="yes">If you set a password here clients will be required to enter this password to gain access to the console client.  Otherwise, only clients which are listed in the Passwordless IP Addresses section will be allowed to access this client.</property>
   </object>
   <object class="GtkTextBuffer" id="textbuffer28">
     <property name="text" translatable="yes">The options in this section can be used to configure remote access to Folding@home clients.  This is mainly only useful to expert users running multiple clients which they would like to monitor and control from another computer.  These options may be safely ignored as the defaults are safe and will not allow any remote access.
