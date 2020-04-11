@@ -327,6 +327,8 @@ class ClientConfig:
 
             row = 0
             for name, value in category:
+                if not value: continue
+
                 # Name
                 label = gtk.Label('<b>%s</b>' % name)
                 label.set_use_markup(True)
