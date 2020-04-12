@@ -100,7 +100,7 @@ class Database:
     def flush_queued(self):
         if len(self.queue) == 0: return
 
-        for name, value in self.queue.items():
+        for name, value in list(self.queue.items()):
             self.set(name, value, commit = False)
 
         self.commit()

@@ -4,7 +4,7 @@ import inspect
 
 dir = os.path.dirname(inspect.getfile(inspect.currentframe()))
 if dir == '': dir = '.'
-print ('dir = %s' % dir)
+print(('dir = %s' % dir))
 
 os.chdir(dir)
 

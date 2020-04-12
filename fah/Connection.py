@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 ################################################################################
 #                                                                              #
@@ -27,6 +27,7 @@ import errno
 import time
 import sys
 import traceback
+import select
 
 from fah.util import OrderedDict
 
@@ -55,7 +56,7 @@ class Connection:
         self.init_commands = commands
 
         if self.is_connected():
-            map(self.queue_command, self.init_commands)
+            list(map(self.queue_command, self.init_commands))
 
 
     def get_status(self):
@@ -104,15 +105,16 @@ class Connection:
 
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.socket.setblocking(0)
-        err = self.socket.connect_ex((self.address, self.port))
-
-        if err != 0 and not err in [
+        ready = select.select([self.socket], [self.socket], [], 10)
+        if ready[0]:
+            err = self.socket.connect_ex((self.address, self.port))
+        if err != 0 and err != 115 and not err in [
             errno.EINPROGRESS, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
             self.fail_reason = 'connect'
             raise Exception('Connection failed: ' + errno.errorcode[err])
 
         if self.password: self.queue_command('auth "%s"' % self.password)
-        map(self.queue_command, self.init_commands)
+        list(map(self.queue_command, self.init_commands))
 
 
     def close(self):
@@ -136,7 +138,7 @@ class Connection:
 
 
     def connection_error(self, err, msg):
-        print('Connection Error: %d: %s' % (err, msg))
+        print(('Connection Error: %d: %s' % (err, msg)))
         self.close()
         if err == errno.ECONNREFUSED: self.fail_reason = 'refused'
         elif err in [errno.ETIMEDOUT, errno.ENETDOWN, errno.ENETUNREACH]:
@@ -151,14 +153,16 @@ class Connection:
                 buffer = self.socket.recv(10 * 1024 * 1024)
                 if len(buffer):
                     #if debug: print 'BUFFER:', buffer
-                    self.readBuf += buffer
+                    self.readBuf += buffer.decode("utf-8") 
                     bytesRead += len(buffer)
                 else:
                     if bytesRead: return bytesRead
                     self.connection_lost()
                     return 0
 
-        except socket.error as (err, msg):
+        except socket.error as xxx_todo_changeme:
+            # Error codes for nothing to read
+            (err, msg) = xxx_todo_changeme.args
             # Error codes for nothing to read
             if err not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
                 if bytesRead: return bytesRead
@@ -174,7 +178,7 @@ class Connection:
         bytesWritten = 0
         try:
             while True:
-                count = self.socket.send(self.writeBuf)
+                count = self.socket.send(bytes(self.writeBuf,encoding="UTF8"))
                 if count:
                     self.writeBuf = self.writeBuf[count:]
                     bytesWritten += count
@@ -183,7 +187,9 @@ class Connection:
                     self.connection_lost()
                     return 0
 
-        except socket.error as (err, msg):
+        except socket.error as xxx_todo_changeme1:
+            # Error codes for write buffer full
+            (err, msg) = xxx_todo_changeme1.args
             # Error codes for write buffer full
             if err not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
                 if bytesWritten: return bytesWritten
@@ -194,7 +200,7 @@ class Connection:
 
 
     def queue_command(self, command):
-        if debug: print('command: ' + command)
+        if debug: print(('command: ' + command))
         self.writeBuf += command + '\n'
 
 
@@ -205,8 +211,8 @@ class Connection:
             self.messages.append((version, type, msg))
             self.last_message = time.time()
         except Exception as e:
-            print('ERROR parsing PyON message: %s: %s'
-                   % (str(e), data.encode('string_escape')))
+            print(('ERROR parsing PyON message: %s: %s'
+                   % (str(e), data.encode('string_escape'))))
 
 
     def parse(self):
@@ -261,8 +267,8 @@ class Connection:
                 else: raise
 
         except Exception as e:
-            print('ERROR on connection to %s:%d: %s' % (
-                self.address, self.port, e))
+            print(('ERROR on connection to %s:%d: %s' % (
+                self.address, self.port, e)))
 
         # Timeout connection
         if self.connected and self.last_message and \
@@ -282,7 +288,7 @@ if __name__ == '__main__':
         conn.update()
 
         for version, type, data in conn.messages:
-            print('PyON %d %s:\n' % (version, type), data)
+            print(('PyON %d %s:\n' % (version, type), data))
         conn.messages = []
 
         time.sleep(0.1)

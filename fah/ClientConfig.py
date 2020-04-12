@@ -20,7 +20,7 @@
 ################################################################################
 
 import sys
-import gtk
+from gi.repository import Gtk
 import traceback
 import re
 
@@ -41,7 +41,7 @@ def get_option_mods(old_options, new_options):
             changes[name + '!'] = None
 
     # Added and modified
-    for name, value in new_options.items():
+    for name, value in list(new_options.items()):
         if name not in old_options or value != old_options[name]:
             changes[name] = value
 
@@ -126,7 +126,6 @@ class ClientConfig:
         team = self.options['team']
         app.team_info.set_label(team)
 
-
     def reset_user_info(self, app):
         app.donor_info.set_label('')
         app.team_info.set_label('')
@@ -162,7 +161,7 @@ class ClientConfig:
             self.updating = False
 
         # Reload queue list
-        for values in sorted(self.queue, lambda x, y: cmp(x['id'], y['id'])):
+        for values in sorted(self.queue):
             unit_id = values['unit']
             queue_id = values['id']
             status = values['state'].title()
@@ -203,7 +202,7 @@ class ClientConfig:
         entry = self.queue_map[selected]
 
         # Load info
-        for name, value in entry.items():
+        for name, value in list(entry.items()):
             if name in app.queue_widgets:
                 if (name in ['basecredit', 'creditestimate', 'ppd'] and \
                         float(value) == 0) or value == '<invalid>' or \
@@ -286,7 +285,7 @@ class ClientConfig:
 
 
     def reset_work_unit_info(self, app):
-        for widget in app.queue_widgets.values():
+        for widget in list(app.queue_widgets.values()):
             set_widget_str_value(widget, None)
 
 
@@ -297,12 +296,12 @@ class ClientConfig:
         for child in port.get_children(): port.remove(child)
 
         # Alignment
-        align = gtk.Alignment(0, 0, 1, 1)
+        align = Gtk.Alignment.new(0, 0, 1, 1)
         align.set_padding(4, 4, 4, 4)
         port.add(align)
 
         # Vertical box
-        vbox = gtk.VBox()
+        vbox = Gtk.VBox()
         align.add(vbox)
 
         for category in self.info:
@@ -310,18 +309,21 @@ class ClientConfig:
             category = category[1:]
 
             # Frame
-            frame = gtk.Frame('<b>%s</b>' % name)
-            frame.set_shadow_type(gtk.SHADOW_ETCHED_IN)
-            frame.get_label_widget().set_use_markup(True)
-            vbox.pack_start(frame, False)
+            #frame = Gtk.Frame('<b>%s</b>' % name)
+            frame = Gtk.Frame()
+            frame.name = name
+            frame.set_shadow_type(Gtk.ShadowType.ETCHED_IN)
+            # TODO: FIX ME
+            #frame.get_label_widget().set_use_markup(True)
+            vbox.pack_start(frame,False,True,0)
 
             # Alignment
-            align = gtk.Alignment(0, 0, 1, 1)
+            align = Gtk.Alignment.new(0, 0, 1, 1)
             align.set_padding(0, 0, 12, 0)
             frame.add(align)
 
             # Table
-            table = gtk.Table(len(category), 2)
+            table = Gtk.Table(len(category), 2)
             table.set_col_spacing(0, 5)
             align.add(table)
 
@@ -330,22 +332,22 @@ class ClientConfig:
                 if not value: continue
 
                 # Name
-                label = gtk.Label('<b>%s</b>' % name)
+                label = Gtk.Label(label='<b>%s</b>' % name)
                 label.set_use_markup(True)
                 label.set_alignment(1, 0.5)
-                table.attach(label, 0, 1, row, row + 1, gtk.FILL, gtk.FILL)
+                table.attach(label, 0, 1, row, row + 1, Gtk.AttachOptions.FILL, Gtk.AttachOptions.FILL)
 
                 # Value
                 if value.startswith('http://'):
-                    label = gtk.LinkButton(value, value)
-                    label.set_relief(gtk.RELIEF_NONE)
+                    label = Gtk.LinkButton(value, value)
+                    label.set_relief(Gtk.ReliefStyle.NONE)
                     label.set_property('can-focus', False)
 
-                else: label = gtk.Label(value)
+                else: label = Gtk.Label(label=value)
 
                 label.set_alignment(0, 0.5)
                 label.modify_font(app.mono_font)
-                table.attach(label, 1, 2, row, row + 1, yoptions = gtk.FILL)
+                table.attach(label, 1, 2, row, row + 1, yoptions = Gtk.AttachOptions.FILL)
 
                 row += 1
 
@@ -356,7 +358,7 @@ class ClientConfig:
     def update_options(self, app):
         used = set()
 
-        for name, widget in app.client_option_widgets.items():
+        for name, widget in list(app.client_option_widgets.items()):
             name = name.replace('_', '-')
             used.add(name)
 
@@ -364,7 +366,7 @@ class ClientConfig:
                 set_widget_str_value(widget, self.options[name])
 
             except Exception as e: # Don't let one bad widget kill everything
-                print('WARNING: failed to set widget "%s": %s' % (name, e))
+                print(('WARNING: failed to set widget "%s": %s' % (name, e)))
 
         # Setup passkey and password entries
         app.passkey_validator.set_good()
@@ -405,7 +407,7 @@ class ClientConfig:
 
         # Remaining options
         app.option_list.clear()
-        for name, value in self.options.items():
+        for name, value in list(self.options.items()):
             if name not in used:
                 app.option_list.append([name, value])
 
@@ -491,7 +493,7 @@ class ClientConfig:
             f.append(r'FS%s' % id)
 
         if len(f):
-            f = map(lambda x: '.*(^|:)%s' % x, f)
+            f = ['.*(^|:)%s' % x for x in f]
             return '(^\*)|(%s):' % ''.join(f)
 
         return None
@@ -503,11 +505,11 @@ class ClientConfig:
 
 
     def log_add_lines(self, app, lines):
-        filtered = filter(self.log_filter, lines)
+        filtered = list(filter(self.log_filter, lines))
 
         if len(filtered):
             text = '\n'.join(filtered)
-            text = text.decode('utf-8', 'ignore')
+            #text = text.decode('utf-8', 'ignore')
             app.log.insert(app.log.get_end_iter(), text + '\n')
             self.scroll_log_to_end(app)
 
@@ -606,7 +608,7 @@ class ClientConfig:
         app.option_list.foreach(check_option, None)
 
         # Main options
-        for name, widget in app.client_option_widgets.items():
+        for name, widget in list(app.client_option_widgets.items()):
             name = name.replace('_', '-')
             if name in used: continue
             value = self.get(name)
@@ -621,7 +623,7 @@ class ClientConfig:
                     else: options[name] = value
 
             except Exception as e: # Don't let one bad widget kill everything
-                print('WARNING: failed to save widget "%s": %s' % (name, e))
+                print(('WARNING: failed to save widget "%s": %s' % (name, e)))
 
         # Removed options
         for name in self.options:

@@ -19,14 +19,14 @@
 #                                                                              #
 ################################################################################
 
-import gtk
-
+from gi.repository import Gtk, GdkPixbuf
+from gi.repository.GdkPixbuf import Pixbuf, InterpType
 icons = {'tiny': None, 'small': None, 'medium': None, 'large': None}
 viewer_icons = {'tiny': None, 'small': None, 'medium': None, 'large': None}
 
 
 def load_rgba_pixbuf(data, dim):
-    return gtk.gdk.pixbuf_new_from_data(data, gtk.gdk.COLORSPACE_RGB,
+    return Pixbuf.new_from_data(data, GdkPixbuf.Colorspace.RGB,
                                         True, 8, dim, dim, dim * 4)
 
 
@@ -43,7 +43,7 @@ def get_icon(name):
 
 
 def get_icon_image(name):
-    image = gtk.Image()
+    image = Gtk.Image()
     image.set_from_pixbuf(get_icon(name))
     image.show()
 
@@ -66,7 +66,7 @@ def get_viewer_icon(name):
 
 
 def get_viewer_icon_image(name):
-    image = gtk.Image()
+    image = Gtk.Image()
     image.set_from_pixbuf(get_viewer_icon(name))
     image.show()
 

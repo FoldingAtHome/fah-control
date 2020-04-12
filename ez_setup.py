@@ -13,7 +13,7 @@ the appropriate options to ``use_setuptools()``.
 
 This file can also be run as a script to install or upgrade setuptools.
 """
-from __future__ import print_function
+
 
 import sys
 DEFAULT_VERSION = "0.6c11"
@@ -133,7 +133,7 @@ def download_setuptools(
     with a '/'). `to_dir` is the directory where the egg will be downloaded.
     `delay` is the number of seconds to pause before an actual download attempt.
     """
-    import urllib2, shutil
+    import urllib.request, urllib.error, urllib.parse, shutil
     egg_name = "setuptools-%s-py%s.egg" % (version,sys.version[:3])
     url = download_base + egg_name
     saveto = os.path.join(to_dir, egg_name)
@@ -159,7 +159,7 @@ and place it in this directory before rerunning this script.)
                     version, download_base, delay, url
                 ); from time import sleep; sleep(delay)
             log.warn("Downloading %s", url)
-            src = urllib2.urlopen(url)
+            src = urllib.request.urlopen(url)
             # Read/write all in one block, so we don't create a corrupt file
             # if the download is interrupted.
             data = _validate_md5(egg_name, src.read())
@@ -256,7 +256,7 @@ def update_md5(filenames):
         md5_data[base] = md5(f.read()).hexdigest()
         f.close()
 
-    data = ["    %r: %r,\n" % it for it in md5_data.items()]
+    data = ["    %r: %r,\n" % it for it in list(md5_data.items())]
     data.sort()
     repl = "".join(data)
 
