@@ -1291,7 +1291,7 @@
                                                             <property name="left_padding">4</property>
                                                             <property name="right_padding">4</property>
                                                             <child>
-                                                            <object class="GtkGrid" id="table10">
+                                                            <object class="GtkGrid" id="grid_status_selectedworkunit">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="column_spacing">4</property>
@@ -2818,11 +2818,10 @@ Would you like to configure your identity now?</property>
                 <property name="can_focus">False</property>
                 <property name="left_padding">12</property>
                 <child>
-                  <object class="GtkTable" id="table5">
+                  <object class="GtkGrid" id="grid_editoption">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="n_rows">2</property>
-                    <property name="n_columns">2</property>
+                    <property name="row_homogeneous">True</property>
                     <child>
                       <object class="GtkLabel" id="label46">
                         <property name="visible">True</property>
@@ -2832,8 +2831,8 @@ Would you like to configure your identity now?</property>
                         <property name="xalign">1</property>
                       </object>
                       <packing>
-                        <property name="x_options">GTK_FILL</property>
-                        <property name="y_options">GTK_FILL</property>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
                       </packing>
                     </child>
                     <child>
@@ -2845,10 +2844,8 @@ Would you like to configure your identity now?</property>
                         <property name="xalign">1</property>
                       </object>
                       <packing>
+                        <property name="left_attach">0</property>
                         <property name="top_attach">1</property>
-                        <property name="bottom_attach">2</property>
-                        <property name="x_options">GTK_FILL</property>
-                        <property name="y_options">GTK_FILL</property>
                       </packing>
                     </child>
                     <child>
@@ -2861,7 +2858,7 @@ Would you like to configure your identity now?</property>
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
-                        <property name="right_attach">2</property>
+                        <property name="top_attach">0</property>
                       </packing>
                     </child>
                     <child>
@@ -2874,9 +2871,7 @@ Would you like to configure your identity now?</property>
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
-                        <property name="right_attach">2</property>
                         <property name="top_attach">1</property>
-                        <property name="bottom_attach">2</property>
                       </packing>
                     </child>
                   </object>
@@ -3611,11 +3606,9 @@ Would you like to configure your identity now?</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
-                                                            <object class="GtkTable" id="table7">
+                                                            <object class="GtkGrid" id="grid_passkey">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
-                                                            <property name="n_rows">3</property>
-                                                            <property name="n_columns">2</property>
                                                             <property name="column_spacing">4</property>
                                                             <child>
                                                             <object class="GtkEntry" id="passkey_option">
@@ -3628,8 +3621,7 @@ Would you like to configure your identity now?</property>
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
-                                                            <property name="right_attach">2</property>
-                                                            <property name="y_options">GTK_FILL</property>
+                                                            <property name="top_attach">0</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -3643,10 +3635,7 @@ Would you like to configure your identity now?</property>
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
-                                                            <property name="right_attach">2</property>
                                                             <property name="top_attach">1</property>
-                                                            <property name="bottom_attach">2</property>
-                                                            <property name="y_options">GTK_FILL</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -3658,8 +3647,8 @@ Would you like to configure your identity now?</property>
                                                             <property name="xalign">1</property>
                                                             </object>
                                                             <packing>
-                                                            <property name="x_options">GTK_FILL</property>
-                                                            <property name="y_options">GTK_FILL</property>
+                                                            <property name="left_attach">0</property>
+                                                            <property name="top_attach">0</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -3671,10 +3660,8 @@ Would you like to configure your identity now?</property>
                                                             <property name="xalign">1</property>
                                                             </object>
                                                             <packing>
+                                                            <property name="left_attach">0</property>
                                                             <property name="top_attach">1</property>
-                                                            <property name="bottom_attach">2</property>
-                                                            <property name="x_options">GTK_FILL</property>
-                                                            <property name="y_options">GTK_FILL</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -3686,10 +3673,8 @@ Would you like to configure your identity now?</property>
                                                             <property name="xalign">1</property>
                                                             </object>
                                                             <packing>
+                                                            <property name="left_attach">0</property>
                                                             <property name="top_attach">2</property>
-                                                            <property name="bottom_attach">3</property>
-                                                            <property name="x_options">GTK_FILL</property>
-                                                            <property name="y_options">GTK_FILL</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -3725,9 +3710,7 @@ Would you like to configure your identity now?</property>
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
-                                                            <property name="right_attach">2</property>
                                                             <property name="top_attach">2</property>
-                                                            <property name="bottom_attach">3</property>
                                                             </packing>
                                                             </child>
                                                             </object>
@@ -4134,11 +4117,9 @@ Warning, changes you make here may render your client inaccessible even from the
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkTable" id="table6">
+                                                            <object class="GtkGrid" id="grid_password_remote">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
-                                                            <property name="n_rows">3</property>
-                                                            <property name="n_columns">2</property>
                                                             <property name="column_spacing">4</property>
                                                             <child>
                                                             <object class="GtkEntry" id="password_option">
@@ -4151,8 +4132,7 @@ Warning, changes you make here may render your client inaccessible even from the
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
-                                                            <property name="right_attach">2</property>
-                                                            <property name="y_options">GTK_FILL</property>
+                                                            <property name="top_attach">0</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -4166,10 +4146,7 @@ Warning, changes you make here may render your client inaccessible even from the
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
-                                                            <property name="right_attach">2</property>
                                                             <property name="top_attach">1</property>
-                                                            <property name="bottom_attach">2</property>
-                                                            <property name="y_options">GTK_FILL</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -4181,8 +4158,8 @@ Warning, changes you make here may render your client inaccessible even from the
                                                             <property name="xalign">1</property>
                                                             </object>
                                                             <packing>
-                                                            <property name="x_options">GTK_FILL</property>
-                                                            <property name="y_options">GTK_FILL</property>
+                                                            <property name="left_attach">0</property>
+                                                            <property name="top_attach">0</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -4194,10 +4171,8 @@ Warning, changes you make here may render your client inaccessible even from the
                                                             <property name="xalign">1</property>
                                                             </object>
                                                             <packing>
+                                                            <property name="left_attach">0</property>
                                                             <property name="top_attach">1</property>
-                                                            <property name="bottom_attach">2</property>
-                                                            <property name="x_options">GTK_FILL</property>
-                                                            <property name="y_options">GTK_FILL</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -4209,10 +4184,8 @@ Warning, changes you make here may render your client inaccessible even from the
                                                             <property name="xalign">1</property>
                                                             </object>
                                                             <packing>
+                                                            <property name="left_attach">0</property>
                                                             <property name="top_attach">2</property>
-                                                            <property name="bottom_attach">3</property>
-                                                            <property name="x_options">GTK_FILL</property>
-                                                            <property name="y_options">GTK_FILL</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -4248,9 +4221,7 @@ Warning, changes you make here may render your client inaccessible even from the
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
-                                                            <property name="right_attach">2</property>
                                                             <property name="top_attach">2</property>
-                                                            <property name="bottom_attach">3</property>
                                                             </packing>
                                                             </child>
                                                             </object>
@@ -4412,11 +4383,9 @@ The following range specification matches all IP address:
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkTable" id="table8">
+                                                            <object class="GtkGrid" id="grid_allowdeny_1">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
-                                                            <property name="n_rows">2</property>
-                                                            <property name="n_columns">2</property>
                                                             <property name="column_spacing">4</property>
                                                             <child>
                                                             <object class="GtkEntry" id="allow_option">
@@ -4428,8 +4397,7 @@ The following range specification matches all IP address:
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
-                                                            <property name="right_attach">2</property>
-                                                            <property name="y_options">GTK_FILL</property>
+                                                            <property name="top_attach">0</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -4442,14 +4410,11 @@ The following range specification matches all IP address:
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
-                                                            <property name="right_attach">2</property>
                                                             <property name="top_attach">1</property>
-                                                            <property name="bottom_attach">2</property>
-                                                            <property name="y_options">GTK_FILL</property>
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkLabel" id="label72">
+                                                            <object class="GtkLabel" id="label_allow1">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">&lt;b&gt;Allow&lt;/b&gt;</property>
@@ -4457,12 +4422,12 @@ The following range specification matches all IP address:
                                                             <property name="xalign">1</property>
                                                             </object>
                                                             <packing>
-                                                            <property name="x_options">GTK_FILL</property>
-                                                            <property name="y_options">GTK_FILL</property>
+                                                            <property name="left_attach">0</property>
+                                                            <property name="top_attach">0</property>
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkLabel" id="label73">
+                                                            <object class="GtkLabel" id="label_deny1">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">&lt;b&gt;Deny&lt;/b&gt;</property>
@@ -4470,10 +4435,8 @@ The following range specification matches all IP address:
                                                             <property name="xalign">1</property>
                                                             </object>
                                                             <packing>
+                                                            <property name="left_attach">0</property>
                                                             <property name="top_attach">1</property>
-                                                            <property name="bottom_attach">2</property>
-                                                            <property name="x_options">GTK_FILL</property>
-                                                            <property name="y_options">GTK_FILL</property>
                                                             </packing>
                                                             </child>
                                                             </object>
@@ -4537,11 +4500,9 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkTable" id="table9">
+                                                            <object class="GtkGrid" id="grid_allowdeny_2">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
-                                                            <property name="n_rows">2</property>
-                                                            <property name="n_columns">2</property>
                                                             <property name="column_spacing">4</property>
                                                             <child>
                                                             <object class="GtkEntry" id="command_allow_no_pass_option">
@@ -4553,8 +4514,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
-                                                            <property name="right_attach">2</property>
-                                                            <property name="y_options">GTK_FILL</property>
+                                                            <property name="top_attach">0</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -4567,14 +4527,11 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
-                                                            <property name="right_attach">2</property>
                                                             <property name="top_attach">1</property>
-                                                            <property name="bottom_attach">2</property>
-                                                            <property name="y_options">GTK_FILL</property>
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkLabel" id="label74">
+                                                            <object class="GtkLabel" id="label_allow2">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">&lt;b&gt;Allow&lt;/b&gt;</property>
@@ -4582,12 +4539,12 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="xalign">1</property>
                                                             </object>
                                                             <packing>
-                                                            <property name="x_options">GTK_FILL</property>
-                                                            <property name="y_options">GTK_FILL</property>
+                                                            <property name="left_attach">0</property>
+                                                            <property name="top_attach">0</property>
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkLabel" id="label75">
+                                                            <object class="GtkLabel" id="label_deny2">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">&lt;b&gt;Deny&lt;/b&gt;</property>
@@ -4595,10 +4552,8 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="xalign">1</property>
                                                             </object>
                                                             <packing>
+                                                            <property name="left_attach">0</property>
                                                             <property name="top_attach">1</property>
-                                                            <property name="bottom_attach">2</property>
-                                                            <property name="x_options">GTK_FILL</property>
-                                                            <property name="y_options">GTK_FILL</property>
                                                             </packing>
                                                             </child>
                                                             </object>
@@ -4888,11 +4843,9 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
-                                                            <object class="GtkTable" id="table13">
+                                                            <object class="GtkGrid" id="grid_proxy">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
-                                                            <property name="n_rows">4</property>
-                                                            <property name="n_columns">2</property>
                                                             <property name="column_spacing">4</property>
                                                             <child>
                                                             <object class="GtkEntry" id="proxy_pass_option">
@@ -4905,10 +4858,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
-                                                            <property name="right_attach">2</property>
                                                             <property name="top_attach">1</property>
-                                                            <property name="bottom_attach">2</property>
-                                                            <property name="y_options">GTK_FILL</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -4922,10 +4872,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
-                                                            <property name="right_attach">2</property>
                                                             <property name="top_attach">2</property>
-                                                            <property name="bottom_attach">3</property>
-                                                            <property name="y_options">GTK_FILL</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -4937,10 +4884,8 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="xalign">1</property>
                                                             </object>
                                                             <packing>
+                                                            <property name="left_attach">0</property>
                                                             <property name="top_attach">1</property>
-                                                            <property name="bottom_attach">2</property>
-                                                            <property name="x_options">GTK_FILL</property>
-                                                            <property name="y_options">GTK_FILL</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -4952,10 +4897,8 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="xalign">1</property>
                                                             </object>
                                                             <packing>
+                                                            <property name="left_attach">0</property>
                                                             <property name="top_attach">2</property>
-                                                            <property name="bottom_attach">3</property>
-                                                            <property name="x_options">GTK_FILL</property>
-                                                            <property name="y_options">GTK_FILL</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -4967,10 +4910,8 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="xalign">1</property>
                                                             </object>
                                                             <packing>
+                                                            <property name="left_attach">0</property>
                                                             <property name="top_attach">3</property>
-                                                            <property name="bottom_attach">4</property>
-                                                            <property name="x_options">GTK_FILL</property>
-                                                            <property name="y_options">GTK_FILL</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -5006,9 +4947,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
-                                                            <property name="right_attach">2</property>
                                                             <property name="top_attach">3</property>
-                                                            <property name="bottom_attach">4</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -5020,8 +4959,8 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="xalign">1</property>
                                                             </object>
                                                             <packing>
-                                                            <property name="x_options">GTK_FILL</property>
-                                                            <property name="y_options">GTK_FILL</property>
+                                                            <property name="left_attach">0</property>
+                                                            <property name="top_attach">0</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -5034,7 +4973,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
-                                                            <property name="right_attach">2</property>
+                                                            <property name="top_attach">0</property>
                                                             </packing>
                                                             </child>
                                                             </object>
@@ -5249,11 +5188,9 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                         <property name="left_padding">12</property>
                                                         <property name="right_padding">4</property>
                                                         <child>
-                                                          <object class="GtkTable" id="table3">
+                                                          <object class="GtkGrid" id="grid_priority">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
-                                                            <property name="n_rows">2</property>
-                                                            <property name="n_columns">2</property>
                                                             <child>
                                                             <object class="GtkRadioButton" id="core_priority_option">
                                                             <property name="use_action_appearance">False</property>
@@ -5264,8 +5201,8 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="draw_indicator">True</property>
                                                             </object>
                                                             <packing>
-                                                            <property name="x_options">GTK_FILL</property>
-                                                            <property name="y_options">GTK_FILL</property>
+                                                            <property name="left_attach">0</property>
+                                                            <property name="top_attach">0</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -5278,10 +5215,8 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="group">core_priority_option</property>
                                                             </object>
                                                             <packing>
+                                                            <property name="left_attach">0</property>
                                                             <property name="top_attach">1</property>
-                                                            <property name="bottom_attach">2</property>
-                                                            <property name="x_options">GTK_FILL</property>
-                                                            <property name="y_options">GTK_FILL</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -5295,7 +5230,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
-                                                            <property name="right_attach">2</property>
+                                                            <property name="top_attach">0</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -5309,9 +5244,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
-                                                            <property name="right_attach">2</property>
                                                             <property name="top_attach">1</property>
-                                                            <property name="bottom_attach">2</property>
                                                             </packing>
                                                             </child>
                                                           </object>
@@ -5543,17 +5476,9 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                         <property name="left_padding">12</property>
                                                         <property name="right_padding">4</property>
                                                         <child>
-                                                          <object class="GtkTable" id="table15">
+                                                          <object class="GtkGrid" id="grid_optimizations">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
-                                                            <property name="n_rows">2</property>
-                                                            <property name="n_columns">2</property>
-                                                            <child>
-                                                            <placeholder/>
-                                                            </child>
-                                                            <child>
-                                                            <placeholder/>
-                                                            </child>
                                                             <child>
                                                             <object class="GtkCheckButton" id="no_assembly_option">
                                                             <property name="use_action_appearance">False</property>
@@ -5563,7 +5488,8 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="draw_indicator">True</property>
                                                             </object>
                                                             <packing>
-                                                            <property name="x_options">GTK_FILL</property>
+                                                            <property name="left_attach">0</property>
+                                                            <property name="top_attach">0</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -5577,7 +5503,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
-                                                            <property name="right_attach">2</property>
+                                                            <property name="top_attach">0</property>
                                                             </packing>
                                                             </child>
                                                           </object>
@@ -6449,10 +6375,9 @@ Some of these options may require manually restarting the client to take effect.
                                                           </packing>
                                                         </child>
                                                         <child>
-                                                          <object class="GtkTable" id="table4">
+                                                          <object class="GtkGrid" id="grid_gpuindex">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
-                                                            <property name="n_columns">3</property>
                                                             <property name="column_spacing">5</property>
                                                             <child>
                                                             <object class="GtkSpinButton" id="gpu_index_option">
@@ -6466,8 +6391,7 @@ Some of these options may require manually restarting the client to take effect.
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
-                                                            <property name="right_attach">2</property>
-                                                            <property name="x_options">GTK_FILL</property>
+                                                            <property name="top_attach">0</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -6478,17 +6402,8 @@ Some of these options may require manually restarting the client to take effect.
                                                             <property name="use_markup">True</property>
                                                             </object>
                                                             <packing>
-                                                            <property name="x_options">GTK_FILL</property>
-                                                            </packing>
-                                                            </child>
-                                                            <child>
-                                                            <object class="GtkLabel" id="label53">
-                                                            <property name="visible">True</property>
-                                                            <property name="can_focus">False</property>
-                                                            </object>
-                                                            <packing>
-                                                            <property name="left_attach">2</property>
-                                                            <property name="right_attach">3</property>
+                                                            <property name="left_attach">0</property>
+                                                            <property name="top_attach">0</property>
                                                             </packing>
                                                             </child>
                                                           </object>
@@ -6550,11 +6465,9 @@ WARNING, changing these values can make your GPU folding slot fail.</property>
                                                           </packing>
                                                         </child>
                                                         <child>
-                                                          <object class="GtkTable" id="table14">
+                                                          <object class="GtkGrid" id="grid_openclindex">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
-                                                            <property name="n_rows">2</property>
-                                                            <property name="n_columns">3</property>
                                                             <property name="column_spacing">5</property>
                                                             <child>
                                                             <object class="GtkSpinButton" id="opencl_index_option">
@@ -6568,41 +6481,19 @@ WARNING, changing these values can make your GPU folding slot fail.</property>
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
-                                                            <property name="right_attach">2</property>
-                                                            <property name="x_options">GTK_FILL</property>
+                                                            <property name="top_attach">0</property>
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkLabel" id="label78">
+                                                            <object class="GtkLabel" id="label_openclindex">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">&lt;b&gt;opencl-index&lt;/b&gt;</property>
                                                             <property name="use_markup">True</property>
                                                             </object>
                                                             <packing>
-                                                            <property name="x_options">GTK_FILL</property>
-                                                            </packing>
-                                                            </child>
-                                                            <child>
-                                                            <object class="GtkLabel" id="label111">
-                                                            <property name="visible">True</property>
-                                                            <property name="can_focus">False</property>
-                                                            </object>
-                                                            <packing>
-                                                            <property name="left_attach">2</property>
-                                                            <property name="right_attach">3</property>
-                                                            </packing>
-                                                            </child>
-                                                            <child>
-                                                            <object class="GtkLabel" id="label120">
-                                                            <property name="visible">True</property>
-                                                            <property name="can_focus">False</property>
-                                                            </object>
-                                                            <packing>
-                                                            <property name="left_attach">2</property>
-                                                            <property name="right_attach">3</property>
-                                                            <property name="top_attach">1</property>
-                                                            <property name="bottom_attach">2</property>
+                                                            <property name="left_attach">0</property>
+                                                            <property name="top_attach">0</property>
                                                             </packing>
                                                             </child>
                                                             <child>
@@ -6617,23 +6508,19 @@ WARNING, changing these values can make your GPU folding slot fail.</property>
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
-                                                            <property name="right_attach">2</property>
                                                             <property name="top_attach">1</property>
-                                                            <property name="bottom_attach">2</property>
-                                                            <property name="x_options">GTK_FILL</property>
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkLabel" id="label121">
+                                                            <object class="GtkLabel" id="label_cudaindex">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">&lt;b&gt;cuda-index&lt;/b&gt;</property>
                                                             <property name="use_markup">True</property>
                                                             </object>
                                                             <packing>
+                                                            <property name="left_attach">0</property>
                                                             <property name="top_attach">1</property>
-                                                            <property name="bottom_attach">2</property>
-                                                            <property name="x_options">GTK_FILL</property>
                                                             </packing>
                                                             </child>
                                                           </object>
@@ -7165,12 +7052,11 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                 <property name="can_focus">False</property>
                 <property name="left_padding">12</property>
                 <child>
-                  <object class="GtkTable" id="table2">
+                  <object class="GtkGrid" id="grid_visualization">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="n_rows">5</property>
-                    <property name="n_columns">2</property>
                     <property name="column_spacing">5</property>
+                    <property name="row_homogeneous">True</property>
                     <child>
                       <object class="GtkLabel" id="label105">
                         <property name="visible">True</property>
@@ -7179,10 +7065,8 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                         <property name="xalign">1</property>
                       </object>
                       <packing>
+                        <property name="left_attach">0</property>
                         <property name="top_attach">1</property>
-                        <property name="bottom_attach">2</property>
-                        <property name="x_options">GTK_FILL</property>
-                        <property name="y_options">GTK_FILL</property>
                       </packing>
                     </child>
                     <child>
@@ -7194,10 +7078,8 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                         <property name="xalign">1</property>
                       </object>
                       <packing>
+                        <property name="left_attach">0</property>
                         <property name="top_attach">2</property>
-                        <property name="bottom_attach">3</property>
-                        <property name="x_options">GTK_FILL</property>
-                        <property name="y_options">GTK_FILL</property>
                       </packing>
                     </child>
                     <child>
@@ -7212,11 +7094,7 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
-                        <property name="right_attach">2</property>
                         <property name="top_attach">1</property>
-                        <property name="bottom_attach">2</property>
-                        <property name="x_options">GTK_FILL</property>
-                        <property name="y_options">GTK_FILL</property>
                       </packing>
                     </child>
                     <child>
@@ -7229,8 +7107,8 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                         <property name="xalign">1</property>
                       </object>
                       <packing>
-                        <property name="x_options">GTK_FILL</property>
-                        <property name="y_options">GTK_FILL</property>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
                       </packing>
                     </child>
                     <child>
@@ -7244,7 +7122,7 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
-                        <property name="right_attach">2</property>
+                        <property name="top_attach">0</property>
                       </packing>
                     </child>
                     <child>
@@ -7299,9 +7177,7 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
-                        <property name="right_attach">2</property>
                         <property name="top_attach">2</property>
-                        <property name="bottom_attach">3</property>
                       </packing>
                     </child>
                     <child>
@@ -7313,10 +7189,8 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                         <property name="xalign">1</property>
                       </object>
                       <packing>
+                        <property name="left_attach">0</property>
                         <property name="top_attach">3</property>
-                        <property name="bottom_attach">4</property>
-                        <property name="x_options">GTK_FILL</property>
-                        <property name="y_options">GTK_FILL</property>
                       </packing>
                     </child>
                     <child>
@@ -7347,9 +7221,7 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
-                        <property name="right_attach">2</property>
                         <property name="top_attach">3</property>
-                        <property name="bottom_attach">4</property>
                       </packing>
                     </child>
                     <child>
@@ -7360,10 +7232,8 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                         <property name="xalign">1</property>
                       </object>
                       <packing>
+                        <property name="left_attach">0</property>
                         <property name="top_attach">4</property>
-                        <property name="bottom_attach">5</property>
-                        <property name="x_options">GTK_FILL</property>
-                        <property name="y_options">GTK_FILL</property>
                       </packing>
                     </child>
                     <child>
@@ -7377,11 +7247,7 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
-                        <property name="right_attach">2</property>
                         <property name="top_attach">4</property>
-                        <property name="bottom_attach">5</property>
-                        <property name="x_options">GTK_FILL</property>
-                        <property name="y_options">GTK_FILL</property>
                       </packing>
                     </child>
                   </object>
@@ -7414,14 +7280,13 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                 <property name="can_focus">False</property>
                 <property name="left_padding">12</property>
                 <child>
-                  <object class="GtkTable" id="table16">
+                  <object class="GtkGrid" id="grid_donor_stats">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="n_rows">2</property>
-                    <property name="n_columns">3</property>
                     <property name="column_spacing">5</property>
+                    <property name="row_homogeneous">True</property>
                     <child>
-                      <object class="GtkLabel" id="label129">
+                      <object class="GtkLabel" id="label_donorstats">
                         <property name="width_request">100</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
@@ -7430,22 +7295,8 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                         <property name="xalign">1</property>
                       </object>
                       <packing>
-                        <property name="x_options">GTK_FILL</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkLabel" id="label130">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">Team Stats</property>
-                        <property name="use_markup">True</property>
-                        <property name="xalign">1</property>
-                      </object>
-                      <packing>
-                        <property name="top_attach">1</property>
-                        <property name="bottom_attach">2</property>
-                        <property name="x_options">GTK_FILL</property>
-                        <property name="y_options">GTK_FILL</property>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
                       </packing>
                     </child>
                     <child>
@@ -7458,44 +7309,7 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
-                        <property name="right_attach">2</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkEntry" id="team_stats_pref">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="invisible_char">•</property>
-                        <property name="primary_icon_activatable">False</property>
-                        <property name="secondary_icon_activatable">False</property>
-                      </object>
-                      <packing>
-                        <property name="left_attach">1</property>
-                        <property name="right_attach">2</property>
-                        <property name="top_attach">1</property>
-                        <property name="bottom_attach">2</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkComboBox" id="team_stats_link_pref">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="model">team_stats_links_list</property>
-                        <property name="active">0</property>
-                        <signal name="changed" handler="on_team_stats_link_changed" swapped="no"/>
-                        <child>
-                          <object class="GtkCellRendererText" id="cellrenderertext26"/>
-                          <attributes>
-                            <attribute name="text">0</attribute>
-                          </attributes>
-                        </child>
-                      </object>
-                      <packing>
-                        <property name="left_attach">2</property>
-                        <property name="right_attach">3</property>
-                        <property name="top_attach">1</property>
-                        <property name="bottom_attach">2</property>
-                        <property name="x_options">GTK_FILL</property>
+                        <property name="top_attach">0</property>
                       </packing>
                     </child>
                     <child>
@@ -7514,8 +7328,52 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                       </object>
                       <packing>
                         <property name="left_attach">2</property>
-                        <property name="right_attach">3</property>
-                        <property name="x_options">GTK_FILL</property>
+                        <property name="top_attach">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="label_teamstats">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="label" translatable="yes">Team Stats</property>
+                        <property name="use_markup">True</property>
+                        <property name="xalign">1</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="team_stats_pref">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="invisible_char">•</property>
+                        <property name="primary_icon_activatable">False</property>
+                        <property name="secondary_icon_activatable">False</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBox" id="team_stats_link_pref">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="model">team_stats_links_list</property>
+                        <property name="active">0</property>
+                        <signal name="changed" handler="on_team_stats_link_changed" swapped="no"/>
+                        <child>
+                          <object class="GtkCellRendererText" id="cellrenderertext26"/>
+                          <attributes>
+                            <attribute name="text">0</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="left_attach">2</property>
+                        <property name="top_attach">1</property>
                       </packing>
                     </child>
                   </object>
@@ -7548,10 +7406,9 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                 <property name="can_focus">False</property>
                 <property name="left_padding">12</property>
                 <child>
-                  <object class="GtkTable" id="table12">
+                  <object class="GtkGrid" id="grid_theme">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="n_columns">2</property>
                     <property name="column_spacing">5</property>
                     <child>
                       <object class="GtkLabel" id="theme_label">
@@ -7563,8 +7420,8 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                         <property name="xalign">1</property>
                       </object>
                       <packing>
-                        <property name="x_options">GTK_FILL</property>
-                        <property name="y_options">GTK_FILL</property>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
                       </packing>
                     </child>
                     <child>
@@ -7583,9 +7440,7 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
-                        <property name="right_attach">2</property>
-                        <property name="x_options">GTK_FILL</property>
-                        <property name="y_options">GTK_FILL</property>
+                        <property name="top_attach">0</property>
                       </packing>
                     </child>
                   </object>
