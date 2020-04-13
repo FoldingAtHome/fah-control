@@ -1393,9 +1393,9 @@
                                                             </child>
                                                             <child>
                                                             <object class="GtkProgressBar" id="queue_percentdone">
-                                                            <property name="height_request">22</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
+                                                            <property name="hexpand">True</property>
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
@@ -2993,6 +2993,7 @@ Would you like to configure your identity now?</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="label" translatable="yes">Configure FAHControl's connection to an actual Folding@home client.  The client can either be local or on a remote machine.</property>
+                                                    <property name="wrap">True</property>
                                                     <property name="width_chars">100</property>
                                                     <property name="xalign">0</property>
                                                     <property name="yalign">0</property>
@@ -3024,6 +3025,7 @@ Would you like to configure your identity now?</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">Give the client a display name.  "local" client name cannot be changed.</property>
+                                                            <property name="wrap">True</property>
                                                             <property name="xalign">0</property>
                                                             <property name="yalign">0</property>
                                                             </object>
@@ -3087,6 +3089,7 @@ Would you like to configure your identity now?</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">Specify the network address either as an IP of the form ###.###.###.### or a hostname.  "local" client address cannot be changed.</property>
+                                                            <property name="wrap">True</property>
                                                             <property name="xalign">0</property>
                                                             </object>
                                                             <packing>
@@ -3140,6 +3143,7 @@ Would you like to configure your identity now?</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">The port must match the configuration in the client.  The default port is 36330.</property>
+                                                            <property name="wrap">True</property>
                                                             <property name="xalign">0</property>
                                                             </object>
                                                             <packing>
@@ -3230,6 +3234,7 @@ Would you like to configure your identity now?</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">Specify a password for secure access to the client.  This keeps others from being able to control your client remotely, if it is not already protected by a firewall.</property>
+                                                            <property name="wrap">True</property>
                                                             <property name="xalign">0</property>
                                                             </object>
                                                             <packing>
@@ -3359,6 +3364,7 @@ Would you like to configure your identity now?</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">The name, or alias, you enter here will be displayed in the statistics page on our web site.  If you choose not to enter a name, your computer's time will be donated anonymously.  These settings may be changed at any time.</property>
+                                                            <property name="wrap">True</property>
                                                             <property name="xalign">0</property>
                                                             <property name="yalign">0</property>
                                                             </object>
@@ -3437,6 +3443,7 @@ Would you like to configure your identity now?</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">You may also join a team.  If you want your work to count for a team, enter the team number here.  See the Folding@home Web site to find out how to start a team.</property>
+                                                            <property name="wrap">True</property>
                                                             <property name="xalign">0</property>
                                                             <property name="yalign">0</property>
                                                             </object>
@@ -3555,6 +3562,7 @@ Would you like to configure your identity now?</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">For added security, you can request a passkey and enter it here.  This helps to prevent others from pretending to be you.  You are responsible for keeping your passkey a secret.  A passkey is also required to earn bonus points.</property>
+                                                            <property name="wrap">True</property>
                                                             <property name="xalign">0</property>
                                                             <property name="yalign">0</property>
                                                             </object>
@@ -3579,6 +3587,7 @@ Would you like to configure your identity now?</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="visibility">False</property>
                                                             <property name="invisible_char">●</property>
+                                                            <property name="width_chars">40</property>
                                                             <property name="primary_icon_activatable">False</property>
                                                             <property name="secondary_icon_activatable">False</property>
                                                             </object>
@@ -4039,6 +4048,7 @@ In addition to the settings here, you may also have to open access to the config
 Warning, the password set here is transmitted in clear text and is not meant to be a complete security solution.  If you intend to enable access to your Folding@home clients over the Internet then you should use additional security such as secure VPN, SSH tunneling or at a minimum IP based access restriction.
 
 Warning, changes you make here may render your client inaccessible even from the local machine.  If this happens you will have to manually add your IP to 'command-allow' option in the client's 'config.xml' file and restart it.</property>
+                                                    <property name="wrap">True</property>
                                                     <property name="xalign">0</property>
                                                     <property name="yalign">0</property>
                                                   </object>
@@ -4070,6 +4080,7 @@ Warning, changes you make here may render your client inaccessible even from the
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">If you set a password here clients will be required to enter this password to gain access to the console client.  Otherwise, only clients which are listed in the Passwordless IP Addresses section will be allowed to access this client.</property>
+                                                            <property name="wrap">True</property>
                                                             <property name="xalign">0</property>
                                                             <property name="yalign">0</property>
                                                             </object>
@@ -4090,6 +4101,7 @@ Warning, changes you make here may render your client inaccessible even from the
                                                             <property name="can_focus">True</property>
                                                             <property name="visibility">False</property>
                                                             <property name="invisible_char">●</property>
+                                                            <property name="width_chars">20</property>
                                                             <property name="primary_icon_activatable">False</property>
                                                             <property name="secondary_icon_activatable">False</property>
                                                             </object>
@@ -4252,6 +4264,7 @@ Warning, changes you make here may render your client inaccessible even from the
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="invisible_char">●</property>
+                                                            <property name="width_chars">6</property>
                                                             <property name="primary_icon_activatable">False</property>
                                                             <property name="secondary_icon_activatable">False</property>
                                                             <property name="adjustment">command_port_adjustment</property>
@@ -4337,6 +4350,7 @@ or
 The following range specification matches all IP address:
 
   0.0.0.0/0</property>
+                                                            <property name="wrap">True</property>
                                                             <property name="xalign">0</property>
                                                             <property name="yalign">0</property>
                                                             </object>
@@ -4455,6 +4469,7 @@ The following range specification matches all IP address:
 Great care should be taken when modifying these fields.  Normally, only the local IP address 127.0.0.1 should be allowed unless your network is protected by other means and you would like more convenient access to this client.
 
 Addresses listed here also need to be listed above to allow access.</property>
+                                                            <property name="wrap">True</property>
                                                             <property name="xalign">0</property>
                                                             <property name="yalign">0</property>
                                                             </object>
@@ -4661,6 +4676,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">The hostname or IP address and port of the HTTP proxy.</property>
+                                                            <property name="wrap">True</property>
                                                             <property name="xalign">0</property>
                                                             <property name="yalign">0</property>
                                                             </object>
@@ -4793,6 +4809,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">The proxy user name and password if necessary.  The Folding@home client currently only supports basic and digest authentication.  Specifically NTLM, SOCKS and SSL/TLS proxies are not supported.</property>
+                                                            <property name="wrap">True</property>
                                                             <property name="xalign">0</property>
                                                             <property name="yalign">0</property>
                                                             </object>
@@ -4931,6 +4948,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="invisible_char">•</property>
+                                                            <property name="width_chars">20</property>
                                                             <property name="primary_icon_activatable">False</property>
                                                             <property name="secondary_icon_activatable">False</property>
                                                             </object>
@@ -5111,6 +5129,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">If you prefer to support a particular cause you may specify this preference here.  This does not guarantee that all of your computing resources will go towards the specified cause.</property>
+                                                            <property name="wrap">True</property>
                                                             <property name="xalign">0</property>
                                                             <property name="yalign">0</property>
                                                             </object>
@@ -5188,6 +5207,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">Lowest possible (recommended)</property>
+                                                            <property name="wrap">True</property>
                                                             <property name="xalign">0</property>
                                                             <property name="yalign">0</property>
                                                             </object>
@@ -5202,6 +5222,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">Slightly higher.  Use this if other distributed computing applications are stopping Folding@home from running.</property>
+                                                            <property name="wrap">True</property>
                                                             <property name="xalign">0</property>
                                                             <property name="yalign">0</property>
                                                             </object>
@@ -5267,6 +5288,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">Instruct Folding@home cores to only use this percentage of the available CPU.  (100% is recommended)</property>
+                                                            <property name="wrap">True</property>
                                                             <property name="xalign">0</property>
                                                             <property name="yalign">0</property>
                                                             </object>
@@ -5334,6 +5356,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">Instruct Folding@home GPU cores to use at most this percentage of the GPU's available processing power.  (80% is recommended)</property>
+                                                            <property name="wrap">True</property>
                                                             <property name="xalign">0</property>
                                                             <property name="yalign">0</property>
                                                             </object>
@@ -5401,6 +5424,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">Some cores maintain a maximum checkpoint internal.  A checkpoint saves the core's work so it can restart from the same point later in case the program ends unexpectedly.  This slider lets you control how often these checkpoints occur.  More frequent checkpointing reduces the amount of work that could be lost but decreases performance.</property>
+                                                            <property name="wrap">True</property>
                                                             <property name="xalign">0</property>
                                                             <property name="yalign">0</property>
                                                             </object>

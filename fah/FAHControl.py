@@ -1315,8 +1315,12 @@ class FAHControl(SingleAppServer):
         self.db.set(name, widget.get_property(property.name), queue=True)
 
     def store_dimensions(self, widget, event, name):
-        self.db.set(name + '_width', widget.width, queue=True)
-        self.db.set(name + '_height', widget.height, queue=True)
+        try:
+            self.db.set(name + '_width', widget.width, queue=True)
+            self.db.set(name + '_height', widget.height, queue=True)
+        except:
+            pass
+        
     """
         x, y, width, height = widget.get_allocation()
         if 0 <= width and 0 <= height:
