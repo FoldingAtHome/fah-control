@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.22.2 -->
 <interface>
-  <requires lib="gtk+" version="3.0"/>
+  <requires lib="gtk+" version="3.20"/>
   <object class="GtkListStore" id="cause_pref_list">
     <columns>
       <!-- column-name value -->
@@ -160,7 +160,6 @@
     <child>
       <object class="GtkImageMenuItem" id="osx_about_tray_item">
         <property name="label">About</property>
-        <property name="use_action_appearance">False</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="image">image15</property>
@@ -171,7 +170,6 @@
     <child>
       <object class="GtkImageMenuItem" id="osx_preferences_tray_item">
         <property name="label">Preferences...</property>
-        <property name="use_action_appearance">False</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="image">image10</property>
@@ -183,7 +181,6 @@
     <child>
       <object class="GtkImageMenuItem" id="osx_viewer_tray_item">
         <property name="label" translatable="yes">Viewer...</property>
-        <property name="use_action_appearance">False</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="image">image14</property>
@@ -228,7 +225,6 @@
     <child>
       <object class="GtkImageMenuItem" id="unpause_slot_item">
         <property name="label">Fold</property>
-        <property name="use_action_appearance">False</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="image">image2</property>
@@ -240,7 +236,6 @@
     <child>
       <object class="GtkImageMenuItem" id="pause_slot_item">
         <property name="label">gtk-media-pause</property>
-        <property name="use_action_appearance">False</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="use_underline">True</property>
@@ -252,7 +247,6 @@
     <child>
       <object class="GtkImageMenuItem" id="finish_slot_item">
         <property name="label" translatable="yes">Finish</property>
-        <property name="use_action_appearance">False</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="image">image1</property>
@@ -263,7 +257,6 @@
     </child>
     <child>
       <object class="GtkCheckMenuItem" id="idle_slot_item">
-        <property name="use_action_appearance">False</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="label" translatable="yes">On Idle</property>
@@ -274,7 +267,6 @@
     <child>
       <object class="GtkImageMenuItem" id="view_slot_item">
         <property name="label" translatable="yes">View</property>
-        <property name="use_action_appearance">False</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="tooltip_text" translatable="yes">View the protein running on this slot.</property>
@@ -427,7 +419,6 @@
             <property name="icon_size">1</property>
             <child>
               <object class="GtkToolButton" id="configure_button">
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Edit currently selected client's configuration.</property>
@@ -453,7 +444,6 @@
             </child>
             <child>
               <object class="GtkToolButton" id="preferences_button">
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Edit FAHControl preferences.</property>
@@ -469,7 +459,6 @@
             </child>
             <child>
               <object class="GtkToolButton" id="quit_button">
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="can_default">True</property>
@@ -487,7 +476,6 @@
             </child>
             <child>
               <object class="GtkSeparatorToolItem" id="separatortoolitem2">
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="draw">False</property>
@@ -499,7 +487,6 @@
             </child>
             <child>
               <object class="GtkToolButton" id="about_button">
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Open the About box.</property>
@@ -527,7 +514,7 @@
             <property name="left_padding">4</property>
             <property name="right_padding">4</property>
             <child>
-              <object class="GtkHPaned" id="client_hpaned">
+              <object class="GtkPaned" id="client_hpaned">
                 <property name="width_request">600</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -643,7 +630,6 @@
                                         <child>
                                           <object class="GtkButton" id="client_add_button">
                                             <property name="label">gtk-add</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
@@ -659,7 +645,6 @@
                                         <child>
                                           <object class="GtkButton" id="client_remove_button">
                                             <property name="label">gtk-remove</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
@@ -748,7 +733,6 @@
                                             <child>
                                               <object class="GtkButton" id="fold_button">
                                                 <property name="label" translatable="yes">Fold</property>
-                                                <property name="use_action_appearance">False</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="receives_default">True</property>
@@ -766,7 +750,6 @@
                                             <child>
                                               <object class="GtkButton" id="pause_button">
                                                 <property name="label" translatable="yes">Pause</property>
-                                                <property name="use_action_appearance">False</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="receives_default">True</property>
@@ -784,7 +767,6 @@
                                             <child>
                                               <object class="GtkButton" id="finish_button">
                                                 <property name="label" translatable="yes">Finish</property>
-                                                <property name="use_action_appearance">False</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
                                                 <property name="receives_default">True</property>
@@ -820,7 +802,7 @@
                                                 <property name="left_padding">3</property>
                                                 <property name="right_padding">3</property>
                                                 <child>
-                                                  <object class="GtkHScale" id="folding_power_hscale">
+                                                  <object class="GtkScale" id="folding_power_hscale">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">True</property>
                                                     <property name="events">GDK_EXPOSURE_MASK | GDK_POINTER_MOTION_MASK | GDK_POINTER_MOTION_HINT_MASK | GDK_BUTTON_MOTION_MASK | GDK_BUTTON1_MOTION_MASK | GDK_BUTTON2_MOTION_MASK | GDK_BUTTON3_MOTION_MASK | GDK_BUTTON_PRESS_MASK | GDK_BUTTON_RELEASE_MASK | GDK_KEY_PRESS_MASK | GDK_KEY_RELEASE_MASK | GDK_ENTER_NOTIFY_MASK | GDK_LEAVE_NOTIFY_MASK | GDK_FOCUS_CHANGE_MASK | GDK_STRUCTURE_MASK | GDK_PROPERTY_CHANGE_MASK | GDK_VISIBILITY_NOTIFY_MASK | GDK_PROXIMITY_IN_MASK | GDK_PROXIMITY_OUT_MASK | GDK_SUBSTRUCTURE_MASK | GDK_SCROLL_MASK</property>
@@ -854,7 +836,6 @@
                                         <child>
                                           <object class="GtkButton" id="viewer_button">
                                             <property name="label" translatable="yes">Viewer</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">True</property>
@@ -904,7 +885,6 @@
                                                           <object class="GtkLabel" id="label12">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
-                                                            <property name="xpad">3</property>
                                                             <property name="label" translatable="yes">&lt;b&gt;Name&lt;/b&gt;</property>
                                                             <property name="use_markup">True</property>
                                                             <property name="xalign">1</property>
@@ -918,13 +898,11 @@
                                                         <child>
                                                           <object class="GtkLinkButton" id="donor_info">
                                                             <property name="label" translatable="yes">Anonymous</property>
-                                                            <property name="use_action_appearance">False</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="can_default">True</property>
                                                             <property name="receives_default">True</property>
                                                             <property name="relief">none</property>
-                                                            <property name="xalign">0</property>
                                                           </object>
                                                           <packing>
                                                             <property name="expand">True</property>
@@ -936,7 +914,6 @@
                                                           <object class="GtkLabel" id="label13">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
-                                                            <property name="xpad">3</property>
                                                             <property name="label" translatable="yes">&lt;b&gt;Team&lt;/b&gt;</property>
                                                             <property name="use_markup">True</property>
                                                             <property name="xalign">1</property>
@@ -950,13 +927,11 @@
                                                         <child>
                                                           <object class="GtkLinkButton" id="team_info">
                                                             <property name="label" translatable="yes">0</property>
-                                                            <property name="use_action_appearance">False</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="can_default">True</property>
                                                             <property name="receives_default">True</property>
                                                             <property name="relief">none</property>
-                                                            <property name="xalign">0</property>
                                                           </object>
                                                           <packing>
                                                             <property name="expand">False</property>
@@ -1045,15 +1020,16 @@
                                         <property name="can_focus">False</property>
                                         <property name="top_padding">5</property>
                                         <child>
-                                          <object class="GtkHPaned" id="queue_hpaned">
+                                          <object class="GtkPaned" id="queue_hpaned">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="position">218</property>
                                             <property name="position_set">True</property>
                                             <child>
-                                              <object class="GtkVPaned" id="status_vpaned">
+                                              <object class="GtkPaned" id="status_vpaned">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
+                                                <property name="orientation">vertical</property>
                                                 <property name="position">100</property>
                                                 <property name="position_set">True</property>
                                                 <child>
@@ -1571,13 +1547,11 @@
                                                             </child>
                                                             <child>
                                                             <object class="GtkLinkButton" id="queue_project">
-                                                            <property name="use_action_appearance">False</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="focus_on_click">False</property>
                                                             <property name="receives_default">True</property>
                                                             <property name="relief">none</property>
-                                                            <property name="xalign">0</property>
                                                             </object>
                                                             <packing>
                                                             <property name="left_attach">1</property>
@@ -1932,7 +1906,6 @@
                                                     <child>
                                                       <object class="GtkCheckButton" id="log_slot_enable">
                                                         <property name="label" translatable="yes">Slot:</property>
-                                                        <property name="use_action_appearance">False</property>
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">False</property>
                                                         <property name="receives_default">False</property>
@@ -1981,7 +1954,6 @@
                                                     <child>
                                                       <object class="GtkCheckButton" id="log_unit_enable">
                                                         <property name="label" translatable="yes">Unit:</property>
-                                                        <property name="use_action_appearance">False</property>
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">False</property>
                                                         <property name="receives_default">False</property>
@@ -2025,7 +1997,6 @@
                                                 <child>
                                                   <object class="GtkCheckButton" id="log_severity">
                                                     <property name="label" translatable="yes">Warnings &amp; Errors</property>
-                                                    <property name="use_action_appearance">False</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="receives_default">False</property>
@@ -2089,7 +2060,6 @@
                                         <child>
                                           <object class="GtkCheckButton" id="log_follow">
                                             <property name="label" translatable="yes">Follow</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                             <property name="receives_default">False</property>
@@ -2106,7 +2076,6 @@
                                         <child>
                                           <object class="GtkButton" id="copy_log">
                                             <property name="label">gtk-copy</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                             <property name="receives_default">True</property>
@@ -2123,7 +2092,6 @@
                                         <child>
                                           <object class="GtkButton" id="clear_log">
                                             <property name="label">gtk-clear</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                             <property name="receives_default">True</property>
@@ -2140,7 +2108,6 @@
                                         <child>
                                           <object class="GtkButton" id="download_log">
                                             <property name="label">gtk-refresh</property>
-                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                             <property name="receives_default">True</property>
@@ -2216,7 +2183,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">PPD is a smoothed estimate of total Points Per Day for all connected clients and slots.  It may slightly overestimate your points because it does not account for pauses between work units.</property>
-                <property name="xpad">5</property>
                 <property name="xalign">0</property>
               </object>
               <packing>
@@ -2230,7 +2196,6 @@
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Current UTC time.</property>
-                <property name="xpad">50</property>
                 <property name="xalign">1</property>
               </object>
               <packing>
@@ -2282,7 +2247,6 @@
             <child>
               <object class="GtkButton" id="button1">
                 <property name="label">gtk-close</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -2371,7 +2335,6 @@
         <child>
           <object class="GtkLinkButton" id="linkbutton2">
             <property name="label" translatable="yes">https://foldingathome.org/</property>
-            <property name="use_action_appearance">False</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="receives_default">True</property>
@@ -2399,7 +2362,6 @@
         <child>
           <object class="GtkLinkButton" id="linkbutton3">
             <property name="label" translatable="yes">http://foldingforum.org/</property>
-            <property name="use_action_appearance">False</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="receives_default">True</property>
@@ -2415,7 +2377,6 @@
         <child>
           <object class="GtkLinkButton" id="linkbutton4">
             <property name="label" translatable="yes">License: GPL v3.0</property>
-            <property name="use_action_appearance">False</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="receives_default">False</property>
@@ -2574,7 +2535,6 @@ Joe Heimann, jheimann</property>
             <child>
               <object class="GtkButton" id="button4">
                 <property name="label" translatable="yes">Fold Anonymously</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -2590,7 +2550,6 @@ Joe Heimann, jheimann</property>
             <child>
               <object class="GtkButton" id="button3">
                 <property name="label">Configure Identity</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -2668,7 +2627,6 @@ Would you like to configure your identity now?</property>
             <child>
               <object class="GtkButton" id="core_options_ok_button">
                 <property name="label">gtk-ok</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -2684,7 +2642,6 @@ Would you like to configure your identity now?</property>
             <child>
               <object class="GtkButton" id="core_options_cancel_button">
                 <property name="label">gtk-cancel</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -2775,7 +2732,6 @@ Would you like to configure your identity now?</property>
             <child>
               <object class="GtkButton" id="options_ok_button">
                 <property name="label">gtk-ok</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -2791,7 +2747,6 @@ Would you like to configure your identity now?</property>
             <child>
               <object class="GtkButton" id="options_cancel_button">
                 <property name="label">gtk-cancel</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -2828,10 +2783,9 @@ Would you like to configure your identity now?</property>
                     <property name="can_focus">False</property>
                     <property name="row_homogeneous">True</property>
                     <child>
-                      <object class="GtkLabel" id="label46">
+                      <object class="GtkLabel" id="label_editoption_name">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xpad">4</property>
                         <property name="label" translatable="yes">Name:</property>
                         <property name="xalign">1</property>
                       </object>
@@ -2841,10 +2795,9 @@ Would you like to configure your identity now?</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="label47">
+                      <object class="GtkLabel" id="label_editoption_value">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="xpad">4</property>
                         <property name="label" translatable="yes">Value:</property>
                         <property name="xalign">1</property>
                       </object>
@@ -2944,7 +2897,6 @@ Would you like to configure your identity now?</property>
             <child>
               <object class="GtkButton" id="client_ok_button">
                 <property name="label">gtk-save</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -2960,7 +2912,6 @@ Would you like to configure your identity now?</property>
             <child>
               <object class="GtkButton" id="client_cancel_button">
                 <property name="label">gtk-cancel</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -3152,7 +3103,6 @@ Would you like to configure your identity now?</property>
                                                             <object class="GtkLabel" id="label42">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
-                                                            <property name="xpad">4</property>
                                                             <property name="label" translatable="yes">Hostname or IP:</property>
                                                             <property name="xalign">1</property>
                                                             </object>
@@ -3207,7 +3157,6 @@ Would you like to configure your identity now?</property>
                                                             <property name="width_request">80</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
-                                                            <property name="xpad">4</property>
                                                             <property name="label" translatable="yes">Port:</property>
                                                             <property name="xalign">1</property>
                                                             </object>
@@ -3222,6 +3171,7 @@ Would you like to configure your identity now?</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="invisible_char">●</property>
+                                                            <property name="width_chars">7</property>
                                                             <property name="primary_icon_activatable">False</property>
                                                             <property name="secondary_icon_activatable">False</property>
                                                             <property name="adjustment">port_adjustment</property>
@@ -3569,7 +3519,6 @@ Would you like to configure your identity now?</property>
                                                             <child>
                                                             <object class="GtkLinkButton" id="linkbutton1">
                                                             <property name="label" translatable="yes">Click here to open the Folding@home passkey request Web page</property>
-                                                            <property name="use_action_appearance">False</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="receives_default">True</property>
@@ -3700,7 +3649,6 @@ Would you like to configure your identity now?</property>
                                                             <object class="GtkImage" id="passkey_valid_image">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
-                                                            <property name="xalign">0</property>
                                                             <property name="stock">gtk-dialog-error</property>
                                                             </object>
                                                             <packing>
@@ -3936,7 +3884,6 @@ Folding slots can be one of two types, CPU or GPU.  Representing the different t
                                                             <child>
                                                             <object class="GtkButton" id="slot_add_button">
                                                             <property name="label">gtk-add</property>
-                                                            <property name="use_action_appearance">False</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="receives_default">True</property>
@@ -3952,7 +3899,6 @@ Folding slots can be one of two types, CPU or GPU.  Representing the different t
                                                             <child>
                                                             <object class="GtkButton" id="slot_remove_button">
                                                             <property name="label">gtk-remove</property>
-                                                            <property name="use_action_appearance">False</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="receives_default">True</property>
@@ -3968,7 +3914,6 @@ Folding slots can be one of two types, CPU or GPU.  Representing the different t
                                                             <child>
                                                             <object class="GtkButton" id="slot_edit_button">
                                                             <property name="label">gtk-edit</property>
-                                                            <property name="use_action_appearance">False</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="receives_default">True</property>
@@ -4215,7 +4160,6 @@ Warning, changes you make here may render your client inaccessible even from the
                                                             <object class="GtkImage" id="password_valid_image">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
-                                                            <property name="xalign">0</property>
                                                             <property name="stock">gtk-dialog-error</property>
                                                             </object>
                                                             <packing>
@@ -4682,11 +4626,9 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                         <child>
                                                           <object class="GtkCheckButton" id="proxy_enable_option">
                                                             <property name="label" translatable="yes">Enable proxy configuration</property>
-                                                            <property name="use_action_appearance">False</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="receives_default">False</property>
-                                                            <property name="yalign">0.4699999988079071</property>
                                                             <property name="draw_indicator">True</property>
                                                             <signal name="toggled" handler="on_proxy_enable_toggled" swapped="no"/>
                                                           </object>
@@ -4740,7 +4682,6 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <object class="GtkLabel" id="label117">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
-                                                            <property name="xpad">5</property>
                                                             <property name="label" translatable="yes">&lt;b&gt;Hostname or IP&lt;/b&gt;</property>
                                                             <property name="use_markup">True</property>
                                                             <property name="xalign">1</property>
@@ -4769,7 +4710,6 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <object class="GtkLabel" id="label118">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
-                                                            <property name="xpad">5</property>
                                                             <property name="label" translatable="yes">&lt;b&gt;Port&lt;/b&gt;</property>
                                                             <property name="use_markup">True</property>
                                                             <property name="xalign">1</property>
@@ -4947,7 +4887,6 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <object class="GtkImage" id="proxy_pass_valid_image">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
-                                                            <property name="xalign">0</property>
                                                             <property name="stock">gtk-dialog-error</property>
                                                             </object>
                                                             <packing>
@@ -5219,7 +5158,6 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
                                                             <object class="GtkRadioButton" id="core_priority_option">
-                                                            <property name="use_action_appearance">False</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="receives_default">False</property>
@@ -5233,7 +5171,6 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             </child>
                                                             <child>
                                                             <object class="GtkRadioButton" id="core_priority_low">
-                                                            <property name="use_action_appearance">False</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="receives_default">False</property>
@@ -5310,7 +5247,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="orientation">vertical</property>
                                                             <child>
-                                                            <object class="GtkHScale" id="cpu_usage_option">
+                                                            <object class="GtkScale" id="cpu_usage_option">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="adjustment">cpu_usage_adjustment</property>
@@ -5376,7 +5313,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="orientation">vertical</property>
                                                             <child>
-                                                            <object class="GtkHScale" id="gpu_usage_option">
+                                                            <object class="GtkScale" id="gpu_usage_option">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="adjustment">gpu_usage_adjustment</property>
@@ -5444,7 +5381,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="orientation">vertical</property>
                                                             <child>
-                                                            <object class="GtkHScale" id="checkpoint_option">
+                                                            <object class="GtkScale" id="checkpoint_option">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="adjustment">checkpoint_adjustment</property>
@@ -5510,7 +5447,6 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
                                                             <object class="GtkCheckButton" id="no_assembly_option">
-                                                            <property name="use_action_appearance">False</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="receives_default">False</property>
@@ -5573,7 +5509,6 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
                                                             <object class="GtkCheckButton" id="pause_on_battery_option">
-                                                            <property name="use_action_appearance">False</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="receives_default">False</property>
@@ -5801,7 +5736,6 @@ Some of these options may require manually restarting the client to take effect.
                                                             <child>
                                                             <object class="GtkButton" id="client_options_add_button">
                                                             <property name="label">gtk-add</property>
-                                                            <property name="use_action_appearance">False</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="receives_default">True</property>
@@ -5817,7 +5751,6 @@ Some of these options may require manually restarting the client to take effect.
                                                             <child>
                                                             <object class="GtkButton" id="client_options_remove_button">
                                                             <property name="label">gtk-remove</property>
-                                                            <property name="use_action_appearance">False</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="receives_default">True</property>
@@ -5944,7 +5877,6 @@ Some of these options may require manually restarting the client to take effect.
                                                             <child>
                                                             <object class="GtkButton" id="core_options_add_button">
                                                             <property name="label">gtk-add</property>
-                                                            <property name="use_action_appearance">False</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="receives_default">True</property>
@@ -5960,7 +5892,6 @@ Some of these options may require manually restarting the client to take effect.
                                                             <child>
                                                             <object class="GtkButton" id="core_options_remove_button">
                                                             <property name="label">gtk-remove</property>
-                                                            <property name="use_action_appearance">False</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">True</property>
                                                             <property name="receives_default">True</property>
@@ -6109,7 +6040,6 @@ Some of these options may require manually restarting the client to take effect.
             <child>
               <object class="GtkButton" id="slot_ok_button">
                 <property name="label">gtk-ok</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -6125,7 +6055,6 @@ Some of these options may require manually restarting the client to take effect.
             <child>
               <object class="GtkButton" id="slot_cancel_button">
                 <property name="label">gtk-cancel</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -6189,7 +6118,6 @@ Some of these options may require manually restarting the client to take effect.
                                         <property name="can_focus">False</property>
                                         <child>
                                           <object class="GtkRadioButton" id="slot_type_cpu">
-                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">False</property>
@@ -6350,7 +6278,6 @@ Some of these options may require manually restarting the client to take effect.
                                         <property name="can_focus">False</property>
                                         <child>
                                           <object class="GtkRadioButton" id="slot_type_gpu">
-                                            <property name="use_action_appearance">False</property>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="receives_default">False</property>
@@ -6708,7 +6635,6 @@ WARNING, changing these values can make your GPU folding slot fail.</property>
                                                 <child>
                                                   <object class="GtkButton" id="slot_options_add_button">
                                                     <property name="label">gtk-add</property>
-                                                    <property name="use_action_appearance">False</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">True</property>
                                                     <property name="receives_default">True</property>
@@ -6724,7 +6650,6 @@ WARNING, changing these values can make your GPU folding slot fail.</property>
                                                 <child>
                                                   <object class="GtkButton" id="slot_options_remove_button">
                                                     <property name="label">gtk-remove</property>
-                                                    <property name="use_action_appearance">False</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">True</property>
                                                     <property name="receives_default">True</property>
@@ -7043,7 +6968,6 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
             <child>
               <object class="GtkButton" id="preferences_ok_button">
                 <property name="label">gtk-save</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -7059,7 +6983,6 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
             <child>
               <object class="GtkButton" id="preferences_cancel_button">
                 <property name="label">gtk-cancel</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -7124,7 +7047,6 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                     <child>
                       <object class="GtkCheckButton" id="viz_fullscreen_pref">
                         <property name="label" translatable="yes">Fullscreen</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
@@ -7278,7 +7200,6 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                     <child>
                       <object class="GtkCheckButton" id="viz_cycle_snapshots_pref">
                         <property name="label" translatable="yes">Cycle Snapshots</property>
-                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
@@ -7453,7 +7374,6 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                       <object class="GtkLabel" id="theme_label">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="ypad">3</property>
                         <property name="label" translatable="yes">Theme</property>
                         <property name="use_markup">True</property>
                         <property name="xalign">1</property>
