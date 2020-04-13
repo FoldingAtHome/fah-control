@@ -415,9 +415,10 @@
       <placeholder/>
     </child>
     <child>
-      <object class="GtkVBox" id="vbox1">
+      <object class="GtkBox" id="vbox1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
         <child>
           <object class="GtkToolbar" id="toolbar1">
             <property name="visible">True</property>
@@ -546,9 +547,10 @@
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <child>
-                              <object class="GtkVBox" id="vbox2">
+                              <object class="GtkBox" id="vbox2">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
+                                <property name="orientation">vertical</property>
                                 <child>
                                   <object class="GtkScrolledWindow" id="scrolledwindow1">
                                     <property name="visible">True</property>
@@ -620,7 +622,7 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkHBox" id="hbox1">
+                                  <object class="GtkBox" id="hbox1">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <child>
@@ -635,7 +637,7 @@
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkHBox" id="hbox2">
+                                      <object class="GtkBox" id="hbox2">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <child>
@@ -728,16 +730,17 @@
                                 <property name="left_padding">4</property>
                                 <property name="right_padding">4</property>
                                 <child>
-                                  <object class="GtkVBox" id="vbox29">
+                                  <object class="GtkBox" id="vbox29">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="orientation">vertical</property>
                                     <child>
-                                      <object class="GtkHBox" id="hbox16">
+                                      <object class="GtkBox" id="hbox16">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="spacing">4</property>
                                         <child>
-                                          <object class="GtkHBox" id="hbox44">
+                                          <object class="GtkBox" id="hbox44">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                             <property name="spacing">4</property>
@@ -879,7 +882,7 @@
                                         <property name="can_focus">False</property>
                                         <property name="top_padding">5</property>
                                         <child>
-                                          <object class="GtkHBox" id="hbox13">
+                                          <object class="GtkBox" id="hbox13">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                             <property name="spacing">5</property>
@@ -894,7 +897,7 @@
                                                     <property name="can_focus">False</property>
                                                     <property name="left_padding">12</property>
                                                     <child>
-                                                      <object class="GtkHBox" id="hbox39">
+                                                      <object class="GtkBox" id="hbox39">
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">False</property>
                                                         <child>
@@ -1902,9 +1905,10 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <child>
-                                  <object class="GtkVBox" id="vbox40">
+                                  <object class="GtkBox" id="vbox40">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="orientation">vertical</property>
                                     <child>
                                       <object class="GtkFrame" id="log_filters_advanced">
                                         <property name="visible">True</property>
@@ -1916,12 +1920,12 @@
                                             <property name="can_focus">False</property>
                                             <property name="left_padding">12</property>
                                             <child>
-                                              <object class="GtkHBox" id="hbox10">
+                                              <object class="GtkBox" id="hbox10">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                                 <property name="spacing">10</property>
                                                 <child>
-                                                  <object class="GtkHBox" id="hbox14">
+                                                  <object class="GtkBox" id="hbox14">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="spacing">5</property>
@@ -1970,7 +1974,7 @@
                                                   </packing>
                                                 </child>
                                                 <child>
-                                                  <object class="GtkHBox" id="hbox15">
+                                                  <object class="GtkBox" id="hbox15">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <property name="spacing">5</property>
@@ -2078,7 +2082,7 @@
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkHBox" id="hbox12">
+                                      <object class="GtkBox" id="hbox12">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="spacing">2</property>
@@ -2444,9 +2448,10 @@
                         <property name="resize_mode">queue</property>
                         <property name="shadow_type">none</property>
                         <child>
-                          <object class="GtkVBox" id="vbox30">
+                          <object class="GtkBox" id="vbox30">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="orientation">vertical</property>
                             <property name="spacing">8</property>
                             <child>
                               <object class="GtkLabel" id="label91">
@@ -2990,9 +2995,10 @@ Would you like to configure your identity now?</property>
                 <property name="left_padding">4</property>
                 <property name="right_padding">4</property>
                 <child>
-                  <object class="GtkVBox" id="vbox4">
+                  <object class="GtkBox" id="vbox4">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="orientation">vertical</property>
                     <child>
                       <object class="GtkNotebook" id="client_config_notebook">
                         <property name="visible">True</property>
@@ -3026,9 +3032,10 @@ Would you like to configure your identity now?</property>
                                             <property name="can_focus">False</property>
                                             <property name="left_padding">12</property>
                                             <child>
-                                              <object class="GtkVBox" id="vbox19">
+                                              <object class="GtkBox" id="vbox19">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
+                                                <property name="orientation">vertical</property>
                                                 <child>
                                                   <object class="GtkLabel" id="wlabel6">
                                                     <property name="width_request">10</property>
@@ -3056,9 +3063,10 @@ Would you like to configure your identity now?</property>
                                                         <property name="can_focus">False</property>
                                                         <property name="left_padding">12</property>
                                                         <child>
-                                                          <object class="GtkVBox" id="vbox20">
+                                                          <object class="GtkBox" id="vbox20">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
+                                                            <property name="orientation">vertical</property>
                                                             <child>
                                                             <object class="GtkLabel" id="wlabel7">
                                                             <property name="width_request">1</property>
@@ -3118,9 +3126,10 @@ Would you like to configure your identity now?</property>
                                                         <property name="can_focus">False</property>
                                                         <property name="left_padding">12</property>
                                                         <child>
-                                                          <object class="GtkVBox" id="vbox21">
+                                                          <object class="GtkBox" id="vbox21">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
+                                                            <property name="orientation">vertical</property>
                                                             <child>
                                                             <object class="GtkLabel" id="wlabel8">
                                                             <property name="width_request">1</property>
@@ -3136,7 +3145,7 @@ Would you like to configure your identity now?</property>
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkHBox" id="hbox22">
+                                                            <object class="GtkBox" id="hbox22">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
@@ -3190,7 +3199,7 @@ Would you like to configure your identity now?</property>
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkHBox" id="hbox23">
+                                                            <object class="GtkBox" id="hbox23">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
@@ -3261,9 +3270,10 @@ Would you like to configure your identity now?</property>
                                                         <property name="can_focus">False</property>
                                                         <property name="left_padding">12</property>
                                                         <child>
-                                                          <object class="GtkVBox" id="vbox22">
+                                                          <object class="GtkBox" id="vbox22">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
+                                                            <property name="orientation">vertical</property>
                                                             <child>
                                                             <object class="GtkLabel" id="wlabel10">
                                                             <property name="width_request">1</property>
@@ -3371,9 +3381,10 @@ Would you like to configure your identity now?</property>
                                             <property name="can_focus">False</property>
                                             <property name="left_padding">12</property>
                                             <child>
-                                              <object class="GtkVBox" id="vbox8">
+                                              <object class="GtkBox" id="vbox8">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
+                                                <property name="orientation">vertical</property>
                                                 <property name="spacing">4</property>
                                                 <child>
                                                   <object class="GtkFrame" id="frame8">
@@ -3388,9 +3399,10 @@ Would you like to configure your identity now?</property>
                                                         <property name="left_padding">12</property>
                                                         <property name="right_padding">4</property>
                                                         <child>
-                                                          <object class="GtkVBox" id="vbox5">
+                                                          <object class="GtkBox" id="vbox5">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
+                                                            <property name="orientation">vertical</property>
                                                             <child>
                                                             <object class="GtkLabel" id="wlabel12">
                                                             <property name="width_request">1</property>
@@ -3407,7 +3419,7 @@ Would you like to configure your identity now?</property>
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkHBox" id="hbox6">
+                                                            <object class="GtkBox" id="hbox6">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
@@ -3465,9 +3477,10 @@ Would you like to configure your identity now?</property>
                                                         <property name="left_padding">12</property>
                                                         <property name="right_padding">4</property>
                                                         <child>
-                                                          <object class="GtkVBox" id="vbox6">
+                                                          <object class="GtkBox" id="vbox6">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
+                                                            <property name="orientation">vertical</property>
                                                             <child>
                                                             <object class="GtkLabel" id="wlabel13">
                                                             <property name="width_request">1</property>
@@ -3484,7 +3497,7 @@ Would you like to configure your identity now?</property>
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkHBox" id="hbox5">
+                                                            <object class="GtkBox" id="hbox5">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
@@ -3545,11 +3558,12 @@ Would you like to configure your identity now?</property>
                                                         <property name="left_padding">12</property>
                                                         <property name="right_padding">4</property>
                                                         <child>
-                                                          <object class="GtkVBox" id="vbox7">
+                                                          <object class="GtkBox" id="vbox7">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
+                                                            <property name="orientation">vertical</property>
                                                             <child>
-                                                            <object class="GtkHBox" id="hbox11">
+                                                            <object class="GtkBox" id="hbox11">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
@@ -3602,7 +3616,7 @@ Would you like to configure your identity now?</property>
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkHBox" id="hbox7">
+                                                            <object class="GtkBox" id="hbox7">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
@@ -3678,7 +3692,7 @@ Would you like to configure your identity now?</property>
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkHBox" id="hbox34">
+                                                            <object class="GtkBox" id="hbox34">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="spacing">4</property>
@@ -3811,9 +3825,10 @@ Would you like to configure your identity now?</property>
                                             <property name="can_focus">False</property>
                                             <property name="left_padding">12</property>
                                             <child>
-                                              <object class="GtkVBox" id="vbox9">
+                                              <object class="GtkBox" id="vbox9">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
+                                                <property name="orientation">vertical</property>
                                                 <child>
                                                   <object class="GtkLabel" id="wlabel15">
                                                     <property name="width_request">1</property>
@@ -3841,9 +3856,10 @@ Folding slots can be one of two types, CPU or GPU.  Representing the different t
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">False</property>
                                                         <child>
-                                                          <object class="GtkVBox" id="vbox12">
+                                                          <object class="GtkBox" id="vbox12">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
+                                                            <property name="orientation">vertical</property>
                                                             <child>
                                                             <object class="GtkScrolledWindow" id="scrolledwindow12">
                                                             <property name="visible">True</property>
@@ -3899,7 +3915,7 @@ Folding slots can be one of two types, CPU or GPU.  Representing the different t
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkHBox" id="hbox8">
+                                                            <object class="GtkBox" id="hbox8">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
@@ -3914,7 +3930,7 @@ Folding slots can be one of two types, CPU or GPU.  Representing the different t
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkHBox" id="hbox9">
+                                                            <object class="GtkBox" id="hbox9">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
@@ -4061,9 +4077,10 @@ Folding slots can be one of two types, CPU or GPU.  Representing the different t
                                             <property name="can_focus">False</property>
                                             <property name="left_padding">12</property>
                                             <child>
-                                              <object class="GtkVBox" id="vbox33">
+                                              <object class="GtkBox" id="vbox33">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
+                                                <property name="orientation">vertical</property>
                                                 <property name="spacing">2</property>
                                                 <child>
                                                   <object class="GtkLabel" id="wlabel16">
@@ -4097,9 +4114,10 @@ Warning, changes you make here may render your client inaccessible even from the
                                                         <property name="can_focus">False</property>
                                                         <property name="left_padding">12</property>
                                                         <child>
-                                                          <object class="GtkVBox" id="vbox34">
+                                                          <object class="GtkBox" id="vbox34">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
+                                                            <property name="orientation">vertical</property>
                                                             <property name="spacing">8</property>
                                                             <child>
                                                             <object class="GtkLabel" id="wlabel17">
@@ -4189,7 +4207,7 @@ Warning, changes you make here may render your client inaccessible even from the
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkHBox" id="hbox33">
+                                                            <object class="GtkBox" id="hbox33">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="spacing">4</property>
@@ -4261,9 +4279,10 @@ Warning, changes you make here may render your client inaccessible even from the
                                                         <property name="can_focus">False</property>
                                                         <property name="left_padding">12</property>
                                                         <child>
-                                                          <object class="GtkVBox" id="vbox37">
+                                                          <object class="GtkBox" id="vbox37">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
+                                                            <property name="orientation">vertical</property>
                                                             <property name="spacing">8</property>
                                                             <child>
                                                             <object class="GtkLabel" id="wlabel18">
@@ -4281,7 +4300,7 @@ Warning, changes you make here may render your client inaccessible even from the
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkHBox" id="hbox32">
+                                                            <object class="GtkBox" id="hbox32">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
@@ -4347,9 +4366,10 @@ Warning, changes you make here may render your client inaccessible even from the
                                                         <property name="can_focus">False</property>
                                                         <property name="left_padding">12</property>
                                                         <child>
-                                                          <object class="GtkVBox" id="vbox35">
+                                                          <object class="GtkBox" id="vbox35">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
+                                                            <property name="orientation">vertical</property>
                                                             <property name="spacing">8</property>
                                                             <child>
                                                             <object class="GtkLabel" id="wlabel19">
@@ -4476,9 +4496,10 @@ The following range specification matches all IP address:
                                                         <property name="can_focus">False</property>
                                                         <property name="left_padding">12</property>
                                                         <child>
-                                                          <object class="GtkVBox" id="vbox36">
+                                                          <object class="GtkBox" id="vbox36">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
+                                                            <property name="orientation">vertical</property>
                                                             <property name="spacing">8</property>
                                                             <child>
                                                             <object class="GtkLabel" id="wlabel20">
@@ -4653,9 +4674,10 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <child>
-                                                      <object class="GtkVBox" id="vbox32">
+                                                      <object class="GtkBox" id="vbox32">
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">False</property>
+                                                        <property name="orientation">vertical</property>
                                                         <property name="spacing">4</property>
                                                         <child>
                                                           <object class="GtkCheckButton" id="proxy_enable_option">
@@ -4687,9 +4709,10 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="left_padding">12</property>
                                                             <property name="right_padding">4</property>
                                                             <child>
-                                                            <object class="GtkVBox" id="vbox38">
+                                                            <object class="GtkBox" id="vbox38">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
+                                                            <property name="orientation">vertical</property>
                                                             <child>
                                                             <object class="GtkLabel" id="wlabel21">
                                                             <property name="width_request">1</property>
@@ -4706,11 +4729,11 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkHBox" id="hbox35">
+                                                            <object class="GtkBox" id="hbox35">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
-                                                            <object class="GtkHBox" id="hbox37">
+                                                            <object class="GtkBox" id="hbox37">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
@@ -4820,9 +4843,10 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="left_padding">12</property>
                                                             <property name="right_padding">4</property>
                                                             <child>
-                                                            <object class="GtkVBox" id="vbox39">
+                                                            <object class="GtkBox" id="vbox39">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
+                                                            <property name="orientation">vertical</property>
                                                             <child>
                                                             <object class="GtkLabel" id="wlabel22">
                                                             <property name="width_request">1</property>
@@ -4839,7 +4863,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkHBox" id="hbox36">
+                                                            <object class="GtkBox" id="hbox36">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
@@ -4915,7 +4939,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkHBox" id="hbox40">
+                                                            <object class="GtkBox" id="hbox40">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="spacing">4</property>
@@ -5078,9 +5102,10 @@ Addresses listed here also need to be listed above to allow access.</property>
                                             <property name="resize_mode">queue</property>
                                             <property name="shadow_type">none</property>
                                             <child>
-                                              <object class="GtkVBox" id="vbox10">
+                                              <object class="GtkBox" id="vbox10">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
+                                                <property name="orientation">vertical</property>
                                                 <property name="spacing">4</property>
                                                 <child>
                                                   <object class="GtkFrame" id="frame47">
@@ -5095,14 +5120,15 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                         <property name="left_padding">12</property>
                                                         <property name="right_padding">4</property>
                                                         <child>
-                                                          <object class="GtkHBox" id="hbox42">
+                                                          <object class="GtkBox" id="hbox42">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="spacing">4</property>
                                                             <child>
-                                                            <object class="GtkVBox" id="vbox16">
+                                                            <object class="GtkBox" id="vbox16">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
+                                                            <property name="orientation">vertical</property>
                                                             <child>
                                                             <object class="GtkComboBox" id="cause_option">
                                                             <property name="visible">True</property>
@@ -5279,9 +5305,10 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                         <property name="left_padding">12</property>
                                                         <property name="right_padding">4</property>
                                                         <child>
-                                                          <object class="GtkVBox" id="vbox15">
+                                                          <object class="GtkBox" id="vbox15">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
+                                                            <property name="orientation">vertical</property>
                                                             <child>
                                                             <object class="GtkHScale" id="cpu_usage_option">
                                                             <property name="visible">True</property>
@@ -5344,9 +5371,10 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                         <property name="left_padding">12</property>
                                                         <property name="right_padding">4</property>
                                                         <child>
-                                                          <object class="GtkVBox" id="vbox41">
+                                                          <object class="GtkBox" id="vbox41">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
+                                                            <property name="orientation">vertical</property>
                                                             <child>
                                                             <object class="GtkHScale" id="gpu_usage_option">
                                                             <property name="visible">True</property>
@@ -5411,9 +5439,10 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                         <property name="left_padding">12</property>
                                                         <property name="right_padding">4</property>
                                                         <child>
-                                                          <object class="GtkVBox" id="vbox14">
+                                                          <object class="GtkBox" id="vbox14">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
+                                                            <property name="orientation">vertical</property>
                                                             <child>
                                                             <object class="GtkHScale" id="checkpoint_option">
                                                             <property name="visible">True</property>
@@ -5539,7 +5568,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                         <property name="left_padding">12</property>
                                                         <property name="right_padding">4</property>
                                                         <child>
-                                                          <object class="GtkHBox" id="hbox17">
+                                                          <object class="GtkBox" id="hbox17">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
@@ -5654,9 +5683,10 @@ Addresses listed here also need to be listed above to allow access.</property>
                                             <property name="can_focus">False</property>
                                             <property name="left_padding">12</property>
                                             <child>
-                                              <object class="GtkVBox" id="vbox11">
+                                              <object class="GtkBox" id="vbox11">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
+                                                <property name="orientation">vertical</property>
                                                 <child>
                                                   <object class="GtkLabel" id="wlabel32">
                                                     <property name="width_request">100</property>
@@ -5675,7 +5705,7 @@ Some of these options may require manually restarting the client to take effect.
                                                   </packing>
                                                 </child>
                                                 <child>
-                                                  <object class="GtkHBox" id="hbox3">
+                                                  <object class="GtkBox" id="hbox3">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
                                                     <child>
@@ -5688,9 +5718,10 @@ Some of these options may require manually restarting the client to take effect.
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
-                                                            <object class="GtkVBox" id="vbox13">
+                                                            <object class="GtkBox" id="vbox13">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
+                                                            <property name="orientation">vertical</property>
                                                             <child>
                                                             <object class="GtkScrolledWindow" id="scrolledwindow8">
                                                             <property name="visible">True</property>
@@ -5749,7 +5780,7 @@ Some of these options may require manually restarting the client to take effect.
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkHBox" id="hbox4">
+                                                            <object class="GtkBox" id="hbox4">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
@@ -5764,7 +5795,7 @@ Some of these options may require manually restarting the client to take effect.
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkHBox" id="hbox21">
+                                                            <object class="GtkBox" id="hbox21">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
@@ -5842,9 +5873,10 @@ Some of these options may require manually restarting the client to take effect.
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
-                                                            <object class="GtkVBox" id="vbox17">
+                                                            <object class="GtkBox" id="vbox17">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
+                                                            <property name="orientation">vertical</property>
                                                             <child>
                                                             <object class="GtkScrolledWindow" id="scrolledwindow13">
                                                             <property name="visible">True</property>
@@ -5891,7 +5923,7 @@ Some of these options may require manually restarting the client to take effect.
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkHBox" id="hbox19">
+                                                            <object class="GtkBox" id="hbox19">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
@@ -5906,7 +5938,7 @@ Some of these options may require manually restarting the client to take effect.
                                                             </packing>
                                                             </child>
                                                             <child>
-                                                            <object class="GtkHBox" id="hbox20">
+                                                            <object class="GtkBox" id="hbox20">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
@@ -6135,9 +6167,10 @@ Some of these options may require manually restarting the client to take effect.
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <child>
-                          <object class="GtkVBox" id="vbox23">
+                          <object class="GtkBox" id="vbox23">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="orientation">vertical</property>
                             <property name="spacing">2</property>
                             <child>
                               <object class="GtkFrame" id="frame29">
@@ -6151,7 +6184,7 @@ Some of these options may require manually restarting the client to take effect.
                                     <property name="can_focus">False</property>
                                     <property name="left_padding">12</property>
                                     <child>
-                                      <object class="GtkHBox" id="hbox25">
+                                      <object class="GtkBox" id="hbox25">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <child>
@@ -6170,9 +6203,10 @@ Some of these options may require manually restarting the client to take effect.
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkVBox" id="vbox24">
+                                          <object class="GtkBox" id="vbox24">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
+                                            <property name="orientation">vertical</property>
                                             <child>
                                               <object class="GtkLabel" id="wlabel4">
                                                 <property name="width_request">1</property>
@@ -6198,9 +6232,10 @@ Some of these options may require manually restarting the client to take effect.
                                                     <property name="can_focus">False</property>
                                                     <property name="left_padding">12</property>
                                                     <child>
-                                                      <object class="GtkVBox" id="vbox25">
+                                                      <object class="GtkBox" id="vbox25">
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">False</property>
+                                                        <property name="orientation">vertical</property>
                                                         <child>
                                                           <object class="GtkLabel" id="wlabel3">
                                                             <property name="width_request">1</property>
@@ -6216,7 +6251,7 @@ Some of these options may require manually restarting the client to take effect.
                                                           </packing>
                                                         </child>
                                                         <child>
-                                                          <object class="GtkHBox" id="hbox26">
+                                                          <object class="GtkBox" id="hbox26">
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <child>
@@ -6310,7 +6345,7 @@ Some of these options may require manually restarting the client to take effect.
                                     <property name="can_focus">False</property>
                                     <property name="left_padding">12</property>
                                     <child>
-                                      <object class="GtkHBox" id="hbox27">
+                                      <object class="GtkBox" id="hbox27">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <child>
@@ -6329,9 +6364,10 @@ Some of these options may require manually restarting the client to take effect.
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkVBox" id="vbox26">
+                                          <object class="GtkBox" id="vbox26">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
+                                            <property name="orientation">vertical</property>
                                             <child>
                                               <object class="GtkLabel" id="wlabel1">
                                                 <property name="width_request">1</property>
@@ -6357,9 +6393,10 @@ Some of these options may require manually restarting the client to take effect.
                                                     <property name="can_focus">False</property>
                                                     <property name="left_padding">12</property>
                                                     <child>
-                                                      <object class="GtkVBox" id="vbox27">
+                                                      <object class="GtkBox" id="vbox27">
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">False</property>
+                                                        <property name="orientation">vertical</property>
                                                         <child>
                                                           <object class="GtkLabel" id="wlabel2">
                                                             <property name="width_request">1</property>
@@ -6443,9 +6480,10 @@ Some of these options may require manually restarting the client to take effect.
                                                     <property name="can_focus">False</property>
                                                     <property name="left_padding">12</property>
                                                     <child>
-                                                      <object class="GtkVBox" id="vbox3">
+                                                      <object class="GtkBox" id="vbox3">
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">False</property>
+                                                        <property name="orientation">vertical</property>
                                                         <child>
                                                           <object class="GtkLabel" id="wlabel129">
                                                             <property name="width_request">10</property>
@@ -6587,9 +6625,10 @@ WARNING, changing these values can make your GPU folding slot fail.</property>
                                     <property name="can_focus">False</property>
                                     <property name="left_padding">12</property>
                                     <child>
-                                      <object class="GtkVBox" id="vbox28">
+                                      <object class="GtkBox" id="vbox28">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="orientation">vertical</property>
                                         <child>
                                           <object class="GtkScrolledWindow" id="scrolledwindow19">
                                             <property name="visible">True</property>
@@ -6648,7 +6687,7 @@ WARNING, changing these values can make your GPU folding slot fail.</property>
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkHBox" id="hbox29">
+                                          <object class="GtkBox" id="hbox29">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
                                             <child>
@@ -6663,7 +6702,7 @@ WARNING, changing these values can make your GPU folding slot fail.</property>
                                               </packing>
                                             </child>
                                             <child>
-                                              <object class="GtkHBox" id="hbox30">
+                                              <object class="GtkBox" id="hbox30">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                                 <child>
@@ -7126,7 +7165,7 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkHBox" id="hbox41">
+                      <object class="GtkBox" id="hbox41">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="spacing">5</property>
@@ -7194,7 +7233,7 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkHBox" id="hbox38">
+                      <object class="GtkBox" id="hbox38">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <child>
