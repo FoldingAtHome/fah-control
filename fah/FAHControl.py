@@ -210,7 +210,7 @@ class FAHControl(SingleAppServer):
         small_font = Pango.FontDescription('Sans 8')
 
         # Default icon
-        self.window.set_default_icon_from_file('images/FAHControl.ico');
+        self.window.set_default_icon_from_file(os.path.dirname(os.path.abspath(__file__)) + '/../images/FAHControl.ico');
 
         # Filter glade
         if len(glade) < 1024:
@@ -308,7 +308,7 @@ class FAHControl(SingleAppServer):
 
         # About Dialog
         icon = builder.get_object('about_icon')
-        icon.set_from_file('images/FAHControl.ico')
+        icon.set_from_file(os.path.dirname(os.path.abspath(__file__)) + '/../images/FAHControl.ico')
 
         about_version = builder.get_object('about_version')
         # TODO: fix me
