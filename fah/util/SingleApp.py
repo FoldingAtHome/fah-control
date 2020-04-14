@@ -26,8 +26,6 @@ import socketserver
 
 from gi.repository import Gtk
 
-from fah.Icon import get_icon
-
 single_app_host = '127.0.0.1'
 single_app_port = 32455
 single_app_addr = (single_app_host, single_app_port)

@@ -210,8 +210,7 @@ class FAHControl(SingleAppServer):
         small_font = Pango.FontDescription('Sans 8')
 
         # Default icon
-        # TODO: FIX THIS
-        # Gtk.window_set_default_icon(get_icon('small'))
+        self.window.set_default_icon_from_file('images/FAHControl.ico');
 
         # Filter glade
         if len(glade) < 1024:
@@ -306,13 +305,11 @@ class FAHControl(SingleAppServer):
         # Tool bar
         builder.get_object('toolbar1').modify_font(small_font)
         button = builder.get_object('viewer_button')
-        # TODO: FIX ME
-        #button.get_image().set_from_pixbuf(get_viewer_icon('small'))
 
         # About Dialog
         icon = builder.get_object('about_icon')
-        # TODO: FIX ME
-        #icon.set_from_pixbuf(get_icon('medium'))
+        icon.set_from_file('images/FAHControl.ico')
+
         about_version = builder.get_object('about_version')
         # TODO: fix me
         #about_version.set_markup('<b>Version: %s</b>' % version)
