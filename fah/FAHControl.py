@@ -311,8 +311,11 @@ class FAHControl(SingleAppServer):
         icon.set_from_file(os.path.dirname(os.path.abspath(__file__)) + '/../images/FAHControl.ico')
 
         about_version = builder.get_object('about_version')
-        # TODO: fix me
-        #about_version.set_markup('<b>Version: %s</b>' % version)
+        try:
+            about_version.set_markup('<b>Version: %s</b>' % version)
+        except:
+            pass
+        
 
         # Preferences
         self.theme_list = self.load_themes()
