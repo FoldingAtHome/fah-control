@@ -905,7 +905,8 @@ class FAHControl(SingleAppServer):
         for pref in ['donor', 'team']:
             entry = self.preference_widgets[pref + '_stats']
             combo = self.preference_widgets[pref + '_stats_link']
-            entry.set_sensitive(combo.get_active_text() == 'Custom')
+            #TODO: FIX ME
+           # entry.set_sensitive(combo.get_active_text() == 'Custom')
 
     def preferences_save(self):
         for name, widget in list(self.preference_widgets.items()):
