@@ -2033,7 +2033,6 @@
                                       <object class="GtkScrolledWindow" id="scrolledwindow4">
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
-                                        <property name="hscrollbar_policy">never</property>
                                         <property name="shadow_type">etched-in</property>
                                         <child>
                                           <object class="GtkTextView" id="log_text_view">
