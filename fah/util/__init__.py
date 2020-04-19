@@ -169,8 +169,8 @@ def set_widget_str_value(widget, value):
             if items[i].lower() == value.lower():
                 widget.set_active(i)
                 return
-
-        print(('ERROR: Invalid value "%s"' % value))
+        if length > 0:
+            widget.set_active(0)
 
     elif isinstance(widget, Gtk.ProgressBar):
         widget.set_text(value)
