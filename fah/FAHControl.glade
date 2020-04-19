@@ -6328,6 +6328,7 @@ Some of these options may require manually restarting the client to take effect.
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
                                                 <property name="label" translatable="yes">A GPU slot uses the same Graphics Processing Unit that powers 3D applications.  Simulations are usually faster but you must have a supported GPU and the correct drivers installed.</property>
+                                                <property name="wrap">True</property>
                                                 <property name="xalign">0</property>
                                               </object>
                                               <packing>
@@ -6357,6 +6358,7 @@ Some of these options may require manually restarting the client to take effect.
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="label" translatable="yes">Defines which GPU to use.  The first GPU in the system starts at 0.  Leave this as -1 to allow the client to choose a supported GPU.</property>
+                                                            <property name="wrap">True</property>
                                                             <property name="xalign">0</property>
                                                           </object>
                                                           <packing>
@@ -6448,6 +6450,7 @@ Some of these options may require manually restarting the client to take effect.
 If you encounter such a conflict you can try adjusting these values, restarting your GPU slot and then checking, with an appropriate tool, the GPUs activity level.
 
 WARNING, changing these values can make your GPU folding slot fail.</property>
+                                                            <property name="wrap">True</property>
                                                             <property name="xalign">0</property>
                                                           </object>
                                                           <packing>
