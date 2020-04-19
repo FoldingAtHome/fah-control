@@ -32,7 +32,9 @@ import time
 import re
 import traceback
 import platform
-import urllib.request, urllib.parse, urllib.error
+import urllib.request
+import urllib.parse
+import urllib.error
 
 from gi.repository import Gtk
 from gi.repository import GLib
@@ -210,7 +212,8 @@ class FAHControl(SingleAppServer):
         small_font = Pango.FontDescription('Sans 8')
 
         # Default icon
-        self.window.set_default_icon_from_file(os.path.dirname(os.path.abspath(__file__)) + '/../images/FAHControl.ico');
+        self.window.set_default_icon_from_file(os.path.dirname(
+            os.path.abspath(__file__)) + '/../images/FAHControl.ico')
 
         # Filter glade
         if len(glade) < 1024:
@@ -308,14 +311,14 @@ class FAHControl(SingleAppServer):
 
         # About Dialog
         icon = builder.get_object('about_icon')
-        icon.set_from_file(os.path.dirname(os.path.abspath(__file__)) + '/../images/FAHControl.ico')
+        icon.set_from_file(os.path.dirname(
+            os.path.abspath(__file__)) + '/../images/FAHControl.ico')
 
         about_version = builder.get_object('about_version')
         try:
             about_version.set_markup('<b>Version: %s</b>' % version)
         except:
             pass
-        
 
         # Preferences
         self.theme_list = self.load_themes()
@@ -392,7 +395,7 @@ class FAHControl(SingleAppServer):
         self.idle_slot_item = builder.get_object('idle_slot_item')
         view_slot_item = builder.get_object('view_slot_item')
         # TODO: FIX ME
-        #view_slot_item.get_image().set_from_pixbuf(get_viewer_icon('tiny'))
+        # view_slot_item.get_image().set_from_pixbuf(get_viewer_icon('tiny'))
 
         # Slot dialog
         self.slot_type_cpu = builder.get_object('slot_type_cpu')
@@ -890,7 +893,7 @@ class FAHControl(SingleAppServer):
             else:
                 raise Exception('Unknown preference widget "%s"' % name)
 
-            if value is not None:
+            if value is not None and value != '':
                 set_widget_str_value(widget, value)
 
         # Update
@@ -905,7 +908,7 @@ class FAHControl(SingleAppServer):
         for pref in ['donor', 'team']:
             entry = self.preference_widgets[pref + '_stats']
             combo = self.preference_widgets[pref + '_stats_link']
-            #TODO: FIX ME
+            # TODO: FIX ME
            # entry.set_sensitive(combo.get_active_text() == 'Custom')
 
     def preferences_save(self):
@@ -1278,6 +1281,7 @@ class FAHControl(SingleAppServer):
     def close_error_dialog(self, dialog, id=None, data=None):
         dialog.destroy()
         self.error_dialog = None
+
     def error(self, message, buttons=Gtk.ButtonsType.OK, on_response=None,
               on_response_data=None):
         message = str(message)
@@ -1321,7 +1325,7 @@ class FAHControl(SingleAppServer):
             self.db.set(name + '_height', widget.height, queue=True)
         except:
             pass
-        
+
     """
         x, y, width, height = widget.get_allocation()
         if 0 <= width and 0 <= height:
@@ -1332,6 +1336,7 @@ class FAHControl(SingleAppServer):
 
     def on_quit(self, widget, data=None):
         self.quit()
+
     def on_preferences(self, widget, data=None):
         # OSX crashes with out this, but it's a good idea anyway
         if not self.window_visible:
@@ -1359,6 +1364,7 @@ class FAHControl(SingleAppServer):
                 pass
 
             self.viewer = None
+
     def on_viewer(self, widget, data=None):
         self.viewer_close()
 
@@ -1412,6 +1418,7 @@ class FAHControl(SingleAppServer):
         except Exception:
             self.error('Failed to launch viewer with command:\n\n' +
                        ' '.join(cmd))
+
     def on_about(self, widget, data=None):
         # OSX crashes with out this, but it's a good idea anyway
         if not self.window_visible:
@@ -1421,6 +1428,7 @@ class FAHControl(SingleAppServer):
             return False
 
         self.open_dialog(self.about_dialog)
+
     def on_about_close(self, widget, data=None):
         self.about_dialog.hide()
         return True  # Cancel event
@@ -1432,6 +1440,7 @@ class FAHControl(SingleAppServer):
             self.hide_all_windows()
             return True  # prevent destroy
         self.quit()
+
     def on_window_delete(self, widget, event, data=None):
         return self.on_window_destroy(widget)
 
@@ -1448,6 +1457,7 @@ class FAHControl(SingleAppServer):
         self.preferences_set()
         self.preferences_save()
         self.preferences_dialog.hide()
+
     def on_preferences_cancel(self, widget, data=None):
         # Reset theme
         if self.db.has('theme'):
@@ -1499,9 +1509,11 @@ class FAHControl(SingleAppServer):
                 widget.hide()
 
         self.open_dialog(self.client_dialog)
+
     def on_client_remove_button_clicked(self, widget, data=None):
         remove_tree_selection(self.client_tree, self.remove_client_path)
         self.save_clients()
+
     def on_configure(self, widget, data=None):
         if self.get_visible_dialogs():
             return
@@ -1512,6 +1524,7 @@ class FAHControl(SingleAppServer):
         name = self.client_list.get(selection[0][1], 0)[0]
         client = self.clients[name]
         self.edit_client(client)
+
     def on_client_tree_view_row_activated(self, widget, path, col, data=None):
         if self.get_visible_dialogs():
             return
@@ -1520,6 +1533,7 @@ class FAHControl(SingleAppServer):
         name = self.client_list.get(iter, 0)[0]
         client = self.clients[name]
         self.edit_client(client)
+
     def on_client_selection_changed(self, widget, data=None):
         self.deactivate_client()
 
@@ -1546,6 +1560,7 @@ class FAHControl(SingleAppServer):
 
     def on_client_options_add_button_clicked(self, widget, data=None):
         self.option_present(self.option_list, self.client_dialog)
+
     def on_client_options_remove_button_clicked(self, widget, data=None):
         remove_tree_selection(self.option_tree)
 
@@ -1555,8 +1570,10 @@ class FAHControl(SingleAppServer):
         self.core_option_entry.set_text('')
         self.core_options_dialog.set_transient_for(self.client_dialog)
         self.core_options_dialog.present()
+
     def on_core_options_remove_button_clicked(self, widget, data=None):
         remove_tree_selection(self.core_option_tree)
+
     def on_core_options_ok(self, widget, data=None):
         option = self.core_option_entry.get_text().strip()
         if not option:
@@ -1565,6 +1582,7 @@ class FAHControl(SingleAppServer):
 
         self.core_option_list.append([option])
         self.core_options_dialog.hide()
+
     def on_core_options_cancel(self, widget, data=None):
         self.core_options_dialog.hide()
         return True  # Cancel event
@@ -1609,6 +1627,7 @@ class FAHControl(SingleAppServer):
                 self.save_clients()
                 self.client_dialog.hide()
                 self.resort_client_list()
+
     def on_client_cancel(self, widget, data=None):
         self.client_dialog.hide()
         return True  # Cancel event
@@ -1617,22 +1636,28 @@ class FAHControl(SingleAppServer):
 
     def on_fold_button_clicked(self, widget, data=None):
         self.active_client.unpause()
+
     def on_pause_button_clicked(self, widget, data=None):
         self.active_client.pause()
+
     def on_finish_button_clicked(self, widget, data=None):
         self.active_client.finish()
+
     def on_folding_power_change_value(self, widget, scroll, value, data=None):
         # Clamp slider to integer increments
         value = int(round(value))
         if self.folding_power.get_value() != value:
             self.folding_power.set_value(value)
         return True
+
     def on_folding_power_value_changed(self, widget, data=None):
         if not self.folding_power_changing and self.active_client:
             power = self.folding_power_levels[int(widget.get_value())]
             self.active_client.set_power(power)
+
     def on_folding_power_button_press(self, widget, data=None):
         self.folding_power_changing = True
+
     def on_folding_power_button_release(self, widget, data=None):
         if self.active_client:
             power = self.folding_power_levels[int(widget.get_value())]
@@ -1647,6 +1672,7 @@ class FAHControl(SingleAppServer):
         model = widget.get_model()
         text = model.get_value(iter, 0)
         self.team_stats_pref.set_sensitive(text == 'Custom')
+
     def on_donor_stats_link_changed(self, widget, data=None):
         iter = widget.get_active_iter()
         model = widget.get_model()
@@ -1665,8 +1691,10 @@ class FAHControl(SingleAppServer):
         SlotConfig.clear_dialog(self)
         self.slot_dialog.slot_iter = None
         self.open_dialog(self.slot_dialog)
+
     def on_slot_remove_button_clicked(self, widget, data=None):
         remove_tree_selection(self.slot_tree)
+
     def on_slot_edit_button_clicked(self, widget, data=None):
         selection = get_tree_selection(self.slot_tree)
 
@@ -1676,6 +1704,7 @@ class FAHControl(SingleAppServer):
             slot.load_dialog(self)
             self.slot_dialog.slot_iter = iter
             self.open_dialog(self.slot_dialog)
+
     def on_slot_tree_view_row_activated(self, widget, path, col, data=None):
         iter = self.slot_list.get_iter(path)
         slot = self.slot_list.get(iter, 2)[0].slot
@@ -1693,13 +1722,14 @@ class FAHControl(SingleAppServer):
 
         else:
             iter = self.slot_dialog.slot_iter
-            id, type, wrapper = self.slot_list.get(iter, 0, 1, 2)
+            _id, type, wrapper = self.slot_list.get(iter, 0, 1, 2)
             slot = wrapper.slot
             slot.save_dialog(self)
             if slot.type != type:
                 self.slot_list.set(iter, 1, slot.type)
 
         self.slot_dialog.hide()
+
     def on_slot_cancel(self, widget, data=None):
         self.slot_dialog.hide()
         return True  # Cancel event
@@ -1708,6 +1738,7 @@ class FAHControl(SingleAppServer):
 
     def on_slot_options_add_button_clicked(self, widget, data=None):
         self.option_present(self.slot_option_list, self.slot_dialog)
+
     def on_slot_options_remove_button_clicked(self, widget, data=None):
         remove_tree_selection(self.slot_option_tree)
 
@@ -1740,6 +1771,7 @@ class FAHControl(SingleAppServer):
         self.options_dialog.option_model = model
         self.options_dialog.set_transient_for(parent)
         self.options_dialog.present()
+
     def on_options_ok(self, widget, data=None):
         name = self.option_name_entry.get_text().strip()
         value = self.option_value_entry.get_text()
@@ -1749,6 +1781,7 @@ class FAHControl(SingleAppServer):
 
         self.options_dialog.option_model.append([name, value])
         self.options_dialog.hide()
+
     def on_options_cancel(self, widget, data=None):
         self.options_dialog.hide()
         return True  # Cancel event
@@ -1788,9 +1821,11 @@ class FAHControl(SingleAppServer):
     def on_unpause_slot_item_activate(self, widget, data=None):
         for id in self.get_selected_slot_ids():
             self.active_client.unpause(id)
+
     def on_pause_slot_item_activate(self, widget, data=None):
         for id in self.get_selected_slot_ids():
             self.active_client.pause(id)
+
     def on_idle_slot_item_toggled(self, widget, data=None):
         for id in self.get_selected_slot_ids():
             if widget.get_active():
@@ -1807,10 +1842,12 @@ class FAHControl(SingleAppServer):
     def on_download_log_clicked(self, widget, data=None):
         self.active_client.refresh_log()
         self.log.set_text('')
+
     def on_copy_log_clicked(self, widget, data=None):
         log = self.log
         text = log.get_text(log.get_start_iter(), log.get_end_iter())
         Gtk.Clipboard().set_text(text)
+
     def on_clear_log_clicked(self, widget, data=None):
         if self.active_client:
             self.active_client.config.log_clear(self)
@@ -1823,8 +1860,10 @@ class FAHControl(SingleAppServer):
 
     def on_cpu_usage_scale_format_value(self, widget, value, data=None):
         return '%d%%' % value
+
     def on_checkpoint_scale_format_value(self, widget, value, data=None):
         return '%d min.' % value
+
     def on_uri_hook(self, widget, url, data=None):
         keys = {'donor': urllib.parse.quote(self.donor_info.get_label()),
                 'team': urllib.parse.quote(self.team_info.get_label())}
