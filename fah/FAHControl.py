@@ -624,7 +624,7 @@ class FAHControl(SingleAppServer):
         try:
             subprocess.Popen(cmd)
         except Exception as e:
-            print((e, ':', ' '.join(cmd)))
+            print(e, ':', ' '.join(cmd))
 
     def connect_option_cell(self, name, model, col):
         cell = self.builder.get_object(name)
@@ -764,7 +764,7 @@ class FAHControl(SingleAppServer):
     def load_theme(self, theme):
         for name, rc in self.theme_list:
             if theme == name:
-                print(('Loading theme %r' % theme))
+                print('Loading theme %r' % theme)
 
                 settings = Gtk.Settings.get_default()
 
@@ -1012,7 +1012,7 @@ class FAHControl(SingleAppServer):
             name = client.name
             i = ibyname_old.get(name)
             if i is None:
-                print(('unable to resort client list: unknown name %s' % name))
+                print('unable to resort client list: unknown name %s' % name)
                 return
             new_order.append(i)
         self.client_list.reorder(new_order)
@@ -1284,7 +1284,7 @@ class FAHControl(SingleAppServer):
         # log to terminal window
         if sys.exc_info()[2]:
             traceback.print_exc()
-        print(('ERROR: %s' % message))
+        print('ERROR: %s' % message)
 
         # Don't open more than one
         if self.error_dialog is not None:

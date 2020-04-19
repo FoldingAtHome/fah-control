@@ -130,7 +130,7 @@ def get_widget_str_value(widget):
         # NOTE This does not always get the displayed text
         return widget.get_active_id()
     else:
-        print(('ERROR: unsupported widget type %s' % type(widget)))
+        print('ERROR: unsupported widget type %s' % type(widget))
 
 
 def set_widget_str_value(widget, value):
@@ -186,7 +186,7 @@ def set_widget_str_value(widget, value):
         widget.set_fraction(fraction)
 
     else:
-        print(('ERROR: unsupported option widget type %s' % type(widget)))
+        print('ERROR: unsupported option widget type %s' % type(widget))
 
 
 def set_widget_change_action(widget, action):
@@ -206,7 +206,7 @@ def set_widget_change_action(widget, action):
         widget.connect('rows_reordered', action)
 
     else:
-        print(('ERROR: unsupported option widget type %s' % type(widget)))
+        print('ERROR: unsupported option widget type %s' % type(widget))
 
 
 def get_home_dir():
