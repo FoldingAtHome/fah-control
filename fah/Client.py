@@ -198,7 +198,7 @@ class Client:
         for name, value in list(options.items()):
             cmd += ' ' + name
             if name[-1] != '!':
-                cmd += "='%s'" % value.encode('unicode_escape')
+                cmd += "='%s'" % value.replace("'", "\\'")
 
         cmd += ' %s *' % ' '.join(self.option_names)
 

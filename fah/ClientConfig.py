@@ -47,12 +47,14 @@ def get_option_mods(old_options, new_options):
 
     return changes
 
+
 def get_buffer_text(buffer):
     return buffer.get_text(buffer.get_start_iter(), buffer.get_end_iter())
 
 
 def get_model_column(model, iter, column):
-    if iter is not None: return model.get_value(iter, column)
+    if iter is not None:
+        return model.get_value(iter, column)
 
 
 def get_selected_tree_column(tree, column):
@@ -84,18 +86,18 @@ class ClientConfig:
         self.log_filter_re = None
         self.updating = False
 
-
     def get(self, name):
-        if name in self.options: return self.options[name]
+        if name in self.options:
+            return self.options[name]
+
     def set(self, name, value): self.options[name] = value
+
     def have(self, name):
         return name in self.options and self.options[name] is not None
-
 
     def get_prcg(self, row):
         return '%s (%s, %s, %s)' % (
             row['project'], row['run'], row['clone'], row['gen'])
-
 
     def update_power(self, app):
         power = self.get('power').lower()
@@ -103,19 +105,18 @@ class ClientConfig:
             if power == app.folding_power_levels[i].lower():
                 app.folding_power.set_value(i)
 
-
     def update_ppd(self, app, ppd):
-        if ppd: s = '%d' % int(ppd)
-        else: s = 'Unknown'
+        if ppd:
+            s = '%d' % int(ppd)
+        else:
+            s = 'Unknown'
         app.client_ppd.set_text(s)
-
 
     def update_queue(self, queue):
         self.queue = queue
         self.queue_map = {}
         for values in self.queue:
             self.queue_map[values['id']] = values
-
 
     def update_user_info(self, app):
         # User
@@ -130,17 +131,16 @@ class ClientConfig:
         app.donor_info.set_label('')
         app.team_info.set_label('')
 
-
     def get_selected_queue_entry(self, app):
         return get_selected_tree_column(app.queue_tree, 1)
-
 
     def get_selected_slot(self, app):
         id = get_selected_tree_column(app.slot_status_tree, 0)
         if id is not None:
             id = int(id)
             for slot in self.slots:
-                if slot.id == id: return slot
+                if slot.id == id:
+                    return slot
 
     def update_queue_ui(self, app):
         if not self.queue:
@@ -170,26 +170,30 @@ class ClientConfig:
             progress = values['percentdone']
             percent = float(progress[:-1])
             eta = values['eta']
-            if eta == '0.00 secs': eta = 'Unknown'
+            if eta == '0.00 secs':
+                eta = 'Unknown'
             credit = values['creditestimate']
-            if float(credit) == 0: credit = 'Unknown'
+            if float(credit) == 0:
+                credit = 'Unknown'
 
             prcg = self.get_prcg(values)
             iter = app.queue_list.append([unit_id, queue_id, status, color,
                                           progress, percent, eta, credit, prcg])
 
-            if queue_id == selected: selected_row = iter
-            if queue_id == log_filter_selected: log_filter_row = iter
+            if queue_id == selected:
+                selected_row = iter
+            if queue_id == log_filter_selected:
+                log_filter_row = iter
 
         # Select the first item if nothing is selected
-        if selected_row is None: selected_row = app.queue_list.get_iter_first()
+        if selected_row is None:
+            selected_row = app.queue_list.get_iter_first()
         if log_filter_row is None:
             log_filter_row = app.queue_list.get_iter_first()
 
         # Restore selections
         app.queue_tree.get_selection().select_iter(selected_row)
         app.log_unit.set_active_iter(log_filter_row)
-
 
     def update_work_unit_info(self, app):
         if not self.queue:
@@ -198,15 +202,17 @@ class ClientConfig:
 
         # Get selected queue entry
         selected = self.get_selected_queue_entry(app)
-        if selected is None: return
+        if selected is None:
+            return
         entry = self.queue_map[selected]
 
         # Load info
         for name, value in list(entry.items()):
             if name in app.queue_widgets:
-                if (name in ['basecredit', 'creditestimate', 'ppd'] and \
-                        float(value) == 0) or value == '<invalid>' or \
-                        value == '0.00 secs': value = 'Unknown'
+                if (name in ['basecredit', 'creditestimate', 'ppd'] and
+                    float(value) == 0) or value == '<invalid>' or \
+                        value == '0.00 secs':
+                    value = 'Unknown'
 
                 widget = app.queue_widgets[name]
                 set_widget_str_value(widget, value)
@@ -228,24 +234,27 @@ class ClientConfig:
             entry['project'], entry['run'], entry['clone'], entry['gen'])
         set_widget_str_value(app.queue_widgets['prcg'], prcg)
 
-
     def select_slot(self, app):
         # Get selected slot
         slot = self.get_selected_slot(app)
-        if slot is None: return
+        if slot is None:
+            return
 
         # Get associated queue ID
         first_id = None
         first_running_id = None
         for entry in self.queue:
             if int(entry['slot']) == slot.id:
-                if first_id is None: first_id = entry['unit']
+                if first_id is None:
+                    first_id = entry['unit']
                 if entry['state'].upper() in ['RUNNING', 'FINISHING'] and \
                         first_running_id is None:
                     first_running_id = entry['unit']
 
-        if first_running_id is not None: unit_id = first_running_id
-        else: unit_id = first_id
+        if first_running_id is not None:
+            unit_id = first_running_id
+        else:
+            unit_id = first_id
 
         if unit_id is not None:
             # Find unit_id in the queue list entry and select row
@@ -259,15 +268,16 @@ class ClientConfig:
 
             # Update the UI
             self.update_work_unit_info(app)
-        else: app.queue_tree.get_selection().unselect_all()
-
+        else:
+            app.queue_tree.get_selection().unselect_all()
 
     def select_queue_slot(self, app):
         # Get unit ID of selected queue entry
         selected = self.get_selected_queue_entry(app)
-        if selected is None: return
+        if selected is None:
+            return
 
-         # Get associated slot ID
+        # Get associated slot ID
         entry = self.queue_map[selected]
         slot = int(entry['slot'])
 
@@ -283,17 +293,16 @@ class ClientConfig:
         # Update the UI
         self.update_work_unit_info(app)
 
-
     def reset_work_unit_info(self, app):
         for widget in list(app.queue_widgets.values()):
             set_widget_str_value(widget, None)
-
 
     def update_info(self, app):
         port = app.info
 
         # Clear
-        for child in port.get_children(): port.remove(child)
+        for child in port.get_children():
+            port.remove(child)
 
         # Alignment
         align = Gtk.Alignment.new(0, 0, 1, 1)
@@ -313,9 +322,7 @@ class ClientConfig:
             frame = Gtk.Frame()
             frame.name = name
             frame.set_shadow_type(Gtk.ShadowType.ETCHED_IN)
-            # TODO: FIX ME
-            #frame.get_label_widget().set_use_markup(True)
-            vbox.pack_start(frame,False,True,0)
+            vbox.pack_start(frame, False, True, 0)
 
             # Alignment
             align = Gtk.Alignment.new(0, 0, 1, 1)
@@ -329,13 +336,15 @@ class ClientConfig:
 
             row = 0
             for name, value in category:
-                if not value: continue
+                if not value:
+                    continue
 
                 # Name
                 label = Gtk.Label(label='<b>%s</b>' % name)
                 label.set_use_markup(True)
                 label.set_alignment(1, 0.5)
-                table.attach(label, 0, 1, row, row + 1, Gtk.AttachOptions.FILL, Gtk.AttachOptions.FILL)
+                table.attach(label, 0, 1, row, row + 1,
+                             Gtk.AttachOptions.FILL, Gtk.AttachOptions.FILL)
 
                 # Value
                 if value.startswith('http://'):
@@ -343,17 +352,18 @@ class ClientConfig:
                     label.set_relief(Gtk.ReliefStyle.NONE)
                     label.set_property('can-focus', False)
 
-                else: label = Gtk.Label(label=value)
+                else:
+                    label = Gtk.Label(label=value)
 
                 label.set_alignment(0, 0.5)
                 label.modify_font(app.mono_font)
-                table.attach(label, 1, 2, row, row + 1, yoptions = Gtk.AttachOptions.FILL)
+                table.attach(label, 1, 2, row, row + 1,
+                             yoptions=Gtk.AttachOptions.FILL)
 
                 row += 1
 
         port.realize()
         port.show_all()
-
 
     def update_options(self, app):
         used = set()
@@ -365,7 +375,7 @@ class ClientConfig:
             try:
                 set_widget_str_value(widget, self.options[name])
 
-            except Exception as e: # Don't let one bad widget kill everything
+            except Exception as e:  # Don't let one bad widget kill everything
                 print(('WARNING: failed to set widget "%s": %s' % (name, e)))
 
         # Setup passkey and password entries
@@ -386,9 +396,12 @@ class ClientConfig:
 
         if self.have('proxy'):
             proxy = self.get('proxy')
-            if ':' in proxy: proxy_addr, proxy_port = proxy.split(':', 1)
-            else: proxy_addr, proxy_port = proxy, '8080'
-            set_widget_str_value(app.client_option_widgets['proxy'], proxy_addr)
+            if ':' in proxy:
+                proxy_addr, proxy_port = proxy.split(':', 1)
+            else:
+                proxy_addr, proxy_port = proxy, '8080'
+            set_widget_str_value(
+                app.client_option_widgets['proxy'], proxy_addr)
             set_widget_str_value(app.proxy_port, proxy_port)
 
         # Set core priority radio button
@@ -403,7 +416,8 @@ class ClientConfig:
             used.add('extra-core-args')
 
             args = self.get('extra-core-args').split()
-            for arg in args: app.core_option_list.append([arg])
+            for arg in args:
+                app.core_option_list.append([arg])
 
         # Remaining options
         app.option_list.clear()
@@ -411,11 +425,11 @@ class ClientConfig:
             if name not in used:
                 app.option_list.append([name, value])
 
-
     def update_status_slots(self, app):
         # Save selection
         selected = get_selected_tree_column(app.slot_status_tree, 0)
-        if selected is not None: selected = selected
+        if selected is not None:
+            selected = selected
         selected_row = None
         log_filter_selected = get_active_combo_column(app.log_slot, 0)
         log_filter_row = None
@@ -436,10 +450,13 @@ class ClientConfig:
                 status += ':' + slot.reason
             status = get_span_markup(status, color)
             description = slot.description.replace('"', '')
-            iter = app.slot_status_list.append((id, status, color, description))
+            iter = app.slot_status_list.append(
+                (id, status, color, description))
 
-            if id == selected: selected_row = iter
-            if id == log_filter_selected: log_filter_row = iter
+            if id == selected:
+                selected_row = iter
+            if id == log_filter_selected:
+                log_filter_row = iter
 
         # Selected the first item if nothing is selected
         if selected_row is None:
@@ -456,24 +473,21 @@ class ClientConfig:
         if log_filter_row is not None:
             app.log_slot.set_active_iter(log_filter_row)
 
-
     def update_slots_ui(self, app):
         app.slot_list.clear()
         for slot in self.slots:
             slot.add_to_ui(app)
 
-
     def scroll_log_to_end(self, app):
-        if not app.log_follow.get_active(): return
+        if not app.log_follow.get_active():
+            return
         mark = app.log.get_mark('end')
         app.log.move_mark(mark, app.log.get_end_iter())
         app.log_view.scroll_mark_onscreen(mark)
 
-
     def log_clear(self, app):
         app.log.set_text('')
         self.log = []
-
 
     def log_filter_str(self, app):
         f = []
@@ -498,11 +512,9 @@ class ClientConfig:
 
         return None
 
-
     def log_filter(self, line):
         return self.log_filter_re is None or \
             self.log_filter_re.match(line) is not None
-
 
     def log_add_lines(self, app, lines):
         filtered = list(filter(self.log_filter, lines))
@@ -513,41 +525,42 @@ class ClientConfig:
             app.log.insert(app.log.get_end_iter(), text + '\n')
             self.scroll_log_to_end(app)
 
-
     def log_add(self, app, text):
         # TODO deal with split lines
         lines = []
         for line in text.split('\n'):
-            if not line: continue
+            if not line:
+                continue
             lines.append(line)
             self.log.append(line)
 
         self.log_add_lines(app, lines)
 
-
     def update_log(self, app):
-        if self.updating: return # Don't refilter during updates
+        if self.updating:
+            return  # Don't refilter during updates
 
         # Check if filter has changed
         log_filter = self.log_filter_str(app)
-        if log_filter == self.last_log_filter: return
+        if log_filter == self.last_log_filter:
+            return
 
         # Update filter
         self.last_log_filter = log_filter
-        if log_filter is not None: self.log_filter_re = re.compile(log_filter)
-        else: self.log_filter_re = None
+        if log_filter is not None:
+            self.log_filter_re = re.compile(log_filter)
+        else:
+            self.log_filter_re = None
 
         # Reload log
         app.log.set_text('')
         self.log_add_lines(app, self.log)
 
-
     def update_status_ui(self, app):
         self.update_queue_ui(app)
         self.update_status_slots(app)
         self.update_work_unit_info(app)
-        app.update_client_status() # TODO this should probably be moved here
-
+        app.update_client_status()  # TODO this should probably be moved here
 
     def reset_status_ui(self, app):
         self.reset_work_unit_info(app)
@@ -555,25 +568,25 @@ class ClientConfig:
         app.slot_status_list.clear()
         app.log.set_text('')
 
-
     def get_running(self):
         for unit in self.queue:
-            if unit['state'].upper() == 'RUNNING': return True
+            if unit['state'].upper() == 'RUNNING':
+                return True
         return False
-
 
     def get_option_changes(self, app):
         used = set()
         options = {}
 
-        used.add('power') # Don't set power here
+        used.add('power')  # Don't set power here
 
         # Proxy options
         used.add('proxy')
         proxy_addr = get_widget_str_value(app.client_option_widgets['proxy'])
         proxy_port = get_widget_str_value(app.proxy_port)
         proxy = '%s:%s' % (proxy_addr, proxy_port)
-        if self.get('proxy') != proxy: options['proxy'] = proxy
+        if self.get('proxy') != proxy:
+            options['proxy'] = proxy
 
         # Core priority radio button
         used.add('core-priority')
@@ -588,41 +601,50 @@ class ClientConfig:
         used.add('extra-core-args')
         if self.have('extra-core-args'):
             old_args = self.get('extra-core-args').split()
-        else: old_args = []
+        else:
+            old_args = []
 
         new_args = []
+
         def add_arg(model, path, iter, data):
             new_args.append(model.get(iter, 0)[0])
         app.core_option_list.foreach(add_arg, None)
 
         if old_args != new_args:
-            if new_args: options['extra-core-args'] = ' '.join(new_args)
-            else: options['extra-core-args!'] = None
+            if new_args:
+                options['extra-core-args'] = ' '.join(new_args)
+            else:
+                options['extra-core-args!'] = None
 
         # Extra options
         def check_option(model, path, iter, data):
             name, value = model.get(iter, 0, 1)
             used.add(name)
-            if self.get(name) != value: options[name] = value
+            if self.get(name) != value:
+                options[name] = value
 
         app.option_list.foreach(check_option, None)
 
         # Main options
         for name, widget in list(app.client_option_widgets.items()):
             name = name.replace('_', '-')
-            if name in used: continue
+            if name in used:
+                continue
             value = self.get(name)
             used.add(name)
 
             try:
                 value = get_widget_str_value(widget)
                 old_value = self.get(name)
-                if value == '' and old_value is None: value = None
+                if value == '' and old_value is None:
+                    value = None
                 if value != old_value:
-                    if value is None: options[name + '!'] = None
-                    else: options[name] = value
+                    if value is None:
+                        options[name + '!'] = None
+                    else:
+                        options[name] = value
 
-            except Exception as e: # Don't let one bad widget kill everything
+            except Exception as e:  # Don't let one bad widget kill everything
                 print(('WARNING: failed to save widget "%s": %s' % (name, e)))
 
         # Removed options
@@ -632,33 +654,37 @@ class ClientConfig:
 
         return options
 
-
     def get_slot_changes(self, app):
         # Get new slots
         new_slots = []
-        def add_slot(model, path, iter, data = None):
+
+        def add_slot(model, path, iter, data=None):
             new_slots.append(model.get(iter, 2)[0].slot)
         app.slot_list.foreach(add_slot)
 
         # Get old slot IDs
         old_slot_map = {}
-        for slot in self.slots: old_slot_map[slot.id] = slot
+        for slot in self.slots:
+            old_slot_map[slot.id] = slot
 
         # Get new slot IDs
         new_slot_ids = set()
-        for slot in new_slots: new_slot_ids.add(slot.id)
+        for slot in new_slots:
+            new_slot_ids.add(slot.id)
 
         # Find deleted slot IDs
         deleted = []
         for id in old_slot_map:
-            if id not in new_slot_ids: deleted.append(id)
+            if id not in new_slot_ids:
+                deleted.append(id)
 
         # Find added and modified slots
         added = []
         modified = []
         for slot in new_slots:
             # Added
-            if slot.id == -1: added.append((slot.type, slot.options))
+            if slot.id == -1:
+                added.append((slot.type, slot.options))
             else:
                 old_slot = old_slot_map[slot.id]
                 options = get_option_mods(old_slot.options, slot.options)
@@ -667,10 +693,8 @@ class ClientConfig:
 
         return (deleted, added, modified)
 
-
     def get_changes(self, app):
         return self.get_option_changes(app), self.get_slot_changes(app)
-
 
     def has_changes(self, app):
         options, slots = self.get_changes(app)

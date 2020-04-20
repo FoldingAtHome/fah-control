@@ -5094,6 +5094,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="can_focus">False</property>
                                                             <property name="model">cause_pref_list</property>
                                                             <property name="active">0</property>
+                                                            <property name="id_column">0</property>
                                                             <child>
                                                             <object class="GtkCellRendererText" id="cellrenderertext7"/>
                                                             <attributes>
@@ -7307,6 +7308,7 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                         <property name="can_focus">False</property>
                         <property name="model">donor_stats_links_list</property>
                         <property name="active">0</property>
+                        <property name="id_column">0</property>
                         <signal name="changed" handler="on_donor_stats_link_changed" swapped="no"/>
                         <child>
                           <object class="GtkCellRendererText" id="cellrenderertext13"/>
@@ -7352,6 +7354,7 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                         <property name="can_focus">False</property>
                         <property name="model">team_stats_links_list</property>
                         <property name="active">0</property>
+                        <property name="id_column">0</property>
                         <signal name="changed" handler="on_team_stats_link_changed" swapped="no"/>
                         <child>
                           <object class="GtkCellRendererText" id="cellrenderertext26"/>
