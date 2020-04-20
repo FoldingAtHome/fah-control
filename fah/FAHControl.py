@@ -38,6 +38,7 @@ import urllib.error
 
 from gi.repository import Gtk
 from gi.repository import GLib
+from gi.repository import Gdk
 from gi.repository.GdkPixbuf import Pixbuf, InterpType
 import gi
 gi.require_version("Gtk", "3.0")
@@ -1841,9 +1842,8 @@ class FAHControl(SingleAppServer):
         self.log.set_text('')
 
     def on_copy_log_clicked(self, widget, data=None):
-        log = self.log
-        text = log.get_text(log.get_start_iter(), log.get_end_iter())
-        Gtk.Clipboard().set_text(text)
+        text = self.log.get_text(self.log.get_start_iter(), self.log.get_end_iter(), False)
+        Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD).set_text(text, -1)
 
     def on_clear_log_clicked(self, widget, data=None):
         if self.active_client:
