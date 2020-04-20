@@ -83,8 +83,8 @@ else:
     extra_opts = dict(
         packages = find_packages(),
         scripts = [app],
-        data_files = [('/usr/share/pixmaps', ['images/FAHControl.png'])],
-        install_requires = 'gtk2 >= 2.14.0',
+        data_files = [('/usr/share/pixmaps', ['images/FAHControl.png','images/FAHControl.ico'])],
+        install_requires = 'gobject >= 3.0',
         include_package_data = True,
         )
 

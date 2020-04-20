@@ -209,8 +209,14 @@ class FAHControl(SingleAppServer):
         small_font = Pango.FontDescription('Sans 8')
 
         # Default icon
-        self.window.set_default_icon_from_file(os.path.dirname(
-            os.path.abspath(__file__)) + '/../images/FAHControl.ico')
+        try:
+            self.window.set_default_icon('FAHControl.ico')
+        except:
+            try:
+                self.window.set_default_icon_from_file(os.path.dirname(
+                    os.path.abspath(__file__)) + '/../images/FAHControl.ico')
+            except:
+                pass
 
         # Filter glade
         if len(glade) < 1024:
@@ -305,9 +311,9 @@ class FAHControl(SingleAppServer):
         button = builder.get_object('viewer_button')
 
         # About Dialog
-        icon = builder.get_object('about_icon')
-        icon.set_from_file(os.path.dirname(
-            os.path.abspath(__file__)) + '/../images/FAHControl.ico')
+        icon = builder.get_object('about_icon',)
+        icon.set_from_file('FAHControl.ico')
+        
 
         about_version = builder.get_object('about_version')
         try:
@@ -1842,7 +1848,8 @@ class FAHControl(SingleAppServer):
         self.log.set_text('')
 
     def on_copy_log_clicked(self, widget, data=None):
-        text = self.log.get_text(self.log.get_start_iter(), self.log.get_end_iter(), False)
+        text = self.log.get_text(
+            self.log.get_start_iter(), self.log.get_end_iter(), False)
         Gtk.Clipboard.get(Gdk.SELECTION_CLIPBOARD).set_text(text, -1)
 
     def on_clear_log_clicked(self, widget, data=None):
