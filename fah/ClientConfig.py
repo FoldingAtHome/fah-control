@@ -225,8 +225,8 @@ class ClientConfig:
         widget.set_markup(status)
 
         # Links
-        base = 'https://apps.foldingathome.org'
-        uri = base + '/project.py?p=%s' % entry['project']
+        base = 'https://stats.foldingathome.org'
+        uri = base + '/project?p=%s' % entry['project']
         app.queue_widgets['project'].set_uri(uri)
 
         # PRCG
