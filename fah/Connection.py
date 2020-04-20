@@ -40,17 +40,16 @@ WSAEWOULDBLOCK = 10035
 
 
 class Connection:
-    def __init__(self, address = 'localhost', port = 36330, password = None,
-                 retry_rate = 5):
+    def __init__(self, address='localhost', port=36330, password=None,
+                 retry_rate=5, init_commands=[]):
         self.address = address
         self.port = int(port)
         self.password = password
-        self.init_commands = []
+        self.init_commands = init_commands
         self.retry_rate = retry_rate
 
         self.socket = None
         self.reset()
-
 
     def set_init_commands(self, commands):
         self.init_commands = commands
@@ -58,36 +57,36 @@ class Connection:
         if self.is_connected():
             list(map(self.queue_command, self.init_commands))
 
-
     def get_status(self):
-        if self.connected: return 'Online'
-        #if self.socket is None: return 'Offline'
+        if self.connected:
+            return 'Online'
+        # if self.socket is None: return 'Offline'
         return 'Connecting'
 
-
     def is_connected(self):
-        if self.socket is None: return False
-        if self.connected: return True
+        if self.socket is None:
+            return False
+        if self.connected:
+            return True
 
-        rlist, wlist, xlist = select.select([], [self.socket], [self.socket], 0)
+        _rlist, wlist, xlist = select.select(
+            [], [self.socket], [self.socket], 0)
 
-        if len(wlist) != 0: self.connected = True
+        if len(wlist) != 0:
+            self.connected = True
         elif len(xlist) != 0:
             self.fail_reason = 'refused'
             self.close()
 
         return self.connected
 
-
     def can_write(self):
-        rlist, wlist, xlist = select.select([], [self.socket], [], 0)
+        _rlist, wlist, _xlist = select.select([], [self.socket], [], 0)
         return len(wlist) != 0
 
-
     def can_read(self):
-        rlist, wlist, xlist = select.select([self.socket], [], [], 0)
+        rlist, _wlist, _xlist = select.select([self.socket], [], [], 0)
         return len(rlist) != 0
-
 
     def reset(self):
         self.close()
@@ -97,7 +96,6 @@ class Connection:
         self.fail_reason = None
         self.last_message = 0
         self.last_connect = 0
-
 
     def open(self):
         self.reset()
@@ -109,26 +107,27 @@ class Connection:
         if ready[0]:
             err = self.socket.connect_ex((self.address, self.port))
         if err != 0 and err != 115 and not err in [
-            errno.EINPROGRESS, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
+                errno.EINPROGRESS, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
             self.fail_reason = 'connect'
             raise Exception('Connection failed: ' + errno.errorcode[err])
 
-        if self.password: self.queue_command('auth "%s"' % self.password)
+        if self.password:
+            self.queue_command('auth "%s"' % self.password)
         list(map(self.queue_command, self.init_commands))
-
 
     def close(self):
         if self.socket is not None:
             try:
                 self.socket.shutdown(socket.SHUT_RDWR)
-            except: pass
+            except:
+                pass
             try:
                 self.socket.close()
-            except: pass
+            except:
+                pass
             self.socket = None
 
         self.connected = False
-
 
     def connection_lost(self):
         print('Connection lost')
@@ -136,15 +135,15 @@ class Connection:
         self.fail_reason = 'closed'
         raise Exception('Lost connection')
 
-
     def connection_error(self, err, msg):
         print('Connection Error: %d: %s' % (err, msg))
         self.close()
-        if err == errno.ECONNREFUSED: self.fail_reason = 'refused'
+        if err == errno.ECONNREFUSED:
+            self.fail_reason = 'refused'
         elif err in [errno.ETIMEDOUT, errno.ENETDOWN, errno.ENETUNREACH]:
             self.fail_reason = 'connect'
-        else: self.fail_reason = 'error'
-
+        else:
+            self.fail_reason = 'error'
 
     def read_some(self):
         bytesRead = 0
@@ -152,11 +151,12 @@ class Connection:
             while True:
                 buffer = self.socket.recv(10 * 1024 * 1024)
                 if len(buffer):
-                    #if debug: print 'BUFFER:', buffer
-                    self.readBuf += buffer.decode("utf-8") 
+                    # if debug: print 'BUFFER:', buffer
+                    self.readBuf += buffer.decode("utf-8")
                     bytesRead += len(buffer)
                 else:
-                    if bytesRead: return bytesRead
+                    if bytesRead:
+                        return bytesRead
                     self.connection_lost()
                     return 0
 
@@ -165,25 +165,27 @@ class Connection:
             (err, msg) = xxx_todo_changeme.args
             # Error codes for nothing to read
             if err not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
-                if bytesRead: return bytesRead
+                if bytesRead:
+                    return bytesRead
                 self.connection_error(err, msg)
                 raise
 
         return bytesRead
 
-
     def write_some(self):
-        if len(self.writeBuf) == 0: return 0
+        if len(self.writeBuf) == 0:
+            return 0
 
         bytesWritten = 0
         try:
             while True:
-                count = self.socket.send(bytes(self.writeBuf,encoding="UTF8"))
+                count = self.socket.send(bytes(self.writeBuf, encoding="UTF8"))
                 if count:
                     self.writeBuf = self.writeBuf[count:]
                     bytesWritten += count
                 else:
-                    if bytesWritten: return bytesWritten
+                    if bytesWritten:
+                        return bytesWritten
                     self.connection_lost()
                     return 0
 
@@ -192,28 +194,27 @@ class Connection:
             (err, msg) = xxx_todo_changeme1.args
             # Error codes for write buffer full
             if err not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
-                if bytesWritten: return bytesWritten
+                if bytesWritten:
+                    return bytesWritten
                 self.connection_error(err, msg)
                 raise
 
         return bytesWritten
 
-
     def queue_command(self, command):
-        if debug: print('command: ' + command)
+        if debug:
+            print('command: ' + command)
         self.writeBuf += command + '\n'
-
 
     def parse_message(self, version, type, data):
         try:
             msg = eval(data, {}, {})
-            #if debug: print 'MSG:', type, msg
+            # if debug: print 'MSG:', type, msg
             self.messages.append((version, type, msg))
             self.last_message = time.time()
         except Exception as e:
             print('ERROR parsing PyON message: %s: %s'
-                   % (str(e), data.encode('string_escape')))
-
+                  % (str(e), data.encode('string_escape')))
 
     def parse(self):
         start = self.readBuf.find('\nPyON ')
@@ -240,7 +241,6 @@ class Connection:
 
         return False
 
-
     def update(self):
         try:
             try:
@@ -250,13 +250,15 @@ class Connection:
                             self.open()
 
                     elif self.last_connect + 60 < time.time():
-                        self.close() # Retry connect
+                        self.close()  # Retry connect
 
-                if not self.is_connected(): return
+                if not self.is_connected():
+                    return
 
                 self.write_some()
                 if self.read_some():
-                    while self.parse(): continue
+                    while self.parse():
+                        continue
 
             # Handle special case for OSX disconnect
             except socket.error as e:
@@ -264,7 +266,8 @@ class Connection:
                     self.fail_reason = 'refused'
                     self.close()
 
-                else: raise
+                else:
+                    raise
 
         except Exception as e:
             print('ERROR on connection to %s:%d: %s' % (
@@ -277,12 +280,11 @@ class Connection:
             self.close()
 
 
-
 if __name__ == '__main__':
     init = ['updates add 0 1 $options',
             'updates add 1 1 $queue-info',
             'updates add 2 1 $slot-info']
-    conn = Connection(init_commands = init)
+    conn = Connection(init_commands=init)
 
     while True:
         conn.update()
