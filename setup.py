@@ -89,7 +89,7 @@ else:
         scripts=[app],
         data_files=[
             ('/usr/share/pixmaps', ['images/FAHControl.png', 'images/FAHControl.ico'])],
-        install_requires='gobject >= 3.0',
+        install_requires='pygobject >= 3.0',
         include_package_data=True,
     )
 
