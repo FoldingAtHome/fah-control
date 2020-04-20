@@ -903,6 +903,7 @@
                                                             <property name="can_default">True</property>
                                                             <property name="receives_default">True</property>
                                                             <property name="relief">none</property>
+                                                            <signal name="activate-link" handler="on_donor_team_info_activate_link" swapped="no"/>
                                                           </object>
                                                           <packing>
                                                             <property name="expand">True</property>
@@ -932,6 +933,7 @@
                                                             <property name="can_default">True</property>
                                                             <property name="receives_default">True</property>
                                                             <property name="relief">none</property>
+                                                            <signal name="activate-link" handler="on_donor_team_info_activate_link" swapped="no"/>
                                                           </object>
                                                           <packing>
                                                             <property name="expand">False</property>

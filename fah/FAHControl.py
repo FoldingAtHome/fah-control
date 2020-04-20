@@ -192,10 +192,6 @@ class FAHControl(SingleAppServer):
             self.is_old_gtk = Gtk.gtk_version < (2, 24)
             osx_add_GtkApplicationDelegate_methods()
 
-        # URI hook
-        # TODO: FIX THIS
-        #Gtk.link_button_set_uri_hook(self.on_uri_hook, None)
-
         # Style
         settings = Gtk.Settings.get_default()
         self.system_theme = settings.get_property('gtk-theme-name')
@@ -624,7 +620,7 @@ class FAHControl(SingleAppServer):
         try:
             subprocess.Popen(cmd)
         except Exception as e:
-            print((e, ':', ' '.join(cmd)))
+            print(e, ':', ' '.join(cmd))
 
     def connect_option_cell(self, name, model, col):
         cell = self.builder.get_object(name)
@@ -764,7 +760,7 @@ class FAHControl(SingleAppServer):
     def load_theme(self, theme):
         for name, rc in self.theme_list:
             if theme == name:
-                print(('Loading theme %r' % theme))
+                print('Loading theme %r' % theme)
 
                 settings = Gtk.Settings.get_default()
 
@@ -1012,7 +1008,7 @@ class FAHControl(SingleAppServer):
             name = client.name
             i = ibyname_old.get(name)
             if i is None:
-                print(('unable to resort client list: unknown name %s' % name))
+                print('unable to resort client list: unknown name %s' % name)
                 return
             new_order.append(i)
         self.client_list.reorder(new_order)
@@ -1284,7 +1280,7 @@ class FAHControl(SingleAppServer):
         # log to terminal window
         if sys.exc_info()[2]:
             traceback.print_exc()
-        print(('ERROR: %s' % message))
+        print('ERROR: %s' % message)
 
         # Don't open more than one
         if self.error_dialog is not None:
@@ -1674,6 +1670,12 @@ class FAHControl(SingleAppServer):
         text = model.get_value(iter, 0)
         self.donor_stats_pref.set_sensitive(text == 'Custom')
 
+    def on_donor_team_info_activate_link(self, widget):
+        keys = {'donor': urllib.parse.quote(self.donor_info.get_label()),
+                'team': urllib.parse.quote(self.team_info.get_label())}
+        webbrowser.open(widget.get_uri() % keys)
+        return True
+
     # Queue tree signals
 
     def on_queue_tree_cursor_changed(self, widget, data=None):
@@ -1858,8 +1860,3 @@ class FAHControl(SingleAppServer):
 
     def on_checkpoint_scale_format_value(self, widget, value, data=None):
         return '%d min.' % value
-
-    def on_uri_hook(self, widget, url, data=None):
-        keys = {'donor': urllib.parse.quote(self.donor_info.get_label()),
-                'team': urllib.parse.quote(self.team_info.get_label())}
-        webbrowser.open(url % keys)

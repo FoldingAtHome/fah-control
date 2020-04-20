@@ -127,10 +127,17 @@ def get_widget_str_value(widget):
             return 'false'
 
     elif isinstance(widget, Gtk.ComboBox):
-        # NOTE This does not always get the displayed text
-        return widget.get_active_id()
+        if widget.get_id_column() != -1:
+            return widget.get_active_id()
+
+        # TODO duplication of ClientConfig.get_active_combo_column
+        if widget.get_active_iter() is None:
+            return None
+
+        return widget.get_model().get_value(widget.get_active_iter(), 0)
+
     else:
-        print(('ERROR: unsupported widget type %s' % type(widget)))
+        print('ERROR: unsupported widget type %s' % type(widget))
 
 
 def set_widget_str_value(widget, value):
@@ -169,8 +176,8 @@ def set_widget_str_value(widget, value):
             if items[i].lower() == value.lower():
                 widget.set_active(i)
                 return
-
-        print(('ERROR: Invalid value "%s"' % value))
+        if length > 0:
+            widget.set_active(0)
 
     elif isinstance(widget, Gtk.ProgressBar):
         widget.set_text(value)
@@ -186,7 +193,7 @@ def set_widget_str_value(widget, value):
         widget.set_fraction(fraction)
 
     else:
-        print(('ERROR: unsupported option widget type %s' % type(widget)))
+        print('ERROR: unsupported option widget type %s' % type(widget))
 
 
 def set_widget_change_action(widget, action):
@@ -206,7 +213,7 @@ def set_widget_change_action(widget, action):
         widget.connect('rows_reordered', action)
 
     else:
-        print(('ERROR: unsupported option widget type %s' % type(widget)))
+        print('ERROR: unsupported option widget type %s' % type(widget))
 
 
 def get_home_dir():
