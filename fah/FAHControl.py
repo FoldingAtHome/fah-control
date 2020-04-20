@@ -192,10 +192,6 @@ class FAHControl(SingleAppServer):
             self.is_old_gtk = Gtk.gtk_version < (2, 24)
             osx_add_GtkApplicationDelegate_methods()
 
-        # URI hook
-        # TODO: FIX THIS
-        #Gtk.link_button_set_uri_hook(self.on_uri_hook, None)
-
         # Style
         settings = Gtk.Settings.get_default()
         self.system_theme = settings.get_property('gtk-theme-name')
@@ -1674,6 +1670,12 @@ class FAHControl(SingleAppServer):
         text = model.get_value(iter, 0)
         self.donor_stats_pref.set_sensitive(text == 'Custom')
 
+    def on_donor_team_info_activate_link(self, widget):
+        keys = {'donor': urllib.parse.quote(self.donor_info.get_label()),
+                'team': urllib.parse.quote(self.team_info.get_label())}
+        webbrowser.open(widget.get_uri() % keys)
+        return True
+
     # Queue tree signals
 
     def on_queue_tree_cursor_changed(self, widget, data=None):
@@ -1858,8 +1860,3 @@ class FAHControl(SingleAppServer):
 
     def on_checkpoint_scale_format_value(self, widget, value, data=None):
         return '%d min.' % value
-
-    def on_uri_hook(self, widget, url, data=None):
-        keys = {'donor': urllib.parse.quote(self.donor_info.get_label()),
-                'team': urllib.parse.quote(self.team_info.get_label())}
-        webbrowser.open(url % keys)
