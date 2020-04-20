@@ -7193,6 +7193,7 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <property name="model">viz_render_mode_liststore</property>
+                            <property name="id_column">0</property>
                             <child>
                               <object class="GtkCellRendererText" id="cellrenderertext11"/>
                               <attributes>
@@ -7421,6 +7422,7 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
                         <property name="can_focus">False</property>
                         <property name="model">theme_list</property>
                         <property name="active">0</property>
+                        <property name="id_column">0</property>
                         <signal name="changed" handler="on_theme_pref_changed" swapped="no"/>
                         <child>
                           <object class="GtkCellRendererText" id="cellrenderertext27"/>
