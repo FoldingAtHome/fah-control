@@ -311,10 +311,6 @@ class FAHControl(SingleAppServer):
         button = builder.get_object('viewer_button')
 
         # About Dialog
-        icon = builder.get_object('about_icon',)
-        # TODO: FIX ME
-        # icon.set_from_file('FAHControl.ico')
-
         about_version = builder.get_object('about_version')
         try:
             about_version.set_markup('<b>Version: %s</b>' % version)
