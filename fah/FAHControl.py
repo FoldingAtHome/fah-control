@@ -312,8 +312,8 @@ class FAHControl(SingleAppServer):
 
         # About Dialog
         icon = builder.get_object('about_icon',)
-        icon.set_from_file('FAHControl.ico')
-        
+        # TODO: FIX ME
+        # icon.set_from_file('FAHControl.ico')
 
         about_version = builder.get_object('about_version')
         try:
