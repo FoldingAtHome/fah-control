@@ -127,8 +127,15 @@ def get_widget_str_value(widget):
             return 'false'
 
     elif isinstance(widget, Gtk.ComboBox):
-        # NOTE This does not always get the displayed text
-        return widget.get_active_id()
+        if widget.get_id_column() is not -1:
+            return widget.get_active_id()
+
+        # TODO duplication of ClientConfig.get_active_combo_column
+        if widget.get_active_iter() is None:
+            return None
+
+        return widget.get_model().get_value(widget.get_active_iter(), 0)
+
     else:
         print('ERROR: unsupported widget type %s' % type(widget))
 
