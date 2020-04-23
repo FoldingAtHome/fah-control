@@ -206,7 +206,6 @@ class FAHControl(SingleAppServer):
         if os.path.exists(rcfile):
             Gtk.rc_parse(rcfile)
         self.mono_font = Pango.FontDescription('Monospace')
-        small_font = Pango.FontDescription('Sans 8')
 
         # Default icon
         try:
@@ -305,10 +304,6 @@ class FAHControl(SingleAppServer):
                 win.resize(width, height)
 
             win.connect('configure_event', self.store_dimensions, name)
-
-        # Tool bar
-        builder.get_object('toolbar1').modify_font(small_font)
-        button = builder.get_object('viewer_button')
 
         # About Dialog
         about_version = builder.get_object('about_version')
