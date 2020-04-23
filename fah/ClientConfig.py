@@ -161,7 +161,7 @@ class ClientConfig:
             self.updating = False
 
         # Reload queue list
-        for values in self.queue:
+        for values in sorted(self.queue, key=lambda x: x['id']):
             unit_id = values['unit']
             queue_id = values['id']
             status = values['state'].title()
