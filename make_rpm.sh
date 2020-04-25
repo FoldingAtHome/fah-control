@@ -4,7 +4,7 @@
 
 PACKAGE=fahcontrol
 VERSION=$(rpmspec -q --qf '%{VERSION}' ${PACKAGE}.spec | cut -d' ' -f1)
-RELEASE=$(rpmspec -q --qf '%{RELEASE}' ${PACKAGE}.spec | sed -e 's/\.[^.]*$$//')
+RELEASE=$(rpmspec -q --qf '%{RELEASE}' ${PACKAGE}.spec | sed -e 's/\.[^.]*$//')
 VER_REL=${VERSION}-${RELEASE}
 RPM_TARBALL=rpmbuild/SOURCES/${PACKAGE}-${VER_REL}.tar.gz
 

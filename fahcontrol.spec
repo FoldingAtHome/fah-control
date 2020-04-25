@@ -7,15 +7,18 @@
 %global source_date_epoch_from_changelog 1
 %global debug_package %{nil}
 
+# NOTE: Change the value of Release here, not on the "Release" line
+%global release_string 1
+
 Name:           fahcontrol
 # TODO: What is the version?
 Version:        0.0.1
-Release:        1%{?dist}
+Release:        %{release_string}%{?dist}
 Summary:        Folding@Home Control
 
 License:        GPLv3+
 URL:            https://foldingathome.org
-Source0:        %{name}-%{version}-%{release}.tar.gz
+Source0:        %{name}-%{version}-%{release_string}.tar.gz
 
 BuildArch:      noarch
 BuildRequires:  python3-setuptools desktop-file-utils
@@ -25,7 +28,7 @@ Requires:       python3 python3-libs python3-gobject
 Control and monitor local and remote Folding@home clients
 
 %prep
-%setup -q -n %{name}-%{version}-%{release}
+%setup -q -n %{name}-%{version}-%{release_string}
 
 %build
 %py3_build
