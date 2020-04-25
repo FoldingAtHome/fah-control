@@ -18,7 +18,7 @@ fah/#FAHControl.glade#
 /version.txt
 /FAHControl*.tar.gz
 /fahcontrol*.pkg
-/rmpbuild
+/rpmbuild
 
 # Temporary files
 *~
