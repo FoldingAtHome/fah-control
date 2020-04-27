@@ -30,7 +30,7 @@ jobs:
         pip install stdeb setuptools
     - name: Build with stdeb
       run: |
-        python3 setup.py --command-packages=stdeb.command sdist_dsc
+        python3 setup.py --command-packages=stdeb.command bdist_dsc
     
       
         
