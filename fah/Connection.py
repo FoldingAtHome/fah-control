@@ -106,7 +106,7 @@ class Connection:
         ready = select.select([self.socket], [self.socket], [], 10)
         if ready[0]:
             err = self.socket.connect_ex((self.address, self.port))
-        if err != 0 and err != 115 and not err in [
+        if err != 0 and err != 115 and err not in [
                 errno.EINPROGRESS, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
             self.fail_reason = 'connect'
             raise Exception('Connection failed: ' + errno.errorcode[err])

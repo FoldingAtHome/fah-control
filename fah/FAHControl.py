@@ -1455,7 +1455,7 @@ class FAHControl(SingleAppServer):
         # Make client name
         for i in range(sys.maxsize):
             name = 'client%d' % i
-            if not name in self.clients:
+            if name not in self.clients:
                 break
 
         self.client_entries['name'].set_text(name)

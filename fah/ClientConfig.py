@@ -649,7 +649,7 @@ class ClientConfig:
 
         # Removed options
         for name in self.options:
-            if not name in used:
+            if name not in used:
                 options[name + '!'] = None
 
         return options

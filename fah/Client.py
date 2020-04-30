@@ -301,7 +301,7 @@ class Client:
             self.name, self.address, self.port, data)
 
         # Only popup dialog once for each error
-        if not msg in self.error_messages:
+        if msg not in self.error_messages:
             self.error_messages.add(msg)
             app.error(msg)
 

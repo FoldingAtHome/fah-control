@@ -117,5 +117,5 @@ class SlotConfig:
         # Options
         app.slot_option_list.clear()
         for name, value in self.options.items():
-            if not name in used:
+            if name not in used:
                 app.slot_option_list.append((name, str(value)))
