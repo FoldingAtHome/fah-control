@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.2 -->
+<!-- Generated with glade 3.22.1 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
   <object class="GtkListStore" id="cause_pref_list">
@@ -528,7 +528,7 @@
                       <object class="GtkFrame" id="frame1">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="label_xalign">0</property>
+                        <property name="label_xalign">0.01</property>
                         <child>
                           <object class="GtkAlignment" id="alignment6">
                             <property name="visible">True</property>
@@ -695,7 +695,7 @@
                   <object class="GtkFrame" id="frame2">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="label_xalign">0</property>
+                    <property name="label_xalign">0.01</property>
                     <property name="shadow_type">none</property>
                     <child>
                       <object class="GtkAlignment" id="alignment4">
@@ -792,7 +792,7 @@
                                           <object class="GtkFrame" id="frame28">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
-                                            <property name="label_xalign">0</property>
+                                            <property name="label_xalign">0.01</property>
                                             <child>
                                               <object class="GtkAlignment" id="alignment34">
                                                 <property name="visible">True</property>
@@ -871,7 +871,7 @@
                                               <object class="GtkFrame" id="frame3">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
-                                                <property name="label_xalign">0</property>
+                                                <property name="label_xalign">0.05</property>
                                                 <child>
                                                   <object class="GtkAlignment" id="alignment47">
                                                     <property name="visible">True</property>
@@ -976,7 +976,7 @@
                                                 <property name="width_request">160</property>
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
-                                                <property name="label_xalign">0</property>
+                                                <property name="label_xalign">0.1</property>
                                                 <child>
                                                   <object class="GtkAlignment" id="alignment57">
                                                     <property name="visible">True</property>
@@ -1031,6 +1031,7 @@
                                               <object class="GtkPaned" id="status_vpaned">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">True</property>
+                                                <property name="margin_right">3</property>
                                                 <property name="orientation">vertical</property>
                                                 <property name="position">100</property>
                                                 <property name="position_set">True</property>
@@ -1038,7 +1039,7 @@
                                                   <object class="GtkFrame" id="advanced_slots_frame">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label_xalign">0</property>
+                                                    <property name="label_xalign">0.02</property>
                                                     <child>
                                                       <object class="GtkAlignment" id="alignment7">
                                                         <property name="visible">True</property>
@@ -1130,7 +1131,7 @@
                                                   <object class="GtkFrame" id="queue_frame">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label_xalign">0</property>
+                                                    <property name="label_xalign">0.02</property>
                                                     <child>
                                                       <object class="GtkAlignment" id="alignment27">
                                                         <property name="visible">True</property>
@@ -1252,7 +1253,8 @@
                                               <object class="GtkFrame" id="advanced_unit_frame">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
-                                                <property name="label_xalign">0</property>
+                                                <property name="margin_left">3</property>
+                                                <property name="label_xalign">0.01</property>
                                                 <child>
                                                   <object class="GtkScrolledWindow" id="scrolledwindow16">
                                                     <property name="visible">True</property>
@@ -1891,7 +1893,8 @@
                                       <object class="GtkFrame" id="log_filters_advanced">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
-                                        <property name="label_xalign">0</property>
+                                        <property name="margin_left">5</property>
+                                        <property name="label_xalign">0.01</property>
                                         <child>
                                           <object class="GtkAlignment" id="alignment55">
                                             <property name="visible">True</property>
@@ -2036,6 +2039,7 @@
                                       <object class="GtkScrolledWindow" id="scrolledwindow4">
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
+                                        <property name="margin_left">5</property>
                                         <property name="shadow_type">etched-in</property>
                                         <child>
                                           <object class="GtkTextView" id="log_text_view">
@@ -2059,6 +2063,7 @@
                                       <object class="GtkBox" id="hbox12">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="margin_left">5</property>
                                         <property name="spacing">2</property>
                                         <child>
                                           <object class="GtkCheckButton" id="log_follow">
@@ -2397,7 +2402,7 @@
           <object class="GtkFrame" id="frame4">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label_xalign">0</property>
+            <property name="label_xalign">0.01</property>
             <child>
               <object class="GtkAlignment" id="alignment40">
                 <property name="visible">True</property>
@@ -2670,7 +2675,7 @@ Would you like to configure your identity now?</property>
           <object class="GtkFrame" id="frame34">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label_xalign">0</property>
+            <property name="label_xalign">0.01</property>
             <child>
               <object class="GtkAlignment" id="alignment2">
                 <property name="visible">True</property>
@@ -2775,7 +2780,7 @@ Would you like to configure your identity now?</property>
           <object class="GtkFrame" id="frame26">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label_xalign">0</property>
+            <property name="label_xalign">0.01</property>
             <child>
               <object class="GtkAlignment" id="alignment32">
                 <property name="visible">True</property>
@@ -2940,7 +2945,7 @@ Would you like to configure your identity now?</property>
           <object class="GtkFrame" id="frame6">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label_xalign">0</property>
+            <property name="label_xalign">0.01</property>
             <child>
               <object class="GtkAlignment" id="alignment1">
                 <property name="visible">True</property>
@@ -2970,7 +2975,7 @@ Would you like to configure your identity now?</property>
                               <object class="GtkFrame" id="frame22">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label_xalign">0</property>
+                                <property name="label_xalign">0.01</property>
                                 <child>
                                   <object class="GtkScrolledWindow" id="scrolledwindow14">
                                     <property name="visible">True</property>
@@ -3012,7 +3017,7 @@ Would you like to configure your identity now?</property>
                                                   <object class="GtkFrame" id="frame23">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label_xalign">0</property>
+                                                    <property name="label_xalign">0.01</property>
                                                     <child>
                                                       <object class="GtkAlignment" id="alignment30">
                                                         <property name="visible">True</property>
@@ -3076,7 +3081,7 @@ Would you like to configure your identity now?</property>
                                                   <object class="GtkFrame" id="frame24">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label_xalign">0</property>
+                                                    <property name="label_xalign">0.01</property>
                                                     <child>
                                                       <object class="GtkAlignment" id="alignment31">
                                                         <property name="visible">True</property>
@@ -3221,7 +3226,7 @@ Would you like to configure your identity now?</property>
                                                   <object class="GtkFrame" id="frame25">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label_xalign">0</property>
+                                                    <property name="label_xalign">0.01</property>
                                                     <child>
                                                       <object class="GtkAlignment" id="alignment45">
                                                         <property name="visible">True</property>
@@ -3323,7 +3328,7 @@ Would you like to configure your identity now?</property>
                               <object class="GtkFrame" id="frame7">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label_xalign">0</property>
+                                <property name="label_xalign">0.01</property>
                                 <child>
                                   <object class="GtkScrolledWindow" id="scrolledwindow7">
                                     <property name="visible">True</property>
@@ -3350,7 +3355,7 @@ Would you like to configure your identity now?</property>
                                                     <property name="width_request">580</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label_xalign">0</property>
+                                                    <property name="label_xalign">0.01</property>
                                                     <child>
                                                       <object class="GtkAlignment" id="alignment9">
                                                         <property name="visible">True</property>
@@ -3429,7 +3434,7 @@ Would you like to configure your identity now?</property>
                                                     <property name="width_request">580</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label_xalign">0</property>
+                                                    <property name="label_xalign">0.01</property>
                                                     <child>
                                                       <object class="GtkAlignment" id="alignment10">
                                                         <property name="visible">True</property>
@@ -3511,7 +3516,7 @@ Would you like to configure your identity now?</property>
                                                     <property name="width_request">580</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label_xalign">0</property>
+                                                    <property name="label_xalign">0.01</property>
                                                     <child>
                                                       <object class="GtkAlignment" id="alignment11">
                                                         <property name="visible">True</property>
@@ -3769,7 +3774,7 @@ Would you like to configure your identity now?</property>
                               <object class="GtkFrame" id="frame11">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label_xalign">0</property>
+                                <property name="label_xalign">0.01</property>
                                 <child>
                                   <object class="GtkScrolledWindow" id="scrolledwindow5">
                                     <property name="visible">True</property>
@@ -3812,7 +3817,7 @@ Folding slots can be one of two types, CPU or GPU.  Representing the different t
                                                   <object class="GtkFrame" id="frame13">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label_xalign">0</property>
+                                                    <property name="label_xalign">0.01</property>
                                                     <child>
                                                       <object class="GtkAlignment" id="alignment19">
                                                         <property name="visible">True</property>
@@ -4019,7 +4024,7 @@ Folding slots can be one of two types, CPU or GPU.  Representing the different t
                               <object class="GtkFrame" id="frame36">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label_xalign">0</property>
+                                <property name="label_xalign">0.01</property>
                                 <child>
                                   <object class="GtkScrolledWindow" id="scrolledwindow11">
                                     <property name="visible">True</property>
@@ -4067,7 +4072,7 @@ Warning, changes you make here may render your client inaccessible even from the
                                                   <object class="GtkFrame" id="frame37">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label_xalign">0</property>
+                                                    <property name="label_xalign">0.01</property>
                                                     <child>
                                                       <object class="GtkAlignment" id="alignment16">
                                                         <property name="visible">True</property>
@@ -4233,7 +4238,7 @@ Warning, changes you make here may render your client inaccessible even from the
                                                   <object class="GtkFrame" id="frame39">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label_xalign">0</property>
+                                                    <property name="label_xalign">0.01</property>
                                                     <child>
                                                       <object class="GtkAlignment" id="alignment41">
                                                         <property name="visible">True</property>
@@ -4322,7 +4327,7 @@ Warning, changes you make here may render your client inaccessible even from the
                                                   <object class="GtkFrame" id="frame38">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label_xalign">0</property>
+                                                    <property name="label_xalign">0.01</property>
                                                     <child>
                                                       <object class="GtkAlignment" id="alignment17">
                                                         <property name="visible">True</property>
@@ -4453,7 +4458,7 @@ The following range specification matches all IP address:
                                                   <object class="GtkFrame" id="frame40">
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label_xalign">0</property>
+                                                    <property name="label_xalign">0.01</property>
                                                     <child>
                                                       <object class="GtkAlignment" id="alignment42">
                                                         <property name="visible">True</property>
@@ -4614,7 +4619,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                               <object class="GtkFrame" id="frame35">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label_xalign">0</property>
+                                <property name="label_xalign">0.01</property>
                                 <child>
                                   <object class="GtkScrolledWindow" id="scrolledwindow15">
                                     <property name="visible">True</property>
@@ -4664,7 +4669,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="width_request">580</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
-                                                            <property name="label_xalign">0</property>
+                                                            <property name="label_xalign">0.01</property>
                                                             <child>
                                                             <object class="GtkAlignment" id="alignment50">
                                                             <property name="visible">True</property>
@@ -4797,7 +4802,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                             <property name="width_request">580</property>
                                                             <property name="visible">True</property>
                                                             <property name="can_focus">False</property>
-                                                            <property name="label_xalign">0</property>
+                                                            <property name="label_xalign">0.01</property>
                                                             <child>
                                                             <object class="GtkAlignment" id="alignment51">
                                                             <property name="visible">True</property>
@@ -5048,7 +5053,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                               <object class="GtkFrame" id="frame12">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label_xalign">0</property>
+                                <property name="label_xalign">0.01</property>
                                 <child>
                                   <object class="GtkAlignment" id="alignment18">
                                     <property name="visible">True</property>
@@ -5075,7 +5080,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                     <property name="width_request">580</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label_xalign">0</property>
+                                                    <property name="label_xalign">0.01</property>
                                                     <child>
                                                       <object class="GtkAlignment" id="alignment58">
                                                         <property name="visible">True</property>
@@ -5171,7 +5176,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                     <property name="width_request">580</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label_xalign">0</property>
+                                                    <property name="label_xalign">0.01</property>
                                                     <child>
                                                       <object class="GtkAlignment" id="alignment20">
                                                         <property name="visible">True</property>
@@ -5262,7 +5267,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                   <object class="GtkFrame" id="percent_cpu_frame">
                                                     <property name="width_request">580</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label_xalign">0</property>
+                                                    <property name="label_xalign">0.01</property>
                                                     <child>
                                                       <object class="GtkAlignment" id="alignment21">
                                                         <property name="visible">True</property>
@@ -5329,7 +5334,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                   <object class="GtkFrame" id="percent_gpu_frame">
                                                     <property name="width_request">580</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label_xalign">0</property>
+                                                    <property name="label_xalign">0.01</property>
                                                     <child>
                                                       <object class="GtkAlignment" id="alignment54">
                                                         <property name="visible">True</property>
@@ -5398,7 +5403,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                     <property name="width_request">580</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label_xalign">0</property>
+                                                    <property name="label_xalign">0.01</property>
                                                     <child>
                                                       <object class="GtkAlignment" id="alignment23">
                                                         <property name="visible">True</property>
@@ -5465,7 +5470,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                   <object class="GtkFrame" id="frame16">
                                                     <property name="width_request">580</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label_xalign">0</property>
+                                                    <property name="label_xalign">0.01</property>
                                                     <child>
                                                       <object class="GtkAlignment" id="alignment22">
                                                         <property name="visible">True</property>
@@ -5527,7 +5532,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                                                     <property name="width_request">580</property>
                                                     <property name="visible">True</property>
                                                     <property name="can_focus">False</property>
-                                                    <property name="label_xalign">0</property>
+                                                    <property name="label_xalign">0.01</property>
                                                     <child>
                                                       <object class="GtkAlignment" id="alignment24">
                                                         <property name="visible">True</property>
@@ -5632,7 +5637,7 @@ Addresses listed here also need to be listed above to allow access.</property>
                               <object class="GtkFrame" id="frame20">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label_xalign">0</property>
+                                <property name="label_xalign">0.01</property>
                                 <child>
                                   <object class="GtkScrolledWindow" id="scrolledwindow2">
                                     <property name="visible">True</property>
@@ -5679,7 +5684,7 @@ Some of these options may require manually restarting the client to take effect.
                                                       <object class="GtkFrame" id="frame41">
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">False</property>
-                                                        <property name="label_xalign">0</property>
+                                                        <property name="label_xalign">0.01</property>
                                                         <child>
                                                           <object class="GtkAlignment" id="alignment43">
                                                             <property name="visible">True</property>
@@ -5832,7 +5837,7 @@ Some of these options may require manually restarting the client to take effect.
                                                       <object class="GtkFrame" id="frame42">
                                                         <property name="visible">True</property>
                                                         <property name="can_focus">False</property>
-                                                        <property name="label_xalign">0</property>
+                                                        <property name="label_xalign">0.01</property>
                                                         <child>
                                                           <object class="GtkAlignment" id="alignment44">
                                                             <property name="visible">True</property>
@@ -6111,7 +6116,7 @@ Some of these options may require manually restarting the client to take effect.
           <object class="GtkFrame" id="frame27">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label_xalign">0</property>
+            <property name="label_xalign">0.01</property>
             <property name="shadow_type">none</property>
             <child>
               <object class="GtkAlignment" id="alignment33">
@@ -6137,7 +6142,7 @@ Some of these options may require manually restarting the client to take effect.
                               <object class="GtkFrame" id="frame29">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label_xalign">0</property>
+                                <property name="label_xalign">0.01</property>
                                 <property name="shadow_type">in</property>
                                 <child>
                                   <object class="GtkAlignment" id="alignment35">
@@ -6185,7 +6190,7 @@ Some of these options may require manually restarting the client to take effect.
                                               <object class="GtkFrame" id="frame30">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
-                                                <property name="label_xalign">0</property>
+                                                <property name="label_xalign">0.01</property>
                                                 <child>
                                                   <object class="GtkAlignment" id="alignment36">
                                                     <property name="visible">True</property>
@@ -6297,7 +6302,7 @@ Some of these options may require manually restarting the client to take effect.
                               <object class="GtkFrame" id="frame31">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label_xalign">0</property>
+                                <property name="label_xalign">0.01</property>
                                 <property name="shadow_type">in</property>
                                 <child>
                                   <object class="GtkAlignment" id="alignment37">
@@ -6346,7 +6351,7 @@ Some of these options may require manually restarting the client to take effect.
                                               <object class="GtkFrame" id="frame32">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
-                                                <property name="label_xalign">0</property>
+                                                <property name="label_xalign">0.01</property>
                                                 <child>
                                                   <object class="GtkAlignment" id="alignment38">
                                                     <property name="visible">True</property>
@@ -6434,7 +6439,7 @@ Some of these options may require manually restarting the client to take effect.
                                               <object class="GtkFrame" id="frame5">
                                                 <property name="visible">True</property>
                                                 <property name="can_focus">False</property>
-                                                <property name="label_xalign">0</property>
+                                                <property name="label_xalign">0.01</property>
                                                 <child>
                                                   <object class="GtkAlignment" id="alignment12">
                                                     <property name="visible">True</property>
@@ -6580,7 +6585,7 @@ WARNING, changing these values can make your GPU folding slot fail.</property>
                                 <property name="height_request">150</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label_xalign">0</property>
+                                <property name="label_xalign">0.01</property>
                                 <child>
                                   <object class="GtkAlignment" id="alignment39">
                                     <property name="visible">True</property>
@@ -7042,7 +7047,7 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
           <object class="GtkFrame" id="frame21">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label_xalign">0</property>
+            <property name="label_xalign">0.01</property>
             <child>
               <object class="GtkAlignment" id="alignment28">
                 <property name="visible">True</property>
@@ -7269,7 +7274,7 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
           <object class="GtkFrame" id="frame45">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label_xalign">0</property>
+            <property name="label_xalign">0.01</property>
             <child>
               <object class="GtkAlignment" id="alignment56">
                 <property name="visible">True</property>
@@ -7397,7 +7402,7 @@ Folding slots can be one of three types, Uniprocessor, SMP or GPU.  Representing
           <object class="GtkFrame" id="ui_pref_frame">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label_xalign">0</property>
+            <property name="label_xalign">0.01</property>
             <child>
               <object class="GtkAlignment" id="alignment53">
                 <property name="visible">True</property>
