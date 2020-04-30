@@ -22,6 +22,7 @@
 from fah.util import *
 from fah.db import *
 from fah import *
+from fah.Version import version
 from .wraplabel import WrapLabel
 import subprocess
 import shlex
@@ -302,14 +303,10 @@ class FAHControl(SingleAppServer):
 
         # About Dialog
         icon = builder.get_object('about_icon',)
-        # TODO: FIX ME
-        # icon.set_from_file('FAHControl.ico')
+        icon.set_from_file(os.path.dirname(os.path.abspath(__file__)) + '/../images/FAHControl.ico')
 
         about_version = builder.get_object('about_version')
-        try:
-            about_version.set_markup('<b>Version: %s</b>' % version)
-        except:
-            pass
+        about_version.set_markup('<b>Version: %s</b>' % version)
 
         # Preferences
         self.theme_list = self.load_themes()
