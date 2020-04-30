@@ -318,11 +318,11 @@ class ClientConfig:
             category = category[1:]
 
             # Frame
-            #frame = Gtk.Frame('<b>%s</b>' % name)
-            frame = Gtk.Frame()
-            frame.name = name
+            frame = Gtk.Frame.new('<b>%s</b>' % name)
             frame.set_shadow_type(Gtk.ShadowType.ETCHED_IN)
-            vbox.pack_start(frame, False, True, 0)
+            frame.set_label_align(0.01, 0.5)
+            frame.get_label_widget().set_use_markup(True)
+            vbox.pack_start(frame, False, False, 0)
 
             # Alignment
             align = Gtk.Alignment.new(0, 0, 1, 1)

@@ -102,7 +102,7 @@ class Connection:
         self.last_connect = time.time()
 
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.socket.setblocking(0)
+        self.socket.setblocking(False)
         ready = select.select([self.socket], [self.socket], [], 10)
         if ready[0]:
             err = self.socket.connect_ex((self.address, self.port))
@@ -164,7 +164,7 @@ class Connection:
             # Error codes for nothing to read
             if err.errno not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
                 if bytesRead: return bytesRead
-                self.connection_error(err, err.strerror)
+                self.connection_error(err.errno, err.strerror)
                 raise
 
         return bytesRead
@@ -190,7 +190,7 @@ class Connection:
             # Error codes for write buffer full
             if err.errno not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
                 if bytesWritten: return bytesWritten
-                self.connection_error(err, err.strerror)
+                self.connection_error(err.errno, err.strerror)
                 raise
 
         return bytesWritten

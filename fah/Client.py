@@ -57,7 +57,7 @@ class Client:
 
         # Option names
         names = list(app.client_option_widgets.keys())
-        self.option_names = [name.replace('_', '-') for name in names]
+        self.option_names = list(map(lambda name: name.replace('_', '-'), names))
         self.option_names.append('power')  # Folding power
 
         # Init commands
