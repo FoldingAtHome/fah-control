@@ -36,12 +36,13 @@ import urllib.request
 import urllib.parse
 import urllib.error
 
+import gi
+
+gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 from gi.repository import GLib
 from gi.repository import Gdk
 from gi.repository.GdkPixbuf import Pixbuf, InterpType
-import gi
-gi.require_version("Gtk", "3.0")
 
 # OSX integration
 if sys.platform == 'darwin':
