@@ -204,14 +204,7 @@ class FAHControl(SingleAppServer):
         self.mono_font = Pango.FontDescription('Monospace')
 
         # Default icon
-        try:
-            self.window.set_default_icon('FAHControl.ico')
-        except:
-            try:
-                self.window.set_default_icon_from_file(os.path.dirname(
-                    os.path.abspath(__file__)) + '/../images/FAHControl.ico')
-            except:
-                pass
+        self.window.set_default_icon_from_file(os.path.dirname(os.path.abspath(__file__)) + '/../images/FAHControl.ico')
 
         # Filter glade
         if len(glade) < 1024:
