@@ -69,7 +69,7 @@ class SingleAppServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
         try:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sock.connect(single_app_addr)
-            sock.send('PING')
+            sock.send(b'PING')
             if sock.recv(1024).strip() == 'OK':
                 print ('Already running')
                 sys.exit(1)

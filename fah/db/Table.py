@@ -59,7 +59,7 @@ class Table:
         # Error checking
         if len(cols) != len(kwargs):
             col_names = set(map(Column.get_name, cols))
-            missing = [kw for kw in list(kwargs.keys()) if not kw in col_names]
+            missing = [kw for kw in list(kwargs.keys()) if kw not in col_names]
             raise Exception('Table %s does not have column(s) %s'
                             % (self.name, ', '.join(missing)))
 

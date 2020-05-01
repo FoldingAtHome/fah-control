@@ -57,7 +57,7 @@ class Client:
 
         # Option names
         names = list(app.client_option_widgets.keys())
-        self.option_names = [name.replace('_', '-') for name in names]
+        self.option_names = list(map(lambda name: name.replace('_', '-'), names))
         self.option_names.append('power')  # Folding power
 
         # Init commands
@@ -301,7 +301,7 @@ class Client:
             self.name, self.address, self.port, data)
 
         # Only popup dialog once for each error
-        if not msg in self.error_messages:
+        if msg not in self.error_messages:
             self.error_messages.add(msg)
             app.error(msg)
 

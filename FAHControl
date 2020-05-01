@@ -32,11 +32,11 @@ def set_proc_name(name):
 
     libc = cdll.LoadLibrary('libc.so.6')
     buff = create_string_buffer(len(name)+1)
-    buff.value = bytes(name,encoding="UTF8")
+    buff.value = name
     libc.prctl(15, byref(buff), 0, 0, 0)
 
 
-if sys.platform.startswith('linux'): set_proc_name('FAHControl')
+if sys.platform.startswith('linux'): set_proc_name(b'FAHControl')
 
 # If present, remove the Launch Services -psn_xxx_xxx argument
 if len(sys.argv) > 1 and sys.argv[1][:4] == '-psn':
@@ -53,7 +53,7 @@ if options.exit:
     try:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.connect(single_app_addr)
-        sock.send('EXIT')
+        sock.send(b'EXIT')
         if sock.recv(1024).strip() == 'OK': print ('Ok')
     except Exception as e:
         pass

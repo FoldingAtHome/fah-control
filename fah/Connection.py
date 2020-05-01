@@ -102,11 +102,11 @@ class Connection:
         self.last_connect = time.time()
 
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.socket.setblocking(0)
+        self.socket.setblocking(False)
         ready = select.select([self.socket], [self.socket], [], 10)
         if ready[0]:
             err = self.socket.connect_ex((self.address, self.port))
-        if err != 0 and err != 115 and not err in [
+        if err != 0 and err != 115 and err not in [
                 errno.EINPROGRESS, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
             self.fail_reason = 'connect'
             raise Exception('Connection failed: ' + errno.errorcode[err])
@@ -160,14 +160,11 @@ class Connection:
                     self.connection_lost()
                     return 0
 
-        except socket.error as xxx_todo_changeme:
+        except socket.error as err:
             # Error codes for nothing to read
-            (err, msg) = xxx_todo_changeme.args
-            # Error codes for nothing to read
-            if err not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
-                if bytesRead:
-                    return bytesRead
-                self.connection_error(err, msg)
+            if err.errno not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
+                if bytesRead: return bytesRead
+                self.connection_error(err.errno, err.strerror)
                 raise
 
         return bytesRead
@@ -189,14 +186,11 @@ class Connection:
                     self.connection_lost()
                     return 0
 
-        except socket.error as xxx_todo_changeme1:
+        except socket.error as err:
             # Error codes for write buffer full
-            (err, msg) = xxx_todo_changeme1.args
-            # Error codes for write buffer full
-            if err not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
-                if bytesWritten:
-                    return bytesWritten
-                self.connection_error(err, msg)
+            if err.errno not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
+                if bytesWritten: return bytesWritten
+                self.connection_error(err.errno, err.strerror)
                 raise
 
         return bytesWritten
