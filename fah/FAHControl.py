@@ -684,8 +684,6 @@ class FAHControl(SingleAppServer):
 
         Gtk.main_quit()
 
-        self.viewer_close()
-
         self.set_update_timer_interval(0)
 
         for client in list(self.clients.values()):
