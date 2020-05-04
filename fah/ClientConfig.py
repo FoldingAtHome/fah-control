@@ -155,10 +155,8 @@ class ClientConfig:
 
         # Clear queue wo/ updating log filter
         self.updating = True
-        try:
-            app.queue_list.clear()
-        finally:
-            self.updating = False
+        app.queue_list.clear()
+        self.updating = False
 
         # Reload queue list
         for values in sorted(self.queue, key=lambda x: x['id']):
@@ -235,6 +233,12 @@ class ClientConfig:
         set_widget_str_value(app.queue_widgets['prcg'], prcg)
 
     def select_slot(self, app):
+        # since gtk3, clearing a tree list model will also trigger a cleared
+        # selection signal, causing a call to this function, and scrambling user selection
+        # so we return immediately, if the client is updating
+        if self.updating:
+            return
+
         # Get selected slot
         slot = self.get_selected_slot(app)
         if slot is None:
@@ -272,6 +276,12 @@ class ClientConfig:
             app.queue_tree.get_selection().unselect_all()
 
     def select_queue_slot(self, app):
+        # since gtk3, clearing a tree list model will also trigger a cleared
+        # selection signal, causing a call to this function, and scrambling user selection
+        # so we return immediately, if the client is updating
+        if self.updating:
+            return
+
         # Get unit ID of selected queue entry
         selected = self.get_selected_queue_entry(app)
         if selected is None:
@@ -428,18 +438,14 @@ class ClientConfig:
     def update_status_slots(self, app):
         # Save selection
         selected = get_selected_tree_column(app.slot_status_tree, 0)
-        if selected is not None:
-            selected = selected
         selected_row = None
         log_filter_selected = get_active_combo_column(app.log_slot, 0)
         log_filter_row = None
 
         # Clear list wo/ updating log filter
         self.updating = True
-        try:
-            app.slot_status_list.clear()
-        finally:
-            self.updating = False
+        app.slot_status_list.clear()
+        self.updating = False
 
         # Reload list
         for slot in self.slots:
@@ -461,15 +467,13 @@ class ClientConfig:
         # Selected the first item if nothing is selected
         if selected_row is None:
             selected_row = app.slot_status_list.get_iter_first()
-            if selected_row is not None:
-                app.slot_status_tree.get_selection().select_iter(selected_row)
-                self.select_slot(app)
         if log_filter_row is None:
             log_filter_row = app.slot_status_list.get_iter_first()
 
         # Restore selections
         if selected_row is not None:
             app.slot_status_tree.get_selection().select_iter(selected_row)
+            self.select_slot(app)
         if log_filter_row is not None:
             app.log_slot.set_active_iter(log_filter_row)
 
