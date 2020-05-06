@@ -21,6 +21,7 @@
 
 import sys
 from gi.repository import Gtk
+from gi.repository import GLib
 import traceback
 import re
 
@@ -485,9 +486,13 @@ class ClientConfig:
     def scroll_log_to_end(self, app):
         if not app.log_follow.get_active():
             return
-        mark = app.log.get_mark('end')
-        app.log.move_mark(mark, app.log.get_end_iter())
-        app.log_view.scroll_mark_onscreen(mark)
+
+        def scroll():
+            mark = app.log.get_mark('end')
+            app.log.move_mark(mark, app.log.get_end_iter())
+            app.log_view.scroll_mark_onscreen(mark)
+
+        GLib.idle_add(scroll)
 
     def log_clear(self, app):
         app.log.set_text('')
