@@ -39,7 +39,7 @@ debug = False
 
 
 class Client:
-    def __init__(self, app, name, address, port, password):
+    def __init__(self, app, name, address, port, password, team_fetcher, project_fetcher):
         if debug: print('Client.__init__()')
 
         self.name = name
@@ -79,7 +79,7 @@ class Client:
         ]
 
         # Objects
-        self.config = ClientConfig()
+        self.config = ClientConfig(team_fetcher, project_fetcher)
         self.conn = Connection(self.address, self.port, self.password)
         self.conn.set_init_commands(self.inactive_cmds)
 

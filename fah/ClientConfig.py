@@ -72,7 +72,7 @@ def get_active_combo_column(combo, column):
 class ClientConfig:
     queue_cols = ('id state statecolor percentdone percent').split()
 
-    def __init__(self):
+    def __init__(self, team_fetcher, project_fetcher):
         self.last_updated = 0
         self.queue = []
         self.queue_map = {}
@@ -86,6 +86,8 @@ class ClientConfig:
         self.last_log_filter = ''
         self.log_filter_re = None
         self.updating = False
+        self.project_fetcher = project_fetcher
+        self.team_fetcher = team_fetcher
 
     def get(self, name):
         if name in self.options:
@@ -123,14 +125,23 @@ class ClientConfig:
         # User
         user = self.options['user']
         app.donor_info.set_label(user)
+        app.donor_name = user
 
         # Team
         team = self.options['team']
         app.team_info.set_label(team)
+        app.team_number = team
+
+        def update_team_name(team_id, team):
+            GLib.idle_add(lambda: app.team_info.set_label(team['name']))
+
+        self.team_fetcher.get(int(team), update_team_name)
 
     def reset_user_info(self, app):
         app.donor_info.set_label('')
+        app.donor_name = ''
         app.team_info.set_label('')
+        app.team_name = ''
 
     def get_selected_queue_entry(self, app):
         return get_selected_tree_column(app.queue_tree, 1)
@@ -233,6 +244,13 @@ class ClientConfig:
             entry['project'], entry['run'], entry['clone'], entry['gen'])
         set_widget_str_value(app.queue_widgets['prcg'], prcg)
 
+        def update_project_description(project_id, project_description):
+            if len(project_description) != 0:
+                project_description = project_description + "\n<a href='" + uri + "'>Learn more</a>"
+            GLib.idle_add(lambda: app.project_description.set_markup(project_description))
+
+        self.project_fetcher.get(entry['project'], update_project_description)
+
     def select_slot(self, app):
         # since gtk3, clearing a tree list model will also trigger a cleared
         # selection signal, causing a call to this function, and scrambling user selection
@@ -307,6 +325,7 @@ class ClientConfig:
     def reset_work_unit_info(self, app):
         for widget in list(app.queue_widgets.values()):
             set_widget_str_value(widget, None)
+        app.project_description.set_markup("Loading ...")
 
     def update_info(self, app):
         port = app.info

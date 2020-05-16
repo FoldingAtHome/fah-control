@@ -36,6 +36,8 @@ import platform
 import urllib.request
 import urllib.parse
 import urllib.error
+from fah.AsyncFetchers import ProjectFetcher
+from fah.AsyncFetchers import TeamFetcher
 
 import gi
 
@@ -188,6 +190,9 @@ class FAHControl(SingleAppServer):
         self.timer_id = None
         self.folding_power_changing = False
         self.window = Gtk.Window()
+
+        self.team_fetcher = TeamFetcher()
+        self.project_fetcher = ProjectFetcher()
 
         # Open database
         try:
@@ -366,7 +371,9 @@ class FAHControl(SingleAppServer):
 
         # User info
         self.donor_info = builder.get_object('donor_info')
+        self.donor_name = ''
         self.team_info = builder.get_object('team_info')
+        self.team_number = ''
 
         # Client stats
         self.client_ppd = builder.get_object('client_ppd')
@@ -383,6 +390,7 @@ class FAHControl(SingleAppServer):
         self.project_frame = builder.get_object('project_frame')
         self.project_text = builder.get_object('project_text')
         self.project_label = builder.get_object('project_label')
+        self.project_description = builder.get_object('project_description')
 
         # Slot lists
         self.slot_status_tree = builder.get_object('slot_status_tree_view')
@@ -501,7 +509,7 @@ class FAHControl(SingleAppServer):
 
         # If we don't have any clients add the default client
         if not len(self.clients):
-            client = Client(self, 'local', '127.0.0.1', 36330, '')
+            client = Client(self, 'local', '127.0.0.1', 36330, '', self.team_fetcher, self.project_fetcher)
             self.add_client(client)
             self.save_clients()
 
@@ -1028,7 +1036,8 @@ class FAHControl(SingleAppServer):
         clients = []
         for row in self.db.select('clients', orderby='name'):
             client = Client(self,
-                            row['name'], row['address'], int(row['port']), row['password'])
+                            row['name'], row['address'], int(row['port']), row['password'],
+                            self.team_fetcher, self.project_fetcher)
             clients.append(client)
 
         for client in self.sorted_clients(clients):
@@ -1592,7 +1601,7 @@ class FAHControl(SingleAppServer):
                     self.resort_client_list()
 
         else:  # New client
-            client = Client(self, name, address, port, password)
+            client = Client(self, name, address, port, password, self.team_fetcher, self.project_fetcher)
             if self.add_client(client):
                 self.save_clients()
                 self.client_dialog.hide()
@@ -1650,8 +1659,8 @@ class FAHControl(SingleAppServer):
         self.donor_stats_pref.set_sensitive(text == 'Custom')
 
     def on_donor_team_info_activate_link(self, widget):
-        keys = {'donor': urllib.parse.quote(self.donor_info.get_label()),
-                'team': urllib.parse.quote(self.team_info.get_label())}
+        keys = {'donor': urllib.parse.quote(self.donor_name),
+                'team': urllib.parse.quote(self.team_number)}
         webbrowser.open(widget.get_uri() % keys)
         return True
 
