@@ -2,6 +2,7 @@ import threading
 from http import client
 import json
 import datetime
+import sys
 
 host = "stats.foldingathome.org"
 project_url_template = "/project?p=%(id)s&format=text&version=7.6"
@@ -19,6 +20,14 @@ class CachingHTTPClient:
         self.response_parser = response_parser
         self.instance_created_at = datetime.datetime.now()
 
+    @staticmethod
+    def decode(bytes):
+        try:
+            return bytes.decode("utf-8")
+        except UnicodeDecodeError:
+            print("Wrong unicode: attempting decoding using latin1", file=sys.stderr)
+            return bytes.decode("latin1")
+
     def _fetch(self, id):
         try:
             http_connection = client.HTTPSConnection(host, timeout=5)
@@ -27,7 +36,8 @@ class CachingHTTPClient:
             if response.status != 200:
                 return
 
-            body = response.read().decode("utf-8")
+            body_bytes = response.read()
+            body = self.decode(body_bytes)
             item = self.response_parser(body)
             with self.lock:
                 self.cache[id] = item
