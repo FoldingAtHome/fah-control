@@ -41,7 +41,9 @@ WSAEWOULDBLOCK = 10035
 
 class Connection:
     def __init__(self, address='localhost', port=36330, password=None,
-                 retry_rate=5, init_commands=[]):
+                 retry_rate=5, init_commands=None):
+        if init_commands is None:
+            init_commands = []
         self.address = address
         self.port = int(port)
         self.password = password

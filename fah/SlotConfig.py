@@ -30,8 +30,10 @@ from fah.util import status_to_color
 class SlotConfig:
     def __init__(
         self, id = -1, status = None, description = None, reason = None,
-        idle = False, options = {}, **kw):
+        idle = False, options=None, **kw):
 
+        if options is None:
+            options = {}
         self.id = int(id)
         self.status = status
         self.description = description
