@@ -128,15 +128,19 @@ def load_fahcontrol_db():
 
 
 def find_icon(icon):
-    local_path = os.path.dirname(os.path.abspath(__file__)) + '/../images/' + icon
-    if os.path.isfile(local_path):
-        return local_path
+    xdg_data_dirs_based_paths = [os.path.join(dir, 'icons', icon) for dir in
+                                 os.environ.get('XDG_DATA_DIRS', '').split(':')]
+    paths = (
+        os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'images', icon),
+        os.path.join(os.environ.get('HOME', ''), '.icons', icon),
+        *xdg_data_dirs_based_paths,
+        os.path.join('/usr/share/pixmaps', icon)
+    )
 
-    linux_system_path = '/usr/share/pixmaps/' + icon
-    if os.path.isfile(linux_system_path):
-        return linux_system_path
-
-    return None
+    try:
+        return next(filter(os.path.isfile, paths))
+    except StopIteration as e:
+        return None
 
 class FAHControl(SingleAppServer):
     client_cols = 'name status status_color address'.split()
