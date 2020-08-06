@@ -127,6 +127,17 @@ def load_fahcontrol_db():
     return db
 
 
+def find_icon(icon):
+    local_path = os.path.dirname(os.path.abspath(__file__)) + '/../images/' + icon
+    if os.path.isfile(local_path):
+        return local_path
+
+    linux_system_path = '/usr/share/pixmaps/' + icon
+    if os.path.isfile(linux_system_path):
+        return linux_system_path
+
+    return None
+
 class FAHControl(SingleAppServer):
     client_cols = 'name status status_color address'.split()
 
@@ -204,7 +215,9 @@ class FAHControl(SingleAppServer):
         self.mono_font = Pango.FontDescription('Monospace')
 
         # Default icon
-        self.window.set_default_icon_from_file(os.path.dirname(os.path.abspath(__file__)) + '/../images/FAHControl.ico')
+        icon_file = find_icon('FAHControl.ico')
+        if icon_file:
+            self.window.set_default_icon_from_file(icon_file)
 
         # Filter glade
         if len(glade) < 1024:
@@ -296,7 +309,8 @@ class FAHControl(SingleAppServer):
 
         # About Dialog
         icon = builder.get_object('about_icon',)
-        icon.set_from_file(os.path.dirname(os.path.abspath(__file__)) + '/../images/FAHControl.ico')
+        if icon_file:
+            icon.set_from_file(icon_file)
 
         about_version = builder.get_object('about_version')
         about_version.set_markup('<b>Version: %s</b>' % version)
