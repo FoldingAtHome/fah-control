@@ -90,8 +90,7 @@ class Database:
 
 
     def has(self, name):
-        return self.get(name) != None
-
+        return self.get(name) is not None
 
     def default(self, name, default, commit = True):
         if not self.has(name): self.set(name, default, commit)
