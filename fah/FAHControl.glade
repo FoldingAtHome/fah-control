@@ -85,13 +85,6 @@
     <property name="step_increment">1</property>
     <property name="page_increment">1</property>
   </object>
-  <object class="GtkAdjustment" id="cuda_index_adjustment">
-    <property name="lower">-1</property>
-    <property name="upper">1000000</property>
-    <property name="value">-1</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">1</property>
-  </object>
   <object class="GtkListStore" id="donor_stats_links_list">
     <columns>
       <!-- column-name name -->
@@ -102,13 +95,6 @@
   </object>
   <object class="GtkAdjustment" id="folding_power_adjustment">
     <property name="upper">2</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">1</property>
-  </object>
-  <object class="GtkAdjustment" id="gpu_index_adjustment">
-    <property name="lower">-1</property>
-    <property name="upper">1000000</property>
-    <property name="value">-1</property>
     <property name="step_increment">1</property>
     <property name="page_increment">1</property>
   </object>
@@ -312,13 +298,6 @@
         <col id="0" translatable="yes">Expert</col>
       </row>
     </data>
-  </object>
-  <object class="GtkAdjustment" id="opencl_index_adjustment">
-    <property name="lower">-1</property>
-    <property name="upper">1000000</property>
-    <property name="value">-1</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">1</property>
   </object>
   <object class="GtkListStore" id="option_list">
     <columns>
@@ -6346,213 +6325,6 @@ Some of these options may require manually restarting the client to take effect.
                                                 <property name="expand">True</property>
                                                 <property name="fill">True</property>
                                                 <property name="position">0</property>
-                                              </packing>
-                                            </child>
-                                            <child>
-                                              <object class="GtkFrame" id="frame32">
-                                                <property name="visible">True</property>
-                                                <property name="can_focus">False</property>
-                                                <property name="label_xalign">0.01</property>
-                                                <child>
-                                                  <object class="GtkAlignment" id="alignment38">
-                                                    <property name="visible">True</property>
-                                                    <property name="can_focus">False</property>
-                                                    <property name="left_padding">12</property>
-                                                    <child>
-                                                      <object class="GtkBox" id="vbox27">
-                                                        <property name="visible">True</property>
-                                                        <property name="can_focus">False</property>
-                                                        <property name="orientation">vertical</property>
-                                                        <child>
-                                                          <object class="GtkLabel" id="wlabel2">
-                                                            <property name="width_request">1</property>
-                                                            <property name="visible">True</property>
-                                                            <property name="can_focus">False</property>
-                                                            <property name="label" translatable="yes">Defines which GPU to use.  The first GPU in the system starts at 0.  Leave this as -1 to allow the client to choose a supported GPU.</property>
-                                                            <property name="wrap">True</property>
-                                                            <property name="xalign">0</property>
-                                                          </object>
-                                                          <packing>
-                                                            <property name="expand">True</property>
-                                                            <property name="fill">True</property>
-                                                            <property name="position">0</property>
-                                                          </packing>
-                                                        </child>
-                                                        <child>
-                                                          <object class="GtkGrid" id="grid_gpuindex">
-                                                            <property name="visible">True</property>
-                                                            <property name="can_focus">False</property>
-                                                            <property name="column_spacing">5</property>
-                                                            <child>
-                                                            <object class="GtkSpinButton" id="gpu_index_option">
-                                                            <property name="visible">True</property>
-                                                            <property name="can_focus">True</property>
-                                                            <property name="invisible_char">●</property>
-                                                            <property name="primary_icon_activatable">False</property>
-                                                            <property name="secondary_icon_activatable">False</property>
-                                                            <property name="adjustment">gpu_index_adjustment</property>
-                                                            <property name="numeric">True</property>
-                                                            </object>
-                                                            <packing>
-                                                            <property name="left_attach">1</property>
-                                                            <property name="top_attach">0</property>
-                                                            </packing>
-                                                            </child>
-                                                            <child>
-                                                            <object class="GtkLabel" id="label2">
-                                                            <property name="visible">True</property>
-                                                            <property name="can_focus">False</property>
-                                                            <property name="label" translatable="yes">&lt;b&gt;gpu-index&lt;/b&gt;</property>
-                                                            <property name="use_markup">True</property>
-                                                            </object>
-                                                            <packing>
-                                                            <property name="left_attach">0</property>
-                                                            <property name="top_attach">0</property>
-                                                            </packing>
-                                                            </child>
-                                                          </object>
-                                                          <packing>
-                                                            <property name="expand">True</property>
-                                                            <property name="fill">True</property>
-                                                            <property name="position">1</property>
-                                                          </packing>
-                                                        </child>
-                                                      </object>
-                                                    </child>
-                                                  </object>
-                                                </child>
-                                                <child type="label">
-                                                  <object class="GtkLabel" id="label54">
-                                                    <property name="visible">True</property>
-                                                    <property name="can_focus">False</property>
-                                                    <property name="label" translatable="yes">&lt;b&gt;GPU Index&lt;/b&gt;</property>
-                                                    <property name="use_markup">True</property>
-                                                  </object>
-                                                </child>
-                                              </object>
-                                              <packing>
-                                                <property name="expand">False</property>
-                                                <property name="fill">True</property>
-                                                <property name="position">1</property>
-                                              </packing>
-                                            </child>
-                                            <child>
-                                              <object class="GtkFrame" id="frame5">
-                                                <property name="visible">True</property>
-                                                <property name="can_focus">False</property>
-                                                <property name="label_xalign">0.01</property>
-                                                <child>
-                                                  <object class="GtkAlignment" id="alignment12">
-                                                    <property name="visible">True</property>
-                                                    <property name="can_focus">False</property>
-                                                    <property name="left_padding">12</property>
-                                                    <child>
-                                                      <object class="GtkBox" id="vbox3">
-                                                        <property name="visible">True</property>
-                                                        <property name="can_focus">False</property>
-                                                        <property name="orientation">vertical</property>
-                                                        <child>
-                                                          <object class="GtkLabel" id="wlabel129">
-                                                            <property name="width_request">10</property>
-                                                            <property name="visible">True</property>
-                                                            <property name="can_focus">False</property>
-                                                            <property name="label" translatable="yes">Normally it is best to leave these values to their default, -1.  However, in some cases, with system containing multiple GPUs of varying type, the index the client uses to identify the GPU can differ from the index used by the GPU core.  Furthermore, there are two types of GPU core which can used different indices for the same GPU.
-
-If you encounter such a conflict you can try adjusting these values, restarting your GPU slot and then checking, with an appropriate tool, the GPUs activity level.
-
-WARNING, changing these values can make your GPU folding slot fail.</property>
-                                                            <property name="wrap">True</property>
-                                                            <property name="xalign">0</property>
-                                                          </object>
-                                                          <packing>
-                                                            <property name="expand">True</property>
-                                                            <property name="fill">True</property>
-                                                            <property name="position">0</property>
-                                                          </packing>
-                                                        </child>
-                                                        <child>
-                                                          <object class="GtkGrid" id="grid_openclindex">
-                                                            <property name="visible">True</property>
-                                                            <property name="can_focus">False</property>
-                                                            <property name="column_spacing">5</property>
-                                                            <child>
-                                                            <object class="GtkSpinButton" id="opencl_index_option">
-                                                            <property name="visible">True</property>
-                                                            <property name="can_focus">True</property>
-                                                            <property name="invisible_char">●</property>
-                                                            <property name="primary_icon_activatable">False</property>
-                                                            <property name="secondary_icon_activatable">False</property>
-                                                            <property name="adjustment">opencl_index_adjustment</property>
-                                                            <property name="numeric">True</property>
-                                                            </object>
-                                                            <packing>
-                                                            <property name="left_attach">1</property>
-                                                            <property name="top_attach">0</property>
-                                                            </packing>
-                                                            </child>
-                                                            <child>
-                                                            <object class="GtkLabel" id="label_openclindex">
-                                                            <property name="visible">True</property>
-                                                            <property name="can_focus">False</property>
-                                                            <property name="label" translatable="yes">&lt;b&gt;opencl-index&lt;/b&gt;</property>
-                                                            <property name="use_markup">True</property>
-                                                            </object>
-                                                            <packing>
-                                                            <property name="left_attach">0</property>
-                                                            <property name="top_attach">0</property>
-                                                            </packing>
-                                                            </child>
-                                                            <child>
-                                                            <object class="GtkSpinButton" id="cuda_index_option">
-                                                            <property name="visible">True</property>
-                                                            <property name="can_focus">True</property>
-                                                            <property name="invisible_char">●</property>
-                                                            <property name="primary_icon_activatable">False</property>
-                                                            <property name="secondary_icon_activatable">False</property>
-                                                            <property name="adjustment">cuda_index_adjustment</property>
-                                                            <property name="numeric">True</property>
-                                                            </object>
-                                                            <packing>
-                                                            <property name="left_attach">1</property>
-                                                            <property name="top_attach">1</property>
-                                                            </packing>
-                                                            </child>
-                                                            <child>
-                                                            <object class="GtkLabel" id="label_cudaindex">
-                                                            <property name="visible">True</property>
-                                                            <property name="can_focus">False</property>
-                                                            <property name="label" translatable="yes">&lt;b&gt;cuda-index&lt;/b&gt;</property>
-                                                            <property name="use_markup">True</property>
-                                                            </object>
-                                                            <packing>
-                                                            <property name="left_attach">0</property>
-                                                            <property name="top_attach">1</property>
-                                                            </packing>
-                                                            </child>
-                                                          </object>
-                                                          <packing>
-                                                            <property name="expand">True</property>
-                                                            <property name="fill">True</property>
-                                                            <property name="position">1</property>
-                                                          </packing>
-                                                        </child>
-                                                      </object>
-                                                    </child>
-                                                  </object>
-                                                </child>
-                                                <child type="label">
-                                                  <object class="GtkLabel" id="label119">
-                                                    <property name="visible">True</property>
-                                                    <property name="can_focus">False</property>
-                                                    <property name="label" translatable="yes">&lt;b&gt;GPU Core Indices (Expert Only)&lt;/b&gt;</property>
-                                                    <property name="use_markup">True</property>
-                                                  </object>
-                                                </child>
-                                              </object>
-                                              <packing>
-                                                <property name="expand">False</property>
-                                                <property name="fill">True</property>
-                                                <property name="position">2</property>
                                               </packing>
                                             </child>
                                           </object>

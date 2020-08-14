@@ -60,8 +60,6 @@ class SlotConfig:
     def clear_dialog(app):
         app.slot_option_list.clear()
         app.slot_type_cpu.set_active(True)
-        for name in 'gpu opencl cuda'.split():
-            app.slot_option_widgets[name + '_index'].set_value(-1)
         app.slot_option_widgets['cpus'].set_value(-1)
 
 
@@ -76,13 +74,6 @@ class SlotConfig:
 
         elif app.slot_type_gpu.get_active():
             self.type = 'gpu'
-
-            for name in 'gpu opencl cuda'.split():
-                idx = int(app.slot_option_widgets[name + '_index'].get_value())
-                if idx == -1:
-                    if name + '-index' in self.options:
-                        del self.options[name + '-index']
-                else: self.options[name + '-index'] = str(idx)
 
         # Extra options
         def add_option(model, path, iter, data = None):
@@ -107,14 +98,6 @@ class SlotConfig:
         else: cpus = -1
         app.slot_option_widgets['cpus'].set_value(cpus)
         used.add('cpus')
-
-        # GPU
-        for name in 'gpu opencl cuda'.split():
-            if name + '-index' in self.options:
-                idx = float(self.options[name + '-index'])
-            else: idx = -1
-            app.slot_option_widgets[name + '_index'].set_value(idx)
-            used.add(name + '-index')
 
         # Options
         app.slot_option_list.clear()
