@@ -1,6 +1,9 @@
 Folding@home Advanced Control Changelog
 =======================================
 
+## v7.6.15
+ - Removed ``gpu-index``, ``opencl-index`` and ``cuda-index`` config.
+
 ## v7.6.13
  - Set client password from FAHControl.
 
