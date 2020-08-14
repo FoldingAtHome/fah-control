@@ -208,7 +208,7 @@
                                 <property name="can_focus">False</property>
                                 <property name="label" translatable="yes">&lt;b&gt;Project Leader&lt;/b&gt;
 Dr. Gregory Bowman
-Washington State University in Saint Louis</property>
+Washington University in Saint Louis</property>
                                 <property name="use_markup">True</property>
                                 <property name="justify">center</property>
                               </object>
