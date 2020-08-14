@@ -1,6 +1,12 @@
 Folding@home Advanced Control Changelog
 =======================================
 
+## v7.6.13
+ - Set client password from FAHControl.
+
+## v7.6.3
+ - Fix for Linux dependencies.
+
 ## v7.5.2
  - Removed verbosity option.
  - Fixed link to project page.

@@ -13,7 +13,8 @@ See: https://foldingathome.org/
 
 ## Debian / Ubuntu
 
-    sudo apt-get install -y python-stdeb python-gtk2 python-all debhelper
+    sudo apt-get install -y python-stdeb python-gtk2 python-all debhelper \
+      dh-python
 
 ## RedHat / CentOS
 

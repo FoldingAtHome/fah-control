@@ -1122,7 +1122,7 @@ class FAHControl(SingleAppServer):
 
         if client.get_password() != password:
             client.set_password(password)
-            reload = True
+            reload = not client.conn.is_connected()
 
         # Update client row
         row = client.get_row(self)

@@ -100,6 +100,8 @@ class Connection:
         self.last_connect = 0
 
     def open(self):
+        if debug: print('Connection.open()')
+
         self.reset()
         self.last_connect = time.time()
 
@@ -118,6 +120,8 @@ class Connection:
         list(map(self.queue_command, self.init_commands))
 
     def close(self):
+        if debug: print('Connection.close()')
+
         if self.socket is not None:
             try:
                 self.socket.shutdown(socket.SHUT_RDWR)

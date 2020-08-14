@@ -40,6 +40,8 @@ debug = False
 
 class Client:
     def __init__(self, app, name, address, port, password):
+        if debug: print('Client.__init__()')
+
         self.name = name
         self.address = address
         self.port = port
@@ -105,7 +107,10 @@ class Client:
         self.conn.address = self.address = address
         self.conn.port = self.port = port
 
+
     def set_password(self, password):
+        if self.conn.is_connected():
+            self.conn.queue_command('option password "%s"' % password)
         self.conn.password = self.password = password
 
     # State functions
@@ -392,6 +397,8 @@ class Client:
         self.conn.close()
 
     def close(self):
+        if debug: print('Client closing')
+
         # Avoid broken pipe on OSX
         if sys.platform == 'darwin':
             try:
