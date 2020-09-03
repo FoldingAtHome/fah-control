@@ -20,6 +20,8 @@
 ################################################################################
 
 
+from __future__ import absolute_import
+
 import gtk
 
 from fah.util.EntryValidator import EntryValidator

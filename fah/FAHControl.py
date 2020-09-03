@@ -19,6 +19,8 @@
 #                                                                              #
 ################################################################################
 
+from __future__ import absolute_import
+
 import sys
 import time
 import re
@@ -34,7 +36,7 @@ import pango
 import webbrowser
 import shlex
 import subprocess
-from wraplabel import WrapLabel
+from fah.wraplabel import WrapLabel
 
 # OSX integration
 if sys.platform == 'darwin':

@@ -21,14 +21,16 @@
 
 # fah
 
-import db
-import util
+from __future__ import absolute_import
 
-from Version import *
-from Icon import *
-from SlotConfig import *
-from ClientConfig import *
-from Connection import *
-from Client import *
-from WidgetMap import *
-from FAHControl import *
+import fah.db
+import fah.util
+
+from fah.Version import *
+from fah.Icon import *
+from fah.SlotConfig import *
+from fah.ClientConfig import *
+from fah.Connection import *
+from fah.Client import *
+from fah.WidgetMap import *
+from fah.FAHControl import *
