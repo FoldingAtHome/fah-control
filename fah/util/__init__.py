@@ -29,6 +29,7 @@ from SingleApp import *
 from EntryValidator import *
 from PasswordValidator import *
 from OrderedDict import *
+from PYONDecoder import *
 
 
 def parse_bool(x):
