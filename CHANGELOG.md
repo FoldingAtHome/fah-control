@@ -1,6 +1,12 @@
 Folding@home Advanced Control Changelog
 =======================================
 
+## v7.6.20
+ - Fix PyON escape sequences.
+
+## v7.6.19
+ - Use modified JSON parser to parse PyON.
+
 ## v7.6.15
  - Removed ``gpu-index``, ``opencl-index`` and ``cuda-index`` config.
 

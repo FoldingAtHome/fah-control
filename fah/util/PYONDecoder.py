@@ -125,9 +125,9 @@ def pyon_scanstring(s, end, encoding = None, strict = True,
 
     elif esc == 'x':
       # Hex escape sequence
+      code = s[end + 1: end + 3]
       try:
-        code = s[end + 1: end + 3]
-        char = code.decode('hex')
+        char = unichr(int(code, 16))
       except:
         raise ValueError(errmsg('Invalid \\escape: ' + repr(code), s, end))
 
