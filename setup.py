@@ -50,7 +50,7 @@ if sys.platform == 'darwin':
             argv_emulation = False,
             includes = 'cairo, pango, pangocairo, atk, gobject, gio',
             iconfile = 'images/FAHControl.icns',
-            resources = ['/opt/local/share/themes'],
+            resources = ['/opt/local/share/themes', 'osx/entitlements.plist'],
             plist = plist,
             )
 
