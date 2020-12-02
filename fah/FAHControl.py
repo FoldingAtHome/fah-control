@@ -1333,6 +1333,7 @@ class FAHControl(SingleAppServer):
         if not (len(cmd) and len(cmd[0])): cmd = ['FAHViewer']
 
         if sys.platform == 'darwin':
+            if not cmd[0].endswith('.app'): cmd[0] += '.app'
             cmd = ['/usr/bin/open', '-a', cmd[0], '--args'] + cmd[1:]
 
         if fullscreen: cmd.append('--fullscreen')
