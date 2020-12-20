@@ -19,6 +19,11 @@
 #                                                                              #
 ################################################################################
 
+# PyON. It's like JSON, but based on Python syntax, I think.
+# Based on simplejson/simplejson/decoder.py, which is orignally licensed under
+# MIT or Academic Free License version 2.1.
+# See the simplejson repository for a full list of copyright holders.
+
 from __future__ import absolute_import
 import re
 import json
