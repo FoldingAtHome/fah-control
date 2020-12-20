@@ -124,12 +124,25 @@ elif sys.platform == 'win32':
         )
         common_include_files.append((fullpath, subpath))
 
+    # Need pixbuf loaders.
+    PIXPATH = 'lib/gdk-pixbuf-2.0/2.10.0'
+    for root, _, files in os.walk(f"{sys.prefix}/{PIXPATH}", onerror=print):
+        for f in files:
+            if f.endswith('.a'):
+                continue
+            realpath = f"{root}/{f}"
+            subpath = realpath[len(sys.prefix):]
+            print((realpath, subpath))
+            common_include_files.append((realpath, subpath))
+
+
     # Change base to 'Console' for debugging
     e = Executable(app, base='Win32GUI', icon='images/FAHControl.ico')
     options = {
         'build_exe': {
             'build_exe': 'gui',
-            'packages': 'gi'
+            'packages': 'gi',
+            'include_files': common_include_files,
         }
     }
     extra_opts = dict(executables=[e], options=options)
