@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sys
 import os
 import inspect
@@ -96,7 +97,7 @@ elif sys.platform == 'win32':
                 break
         assert dll_path is not None, "Unable to locate {} in {}".format(
             dll,
-            dll_search_path,
+            required_dll_search_paths,
         )
         common_include_files.append((dll_path, dll))
 

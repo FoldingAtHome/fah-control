@@ -51,7 +51,7 @@ if env.GetPackageType() != 'rpm':
 
     if int(env.get('cross_mingw', 0)):
         # Use the cross compiled Python
-        gui = env.Command(target_dir, 'setup.py', 'python2.exe setup.py build')
+        gui = env.Command(target_dir, 'setup.py', 'python3.exe setup.py build')
     else:
         gui = env.RunDistUtils(Dir(target_dir), 'setup.py')
 
