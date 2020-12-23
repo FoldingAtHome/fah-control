@@ -27,9 +27,10 @@ import errno
 import time
 import sys
 import traceback
-import select
+import json
 
 from fah.util import OrderedDict
+from fah.util import PYONDecoder
 
 if sys.platform == 'win32':
     from ctypes import windll
@@ -208,8 +209,8 @@ class Connection:
 
     def parse_message(self, version, type, data):
         try:
-            msg = eval(data, {}, {})
-            # if debug: print 'MSG:', type, msg
+            msg = json.loads(data, cls = PYONDecoder)
+            #if debug: print 'MSG:', type, msg
             self.messages.append((version, type, msg))
             self.last_message = time.time()
         except Exception as e:

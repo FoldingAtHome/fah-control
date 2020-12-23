@@ -25,6 +25,7 @@ from .OrderedDict import *
 from .PasswordValidator import *
 from .EntryValidator import *
 from .SingleApp import *
+from .PYONDecoder import *
 from gi.repository import Gtk
 import sys
 import os
