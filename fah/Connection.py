@@ -215,7 +215,7 @@ class Connection:
             self.last_message = time.time()
         except Exception as e:
             print('ERROR parsing PyON message: %s: %s'
-                  % (str(e), data.encode('string_escape')))
+                  % (str(e), data.encode('unicode_escape')))
 
     def parse(self):
         start = self.readBuf.find('\nPyON ')
@@ -228,7 +228,7 @@ class Connection:
                 if len(tokens) < 3:
                     self.readBuf = self.readBuf[eol:]
                     raise Exception('Invalid PyON line: ' +
-                                    line.encode('string_escape'))
+                                    line.encode('unicode_escape'))
 
                 version = int(tokens[1])
                 type = tokens[2]

@@ -182,7 +182,7 @@ def make_pyon_scanner(context):
 
     if nextchar == '"': return parse_string(string, idx + 1, 'utf-8', strict)
     elif nextchar == '{':
-      return parse_object((string, idx + 1), 'utf-8', strict, scan_once,
+      return parse_object((string, idx + 1), strict, scan_once,
                           object_hook, object_pairs_hook)
     elif nextchar == '[':
       return parse_array((string, idx + 1), scan_once)
