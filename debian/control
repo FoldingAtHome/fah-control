@@ -1,0 +1,31 @@
+Source: fahcontrol
+Section: science
+Priority: optional
+Maintainer: Braiam Peguero <braiamp@gmail.com>
+Build-Depends: debhelper (>= 9),
+               debhelper (>= 9.20160709) | dh-systemd,
+               dh-python,
+               gir1.2-gtk-3.0,
+               python3,
+               python3-gi,
+               python3-setuptools
+Standards-Version: 4.5.0
+Homepage: https://foldingathome.org/
+Vcs-Git: https://github.com/FoldingAtHome/fah-control.git
+Vcs-Browser: https://github.com/FoldingAtHome/fah-control
+Rules-Requires-Root: no
+
+Package: fahcontrol
+Architecture: all
+Depends: ${misc:Depends}, ${python3:Depends}
+Suggests: fahclient, fahviewer
+Description: Folding@home Client Control
+ Folding@home is a distributed computing project using volunteered
+ computer resources.
+ .
+ This package contains FAHControl, a graphical monitor and control
+ utility for the Folding@home client. It gives an overview of running
+ projects on the local and optional (remote) machines. Starting,
+ stopping and pausing of the running projects is also possible, as is
+ viewing the logs. It provides an Advanced view with
+ additional information and settings for enthusiasts and gurus.

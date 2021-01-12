@@ -1,0 +1,2 @@
+gobject==0.1.0
+PyGObject==3.36.1

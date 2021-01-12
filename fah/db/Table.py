@@ -38,7 +38,7 @@ class Table:
 
         else:
             sql +=\
-                ' AND '.join(map(lambda i: '"%s"=\'%s\'' % i, kwargs.items()))
+                ' AND '.join(['"%s"=\'%s\'' % i for i in list(kwargs.items())])
 
         return sql
 
@@ -54,18 +54,18 @@ class Table:
 
 
     def insert(self, db, **kwargs):
-        cols = filter(lambda col: col.name in kwargs, self.cols)
+        cols = [col for col in self.cols if col.name in kwargs]
 
         # Error checking
         if len(cols) != len(kwargs):
             col_names = set(map(Column.get_name, cols))
-            missing = filter(lambda kw: not kw in col_names, kwargs.keys())
+            missing = [kw for kw in list(kwargs.keys()) if kw not in col_names]
             raise Exception('Table %s does not have column(s) %s'
                             % (self.name, ', '.join(missing)))
 
         sql = 'REPLACE INTO "%s" ("%s") VALUES (%s)' % (
             self.name, '","'.join(map(Column.get_name, cols)),
-            ','.join(map(lambda col: col.get_db_value(kwargs[col.name]), cols)))
+            ','.join([col.get_db_value(kwargs[col.name]) for col in cols]))
 
         db.execute(sql).close()
 

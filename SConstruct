@@ -3,8 +3,8 @@ import os
 env = Environment(ENV = os.environ)
 try:
     env.Tool('config', toolpath = [os.environ.get('CBANG_HOME')])
-except Exception, e:
-    raise Exception, 'CBANG_HOME not set?\n' + str(e)
+except Exception as e:
+    raise Exception('CBANG_HOME not set?\n' + str(e))
 
 env.CBLoadTools('packager run_distutils osx fah-client-version')
 env.CBAddVariables(
@@ -14,7 +14,7 @@ conf = env.CBConfigure()
 # Version
 try:
     version = env.FAHClientVersion()
-except Exception, e:
+except Exception as e:
     print(e)
     version = '0.0.0'
     env.Replace(PACKAGE_VERSION = version)
@@ -51,7 +51,7 @@ if env.GetPackageType() != 'rpm':
 
     if int(env.get('cross_mingw', 0)):
         # Use the cross compiled Python
-        gui = env.Command(target_dir, 'setup.py', 'python2.exe setup.py build')
+        gui = env.Command(target_dir, 'setup.py', 'python3.exe setup.py build')
     else:
         gui = env.RunDistUtils(Dir(target_dir), 'setup.py')
 

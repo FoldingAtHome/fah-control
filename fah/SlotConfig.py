@@ -19,8 +19,8 @@
 #                                                                              #
 ################################################################################
 
-import gtk
-import gobject
+from gi.repository import Gtk
+from gi.repository import GObject
 import copy
 
 from fah.util import parse_bool
@@ -30,8 +30,10 @@ from fah.util import status_to_color
 class SlotConfig:
     def __init__(
         self, id = -1, status = None, description = None, reason = None,
-        idle = False, options = {}, **kw):
+        idle = False, options=None, **kw):
 
+        if options is None:
+            options = {}
         self.id = int(id)
         self.status = status
         self.description = description
@@ -49,7 +51,7 @@ class SlotConfig:
 
 
     def add_to_ui(self, app):
-        wrapper = gobject.GObject()
+        wrapper = GObject.GObject()
         wrapper.slot = copy.deepcopy(self)
         app.slot_list.append((self.id, self.type, wrapper))
 
@@ -100,5 +102,5 @@ class SlotConfig:
         # Options
         app.slot_option_list.clear()
         for name, value in self.options.items():
-            if not name in used:
-                app.slot_option_list.append((name, value))
+            if name not in used:
+                app.slot_option_list.append((name, str(value)))

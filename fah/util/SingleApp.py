@@ -22,18 +22,16 @@
 import sys
 import socket
 import threading
-import SocketServer
+import socketserver
 
-import gtk
-
-from fah.Icon import get_icon
+from gi.repository import Gtk
 
 single_app_host = '127.0.0.1'
 single_app_port = 32455
 single_app_addr = (single_app_host, single_app_port)
 
 
-class SingleAppRequestHandler(SocketServer.BaseRequestHandler):
+class SingleAppRequestHandler(socketserver.BaseRequestHandler):
     def handle(self):
         cmd = self.request.recv(1024).strip()
 
@@ -47,7 +45,7 @@ class SingleAppRequestHandler(SocketServer.BaseRequestHandler):
 
 
 
-class SingleAppServer(SocketServer.ThreadingMixIn, SocketServer.TCPServer):
+class SingleAppServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
     allow_reuse_address = True
 
     def __init__(self):
@@ -57,7 +55,7 @@ class SingleAppServer(SocketServer.ThreadingMixIn, SocketServer.TCPServer):
         self.ping = threading.Event()
         self.exit_requested = threading.Event()
 
-        SocketServer.TCPServer.__init__(
+        socketserver.TCPServer.__init__(
             self, single_app_addr, SingleAppRequestHandler)
 
         thread = threading.Thread(target = self.serve_forever)
@@ -71,7 +69,7 @@ class SingleAppServer(SocketServer.ThreadingMixIn, SocketServer.TCPServer):
         try:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             sock.connect(single_app_addr)
-            sock.send('PING')
+            sock.send(b'PING')
             if sock.recv(1024).strip() == 'OK':
                 print ('Already running')
                 sys.exit(1)

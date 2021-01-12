@@ -19,9 +19,17 @@
 #                                                                              #
 ################################################################################
 
+# PyON. It's like JSON, but based on Python syntax, I think.
+# Based on simplejson/simplejson/decoder.py, which is orignally licensed under
+# MIT or Academic Free License version 2.1.
+# See the simplejson repository for a full list of copyright holders.
+
+from __future__ import absolute_import
 import re
 import json
 import sys
+from six import unichr
+import six
 
 
 NUMBER_RE = re.compile(r'(-?(?:0|[1-9]\d*))(\.\d+)?([eE][-+]?\d+)?',
@@ -94,8 +102,8 @@ def pyon_scanstring(s, end, encoding = None, strict = True,
 
     # Content is contains zero or more unescaped string characters
     if content:
-      if not isinstance(content, unicode):
-        content = unicode(content, encoding)
+      if not isinstance(content, six.text_type):
+        content = six.text_type(content, encoding)
       _append(content)
 
     # Terminator is the end of string, a literal control character,
@@ -174,7 +182,7 @@ def make_pyon_scanner(context):
 
     if nextchar == '"': return parse_string(string, idx + 1, 'utf-8', strict)
     elif nextchar == '{':
-      return parse_object((string, idx + 1), 'utf-8', strict, scan_once,
+      return parse_object((string, idx + 1), strict, scan_once,
                           object_hook, object_pairs_hook)
     elif nextchar == '[':
       return parse_array((string, idx + 1), scan_once)

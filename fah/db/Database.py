@@ -90,8 +90,7 @@ class Database:
 
 
     def has(self, name):
-        return self.get(name) != None
-
+        return self.get(name) is not None
 
     def default(self, name, default, commit = True):
         if not self.has(name): self.set(name, default, commit)
@@ -100,7 +99,7 @@ class Database:
     def flush_queued(self):
         if len(self.queue) == 0: return
 
-        for name, value in self.queue.items():
+        for name, value in list(self.queue.items()):
             self.set(name, value, commit = False)
 
         self.commit()

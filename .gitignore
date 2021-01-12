@@ -17,6 +17,7 @@
 /version.txt
 /FAHControl*.tar.gz
 /fahcontrol*.pkg
+/gui
 
 # Temporary files
 *~

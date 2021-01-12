@@ -21,19 +21,21 @@
 
 
 # fah.util
+from .OrderedDict import *
+from .PasswordValidator import *
+from .EntryValidator import *
+from .SingleApp import *
+from .PYONDecoder import *
+from gi.repository import Gtk
 import sys
 import os
-import gtk
-
-from SingleApp import *
-from EntryValidator import *
-from PasswordValidator import *
-from OrderedDict import *
-from PYONDecoder import *
+import gi
+gi.require_version('Gtk', '3.0')
 
 
 def parse_bool(x):
-    if isinstance(x, bool): return x
+    if isinstance(x, bool):
+        return x
     return x.lower() in ['true', 't', '1', 'yes', 'y']
 
 
@@ -58,13 +60,16 @@ def status_to_color(status):
         return '#1ef0bc'
     elif status == 'DUMP':
         return '#d2c272'
-    else: return None
+    else:
+        return None
 
 
-def get_span_markup(text, bg = None, fg = 'black'):
+def get_span_markup(text, bg=None, fg='black'):
     markup = '<span'
-    if bg is not None: markup += ' background="%s"' % bg
-    if fg is not None: markup += ' foreground="%s"' % fg
+    if bg is not None:
+        markup += ' background="%s"' % bg
+    if fg is not None:
+        markup += ' foreground="%s"' % fg
     markup += '>%s</span>' % text
     return markup
 
@@ -72,20 +77,24 @@ def get_span_markup(text, bg = None, fg = 'black'):
 def iterate_container(widget):
     yield widget
 
-    if isinstance(widget, gtk.Container):
+    if isinstance(widget, Gtk.Container):
         for child in widget.get_children():
-            for x in iterate_container(child): yield x
+            for x in iterate_container(child):
+                yield x
 
 
 def make_row(cols, keys):
     for col in cols:
-        if col in keys: yield keys[col]
-        else: yield ''
+        if col in keys:
+            yield keys[col]
+        else:
+            yield ''
 
 
 def get_combo_items(widget):
     items = []
-    def iterate_list(model, path, iter, data = None):
+
+    def iterate_list(model, path, iter, data=None):
         items.append(model.get_value(iter, 0))
 
     widget.get_model().foreach(iterate_list, None)
@@ -94,115 +103,138 @@ def get_combo_items(widget):
 
 
 def get_widget_str_value(widget):
-    if isinstance(widget, (gtk.SpinButton, gtk.Range)):
-        # Must come before gtk.Entry for gtk.SpinButton
+    if isinstance(widget, (Gtk.SpinButton, Gtk.Range)):
+        # Must come before Gtk.Entry for Gtk.SpinButton
 
         # Clean up float formatting
         value = '%.2f' % widget.get_value()
-        if value.endswith('.00'): value = value[0:-3]
-        elif value.endswith('.0'): value = value[0:-2]
+        if value.endswith('.00'):
+            value = value[0:-3]
+        elif value.endswith('.0'):
+            value = value[0:-2]
         return value
 
-    elif isinstance(widget, gtk.Entry): return widget.get_text()
+    elif isinstance(widget, Gtk.Entry):
+        return widget.get_text()
 
-    elif isinstance(widget, gtk.RadioButton):
+    elif isinstance(widget, Gtk.RadioButton):
         # TODO interpret as a number? or name?
         pass
 
-    elif isinstance(widget, gtk.ToggleButton):
-        if widget.get_active(): return 'true'
-        else: return 'false'
+    elif isinstance(widget, Gtk.ToggleButton):
+        if widget.get_active():
+            return 'true'
+        else:
+            return 'false'
 
-    elif isinstance(widget, gtk.ComboBox):
-        # NOTE This does not always get the displayed text
-        return widget.get_active_text()
+    elif isinstance(widget, Gtk.ComboBox):
+        if widget.get_id_column() != -1:
+            return widget.get_active_id()
+
+        # TODO duplication of ClientConfig.get_active_combo_column
+        if widget.get_active_iter() is None:
+            return None
+
+        return widget.get_model().get_value(widget.get_active_iter(), 0)
 
     else:
-        print ('ERROR: unsupported widget type %s' % type(widget))
+        print('ERROR: unsupported widget type %s' % type(widget))
 
 
 def set_widget_str_value(widget, value):
-    if value is None: value = ''
+    if value is None:
+        value = ''
     value = str(value)
 
-    if isinstance(widget, (gtk.SpinButton, gtk.Range)):
-        # Must come before gtk.Entry for gtk.SpinButton
-        if value == '': value = 0
+    if isinstance(widget, (Gtk.SpinButton, Gtk.Range)):
+        # Must come before Gtk.Entry for Gtk.SpinButton
+        if value == '':
+            value = 0
         else:
-            try: value = float(value)
-            except: value = 0
+            try:
+                value = float(value)
+            except:
+                value = 0
         widget.set_value(value)
 
-    elif isinstance(widget, (gtk.Entry, gtk.Label)):
-        if widget.get_text() != value: widget.set_text(value)
-    elif isinstance(widget, gtk.RadioButton): pass # Ignore for now
-    elif isinstance(widget, gtk.ToggleButton):
+    elif isinstance(widget, (Gtk.Entry, Gtk.Label)):
+        if widget.get_text() != value:
+            widget.set_text(value)
+    elif isinstance(widget, Gtk.RadioButton):
+        pass  # Ignore for now
+    elif isinstance(widget, Gtk.ToggleButton):
         widget.set_active(parse_bool(value))
-    elif isinstance(widget, gtk.Button):
+    elif isinstance(widget, Gtk.Button):
         # NOTE: For some reason setting Button labels causes tooltips to hide.
         # Only set when it has actually changed.
         if widget.get_label() != value:
             widget.set_label(value)
 
-    elif isinstance(widget, gtk.ComboBox):
+    elif isinstance(widget, Gtk.ComboBox):
         items = get_combo_items(widget)
         length = len(items)
         for i in range(length):
             if items[i].lower() == value.lower():
                 widget.set_active(i)
                 return
+        if length > 0:
+            widget.set_active(0)
 
-        print ('ERROR: Invalid value "%s"' % value)
-
-    elif isinstance(widget, gtk.ProgressBar):
+    elif isinstance(widget, Gtk.ProgressBar):
         widget.set_text(value)
 
-        if value == '': value = '0'
+        if value == '':
+            value = '0'
 
-        if value.endswith('%'): fraction = float(value[:-1]) / 100.0
-        else: fraction = float(value)
+        if value.endswith('%'):
+            fraction = float(value[:-1]) / 100.0
+        else:
+            fraction = float(value)
 
         widget.set_fraction(fraction)
 
     else:
-        print ('ERROR: unsupported option widget type %s' % type(widget))
+        print('ERROR: unsupported option widget type %s' % type(widget))
 
 
 def set_widget_change_action(widget, action):
-    if isinstance(widget, (gtk.Editable, gtk.ComboBox)):
+    if isinstance(widget, (Gtk.Editable, Gtk.ComboBox)):
         widget.connect('changed', action)
 
-    elif isinstance(widget, gtk.Range):
+    elif isinstance(widget, Gtk.Range):
         widget.connect('value_changed', action)
 
-    elif isinstance(widget, gtk.ToggleButton):
+    elif isinstance(widget, Gtk.ToggleButton):
         widget.connect('toggled', action)
 
-    elif isinstance(widget, gtk.TreeModel):
+    elif isinstance(widget, Gtk.TreeModel):
         widget.connect('row_changed', action)
         widget.connect('row_inserted', action)
         widget.connect('row_deleted', action)
         widget.connect('rows_reordered', action)
 
     else:
-        print ('ERROR: unsupported option widget type %s' % type(widget))
+        print('ERROR: unsupported option widget type %s' % type(widget))
 
 
 def get_home_dir():
-    if sys.platform == 'win32': return '.'
+    if sys.platform == 'win32':
+        return '.'
 
     path = os.path.expanduser("~")
 
     if sys.platform == 'darwin':
         path = os.path.join(path, 'Library/Application Support/FAHClient')
 
-    else: path = os.path.join(path, '.FAHClient')
+    else:
+        path = os.path.join(path, '.FAHClient')
 
-    if not os.path.exists(path): os.makedirs(path)
+    if not os.path.exists(path):
+        os.makedirs(path)
 
     return path
 
 
 def get_theme_dirs():
-    return [get_home_dir() + '/themes', gtk.rc_get_theme_dir(),
+    return [get_home_dir() + '/themes', Gtk.rc_get_theme_dir(),
             '/usr/share/themes']

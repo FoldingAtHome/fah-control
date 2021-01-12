@@ -19,7 +19,7 @@
 #                                                                              #
 ################################################################################
 
-import gtk
+from gi.repository import Gtk
 
 
 class WidgetMap(dict):
@@ -34,7 +34,7 @@ class WidgetMap(dict):
 
     def add(self, widget):
         if widget is None: return
-        name = gtk.Buildable.get_name(widget)
+        name = Gtk.Buildable.get_name(widget)
 
         if self.suffix is not None: name = name[0:-len(self.suffix)]
         if self.prefix is not None: name = name[len(self.prefix):]
@@ -42,11 +42,11 @@ class WidgetMap(dict):
         self.list.append(widget)
 
     def find(self, widget):
-        name = gtk.Buildable.get_name(widget)
+        name = Gtk.Buildable.get_name(widget)
 
         if (name and (self.suffix is None or name.endswith(self.suffix)) and
             (self.prefix is None or name.startswith(self.prefix))):
             self.add(widget)
 
-        if isinstance(widget, gtk.Container):
+        if isinstance(widget, Gtk.Container):
             widget.foreach(self.find)
