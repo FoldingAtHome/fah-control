@@ -3,8 +3,8 @@ import os
 env = Environment(ENV = os.environ)
 try:
     env.Tool('config', toolpath = [os.environ.get('CBANG_HOME')])
-except Exception, e:
-    raise Exception, 'CBANG_HOME not set?\n' + str(e)
+except Exception as e:
+    raise Exception('CBANG_HOME not set?\n' + str(e))
 
 env.CBLoadTools('packager run_distutils osx fah-client-version')
 env.CBAddVariables(
@@ -14,7 +14,7 @@ conf = env.CBConfigure()
 # Version
 try:
     version = env.FAHClientVersion()
-except Exception, e:
+except Exception as e:
     print(e)
     version = '0.0.0'
     env.Replace(PACKAGE_VERSION = version)
@@ -30,6 +30,9 @@ target_dir = None
 if env['PLATFORM'] == 'darwin':
     env['RUN_DISTUTILSOPTS'] = 'py2app'
     target_dir = 'dist/FAHControl.app'
+    import shutil
+    # rm old pkg dir so osx fah installer won't bundle an old build
+    shutil.rmtree('build/pkg', True)
 
 elif env['PLATFORM'] == 'win32' or int(env.get('cross_mingw', 0)):
     env['RUN_DISTUTILSOPTS'] = 'build'

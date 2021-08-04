@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# fahcontrol onquit
+# do that which should not be done while installer is running
+
+# nothing in here is needed if user used the uninstall pkg
+# this is to fix mistakes and fight app relocation
+# fah ~7.5.1 changed bundleid to org.foldinathome.*
+# this caused app relocation for an upgrade install
+
 if [ "$1" != "--delayed-action" ]; then
   "$0" --delayed-action "$@" &
   exit 0
@@ -37,5 +45,13 @@ fi
 if [ -d "$A1" ]; then chmod -R go-w "$A1"; fi
 if [ -d "$A2" ]; then chmod -R go-w "$A2"; fi
 
-# do action
-#"$@"
+A3="/Applications/Folding@home/FAHControl/FAHControl.app"
+F1="/Applications/Folding@home/FAHControl/.DS_Store"
+D1="/Applications/Folding@home/FAHControl"
+[ -d "$A3" ] && [ ! -d "$A2"] && mv "$A3" "$A2" || true
+[ -f "$F1" ] && rm -f "$F1" || true
+[ -d "$D1" ] && rmdir "$D1" || true
+
+# fix incorrect perms, which may persist from old pkg mistake
+D1="/Applications/Folding@home"
+[ -d "$D1" ] && chmod 0755 "$D1" || true
