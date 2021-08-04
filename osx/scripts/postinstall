@@ -1,13 +1,6 @@
 #!/bin/bash -e
 
-# fahcontrol postflight/postinstall
-
-D="/Applications/Folding@home"
-if [ -d "$D" ]; then
-    chmod 0755 "$D"
-else
-    mkdir -m 0755 "$D"
-fi
+# fahcontrol postinstall
 
 SCRIPTS="$(dirname "$0")"
 "$SCRIPTS"/onquit

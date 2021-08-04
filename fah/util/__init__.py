@@ -25,6 +25,13 @@ import sys
 import os
 import gtk
 
+if sys.platform == 'darwin':
+    try:
+        from gtk_osxapplication import *
+    except:
+        from gtkosx_application import gtkosx_application_get_resource_path \
+            as quartz_application_get_resource_path
+
 from SingleApp import *
 from EntryValidator import *
 from PasswordValidator import *
@@ -204,5 +211,9 @@ def get_home_dir():
 
 
 def get_theme_dirs():
+    if sys.platform == 'darwin':
+        resources = quartz_application_get_resource_path()
+        path = os.path.join(resources, 'themes')
+        return [get_home_dir() + '/themes', path]
     return [get_home_dir() + '/themes', gtk.rc_get_theme_dir(),
             '/usr/share/themes']
