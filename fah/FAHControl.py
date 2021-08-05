@@ -394,6 +394,8 @@ class FAHControl(SingleAppServer):
         self.log_slot = builder.get_object('log_slot')
         self.log_unit_enable = builder.get_object('log_unit_enable')
         self.log_unit = builder.get_object('log_unit')
+        self.log_core_enable = builder.get_object('log_core_enable')
+        self.log_core = builder.get_object('log_core')
         self.log_follow = builder.get_object('log_follow')
 
         # Widget maps

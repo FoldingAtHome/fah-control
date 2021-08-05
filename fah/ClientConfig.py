@@ -165,6 +165,7 @@ class ClientConfig:
         for values in sorted(self.queue, lambda x, y: cmp(x['id'], y['id'])):
             unit_id = values['unit']
             queue_id = values['id']
+            core = values['core'][2:]
             status = values['state'].title()
             color = status_to_color(status)
             status = get_span_markup(status, color)
@@ -177,7 +178,7 @@ class ClientConfig:
 
             prcg = self.get_prcg(values)
             iter = app.queue_list.append([unit_id, queue_id, status, color,
-                                          progress, percent, eta, credit, prcg])
+                                          progress, percent, eta, credit, prcg, core])
 
             if queue_id == selected: selected_row = iter
             if queue_id == log_filter_selected: log_filter_row = iter
@@ -190,6 +191,7 @@ class ClientConfig:
         # Restore selections
         app.queue_tree.get_selection().select_iter(selected_row)
         app.log_unit.set_active_iter(log_filter_row)
+        app.log_core.set_active_iter(log_filter_row)
 
 
     def update_work_unit_info(self, app):
@@ -489,6 +491,11 @@ class ClientConfig:
         if app.log_slot_enable.get_active():
             id = get_active_combo_column(app.log_slot, 0)
             f.append(r'FS%s' % id)
+
+        # Core
+        if app.log_core_enable.get_active():
+            id = get_active_combo_column(app.log_core, 9)
+            f.append(r'0x%s' % id)
 
         if len(f):
             f = map(lambda x: '.*(^|:)%s' % x, f)
