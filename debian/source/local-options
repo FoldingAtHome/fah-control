@@ -1,0 +1,4 @@
+tar-ignore = ".git"
+tar-ignore = "__pycache__"
+tar-ignore = "theme-engines"
+tar-ignore = "FAHControl.egg-info"
