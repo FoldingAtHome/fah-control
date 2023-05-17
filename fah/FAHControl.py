@@ -165,7 +165,7 @@ class FAHControl(SingleAppServer):
     folding_power_levels = ['Light', 'Medium', 'Full']
 
     instance = None
-
+        
     def __init__(self, glade='FAHControl.glade'):
         SingleAppServer.__init__(self)
 
@@ -306,9 +306,22 @@ class FAHControl(SingleAppServer):
                 if 0 < height and height < 400:
                     height = 400
 
+                # remember position from last time and restore
+                if self.db.has(name + '_positionX'):
+                    positionX = int(self.db.get(name + '_positionX'))
+                else:
+                    positionX = 50
+
+                if self.db.has(name + '_positionY'):
+                    positionY = int(self.db.get(name + '_positionY'))
+                else:
+                    positionY = 50
+
+                win.move(positionX, positionY)
+
             if 100 <= width and 100 <= height:
                 win.resize(width, height)
-
+                
             win.connect('configure_event', self.store_dimensions, name)
 
         # About Dialog
@@ -700,6 +713,10 @@ class FAHControl(SingleAppServer):
             return
         self.quitting = True
 
+        self.db.set('main_width',self.window.get_size().width)
+        self.db.set('main_height',self.window.get_size().height)
+        self.db.set('main_positionX',self.window.get_position().root_x)
+        self.db.set('main_positionY',self.window.get_position().root_y)
         Gtk.main_quit()
 
         self.set_update_timer_interval(0)
