@@ -19,8 +19,13 @@
 #                                                                              #
 ################################################################################
 
+import sys
 from collections import UserDict
-from collections.abc import MutableMapping as DictMixin
+
+if sys.version_info[:2] >= (3, 8):
+    from collections.abc import MutableMapping as DictMixin
+else:
+    from collections import MutableMapping as DictMixin
 
 class OrderedDict(dict, DictMixin):
 
