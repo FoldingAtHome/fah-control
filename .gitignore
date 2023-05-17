@@ -18,6 +18,15 @@
 /FAHControl*.tar.gz
 /fahcontrol*.pkg
 /gui
+/.pybuild
+
+# debian packaging files
+/debian/.debhelper/
+/debian/debhelper-build-stamp
+/debian/fahcontrol/
+/debian/*.debhelper
+/debian/*.substvars
+/debian/files
 
 # Temporary files
 *~
