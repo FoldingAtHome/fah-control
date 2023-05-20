@@ -27,7 +27,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         sudo apt install python3-all debhelper python3-setuptools devscripts
-        pip install stdeb setuptools wheel twine
+        pip install stdeb setuptools wheel twine libgirepository1.0-dev
     - name: Build with stdeb
       run: |
         python3 setup.py install
