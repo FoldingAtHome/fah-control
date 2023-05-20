@@ -27,7 +27,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         sudo apt install python3-all debhelper python3-setuptools devscripts
-        pip install stdeb setuptools
+        pip install stdeb setuptools dh-python
     - name: Build with stdeb
       run: |
         python3 setup.py --command-packages=stdeb.command sdist_dsc
