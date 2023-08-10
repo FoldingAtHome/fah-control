@@ -164,11 +164,11 @@ class Connection:
                     self.connection_lost()
                     return 0
 
-        except socket.error as (err, msg):
+        except socket.error as err:
             # Error codes for nothing to read
-            if err not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
+            if err.errno not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
                 if bytesRead: return bytesRead
-                self.connection_error(err, msg)
+                self.connection_error(err, err.strerror)
                 raise
 
         return bytesRead
@@ -189,11 +189,11 @@ class Connection:
                     self.connection_lost()
                     return 0
 
-        except socket.error as (err, msg):
+        except socket.error as err:
             # Error codes for write buffer full
-            if err not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
+            if err.errno not in [errno.EAGAIN, errno.EWOULDBLOCK, WSAEWOULDBLOCK]:
                 if bytesWritten: return bytesWritten
-                self.connection_error(err, msg)
+                self.connection_error(err, err.strerror)
                 raise
 
         return bytesWritten

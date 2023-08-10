@@ -1061,9 +1061,9 @@ class FAHControl(SingleAppServer):
 
             return True
 
-        except Exception, msg:
+        except Exception as err:
             self.set_status('Save Failed')
-            self.error(msg)
+            self.error(err)
             return False
 
 
